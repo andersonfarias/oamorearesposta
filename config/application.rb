@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 module Oamorearesposta
   class Application < Rails::Application
 
+    # set default locale
+    config.i18n.default_locale = :'pt-BR'
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -34,5 +37,7 @@ module Oamorearesposta
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components', 'gentelella', 'production')
   end
 end

@@ -1,16 +1,34 @@
-<div class="container">
-  <div class="row">
-    <h3>Users</h3>
-    <div class="column">
-      <table class="table">
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+<!-- page content -->
+<div class="right_col" role="main">
+    <div>
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Usuários</h3>
+            </div>
+            <div class="title_right">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel" style="height:600px;">
+                    <div class="x_title">
+                        <h2>Listagem</h2>
+                        <div class="column">
+                            <table class="table">
+                                <tbody>
+                                    <% @users.each do |user| %>
+                                        <tr>
+                                            <%= render user %>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -1,0 +1,76 @@
+<div class="main_container">
+	<div class="col-md-3 left_col">
+		<div class="left_col scroll-view">
+        	<div class="navbar nav_title" style="border: 0;">
+				<%= link_to url_for( action: 'index', controller: '/home' ), { class: "site_title" } do %>
+					<span style="font-size: 18px;">O Amor é a Resposta</span>
+				<% end %>
+        	</div>
+      	<div class="clearfix"></div>
+      	<!-- menu profile quick info -->
+      	<div class="profile">
+      		<div class="profile_pic">
+          		<%= image_tag "logo.png", :class => "img-circle profile_img"  %>
+        	</div>
+        	<div class="profile_info">
+          		<span>Bem Vindo,</span>
+          		<h2>
+            		<% if not current_user.nil? %>
+            			<% if current_user.name.nil? %>
+	              			<%= current_user.email %>
+	            		<% else %>
+	              			<%= current_user.name %>
+	            		<% end %>
+            		<% end %>
+          		</h2>
+      		</div>
+      		<!-- /menu profile quick info -->
+      		<br />
+      		<!-- sidebar menu -->
+      		<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        		<div class="menu_section">
+        			<% if current_user.admin? %>
+          				<h3>Administrador</h3>
+          			<% else %>
+          				<h3>Usuário</h3>
+          			<% end %>
+          			<ul class="nav side-menu">
+            			<li>
+            				<%= link_to url_for( action: 'index', controller: '/home' ) do %>
+								<i class="fa fa-home"></i>Página Inicial
+							<% end %>
+            			</li>
+            			<li>
+            				<a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
+              				<ul class="nav child_menu" style="display: none">
+                				<li><a href="#">Beneficiários</a></li>
+                				<li><a href="#">Comunidades</a></li>
+                				<li><a href="#">Atividades</a></li>
+              				</ul>
+            			</li>
+            			<li>
+            				<a><i class="fa fa-bar-chart-o"></i>Relatórios<span class="fa fa-chevron-down"></span></a>
+              				<ul class="nav child_menu" style="display: none">
+                				<li><a href="#">Relatório 1</a></li>
+                				<li><a href="#">Relatório 2</a></li>
+                				<li><a href="#">Relatório 3</a></li>
+              				</ul>
+            			</li>
+            			<% if current_user.admin? %>
+	            			<li>
+	            				<a><i class="fa fa-lock"></i>Segurança<span class="fa fa-chevron-down"></span></a>
+	              				<ul class="nav child_menu" style="display: none">
+	                				<li>
+	                					<%= link_to users_path do %>
+											<i class="fa fa-users"></i>Usuários
+										<% end %>
+	                				</li>
+	              				</ul>
+	            			</li>
+            			<% end %>
+          			</ul>
+        		</div>
+      		</div>
+    	</div>
+  	</div>
+</div>

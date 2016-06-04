@@ -1,0 +1,13 @@
+{
+  "name": "oamorearesposta",
+  "authors": [
+    "Anderson Farias"
+  ],
+  "description": "Sistema de Gestão de uma ONG",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "gentelella": "^1.1.0"
+  }
+}

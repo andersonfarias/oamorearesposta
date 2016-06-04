@@ -1,0 +1,27 @@
+<div>
+	<div id="wrapper">
+		<div id="login" class="animate form">
+			<section class="login_content">
+				<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name)) do |f| %>
+					<h2>Re-enviar instruções para confirmação</h2>
+
+					<%= render 'layouts/messages' %>
+					<%= devise_error_messages! %>
+
+  					<div class="form-inputs">
+    					<%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder =>"Email",  :required => ""  %>
+  					</div>
+
+  					<div>
+            			<%= f.submit "Re-enviar instruções", :class => "btn btn-default submit"%>
+          			</div>
+
+  					<div class="clearfix"></div>
+          			<div class="separator">
+          				<%= render "devise/shared/links" %>	
+          			</div>
+				<% end %>
+      		</section>
+		</div>
+	</div>
+</div>
