@@ -21,6 +21,7 @@ gem 'devise-i18n'
 gem 'high_voltage'
 gem 'pundit'
 gem 'simple_form'
+gem 'will_paginate', '~> 3.1.0'
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
