@@ -9,14 +9,36 @@
 	</head>
 
 	<body class="nav-md">
-		<div class="container body">
+			<div class="container body">
 
-			<%= render "partials/sidenav" %>
-			<%= render "partials/topnav" %>
+				<%= render "partials/sidenav" %>
+				<%= render "partials/topnav" %>
 
-			<%= yield %>
+				<!-- page content -->
+				<div class="right_col" role="main">
+				    <div>
+				        <div class="page-title">
+				            <div class="title_left">
+				                <h3><%= controller.controller_name.titleize %></h3>
+				            </div>
+				            <div class="title_right">
+				            </div>
+				        </div>
+				        <div class="clearfix"></div>
+				        <div class="row">
+				            <div class="col-md-12 col-sm-12 col-xs-12">
+				                <div class="x_panel" style="height:600px;">
 
-	  		<%= render "partials/footer" %>
-	  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+														<%= yield %>
+
+												</div>
+										</div>
+								</div>
+						</div>
+				</div>
+
+			</div>
+  		<%= render "partials/footer" %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	</body>
 </html>
