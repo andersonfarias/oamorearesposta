@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Acronym</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @states.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.acronym %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @states %>
