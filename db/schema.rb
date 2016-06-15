@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615014918) do
+ActiveRecord::Schema.define(version: 20160615223241) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -47,16 +47,6 @@ ActiveRecord::Schema.define(version: 20160615014918) do
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.integer  "person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "contacts", ["person_id"], name: "index_contacts_on_person_id"
-
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -65,21 +55,24 @@ ActiveRecord::Schema.define(version: 20160615014918) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "name"
-    t.date     "age"
+    t.string   "first_name"
+    t.integer  "age"
     t.integer  "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "last_name"
+    t.date     "birthdate"
   end
 
   create_table "phones", force: :cascade do |t|
     t.string   "number"
-    t.integer  "contact_id"
+    t.integer  "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "phones", ["contact_id"], name: "index_phones_on_contact_id"
+  add_index "phones", ["person_id"], name: "index_phones_on_person_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

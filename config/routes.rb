@@ -9,13 +9,14 @@ Rails.application.routes.draw do
     	resources :users
 		root to: "users#index"
   	end
-	
+
 	get '/users/sign_up' => 'users#new'
 	post '/users' => 'users#create'
 
 	devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords', confirmations: 'users/confirmations' } do
 		get '/users/sign_out' => 'device/sessions#destroy'
 	end
-	
+
 	resources :users
+	resources :states
 end

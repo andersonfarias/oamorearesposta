@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :phone do
     number "MyString"
-    contact nil
+    person nil
   end
 end
