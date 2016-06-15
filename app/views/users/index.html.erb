@@ -14,18 +14,25 @@
                 <div class="x_panel" style="height:600px;">
                     <div class="x_title">
                         <h2>Listagem</h2>
-                        <div class="column">
-                            <table class="table">
-                                <tbody>
-                                    <% @users.each do |user| %>
-                                        <tr>
-                                            <%= render user %>
-                                        </tr>
-                                    <% end %>
-                                </tbody>
-                            </table>
-                        </div>
+                        <%= link_to "Adicionar Usuário", new_registration_path(current_user), class: "btn btn-primary pull-right" %>
                         <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Permissão</th>
+                                <th>Opções</th>
+                            </thead>
+                            <tbody>
+                                <% @users.each do |user| %>
+                                    <tr>
+                                        <%= render user %>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
