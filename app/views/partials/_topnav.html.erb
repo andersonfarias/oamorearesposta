@@ -18,7 +18,11 @@
           				<span class=" fa fa-angle-down"></span>
           			</a>
           			<ul class="dropdown-menu dropdown-usermenu pull-right">
-            			<li><a href="javascript:;">Perfil</a></li>
+          				<% if not current_user.nil? %>
+	            			<li>
+	            				<%= link_to "Perfil", edit_registration_path(current_user) %>
+	            			</li>
+	            		<% end %>
 						<% if user_signed_in? %>
   							<li><%= link_to('Logout', destroy_user_session_path, :method => :get) %></li>
 						<% end %>
