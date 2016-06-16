@@ -1,24 +1,17 @@
-<div class="x_title">
-  <h2>Listagem</h2>
-  <!-- <%= link_to "Adicionar Usuário", new_registration_path(current_user), class: "btn btn-primary pull-right" %> -->
-  <div class="clearfix"></div>
-</div>
-<div class="x_content">
-  <table class="table">
-    <thead>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Acronym</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @states.each do |s| %>
       <tr>
-        <th>Name</th>
-        <th>Acronym</th>
+        <td><%= s.name %></td>
+        <td><%= s.acronym %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @states.each do |s| %>
-        <tr>
-          <td><%= s.name %></td>
-          <td><%= s.acronym %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= will_paginate @states %>
-</div>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @states %>

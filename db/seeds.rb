@@ -9,6 +9,7 @@ user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
 # Create all Brazilian States
+State.destroy_all
 State.create(name: "Acre",                acronym: "AC")
 State.create(name: "Alagoas",             acronym: "AL")
 State.create(name: "Amapá",               acronym: "AP")
