@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615223241) do
+ActiveRecord::Schema.define(version: 20160616033540) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -53,6 +53,42 @@ ActiveRecord::Schema.define(version: 20160615223241) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "first_contact_files", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "hour"
+    t.string   "institution"
+    t.integer  "operational_context_first_contact"
+    t.integer  "how_established_first_contact"
+    t.integer  "contact_source_type"
+    t.integer  "how_person_knew_about_the_organization"
+    t.integer  "beneficiary_and_contact_source_relationship"
+    t.boolean  "is_new_partner"
+    t.integer  "number_of_previous_treatments"
+    t.integer  "place_of_previous_treatments"
+    t.integer  "marital_status"
+    t.integer  "number_sons"
+    t.integer  "number_daughters"
+    t.integer  "ethnic_group"
+    t.string   "religion"
+    t.integer  "family_structure"
+    t.integer  "scolarity"
+    t.integer  "job"
+    t.string   "first_contact_conditions"
+    t.string   "petitions"
+    t.string   "answer"
+    t.string   "results"
+    t.text     "comments"
+    t.integer  "beneficiary_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "contact_source_id"
+    t.integer  "support_id"
+  end
+
+  add_index "first_contact_files", ["beneficiary_id"], name: "index_first_contact_files_on_beneficiary_id"
+  add_index "first_contact_files", ["user_id"], name: "index_first_contact_files_on_user_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
