@@ -6,12 +6,12 @@
 </td>
 <td>
 	<%= form_for(user) do |f| %>
-		<%= f.select( :role, User.roles.keys.map { | role | [ role.titleize, role ] } ) %>
+		<%= f.select( :role, User.roles.keys.map { | role | [ t( "models.user.roles.#{role}" ), role ] } ) %>
 		<%= f.submit 'Alterar permissão', :class => 'btn btn-default btn-sm' %>
 	<% end %>
 </td>
 <td>
-	<% if user.admin? %>
+	<% if current_user.admin? %>
 		<%= link_to( "Deletar", user_path( user ), :data => { :confirm => "Você tem certeza?" }, :method => :delete, :class => 'btn btn-danger' ) unless user == current_user %>
 	<% end %>
 </td>

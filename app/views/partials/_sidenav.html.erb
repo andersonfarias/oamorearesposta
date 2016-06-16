@@ -30,12 +30,8 @@
       		<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         		<div class="menu_section">
         			<% if not current_user.nil? %>
-                        <% if current_user.admin? %>
-                            <h3>Administrador</h3>
-                        <% else %>
-                            <h3>Usuário</h3>
-                        <% end %>
-                    <% end %>
+                <h3><%= t( "models.user.roles.#{current_user.role}" ) %></h3>
+              <% end %>
           			<ul class="nav side-menu">
             			<li>
             				<%= link_to url_for( action: 'index', controller: '/home' ) do %>
