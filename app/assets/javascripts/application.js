@@ -24,17 +24,14 @@
 //= require js/flot/curvedLines.js
 //= require js/flot/jquery.flot.resize.js
 
-
 //= require js/maps/jquery-jvectormap-2.0.3.min.js
 //= require js/maps/gdp-data.js
 //= require js/maps/jquery-jvectormap-world-mill-en.js
 //= require js/maps/jquery-jvectormap-us-aea-en.js
 
-
 //= require js/bootstrap.min.js
 
 //= require js/gauge/gauge.min.js
-//= require js/gauge/gauge_demo.js
 
 //= require js/progressbar/bootstrap-progressbar.min.js
 
@@ -47,10 +44,7 @@
 
 //= require js/custom.js
 
-
 //= require js/pace/pace.min.js
-
-//= require  js/nprogress.js
 
 //= require  js/select/select2.full.js
 
@@ -58,5 +52,3 @@
 //= require js/pace/pace.min.js
 
 //= require_tree .
-
-
