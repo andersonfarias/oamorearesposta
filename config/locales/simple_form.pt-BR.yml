@@ -5,11 +5,12 @@ pt-BR:
     required:
       text: 'obrigatório'
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
+      html: '<span class="required">*</span>'
     error_notification:
-      default_message: "Por favor, verifique os problemas abaixo:"
+      default_message: "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Por favor, verifique os problemas abaixo:"
+    labels:
+      user:
+        name: "Nome"
     # Examples
     # labels:
     #   defaults:
