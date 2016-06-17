@@ -24,6 +24,19 @@ pt-BR:
           name: Listagem
         new:
           name: Cadastro
+        update:
+          name: Editar Cadastro
+          successful_msg: Cadastro atualizado
+          error_msg: Não foi possível atualizar o cadastro
+          inactive_user: Não é possível editar um usuário desativo
+        destroy:
+          name: Deletar Cadastro
+          successful_msg: Usuário deletado com sucesso
+    registrations:
+      name: Usuários
+      actions:
+        edit:
+          name: Editar Cadastro
     states:
       name: Estados
       actions:
