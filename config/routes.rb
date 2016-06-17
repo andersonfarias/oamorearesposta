@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :states
+  resources :first_contact_files
 end

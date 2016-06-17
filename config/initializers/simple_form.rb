@@ -73,6 +73,32 @@ SimpleForm.setup do |config|
 		end
 	end
 
+	config.wrappers :w_select, :tag => 'div', :class => 'col-md-9 col-sm-9 col-xs-12', :error_class => 'error' do |b|
+		b.use :html5
+		b.use :placeholder
+		b.optional :maxlength
+		b.optional :pattern
+		b.optional :min_max
+		b.optional :readonly
+
+		b.wrapper :tag => 'select', :tabindex => '-1', :'aria-hidden' => 'true',  :class => 'select2_single form-control select2-hidden-accessible' do |bb|
+			:collection
+		end
+	end
+
+	config.wrappers :w_checkboxes, tag: 'div', html: { style: 'display: flex; flex-flow: column nowrap;' }, error_class: 'has-error' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.use :label
+
+    b.wrapper tag: 'div' do |ba|
+      ba.use :input
+      ba.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+    end
+  end
+
 	# The default wrapper to be used by the FormBuilder.
 	config.default_wrapper = :default
 
