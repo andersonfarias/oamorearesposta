@@ -5,9 +5,8 @@ class UsersController < ApplicationController
 	before_action :set_minimum_password_length, only: [ :new ]
 	after_action :verify_authorized
 
-
 	def index
-		@users = User.where( is_active: true )
+		@users = User.where( is_active: true ).paginate( :page => params[ :page ] )
 		authorize User
 	end
 

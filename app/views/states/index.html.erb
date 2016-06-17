@@ -14,4 +14,4 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @states %>
+<%= will_paginate @states, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
