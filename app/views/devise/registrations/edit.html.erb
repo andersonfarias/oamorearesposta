@@ -1,44 +1,22 @@
-<!-- page content -->
-<div class="right_col" role="main">
-    <div>
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Perfil</h3>
-            </div>
-            <div class="title_right">
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel" style="height:600px;">
-                    <div class="x_title">
-                        <h2>Editar Perfil</h2>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-	                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal form-label-left' }) do |f| %>
+	<%= f.error_notification %>
+	<br />
 
-							<%= f.error_notification %>
+	<%= f.input :name, required: true, :wrapper => :gentelella %>
+	<%= f.input :email, required: true, :wrapper => :gentelella %>
 
-							<div class="form-inputs">
-								<%= f.input :email, required: true, autofocus: true %>
+	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+		<p>Esperando confirmação do email: <%= resource.unconfirmed_email %></p>
+	<% end %>
 
-								<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-									<p>Esperando confirmação do email: <%= resource.unconfirmed_email %></p>
-		    					<% end %>
+	<%= f.input :password, label: "Nova senha", required: false, autocomplete: "off", hint: "deixe em branco caso não queira alterar", :wrapper => :gentelella %>
+	<%= f.input :password_confirmation, label: "Confirmação de nova senha", required: false, :wrapper => :gentelella %>
+	<%= f.input :current_password, hint: "é necessária sua senha atual para confirmar suas alterações", required: true, :wrapper => :gentelella %>
 
-								<%= f.input :password, autocomplete: "off", hint: "deixe em branco caso não queira alterar", required: false %>
-								<%= f.input :password_confirmation, required: false %>
-								<%= f.input :current_password, hint: "é necessária sua senha atual para confirmar suas alterações", required: true %>
-							</div>
-							<div class="form-actions">
-								<%= f.button :submit, "Editar", class: "btn-primary" %>
-							</div>
-						<% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+			<%= f.button :submit, class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>

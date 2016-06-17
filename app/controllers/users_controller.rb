@@ -7,30 +7,38 @@ class UsersController < ApplicationController
 
 
 	def index
-		@users = User.all
+		@users = User.where( is_active: true )
 		authorize User
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = User.find( params[ :id ] )
+		if not @user.is_active
+			@user = nil
+		end
 		authorize @user
 	end
 
 	def update
-		@user = User.find(params[:id])
+		@user = User.find( params[ :id ] )
+		if not @user.is_active
+			redirect_to users_path, :notice => t( "controllers.users.actions.update.inactive_user" )
+			return
+		end
 		authorize @user
 		if @user.update_attributes(secure_params)
-			redirect_to users_path, :notice => "User updated."
+			redirect_to users_path, :notice => t( "controllers.users.actions.update.successful_msg" )
 		else
-			redirect_to users_path, :alert => "Unable to update user."
+			redirect_to users_path, :alert => t("controllers.users.actions.update.error_msg" )
 		end
 	end
 
 	def destroy
-		user = User.find(params[:id])
+		user = User.find( params[ :id ] )
 		authorize user
-		user.destroy
-		redirect_to users_path, :notice => "User deleted."
+		user.is_active = false
+		user.save()
+		redirect_to users_path, :notice => t( "controllers.users.actions.destroy.successful_msg" )
 	end
 
 	def new
