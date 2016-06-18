@@ -28,7 +28,7 @@
 
 	  <!-- beneficiary:beneficiary  -->
 
-	  <%= f.input :is_new_partner, :wrapper => :horizontal_radio_and_checkboxes %>
+	  <%= f.input :is_new_partner %>
 
 	  <%= f.input :number_of_previous_treatments %>
 	</div>
@@ -56,12 +56,12 @@
 
 	<div class="col-md-6 col-xs-12">
 		<div style="width: 100%;">
-			<%= f.input :first_contact_conditions, style: 'width: 60%',
+			<%= f.input :first_contact_conditions,
 			collection: FirstContactFile.first_contact_conditions,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
 		</div>
 		<div style="width: 100%;">
-			<%= f.input :answer, style: 'width: 60%',
+			<%= f.input :answer,
 			collection: FirstContactFile.answers,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
 		</div>
@@ -69,17 +69,17 @@
 
 	<div class="col-md-6 col-xs-12">
 		<div style="width: 100%;">
-			<%= f.input :scolarity, style: 'width: 60%',
+			<%= f.input :scolarity,
 			collection: FirstContactFile.scolarities,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
 		</div>
 		<div style="width: 100%;">
-			<%= f.input :job, style: 'width: 60%',
+			<%= f.input :job,
 			collection: FirstContactFile.jobs,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
 		</div>
 		<div style="width: 100%;">
-			<%= f.input :petitions, style: 'width: 60%',
+			<%= f.input :petitions,
 			collection: FirstContactFile.petitions,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
 		</div>
@@ -87,7 +87,7 @@
 
 	<div class="col-md-6 col-xs-12">
 		<div style="width: 100%;">
-			<%= f.input :results, style: 'width: 60%',
+			<%= f.input :results,
 			collection: FirstContactFile.results,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
 		</div>

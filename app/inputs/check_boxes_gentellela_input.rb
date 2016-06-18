@@ -1,13 +1,6 @@
 class CheckBoxesGentellelaInput < SimpleForm::Inputs::CollectionInput
   def input(wrapper_options = nil)
     template.content_tag(:div, style: 'display: flex; flex-flow: column nowrap;') do
-      # p collection
-      # p attribute_name
-      # p input_options[:class]
-      # p "#{input_options[:class]}[#{attribute_name.to_s}][]"
-
-
-
       @input_name = "#{input_options[:class]}[#{attribute_name.to_s}][]"
       collection.map do |key,value|
         label = t("models.#{input_options[:class]}.#{attribute_name.to_s}.#{key}")
@@ -25,7 +18,7 @@ class CheckBoxesGentellelaInput < SimpleForm::Inputs::CollectionInput
   end
 
   def create_label(key,value,label)
-    template.content_tag(:label, class: '', style: input_options[:style]) do
+    template.content_tag(:label, class: '', style: 'width: 300px') do
       template.concat label
       template.concat create_input(value,label)
     end

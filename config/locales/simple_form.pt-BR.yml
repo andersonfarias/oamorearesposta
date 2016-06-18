@@ -11,6 +11,35 @@ pt-BR:
     labels:
       user:
         name: "Nome"
+      first_contact_file:
+        date: Data do primeiro contato
+        hour: Hora do primeiro contato
+        institution: Nome da Instituição
+        operational_context_first_contact: Contexto operacional do primeiro contato
+        how_established_first_contact: Como se estabeleceu o primeiro contato
+        contact_source_type: Tipologia da fonte
+        how_person_knew_about_the_organization: Como a fonte soube da Organização
+        beneficiary_and_contact_source_relationship: Relação entre a fonte e o &quot;Parceiro&quot;
+        is_new_partner: É um novo parceiro
+        number_of_previous_treatments: Precedentes tratam. por drogas (número)
+        place_of_previous_treatments: Lugar dos precedentes tratamentos por drogas
+        marital_status: Estado familiar
+        number_sons: Número de filhos
+        number_daughters: Número de filhas
+        ethnic_group: Grupo étnico
+        religion: Religião
+        family_structure: Estrutura familiar
+        scolarity: Escolaridade
+        job: Emprego
+        first_contact_conditions: Condições no primeiro contato
+        petitions: Petições
+        answer: Respostas
+        results: Resultados
+        comments: Comentários
+        beneficiary: Beneficiário
+        user: Operador
+        contact_source: Nome da fonte da informação
+        support: Pessoa de apoio
     # Examples
     # labels:
     #   defaults:

@@ -74,7 +74,7 @@ pt-BR:
         coordinator: Coordenador(a)
         user: Estagiário(a)
     first_contact_file:
-      hours:
+      hours: 
         '0801_1100': Das 08:01 às 11:00
         '1101_1400': Das 11:01 às 14:00
         '1401_1700': Das 14:01 às 17:00
