@@ -2,86 +2,95 @@
 	<%= f.error_notification %>
 	<br />
 
-  <%= f.select :hour,
-    FirstContactFile.hours.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+<div <div class="row">
+	<div class="col-md-6 col-xs-12">
+	  <%= f.select :hour,
+	    FirstContactFile.hours.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 
+	  <%= f.input :institution %>
 
-  <%= f.input :institution %>
+	  <%= f.select :operational_context_first_contact,
+	    FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("models.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
 
-  <%= f.select :operational_context_first_contact,
-    FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("models.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
+	  <%= f.select :how_established_first_contact,
+	    FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 
-  <%= f.select :how_established_first_contact,
-    FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+	<!-- contact_source:person -->
 
-<!-- contact_source:person -->
+	  <%= f.select :contact_source_type,
+	    FirstContactFile.contact_source_types.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 
-  <%= f.select :contact_source_type,
-    FirstContactFile.contact_source_types.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+	  <%= f.select :how_person_knew_about_the_organization,
+	    FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 
-  <%= f.select :how_person_knew_about_the_organization,
-    FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+	  <%= f.select :beneficiary_and_contact_source_relationship,
+	    FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 
-  <%= f.select :beneficiary_and_contact_source_relationship,
-    FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+	  <!-- beneficiary:beneficiary  -->
 
-  <!-- beneficiary:beneficiary  -->
+	  <%= f.input :is_new_partner, :wrapper => :horizontal_radio_and_checkboxes %>
 
-  <%= f.input :is_new_partner, :wrapper => :horizontal_radio_and_checkboxes %>
-
-  <%= f.input :number_of_previous_treatments %>
-
-  <%= f.select :place_of_previous_treatments,
-    FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
-
-  <%= f.select :marital_status,
-    FirstContactFile.marital_statuses.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
-
-  <%= f.input :number_sons %>
-
-  <%= f.input :number_daughters %>
-
-  <%= f.select :ethnic_group,
-    FirstContactFile.ethnic_groups.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
-
-  <%= f.input :religion %>
-
-  <!-- support:person -->
-
-  <%= f.select :family_structure,
-    FirstContactFile.family_structures.keys.map { |key, value| [ t("models.first_contact_file.hours.#{key}"), value]} %>
-
-
-	<div style="width: 50%;">
-	  <%= f.input :scolarity, style: 'width: 60%',
-	    collection: FirstContactFile.scolarities,
-			class:'first_contact_file', as: :check_boxes_gentellela %>
+	  <%= f.input :number_of_previous_treatments %>
 	</div>
-	<div style="width: 50%;">
-	  <%= f.input :job, style: 'width: 60%',
-	    collection: FirstContactFile.jobs,
-			class:'first_contact_file', as: :check_boxes_gentellela %>
+	<div class="col-md-6 col-xs-12">
+	  <%= f.select :place_of_previous_treatments,
+	    FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+
+	  <%= f.select :marital_status,
+	    FirstContactFile.marital_statuses.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+
+	  <%= f.input :number_sons %>
+
+	  <%= f.input :number_daughters %>
+
+	  <%= f.select :ethnic_group,
+	    FirstContactFile.ethnic_groups.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+
+	  <%= f.input :religion %>
+
+	  <!-- support:person -->
+
+	  <%= f.select :family_structure,
+	    FirstContactFile.family_structures.keys.map { |key, value| [ t("models.first_contact_file.hours.#{key}"), value]} %>
 	</div>
-	<div style="width: 50%;">
-	  <%= f.input :first_contact_conditions, style: 'width: 60%',
-	    collection: FirstContactFile.first_contact_conditions,
+
+	<div class="col-md-6 col-xs-12">
+		<div style="width: 100%;">
+			<%= f.input :first_contact_conditions, style: 'width: 60%',
+			collection: FirstContactFile.first_contact_conditions,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
-	</div>
-	<div style="width: 50%;">
-	  <%= f.input :petitions, style: 'width: 60%',
-	    collection: FirstContactFile.petitions,
+		</div>
+		<div style="width: 100%;">
+			<%= f.input :answer, style: 'width: 60%',
+			collection: FirstContactFile.answers,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
+		</div>
 	</div>
-	<div style="width: 50%;">
-	  <%= f.input :answer, style: 'width: 60%',
-	    collection: FirstContactFile.answers,
+
+	<div class="col-md-6 col-xs-12">
+		<div style="width: 100%;">
+			<%= f.input :scolarity, style: 'width: 60%',
+			collection: FirstContactFile.scolarities,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
+		</div>
+		<div style="width: 100%;">
+			<%= f.input :job, style: 'width: 60%',
+			collection: FirstContactFile.jobs,
+			class:'first_contact_file', as: :check_boxes_gentellela %>
+		</div>
+		<div style="width: 100%;">
+			<%= f.input :petitions, style: 'width: 60%',
+			collection: FirstContactFile.petitions,
+			class:'first_contact_file', as: :check_boxes_gentellela %>
+		</div>
 	</div>
-	<div style="width: 50%;">
-	  <%= f.input :results, style: 'width: 60%',
+
+	<div class="col-md-6 col-xs-12">
+		<div style="width: 100%;">
+			<%= f.input :results, style: 'width: 60%',
 			collection: FirstContactFile.results,
 			class:'first_contact_file', as: :check_boxes_gentellela %>
+		</div>
 	</div>
-	<%= f.button :submit %>
-
+</div>
 <% end %>
