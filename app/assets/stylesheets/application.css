@@ -25,3 +25,7 @@
  *= require css/ion.rangeSlider.css
  *= require css/ion.rangeSlider.skinFlat.css
  */
+
+.icheckbox_flat-green {
+  float: right;
+}

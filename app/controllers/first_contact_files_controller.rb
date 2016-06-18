@@ -8,4 +8,8 @@ class FirstContactFilesController < ApplicationController
     @first_contact_file = FirstContactFile.new
   end
 
+  def create
+    p params
+  end
+
 end
