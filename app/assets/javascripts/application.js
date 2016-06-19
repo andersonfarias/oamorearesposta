@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+
 //= require jquery_ujs
 //= require turbolinks
 
@@ -51,4 +52,21 @@
 //= require js/dropzone/dropzone.js
 //= require js/pace/pace.min.js
 
+//= require bootstrap-datetimepicker.min.js
+//= require locale/bootstrap-datetimepicker.pt-BR.js
+
 //= require_tree .
+
+$(document).ready(function() {
+  $('.form_datetime').datetimepicker({
+        language:  'pt-BR',
+        format: "dd/mm/yyyy",
+        todayBtn:  1,
+    		autoclose: 1,
+    		todayHighlight: 1,
+    		startView: 2,
+    		forceParse: 0,
+        showMeridian: 1,
+        minView: 2
+    });
+});
