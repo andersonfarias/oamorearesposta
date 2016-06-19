@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	respond_to :html, :xml, :json
 
-	before_action :authenticate_user!
 	before_action :set_minimum_password_length, only: [ :new ]
 	after_action :verify_authorized
 

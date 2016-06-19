@@ -43,6 +43,18 @@
 			<%= f.input :job,include_blank: false,
 				collection: FirstContactFile.jobs.keys.map { |key, value| [ t("models.first_contact_file.jobs.#{key}"), value]},
 				as: :check_boxes, wrapper: :w_checkboxes %>
+			<%= f.input :answer,include_blank: false,
+				collection: FirstContactFile.answers.keys.map { |key, value| [ t("models.first_contact_file.answers.#{key}"), value]},
+				as: :check_boxes, wrapper: :w_checkboxes %>
+	</div>
+
+	<div class="col-md-4 col-xs-12">
+			<%= f.input :petitions,include_blank: false,
+				collection: FirstContactFile.petitions.keys.map { |key, value| [ t("models.first_contact_file.petitions.#{key}"), value]},
+				as: :check_boxes, include_black: false, wrapper: :w_checkboxes %>
+			<%= f.input :results,include_blank: false,
+				collection: FirstContactFile.results.keys.map { |key, value| [ t("models.first_contact_file.results.#{key}"), value]},
+				as: :check_boxes, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
@@ -51,16 +63,15 @@
 				as: :check_boxes, wrapper: :w_checkboxes %>
 	</div>
 
-	<div class="col-md-4 col-xs-12">
-			<%= f.input :petitions,include_blank: false,
-				collection: FirstContactFile.petitions.keys.map { |key, value| [ t("models.first_contact_file.petitions.#{key}"), value]},
-				as: :check_boxes, include_black: false, wrapper: :w_checkboxes %>
-			<%= f.input :answer,include_blank: false,
-				collection: FirstContactFile.answers.keys.map { |key, value| [ t("models.first_contact_file.answers.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
-			<%= f.input :results,include_blank: false,
-				collection: FirstContactFile.results.keys.map { |key, value| [ t("models.first_contact_file.results.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<p>
+				<%= f.label :user %>
+				<%= current_user.name %>
+			</p>
+			<%= f.input :comments, as: :text %>
+		</div>
 	</div>
+
 </div>
 <% end %>

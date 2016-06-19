@@ -10,7 +10,7 @@ pt-BR:
       default_message: "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Por favor, verifique os problemas abaixo:"
     labels:
       user:
-        name: "Nome"
+        name: Nome
       first_contact_file:
         date: Data do primeiro contato
         hour: Hora do primeiro contato
