@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-6 col-xs-12">
-		<%= f.input :date, as: :datepicker %>
+		<%= f.input :date, class: 'first_contact_file', as: :datepicker %>
 	  <%= f.input :hour, include_blank: false,
 	    collection: FirstContactFile.hours.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 	  <%= f.input :institution %>
@@ -37,30 +37,30 @@
 </div>
 <div class="row">
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :scolarity, include_blank: false,
+			<%= f.input :scolarity,
 				collection: FirstContactFile.scolarities.keys.map { |key, value| [ t("models.first_contact_file.scolaritiess.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
-			<%= f.input :job, include_blank: false,
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+			<%= f.input :job,
 				collection: FirstContactFile.jobs.keys.map { |key, value| [ t("models.first_contact_file.jobs.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
-			<%= f.input :answer, include_blank: false,
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+			<%= f.input :answer,
 				collection: FirstContactFile.answers.keys.map { |key, value| [ t("models.first_contact_file.answers.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :petitions,include_blank: false,
+			<%= f.input :petitions,
 				collection: FirstContactFile.petitions.keys.map { |key, value| [ t("models.first_contact_file.petitions.#{key}"), value]},
 				as: :check_boxes, include_black: false, wrapper: :w_checkboxes %>
-			<%= f.input :results,include_blank: false,
+			<%= f.input :results,
 				collection: FirstContactFile.results.keys.map { |key, value| [ t("models.first_contact_file.results.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :first_contact_conditions,include_blank: false,
+			<%= f.input :first_contact_conditions,
 				collection: FirstContactFile.first_contact_conditions.keys.map { |key, value| [ t("models.first_contact_file.first_contact_conditions.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="row">
