@@ -8,7 +8,7 @@ class DatepickerInput < SimpleForm::Inputs::Base
  end
 
  def input_html_options
-   super.merge({class: 'form-control', name: "#{@value_input}"})
+   super.merge({class: 'form-control date-input', name: "#{@value_input}"})
  end
 
   def span_table

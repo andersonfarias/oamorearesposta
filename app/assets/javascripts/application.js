@@ -52,8 +52,12 @@
 //= require js/dropzone/dropzone.js
 //= require js/pace/pace.min.js
 
-//= require bootstrap-datetimepicker.min.js
-//= require locale/bootstrap-datetimepicker.pt-BR.js
+//= require js/input_mask/jquery.inputmask.js
+
+//= require libs/bootstrap-datetimepicker.min.js
+//= require libs/locale/bootstrap-datetimepicker.pt-BR.js
+
+//= require libs/jquery.numeric.js
 
 //= require_tree .
 
@@ -69,4 +73,6 @@ $(document).ready(function() {
         showMeridian: 1,
         minView: 2
     });
+  $('input.date-input').inputmask("99/99/9999")
+  $('input[type="number"]').numericInput()
 });
