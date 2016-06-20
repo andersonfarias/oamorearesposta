@@ -1,7 +1,7 @@
 class FirstContactFilesController < ApplicationController
 
   def index
-    @first_contact_files = FirstContactFile.all
+    @first_contact_files = FirstContactFile.all.paginate( :page => params[ :page ] )
   end
 
   def new

@@ -1,0 +1,17 @@
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+      <th class="col-md-3 col-xs-3"><%= t "labels.first_contact_files.date" %></th>
+      <th class="col-md-4 col-xs-4"><%= t "labels.first_contact_files.beneficiary" %></th>
+      <th class="col-md-5 col-xs-5"><%= t "labels.first_contact_files.user" %></th>
+  </thead>
+  <tbody>
+    <% @first_contact_files.each do |file| %>
+    <tr>
+      <td><%= file.date %></td>
+      <td><%= file.beneficiary %></td>
+      <td><%= file.user %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @first_contact_files, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
