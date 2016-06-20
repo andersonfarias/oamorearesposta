@@ -7,19 +7,26 @@ class Users::PasswordsController < Devise::PasswordsController
 	#end
 
 	# POST /resource/password
-	# def create
-	#   super
-	# end
+	def create
+		user = User.where( email: params[ :user ][ :email ] ).first
+		if not user.nil?
+			if not user.is_active
+				redirect_to new_password_path( user ), :notice => t( "controllers.users.actions.update.inactive_user" )
+				return
+			end
+		end
+		super
+	end
 
 	# GET /resource/password/edit?reset_password_token=abcdef
-	# def edit
-	#   super
-	# end
+	#def edit
+	#	super
+	#end
 
 	# PUT /resource/password
-	# def update
-	#   super
-	# end
+	#def update
+	#	super
+	#end
 
 	# protected
 

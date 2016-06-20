@@ -43,7 +43,7 @@ pt-BR:
           name: Editar Cadastro
           successful_msg: Cadastro atualizado
           error_msg: Não foi possível atualizar o cadastro
-          inactive_user: Não é possível editar um usuário desativo
+          inactive_user: Não é possível editar um usuário inativo
         destroy:
           name: Deletar Cadastro
           successful_msg: Usuário deletado com sucesso

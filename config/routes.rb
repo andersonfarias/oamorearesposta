@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
 	devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords', confirmations: 'users/confirmations' } do
 		get '/users/sign_out' => 'device/sessions#destroy'
+		post '/users/password' => 'users/passwords#create'
+		put '/users/password' => 'users/passwords#update'
+		get '/users/password/edit' => 'users/passwords#edit'
 	end
 
 	resources :users
