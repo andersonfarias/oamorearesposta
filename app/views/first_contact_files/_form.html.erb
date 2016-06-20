@@ -4,11 +4,11 @@
 
 <div class="row">
 	<div class="col-md-6 col-xs-12">
-		<%= f.input :date %>
+		<%= f.input :date, class: 'first_contact_file', as: :datepicker %>
 	  <%= f.input :hour, include_blank: false,
 	    collection: FirstContactFile.hours.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
 	  <%= f.input :institution %>
-	  <%= f.input :operational_context_first_contact,include_blank: false,
+	  <%= f.input :operational_context_first_contact, include_blank: false,
 	    collection: FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("models.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
 	  <%= f.input :how_established_first_contact,include_blank: false,
 	    collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("models.first_contact_file.how_established_first_contacts.#{key}"), key]} %>
@@ -22,45 +22,45 @@
 	<div class="col-md-6 col-xs-12">
 		<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :w_radioboxes %>
 		<%= f.input :number_of_previous_treatments %>
-	  <%= f.input :place_of_previous_treatments,include_blank: false,
+	  <%= f.input :place_of_previous_treatments, include_blank: false,
 	    collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("models.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
 	  <%= f.input :marital_status,include_blank: false,
 	    collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("models.first_contact_file.marital_statuses.#{key}"), key]} %>
 	  <%= f.input :number_sons %>
 	  <%= f.input :number_daughters %>
-	  <%= f.input :ethnic_group,include_blank: false,
+	  <%= f.input :ethnic_group, include_blank: false,
 	    collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("models.first_contact_file.ethnic_groups.#{key}"), key]} %>
 	  <%= f.input :religion %>
-	  <%= f.input :family_structure,include_blank: false,
+	  <%= f.input :family_structure, include_blank: false,
 	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("models.first_contact_file.family_structures.#{key}"), value]} %>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :scolarity,include_blank: false,
+			<%= f.input :scolarity,
 				collection: FirstContactFile.scolarities.keys.map { |key, value| [ t("models.first_contact_file.scolaritiess.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
-			<%= f.input :job,include_blank: false,
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+			<%= f.input :job,
 				collection: FirstContactFile.jobs.keys.map { |key, value| [ t("models.first_contact_file.jobs.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
-			<%= f.input :answer,include_blank: false,
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+			<%= f.input :answer,
 				collection: FirstContactFile.answers.keys.map { |key, value| [ t("models.first_contact_file.answers.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :petitions,include_blank: false,
+			<%= f.input :petitions,
 				collection: FirstContactFile.petitions.keys.map { |key, value| [ t("models.first_contact_file.petitions.#{key}"), value]},
 				as: :check_boxes, include_black: false, wrapper: :w_checkboxes %>
-			<%= f.input :results,include_blank: false,
+			<%= f.input :results,
 				collection: FirstContactFile.results.keys.map { |key, value| [ t("models.first_contact_file.results.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :first_contact_conditions,include_blank: false,
+			<%= f.input :first_contact_conditions,
 				collection: FirstContactFile.first_contact_conditions.keys.map { |key, value| [ t("models.first_contact_file.first_contact_conditions.#{key}"), value]},
-				as: :check_boxes, wrapper: :w_checkboxes %>
+				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
 	</div>
 
 	<div class="row">
@@ -69,7 +69,7 @@
 				<%= f.label :user %>
 				<%= current_user.name %>
 			</p>
-			<%= f.input :comments, as: :text %>
+			<%= f.input :comments, as: :text, input_html: { :style=> "resize: vertical;", :rows => 4, } %>
 		</div>
 	</div>
 

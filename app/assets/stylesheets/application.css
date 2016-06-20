@@ -24,8 +24,5 @@
  *= require css/nprogress.css
  *= require css/ion.rangeSlider.css
  *= require css/ion.rangeSlider.skinFlat.css
+ *= require libs/bootstrap-datetimepicker.min.css
  */
-
-.icheckbox_flat-green {
-  float: right;
-}
