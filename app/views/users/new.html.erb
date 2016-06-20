@@ -2,7 +2,10 @@
 	<%= f.error_notification %>
 	<br />
 
-	<%= f.input :name, required: true, :wrapper => :gentelella %>
+	<%= f.simple_fields_for @user.person do |person_form| %>
+		<%= person_form.input :first_name, required: true, :wrapper => :gentelella %>
+	<% end %>
+
 	<%= f.input :email, required: true, :wrapper => :gentelella %>
 	<%= f.input :password, required: true, :wrapper => :gentelella %>
 	<%= f.input :password_confirmation, required: true, :wrapper => :gentelella %>

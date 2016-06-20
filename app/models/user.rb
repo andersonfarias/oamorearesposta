@@ -6,12 +6,14 @@ class User < ActiveRecord::Base
 		self.role ||= :user
 	end
 
+	belongs_to :person
+	validates_associated :person
+	validates_presence_of :person
+
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :confirmable,
 		:recoverable, :trackable, :validatable, :timeoutable
-
-	validates_presence_of :name
 
 	def active_for_authentication?
 		super && is_active

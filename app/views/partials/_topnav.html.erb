@@ -9,10 +9,10 @@
 				<li class="">
           			<a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown">
           				<% if not current_user.nil? %>
-	            			<% if current_user.name.nil? %>
+	            			<% if current_user.person.nil? or current_user.person.first_name.nil? %>
 		              			<span><%= current_user.email %></span>
 		            		<% else %>
-		              			<span><%= current_user.name %></span>	
+		              			<span><%= current_user.person.first_name %></span>	
 		            		<% end %>
 	            		<% end %>
           				<span class=" fa fa-angle-down"></span>
