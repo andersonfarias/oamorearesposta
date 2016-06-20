@@ -17,20 +17,6 @@ class UsersController < ApplicationController
 		authorize @user
 	end
 
-	def update
-		@user = User.find( params[ :id ] )
-		if not @user.is_active
-			redirect_to users_path, :notice => t( "controllers.users.actions.update.inactive_user" )
-			return
-		end
-		authorize @user
-		if @user.update_attributes(secure_params)
-			redirect_to users_path, :notice => t( "controllers.users.actions.update.successful_msg" )
-		else
-			redirect_to users_path, :alert => t("controllers.users.actions.update.error_msg" )
-		end
-	end
-
 	def destroy
 		user = User.find( params[ :id ] )
 		authorize user
@@ -40,14 +26,15 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		@user = User.new
+		@user = User.new( person: Person.new() )
 		authorize current_user
 	end
 
 	def create
 		authorize current_user
 
-		@user = User.new_with_session(sign_up_params || {}, session)
+		@user = User.new_with_session( sign_up_params || {}, session )
+		@user.person = Person.create( params[ :user ][ :person ].permit( "first_name" ) )
 		@user.save
 		yield user if block_given?
 		if @user.persisted?
@@ -74,7 +61,11 @@ class UsersController < ApplicationController
 	end
 
 	def sign_up_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation)
+		params.require( :user ).permit( :person, :email, :password, :password_confirmation )
+	end
+
+	def account_update_params
+		params.require( :user ).permit( :person, :email, :password, :password_confirmation )
 	end
 
 	def set_minimum_password_length

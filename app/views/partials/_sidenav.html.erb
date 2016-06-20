@@ -16,10 +16,10 @@
           		<span>Bem Vindo,</span>
           		<h2>
             		<% if not current_user.nil? %>
-            			<% if current_user.name.nil? %>
+            			<% if current_user.person.nil? or current_user.person.first_name.nil? %>
 	              			<%= current_user.email %>
 	            		<% else %>
-	              			<%= current_user.name %>
+	              			<%= current_user.person.first_name %>
 	            		<% end %>
             		<% end %>
           		</h2>

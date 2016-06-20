@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617021458) do
+ActiveRecord::Schema.define(version: 20160619220701) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -130,16 +130,17 @@ ActiveRecord::Schema.define(version: 20160617021458) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.string   "name",                   default: "",   null: false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.integer  "role"
     t.boolean  "is_active",              default: true
+    t.integer  "person_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["person_id"], name: "index_users_on_person_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
