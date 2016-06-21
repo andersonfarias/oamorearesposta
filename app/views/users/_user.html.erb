@@ -6,7 +6,7 @@
 </td>
 <td>
 	<%= form_for(user) do |f| %>
-		<%= f.select( :role, User.roles.keys.map { | role | [ t( "models.user.roles.#{role}" ), role ] } ) %>
+		<%= f.select( :role, User.roles.keys.map { | role | [ t( "enum.user.roles.#{role}" ), role ] } ) %>
 		<%= f.submit 'Alterar permissão', :class => 'btn btn-default btn-sm' %>
 	<% end %>
 </td>

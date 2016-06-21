@@ -6,36 +6,36 @@
 	<div class="col-md-6 col-xs-12">
 		<%= f.input :date, class: 'first_contact_file', as: :datepicker %>
 	  <%= f.input :hour, include_blank: false,
-	    collection: FirstContactFile.hours.keys.map { |key| [ t("models.first_contact_file.hours.#{key}"), key]} %>
+	    collection: FirstContactFile.hours.keys.map { |key| [ t("enum.first_contact_file.hour.#{key}"), key]} %>
 	  <%= f.input :institution %>
 	  <%= f.input :operational_context_first_contact, include_blank: false,
-	    collection: FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("models.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
+	    collection: FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("enum.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
 	  <%= f.input :how_established_first_contact,include_blank: false,
-	    collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("models.first_contact_file.how_established_first_contacts.#{key}"), key]} %>
+	    collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("enum.first_contact_file.how_established_first_contacts.#{key}"), key]} %>
 	  <%= f.input :contact_source_type,include_blank: false,
-	    collection: FirstContactFile.contact_source_types.keys.map { |key| [ t("models.first_contact_file.contact_source_types.#{key}"), key]} %>
+	    collection: FirstContactFile.contact_source_types.keys.map { |key| [ t("enum.first_contact_file.contact_source_types.#{key}"), key]} %>
 	  <%= f.input :how_person_knew_about_the_organization,include_blank: false,
-	    collection: FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("models.first_contact_file.how_person_knew_about_the_organizations.#{key}"), key]} %>
+	    collection: FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("enum.first_contact_file.how_person_knew_about_the_organizations.#{key}"), key]} %>
 	  <%= f.input :beneficiary_and_contact_source_relationship,include_blank: false,
-	    collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("models.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
+	    collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
 		<%= f.input :is_new_partner, as: :radio_buttons %>
 	</div>
 
 	<div class="col-md-6 col-xs-12">
 		<%= f.input :number_of_previous_treatments %>
 	  <%= f.input :place_of_previous_treatments, include_blank: false,
-	    collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("models.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
+	    collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("enum.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
 	  <%= f.input :marital_status,include_blank: false,
-	    collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("models.first_contact_file.marital_status.#{key}"), key]} %>
+	    collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("enum.first_contact_file.marital_status.#{key}"), key]} %>
 	  <%= f.input :number_sons %>
 	  <%= f.input :number_daughters %>
 	  <%= f.input :ethnic_group, include_blank: false,
-	    collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("models.first_contact_file.ethnic_groups.#{key}"), key]} %>
+	    collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("enum.first_contact_file.ethnic_groups.#{key}"), key]} %>
 	  <%= f.input :religion %>
 	  <%= f.input :family_structure, include_blank: false,
-	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("models.first_contact_file.family_structure.#{key}"), value]} %>
+	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("enum.first_contact_file.family_structure.#{key}"), value]} %>
 		<%= f.input :job, include_blank: false,
-			collection: FirstContactFile.jobs.keys.map { |key, value| [ t("models.first_contact_file.job.#{key}"), value]} %>
+			collection: FirstContactFile.jobs.keys.map { |key, value| [ t("enum.first_contact_file.job.#{key}"), value]} %>
 	</div>
 </div>
 
