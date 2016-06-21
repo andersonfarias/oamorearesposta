@@ -52,6 +52,15 @@ pt-BR:
         destroy:
           name: Deletar Cadastro
           successful_msg: Usuário deletado com sucesso
+    departments:
+      name: Departamentos
+      actions:
+        index:
+          name: Listagem
+        new:
+          name: Cadastro
+        show:
+          name: Visualizar
     registrations:
       name: Usuários
       actions:

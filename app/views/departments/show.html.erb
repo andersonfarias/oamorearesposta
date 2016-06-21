@@ -1,0 +1,8 @@
+
+<%= link_to "Editar", edit_department_path(@department), class: "btn btn-primary pull-right" %>
+<%= link_to "Voltar", departments_path(current_user), class: "btn btn-primary pull-right" %>
+<div class="x_content">
+  <p>Nome: <%= @department.id %></p>
+  <p>Nome: <%= @department.name %></p>
+  <p>Descrição: <%= @department.description %></p>
+</div>

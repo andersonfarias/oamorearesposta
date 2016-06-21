@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 	end
 
 	resources :users
+	resources :departments
 	resources :states
 	resources :first_contact_files
 end
