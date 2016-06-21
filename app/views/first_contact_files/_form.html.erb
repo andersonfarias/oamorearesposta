@@ -18,56 +18,57 @@
 	    collection: FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("models.first_contact_file.how_person_knew_about_the_organizations.#{key}"), key]} %>
 	  <%= f.input :beneficiary_and_contact_source_relationship,include_blank: false,
 	    collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("models.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
+		<%= f.input :is_new_partner, as: :radio_buttons %>
 	</div>
+
 	<div class="col-md-6 col-xs-12">
-		<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :w_radioboxes %>
 		<%= f.input :number_of_previous_treatments %>
 	  <%= f.input :place_of_previous_treatments, include_blank: false,
 	    collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("models.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
 	  <%= f.input :marital_status,include_blank: false,
-	    collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("models.first_contact_file.marital_statuses.#{key}"), key]} %>
+	    collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("models.first_contact_file.marital_status.#{key}"), key]} %>
 	  <%= f.input :number_sons %>
 	  <%= f.input :number_daughters %>
 	  <%= f.input :ethnic_group, include_blank: false,
 	    collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("models.first_contact_file.ethnic_groups.#{key}"), key]} %>
 	  <%= f.input :religion %>
 	  <%= f.input :family_structure, include_blank: false,
-	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("models.first_contact_file.family_structures.#{key}"), value]} %>
+	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("models.first_contact_file.family_structure.#{key}"), value]} %>
+		<%= f.input :job, include_blank: false,
+			collection: FirstContactFile.jobs.keys.map { |key, value| [ t("models.first_contact_file.job.#{key}"), value]} %>
 	</div>
 </div>
+
 <div class="row">
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :scolarity,
-				collection: FirstContactFile.scolarities.keys.map { |key, value| [ t("models.first_contact_file.scolaritiess.#{key}"), value]},
-				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
-			<%= f.input :job,
-				collection: FirstContactFile.jobs.keys.map { |key, value| [ t("models.first_contact_file.jobs.#{key}"), value]},
-				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+			<%= f.input :education_levels,
+				collection: FirstContactFile.education_levels.options,
+				as: :check_boxes %>
 			<%= f.input :answer,
-				collection: FirstContactFile.answers.keys.map { |key, value| [ t("models.first_contact_file.answers.#{key}"), value]},
-				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+				collection: FirstContactFile.answer.options,
+				as: :check_boxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :petitions,
-				collection: FirstContactFile.petitions.keys.map { |key, value| [ t("models.first_contact_file.petitions.#{key}"), value]},
-				as: :check_boxes, include_black: false, wrapper: :w_checkboxes %>
+				collection: FirstContactFile.petitions.options,
+				as: :check_boxes %>
 			<%= f.input :results,
-				collection: FirstContactFile.results.keys.map { |key, value| [ t("models.first_contact_file.results.#{key}"), value]},
-				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+				collection: FirstContactFile.results.options,
+				as: :check_boxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :first_contact_conditions,
-				collection: FirstContactFile.first_contact_conditions.keys.map { |key, value| [ t("models.first_contact_file.first_contact_conditions.#{key}"), value]},
-				as: :check_boxes, include_blank: false, wrapper: :w_checkboxes %>
+				collection: FirstContactFile.first_contact_conditions.options,
+				as: :check_boxes %>
 	</div>
 
 	<div class="row">
 		<div class="col-md-12 col-xs-12">
 			<p>
 				<%= f.label :user %>
-				<%= current_user.name %>
+				<%= current_user.person.first_name %>
 			</p>
 			<%= f.input :comments, as: :text, input_html: { :style=> "resize: vertical;", :rows => 4, } %>
 		</div>

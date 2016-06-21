@@ -126,7 +126,7 @@ pt-BR:
         member_of_his_own_family: É Membro de sua própria família
         institution_organization_group: É uma instituição, organização ou grupo
         other_relationship: Outro
-      place_of_previous_treatmentss:
+      place_of_previous_treatments:
         on_here: Aqui
         in_another_place: Em outro lugar
       marital_status:
@@ -142,14 +142,23 @@ pt-BR:
         white: Branco
         black: Negro
         brown: Moreno
-      family_structures:
+      family_structure:
         lives_are: Vive só
         live_with_children: Vive só com filhos/as
         nuclear_family: Familia nuclear
         family_without_formal_marriage: Familia sem matrimônio formal
         mate_without_matrimonio: Companheiro/a sem matrimônio
         other_family_structure: Outro
-      scolarity:
+      job:
+        formal_work: Trabalho formal
+        informal_work: Trabalho informal
+        auto_entrepreneur: Auto empreendedor
+        student: Estudante
+        never_was_employed: Nunca foi empregado
+        other_job: Outro
+  enumerize:
+    first_contact_file:
+      education_levels:
         fundamental_I: Fundamental I (6 anos)
         fundamental_II: Fundamental II (6+3)
         high_School: Ensino Médio (6+3+3)
@@ -170,14 +179,7 @@ pt-BR:
         auto_entrepreneur: Auto empreendedor
         student: Estudante
         never_was_employed: Nunca foi empregado
-        other: Outro
-      jobs:
-        formal_work: Trabalho formal
-        informal_work: Trabalho informal
-        auto_entrepreneur: Auto empreendedor
-        student: Estudante
-        never_was_employed: Nunca foi empregado
-        other_job: Outro
+        other_scolarity: Outro
       first_contact_conditions:
         alcoholic_substances: Substâncias/álcool
         antisocial_behavior: Condutas antisociais
@@ -243,7 +245,7 @@ pt-BR:
         medicines: Medicamentos
         bureaucratic: Burocrático
         other_petition: Outro
-      answers:
+      answer:
         mark_meeting: Marca-se um encontro
         gives_an_information: Dá-se uma Informação
         answer_board_guidance: Conselho-Orientação

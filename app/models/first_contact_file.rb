@@ -1,8 +1,13 @@
 class FirstContactFile < ActiveRecord::Base
+  extend Enumerize
+
+
   belongs_to :beneficiary
   belongs_to :user
-  has_one :contact_source, :class_name => "Person"
-  has_one :support, :class_name => "Person"
+  belongs_to :contact_source, :class_name => "Person"
+  belongs_to :support, :class_name => "Person"
+
+
 
   enum hour: [
     :'0801_1100', :'1101_1400', :'1401_1700',
@@ -62,19 +67,24 @@ class FirstContactFile < ActiveRecord::Base
     :other_family_structure
   ]
 
-  enum scolarity: [
-    :fundamental_I, :fundamental_II, :high_School, :technician, :university,
-    :post_graduate, :can_write, :know_read, :know_add, :know_subtract,
-    :know_multiply, :know__divisions, :know_average, :know_percentages,
-    :using_Computer, :other_scolarity
-  ]
-
   enum job: [
     :formal_work, :informal_work, :auto_entrepreneur,
     :student, :never_was_employed, :other_job
   ]
 
-  enum first_contact_conditions: [
+  serialize :education_levels, Array
+  enumerize :education_levels, in: [
+    :fundamental_I, :fundamental_II, :high_School,
+    :technician, :university,
+    :post_graduate, :can_write, :know_read,
+    :know_add, :know_subtract,
+    :know_multiply, :know__divisions,
+    :know_average, :know_percentages,
+    :using_Computer, :other_scolarity
+  ], multiple: true
+
+  serialize :first_contact_conditions, Array
+  enumerize :first_contact_conditions, in: [
     :alcoholic_substances, :antisocial_behavior, :psychiatric,
     :behavioural, :relational, :family_violence,
     :violation_of_adults, :sex_work, :cool, :pregnancy_birth,
@@ -85,15 +95,17 @@ class FirstContactFile < ActiveRecord::Base
     :organization_and_planning, :hiv_aids, :ets,
     :trafficking_trafficking_in_persons,
     :jobless, :tuberculosis, :family_problems,
-    :posttraumatic_stress_disorder, :illiteracy,
-    :sexual_problems, :rape_of_children, :other_facilities,
+    :posttraumatic_stress_disorder, :sexual_problems,
+    :rape_of_children, :other_facilities,
     :intravenous_drug_use, :hepatitis, :change_of_residence,
-    :migration_immigration, :stigma_of_sexual_identity
-  ]
+    :migration_immigration, :stigma_of_sexual_identity, :illiteracy
+  ], multiple: true
 
-  enum petitions: [
-    :petition_economic_support, :care_delivery, :routing, :conversation,
-    :board_guidance, :legal_computer_services, :loan_guarantees,
+  serialize :petitions, Array
+  enumerize :petitions, in: [
+    :petition_economic_support, :care_delivery, :routing,
+    :conversation, :board_guidance,
+    :legal_computer_services, :loan_guarantees,
     :training_training, :creche, :medical_hospitalization,
     :information, :Community_integration, :hospitalization,
     :petition_organization_and_planning, :forced_hospitalization,
@@ -101,17 +113,19 @@ class FirstContactFile < ActiveRecord::Base
     :family_visit, :healthcare_exams, :feeding,
     :clean_clothes_hygiene_services, :occupation_work,
     :medicines, :bureaucratic, :other_petition
-  ]
+  ], multiple: true
 
-  enum answer: [
+  serialize :answer, Array
+  enumerize :answer, in: [
     :mark_meeting, :gives_an_information, :answer_board_guidance,
     :routing_answer, :listening_immediate_crisis_management,
     :indicatios_and_suggestions, :accompaniment, :medical_care,
     :hygiene_clean_clothes, :welcome_day_or_night, :other_answer
-  ]
+  ], multiple: true
 
-  enum results: [
+  serialize :results, Array
+  enumerize :results, in: [
     :came_to_meet, :followed_contact, :interrupted_contact,
     :start_a_program, :activities_inclusion, :other_result
-  ]
+  ], multiple: true
 end

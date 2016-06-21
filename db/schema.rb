@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619220701) do
+ActiveRecord::Schema.define(version: 20160621010131) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160619220701) do
     t.integer  "ethnic_group"
     t.string   "religion"
     t.integer  "family_structure"
-    t.integer  "scolarity"
+    t.string   "education_levels"
     t.integer  "job"
     t.string   "first_contact_conditions"
     t.string   "petitions"
