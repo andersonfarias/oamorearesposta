@@ -24,6 +24,13 @@ pt-BR:
       new?: 'Você não tem permissão para cadastrar usuários!'
       create?: 'Você não tem permissão para cadastrar usuários!'
   controllers:
+    actions:
+      create:
+        success: O %{model} foi criado com sucesso.
+      update:
+        success: O %{model} foi atualizado com sucesso.
+      destroy:
+        success: O %{model} foi deletado com sucesso.
     users:
       name: Usuários
       actions:
@@ -45,9 +52,11 @@ pt-BR:
         index:
           name: Listagem
         new:
-          name: Cadastro
+          name: Cadastrar Novo
         show:
           name: Visualizar
+        edit:
+          name: Editar
     registrations:
       name: Usuários
       actions:
