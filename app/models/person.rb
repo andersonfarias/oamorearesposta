@@ -7,6 +7,4 @@ class Person < ActiveRecord::Base
 		:female,
 		:transgender
 	]
-
-	validates_presence_of :first_name
 end

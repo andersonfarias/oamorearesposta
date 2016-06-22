@@ -1,13 +1,12 @@
 class FirstContactFile < ActiveRecord::Base
   extend Enumerize
 
-
   belongs_to :beneficiary
   belongs_to :user
   belongs_to :contact_source, :class_name => "Person"
   belongs_to :support, :class_name => "Person"
 
-
+  accepts_nested_attributes_for :contact_source
 
   enum hour: [
     :'0801_1100', :'1101_1400', :'1401_1700',

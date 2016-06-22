@@ -1,0 +1,19 @@
+<div class="col-md-6 col-xs-12">
+    <%= f.input :first_name %>
+</div>
+<div class="col-md-6 col-xs-12">
+  <%= f.input :last_name %>
+</div>
+<div class="col-md-6 col-xs-12">
+  <%= f.input :birthdate, class: 'first_contact_file', as: :datepicker %>
+</div>
+<div class="col-md-6 col-xs-12">
+  <%= f.input :age %>
+</div>
+<div class="col-md-4 col-xs-12">
+  <%= f.input :gender, include_blank: false,
+    collection: Person.genders.keys.map { |key| [ t("enum.person.gender.#{key}"), key]} %>
+</div>
+<div class="col-md-8 col-xs-12">
+    <%= f.input :email %>
+</div>

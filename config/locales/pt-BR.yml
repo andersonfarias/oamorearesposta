@@ -57,6 +57,17 @@ pt-BR:
           name: Visualizar
         edit:
           name: Editar
+    people:
+      name: Pessoas
+      actions:
+        index:
+          name: Listagem
+        new:
+          name: Cadastrar Novo
+        show:
+          name: Visualizar
+        edit:
+          name: Editar
     registrations:
       name: Usuários
       actions:

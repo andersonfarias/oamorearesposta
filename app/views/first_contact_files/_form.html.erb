@@ -1,7 +1,6 @@
 <%= simple_form_for(@first_contact_file ) do |f| %>
 	<%= f.error_notification %>
 	<br />
-
 <div class="row">
 	<div class="col-md-6 col-xs-12">
 		<%= f.input :date, class: 'first_contact_file', as: :datepicker %>
@@ -40,28 +39,47 @@
 </div>
 
 <div class="row">
+	<div class="col-md-6 col-xs-12">
+		<label><%= FirstContactFile.human_attribute_name('contact_source') %></label>
+		<%= f.simple_fields_for :contact_source do |cs| %>
+			<%= cs.input :first_name %>
+			<%= cs.input :age %>
+			<%= cs.input :gender, include_blank: false,
+				collection: Person.genders.keys.map { |key| [ t("enum.person.gender.#{key}"), key]} %>
+				<%= cs.simple_fields_for :phones do |ph| %>
+					<%= ph.input :number %>
+				<% end %>
+		<% end %>
+	</div>
+	<div class="col-md-6 col-xs-12">
+		<label><%= FirstContactFile.human_attribute_name('support') %></label>
+		<%= f.simple_fields_for :support do |s| %>
+		    <%= s.input :first_name %>
+				<%= s.simple_fields_for :phones do |ph| %>
+					<%= ph.input :number %>
+				<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :education_levels,
-				collection: FirstContactFile.education_levels.options,
-				as: :check_boxes %>
+				collection: FirstContactFile.education_levels.options, as: :check_boxes %>
 			<%= f.input :answer,
-				collection: FirstContactFile.answer.options,
-				as: :check_boxes %>
+				collection: FirstContactFile.answer.options, as: :check_boxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :petitions,
-				collection: FirstContactFile.petitions.options,
-				as: :check_boxes %>
+				collection: FirstContactFile.petitions.options, as: :check_boxes %>
 			<%= f.input :results,
-				collection: FirstContactFile.results.options,
-				as: :check_boxes %>
+				collection: FirstContactFile.results.options, as: :check_boxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :first_contact_conditions,
-				collection: FirstContactFile.first_contact_conditions.options,
-				as: :check_boxes %>
+				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes %>
 	</div>
 
 	<div class="row">
@@ -74,5 +92,12 @@
 		</div>
 	</div>
 
+</div>
+
+<div class="ln_solid"></div>
+<div class="form-group">
+	<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+		<%= f.button :submit, class: "btn btn-primary" %>
+	</div>
 </div>
 <% end %>

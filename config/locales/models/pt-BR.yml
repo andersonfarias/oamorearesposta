@@ -12,10 +12,17 @@ pt-BR:
         other: Pessoas
     attributes:
       person:
-          first_name: Nome
+        first_name: Nome
+        last_name: Sobrenome
+        gender: Sexo
+        age: Idade
+        birthdate: Data do Aniversário
+        email: Email
       department:
         name: Nome
         description: Descrição
+      phone:
+        number: Número
       first_contact_file:
         date: Data do primeiro contato
         hour: Hora do primeiro contato
@@ -60,6 +67,11 @@ pt-BR:
         educator: Educador(a)
         coordinator: Coordenador(a)
         user: Estagiário(a)
+    person:
+      gender:
+        female: Feminino
+        male: Masculino
+        transgender: Transgenero
     first_contact_file:
       hour:
         '0801_1100': Das 08:01 às 11:00
