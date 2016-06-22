@@ -32,9 +32,9 @@
 	    collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("enum.first_contact_file.ethnic_groups.#{key}"), key]} %>
 	  <%= f.input :religion %>
 	  <%= f.input :family_structure, include_blank: false,
-	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("enum.first_contact_file.family_structure.#{key}"), value]} %>
+	    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("enum.first_contact_file.family_structure.#{key}"), key]} %>
 		<%= f.input :job, include_blank: false,
-			collection: FirstContactFile.jobs.keys.map { |key, value| [ t("enum.first_contact_file.job.#{key}"), value]} %>
+			collection: FirstContactFile.jobs.keys.map { |key, value| [ t("enum.first_contact_file.job.#{key}"), key]} %>
 	</div>
 </div>
 
@@ -74,21 +74,21 @@
 <div class="row">
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :education_levels,
-				collection: FirstContactFile.education_levels.options, as: :check_boxes %>
+				collection: FirstContactFile.education_levels.options, as: :check_boxes, include_blank: false %>
 			<%= f.input :answer,
-				collection: FirstContactFile.answer.options, as: :check_boxes %>
+				collection: FirstContactFile.answer.options, as: :check_boxes, include_blank: false %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :petitions,
-				collection: FirstContactFile.petitions.options, as: :check_boxes %>
+				collection: FirstContactFile.petitions.options, as: :check_boxes, include_blank: false %>
 			<%= f.input :results,
-				collection: FirstContactFile.results.options, as: :check_boxes %>
+				collection: FirstContactFile.results.options, as: :check_boxes, include_blank: false %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
 			<%= f.input :first_contact_conditions,
-				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes %>
+				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes, include_blank: false %>
 	</div>
 
 	<div class="row">

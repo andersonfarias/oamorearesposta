@@ -1,0 +1,29 @@
+<p>Data: <%=                     @first_contact_file.date %></p>
+<p>Hora: <%=                     @first_contact_file.hour %></p>
+<p>Intituição: <%=               @first_contact_file.institution %></p>
+<p>Contexto Operacional: <%=     @first_contact_file.operational_context_first_contact %></p>
+<p>Como estabeleceu contato: <%= @first_contact_file.how_established_first_contact %></p>
+<p>Tipo do Contato: <%=          @first_contact_file.contact_source_type %></p>
+<p>Como soube: <%=               @first_contact_file.how_person_knew_about_the_organization %></p>
+<p>Relação: <%=                  @first_contact_file.beneficiary_and_contact_source_relationship %></p>
+<p>Novo: <%=                     @first_contact_file.is_new_partner %></p>
+<p>N Tratamento: <%=             @first_contact_file.number_of_previous_treatments %></p>
+<p>Lugar Tratamento: <%=         @first_contact_file.place_of_previous_treatments %></p>
+<p>Estado familiar: <%=          @first_contact_file.marital_status %></p>
+<p>N Filhor: <%=                 @first_contact_file.number_sons %></p>
+<p>N Filhas: <%=                 @first_contact_file.number_daughters %></p>
+<p>Grupo Etinico: <%=            @first_contact_file.ethnic_group %></p>
+<p>Religiao: <%=                 @first_contact_file.religion %></p>
+<p>Estrutura Familiar: <%=       @first_contact_file.family_structure %></p>
+<p>Emprego: <%=                  @first_contact_file.job %></p>
+
+<p>Beneficiario: <%=             @first_contact_file.beneficiary.person.first_name %></p>
+<p>Departamento: <%=             @first_contact_file.beneficiary.department.name %></p>
+<p>Telefone Fonte: <%=           @first_contact_file.contact_source.phones.first.number %></p>
+<p>Nome Suporte: <%=             @first_contact_file.support.first_name %></p>
+
+<p>Resultados: <%=               @first_contact_file.results.values %></p>
+<p>Nivel Educação: <%=           @first_contact_file.education_levels.values %></p>
+<p>Respostas: <%=                @first_contact_file.answer.values %></p>
+<p>Petições: <%=                 @first_contact_file.petitions.values %></p>
+<p>Primeiro Contato: <%=         @first_contact_file.first_contact_conditions.values %></p>
