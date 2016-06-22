@@ -22,7 +22,7 @@ pt-BR:
         name: Nome
         description: Descrição
       phone:
-        number: Número
+        number: Número de Telefone
       first_contact_file:
         date: Data do primeiro contato
         hour: Hora do primeiro contato
