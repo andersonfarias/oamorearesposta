@@ -7,6 +7,7 @@ class FirstContactFile < ActiveRecord::Base
   belongs_to :support, :class_name => "Person"
 
   accepts_nested_attributes_for :contact_source
+  accepts_nested_attributes_for :support
 
   enum hour: [
     :'0801_1100', :'1101_1400', :'1401_1700',

@@ -5,12 +5,11 @@ class FirstContactFilesController < ApplicationController
   end
 
   def new
-    @contact_source = Person.new
-    # @support = Person.new
     @first_contact_file = FirstContactFile.new(
       is_new_partner: true,
-      # support: @support,
-      contact_source: @contact_source)
+      support: Person.new(phones: [Phone.new]),
+      date: Date.today.strftime('%d/%m/%Y'),
+      contact_source: Person.new(phones: [Phone.new]))
   end
 
   def create

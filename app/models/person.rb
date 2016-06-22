@@ -2,6 +2,10 @@ class Person < ActiveRecord::Base
 	has_one :address
 	has_many :phones
 
+	validates_presence_of :first_name
+
+	accepts_nested_attributes_for :phones
+
 	enum gender: [
 		:male,
 		:female,
