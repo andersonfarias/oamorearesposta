@@ -23,6 +23,8 @@ pt-BR:
         description: Descrição
       phone:
         number: Número de Telefone
+      beneficiary:
+        department: Departamento
       first_contact_file:
         date: Data do primeiro contato
         hour: Hora do primeiro contato
@@ -48,7 +50,7 @@ pt-BR:
         answer: Respostas
         results: Resultados
         comments: Comentários
-        beneficiary: Beneficiário
+        beneficiary: Parceiro
         user: Operador
         contact_source: Nome da fonte da informação
         support: Pessoa de apoio

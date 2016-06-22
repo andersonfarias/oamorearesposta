@@ -39,6 +39,15 @@
 </div>
 
 <div class="row">
+		<div class="col-md-12 col-xs-12">
+			<label><%= FirstContactFile.human_attribute_name('beneficiary') %></label>
+			<%= f.simple_fields_for :beneficiary do |b| %>
+				<%= render 'beneficiaries/form', f: b %>
+			<% end %>
+		</div>
+</div>
+
+<div class="row">
 	<div class="col-md-6 col-xs-12">
 		<label><%= FirstContactFile.human_attribute_name('contact_source') %></label>
 		<%= f.simple_fields_for :contact_source do |cs| %>
@@ -60,12 +69,6 @@
 				<% end %>
 		<% end %>
 	</div>
-</div>
-
-<div class="row">
-		<div class="col-md-12 col-xs-12">
-			<label><%= FirstContactFile.human_attribute_name('beneficiary') %></label>
-		</div>
 </div>
 
 <div class="row">

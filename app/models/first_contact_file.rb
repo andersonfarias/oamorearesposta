@@ -6,6 +6,7 @@ class FirstContactFile < ActiveRecord::Base
   belongs_to :contact_source, :class_name => "Person"
   belongs_to :support, :class_name => "Person"
 
+  accepts_nested_attributes_for :beneficiary
   accepts_nested_attributes_for :contact_source
   accepts_nested_attributes_for :support
 
