@@ -16,6 +16,7 @@ gem 'pundit'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
 gem 'enumerize', '~> 1.1', '>= 1.1.1'
+gem 'bourbon'
 
 group :development do
   gem 'better_errors'
