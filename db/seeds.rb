@@ -10,4 +10,4 @@
 CreateAdminService.new.call
 
 # Create all Brazilian States and Cities
-CreateStatesAndCities.new.call
+CreateStatesAndCitiesService.new.call

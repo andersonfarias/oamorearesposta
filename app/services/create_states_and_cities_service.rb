@@ -1,4 +1,4 @@
-class CreateStatesAndCities
+class CreateStatesAndCitiesService
   def call
     if State.all.count != 27 || City.all.count != 5564
       City.destroy_all
