@@ -1,11 +1,11 @@
 class CreatePeople < ActiveRecord::Migration
-  def change
-    create_table :people do |t|
-      t.string :name
-      t.date :age
-      t.integer :gender
+	def change
+		create_table :people do |t|
+			t.string :name
+			t.integer :age
+			t.integer :gender
 
-      t.timestamps null: false
-    end
-  end
+			t.timestamps null: false
+		end
+	end
 end

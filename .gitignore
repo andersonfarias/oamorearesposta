@@ -12,6 +12,7 @@
 
 Gemfile.lock
 public/*
+
 # bundler state
 /.bundle
 /vendor/bundle/
