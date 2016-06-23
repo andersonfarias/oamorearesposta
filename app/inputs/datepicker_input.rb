@@ -18,6 +18,6 @@ class DatepickerInput < SimpleForm::Inputs::Base
   end
 
   def icon_table
-    "<i class='glyphicon glyphicon-th'></i>".html_safe
+    "<span class='glyphicon glyphicon-calendar'></span>".html_safe
   end
 end

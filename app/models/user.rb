@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	end
 
 	belongs_to :person
+	has_many :first_contact_files
 	validates_associated :person
 	validates_presence_of :person
 

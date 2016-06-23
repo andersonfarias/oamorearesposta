@@ -73,7 +73,7 @@ SimpleForm.setup do |config|
 		end
 	end
 
-	config.wrappers :w_select, :tag => 'div', :class => 'col-md-9 col-sm-9 col-xs-12', :error_class => 'error' do |b|
+	config.wrappers :w_number, :tag => 'div', html: {style: 'padding: 0px;'}, :class => 'form-group', :error_class => 'error' do |b|
 		b.use :html5
 		b.use :placeholder
 		b.optional :maxlength
@@ -81,44 +81,14 @@ SimpleForm.setup do |config|
 		b.optional :min_max
 		b.optional :readonly
 
-		b.wrapper :tag => 'select', :tabindex => '-1', :'aria-hidden' => 'true',  :class => 'select2_single form-control select2-hidden-accessible' do |bb|
-			:collection
+		b.wrapper :tag => 'label', html: {style: 'padding: 0px;'} do |bb|
+			bb.use :label_text
 		end
+		b.use :input, min: 0, style: 'height: 35px;'
+		# b.wrapper :tag => 'div', :class => 'col-md-12 col-sm-12 col-xs-12' do | ba |
+		#
+		# end
 	end
-
-	config.wrappers :w_radioboxes, tag: 'div', error_class: 'has-error' do |b|
-		b.use :html5
-		b.use :placeholder
-		b.optional :maxlength
-		b.optional :pattern
-		b.optional :min_max
-		b.optional :readonly
-
-		b.wrapper :tag => 'label', :class => 'control-label col-md-12 col-sm-12 col-xs-12' do |bb|
-			bb.use :label_text
-		end
-
-		b.wrapper :tag => 'div' do | ba |
-			ba.use :input, class: 'flat'
-		end
-  end
-
-	config.wrappers :w_checkboxes, tag: 'div', error_class: 'has-error' do |b|
-		b.use :html5
-		b.use :placeholder
-		b.optional :maxlength
-		b.optional :pattern
-		b.optional :min_max
-		b.optional :readonly
-
-		b.wrapper :tag => 'label', :class => 'control-label col-md-12 col-sm-12 col-xs-12' do |bb|
-			bb.use :label_text
-		end
-
-		b.wrapper :tag => 'div' do | ba |
-			ba.use :input, class: 'flat'
-		end
-  end
 
 	# The default wrapper to be used by the FormBuilder.
 	config.default_wrapper = :default
