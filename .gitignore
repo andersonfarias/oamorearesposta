@@ -10,10 +10,6 @@
 # http://github.com/RailsApps/rails-composer/issues
 #----------------------------------------------------------------------------
 
--Gemfile.lock
-+# For Heroku Deployment
-+# Gemfile.lock
-
 # bundler state
 /.bundle
 /vendor/bundle/
