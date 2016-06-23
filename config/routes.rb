@@ -23,8 +23,6 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :departments
-	resources :people
 	resources :beneficiaries
-	resources :states
 	resources :first_contact_files
 end
