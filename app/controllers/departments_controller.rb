@@ -11,31 +11,31 @@ class DepartmentsController < ApplicationController
   end
 
   def new
-    @department = Department.new
+    authorize @department = Department.new
   end
 
   def create
-    authorize current_user
     @department = Department.new(department_params)
-    if @department.save
+    if authorize @department.save
       redirect_to @department,
         notice: t('controllers.actions.create.success', model: Department.model_name.human(count: 1))
     end
   end
 
   def edit
+    authorize @department
   end
 
   def update
-    authorize current_user
-    if @department.update(department_params)
+    if authorize @department.update(department_params)
       redirect_to @department,
         notice: t('controllers.actions.update.success', model: Department.model_name.human(count: 1))
     end
   end
 
   def destroy
-    if @department.destroy
+    authorize @department
+    if authorize @department.destroy
       redirect_to departments_path,
         notice: t('controllers.actions.destroy.success', model: Department.model_name.human(count: 1))
     end
