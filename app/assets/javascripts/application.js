@@ -31,6 +31,8 @@
 //= require js/maps/jquery-jvectormap-us-aea-en.js
 
 //= require js/bootstrap.min.js
+//= require bootstrap3-typeahead.min
+//= require bootstrap3-autocomplete-input.min
 
 //= require js/gauge/gauge.min.js
 

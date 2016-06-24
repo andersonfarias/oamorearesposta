@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 		get '/users/password/edit' => 'users/passwords#edit'
 	end
 
+	resources :cities do
+	  get :autocomplete_city_name, :on => :collection
+	end
+
 	resources :users
 	resources :departments
 	resources :beneficiaries

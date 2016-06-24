@@ -61,6 +61,7 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3_autocomplete_input (0.1.9)
     bourbon (4.2.7)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -258,6 +259,7 @@ DEPENDENCIES
   administrate
   better_errors
   bootstrap-sass
+  bootstrap3_autocomplete_input
   bourbon
   byebug
   capybara
