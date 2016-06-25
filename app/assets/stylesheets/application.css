@@ -14,7 +14,7 @@
  *= require_self
  *
  *= require css/bootstrap.min.css
- *= require fonts/css/font-awesome.min.css
+ *= require font-awesome
  *= require css/animate.min.css
  *= require css/custom.css
  *= require css/maps/jquery-jvectormap-2.0.3.css
@@ -25,5 +25,4 @@
  *= require css/ion.rangeSlider.skinFlat.css
  *= require libs/bootstrap-datetimepicker.min.css
  *= require libs/awesome-bootstrap-checkbox.css
- *
  */
