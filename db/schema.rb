@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621010131) do
+ActiveRecord::Schema.define(version: 20160624162517) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
-    t.string   "neighboor"
+    t.string   "neighborhood"
     t.string   "number"
     t.string   "cep"
     t.text     "complement"
     t.integer  "city_id"
     t.integer  "person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"

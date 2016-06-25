@@ -1,5 +1,4 @@
-
-  <%= f.association :department, include_blank: false %>
-  <%= f.simple_fields_for :person do |pe| %>
-    <%= render 'people/form', f: pe %>
-  <% end %>
+<%= f.association :department, include_blank: false %>
+<%= f.simple_fields_for :person do |pe| %>
+  <%= render 'people/form', f: pe %>
+<% end %>

@@ -23,6 +23,13 @@ pt-BR:
       destroy?: 'Você não tem permissão para deletar usuários!'
       new?: 'Você não tem permissão para cadastrar usuários!'
       create?: 'Você não tem permissão para cadastrar usuários!'
+    department_policy:
+      index??: 'Você não tem permissão para visualizar departamentos!'
+      show?: 'Você não termissão para visualizar o departamento!'
+      update?: 'Você não tem permissão para editar departamento!'
+      destroy?: 'Você não tem permissão para deletar departamento!'
+      new?: 'Você não tem permissão para cadastrar um departamento!'
+      create?: 'Você não tem permissão para cadastrar um departamento!'
   controllers:
     actions:
       create:
