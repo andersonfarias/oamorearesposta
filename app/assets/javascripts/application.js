@@ -73,6 +73,9 @@ $(document).ready(function() {
         showMeridian: 1,
         minView: 2
     });
+
   $('input.date-input').inputmask("99/99/9999")
+  $('input.phone-number').inputmask("(99)99999-9999")
+
   $('input[type="number"]').numericInput()
 });
