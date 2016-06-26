@@ -17,7 +17,7 @@
 	    collection: FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("enum.first_contact_file.how_person_knew_about_the_organizations.#{key}"), key]} %>
 	  <%= f.input :beneficiary_and_contact_source_relationship,include_blank: false,
 	    collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
-		<%= f.input :is_new_partner, as: :radio_buttons %>
+		<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
 	</div>
 
 	<div class="col-md-6 col-xs-12">
