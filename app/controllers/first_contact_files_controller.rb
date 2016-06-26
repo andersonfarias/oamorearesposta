@@ -18,8 +18,9 @@ class FirstContactFilesController < ApplicationController
   end
 
   def create
-    if @first_contact_file = current_user.first_contact_files.create(form_params)
-      redirect_to @first_contact_file,
+    @file = current_user.first_contact_files.new(form_params)
+    if @file.save
+      redirect_to @file,
         notice: t('controllers.actions.create.success', model: FirstContactFile.model_name.human(count: 1))
     end
   end
@@ -48,8 +49,16 @@ class FirstContactFilesController < ApplicationController
           :birthdate,
           :age,
           :gender,
-          :email
-        ]
+          :email,
+          :address_attributes => [
+            :street,
+            :neighborhood,
+            :number,
+            :cep,
+            :complement,
+            :city_id
+          ]
+        ],
       ],
       :contact_source_attributes => [
         :first_name,
