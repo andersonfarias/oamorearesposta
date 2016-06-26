@@ -16,7 +16,8 @@ class DepartmentsController < ApplicationController
 
   def create
     @department = Department.new(department_params)
-    if authorize @department.save
+    authorize @department
+    if @department.save
       redirect_to @department,
         notice: t('controllers.actions.create.success', model: Department.model_name.human(count: 1))
     end
@@ -27,7 +28,8 @@ class DepartmentsController < ApplicationController
   end
 
   def update
-    if authorize @department.update(department_params)
+    authorize @department
+    if @department.update(department_params)
       redirect_to @department,
         notice: t('controllers.actions.update.success', model: Department.model_name.human(count: 1))
     end
@@ -35,7 +37,7 @@ class DepartmentsController < ApplicationController
 
   def destroy
     authorize @department
-    if authorize @department.destroy
+    if @department.destroy
       redirect_to departments_path,
         notice: t('controllers.actions.destroy.success', model: Department.model_name.human(count: 1))
     end

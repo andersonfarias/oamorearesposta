@@ -3,6 +3,7 @@ class City < ActiveRecord::Base
   has_many :addresses
 
   validates_presence_of :state
+  validates_associated :state
 
   def name_with_state_acronym
     "#{name}/#{state.acronym}"

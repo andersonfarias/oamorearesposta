@@ -1,14 +1,26 @@
 class FirstContactFile < ActiveRecord::Base
   extend Enumerize
 
-  belongs_to :beneficiary
+  belongs_to :beneficiary, dependent: :destroy
   belongs_to :user
-  belongs_to :contact_source, :class_name => "Person"
-  belongs_to :support, :class_name => "Person"
+  belongs_to :contact_source, :class_name => "Person", dependent: :destroy
+  belongs_to :support, :class_name => "Person", dependent: :destroy
 
   accepts_nested_attributes_for :beneficiary
   accepts_nested_attributes_for :contact_source
   accepts_nested_attributes_for :support
+
+  validates_associated :beneficiary, :user
+  validates :number_daughters, :number_of_previous_treatments,
+    :number_sons, numericality: { only_integer: true }
+  validates_presence_of :hour, :operational_context_first_contact,
+    :how_established_first_contact, :how_person_knew_about_the_organization,
+    :beneficiary_and_contact_source_relationship, :place_of_previous_treatments,
+    :marital_status, :ethnic_group, :family_structure, :job, :education_levels,
+    :first_contact_conditions, :petitions, :answer, :results, :contact_source,
+    :support, :beneficiary, :religion, :number_daughters, :number_sons,
+    :is_new_partner, :contact_source_type, :institution, :date,
+    :number_of_previous_treatments
 
   enum hour: [
     :'0801_1100', :'1101_1400', :'1401_1700',

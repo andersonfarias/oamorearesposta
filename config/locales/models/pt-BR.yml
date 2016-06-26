@@ -22,6 +22,8 @@ pt-BR:
       state:
         one: Estado
         other: Estados
+      first_contact_file:
+        one: Ficha de Primeiro Contato
     attributes:
       person:
         first_name: Nome
@@ -37,6 +39,7 @@ pt-BR:
         number: Número de Telefone
       beneficiary:
         department: Departamento
+        first_contact_file: Ficha de Primeiro Contato
       address:
         street: Rua/Av.
         neighborhood: Bairro
@@ -58,9 +61,9 @@ pt-BR:
         how_established_first_contact: Como se estabeleceu o primeiro contato
         contact_source_type: Tipologia da fonte
         how_person_knew_about_the_organization: Como a fonte soube da Organização
-        beneficiary_and_contact_source_relationship: Relação entre a fonte e o &quot;Parceiro&quot;
+        beneficiary_and_contact_source_relationship: Relação entre a fonte e o 'Parceiro'
         is_new_partner: É um novo parceiro
-        number_of_previous_treatments: Precedentes tratam. por drogas (número)
+        number_of_previous_treatments: Precedentes tratam. por drogas
         place_of_previous_treatments: Lugar de precedentes tratam.
         marital_status: Estado familiar
         number_sons: Número de filhos
