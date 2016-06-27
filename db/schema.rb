@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 20160624162517) do
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
-    t.integer  "age"
+    t.integer  "age",        default: 0
     t.integer  "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "email"
     t.string   "last_name"
     t.date     "birthdate"
