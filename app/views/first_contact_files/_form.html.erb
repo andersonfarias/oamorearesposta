@@ -73,22 +73,22 @@
 
 <div class="row">
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :education_levels,
-				collection: FirstContactFile.education_levels.options, as: :check_boxes, include_blank: false %>
-			<%= f.input :answer,
-				collection: FirstContactFile.answer.options, as: :check_boxes, include_blank: false %>
+			<%= f.input :education_levels, include_hidden: false,
+				collection: FirstContactFile.education_levels.options, as: :check_boxes %>
+			<%= f.input :answer, include_hidden: false,
+				collection: FirstContactFile.answer.options, as: :check_boxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :petitions,
-				collection: FirstContactFile.petitions.options, as: :check_boxes, include_blank: false %>
-			<%= f.input :results,
-				collection: FirstContactFile.results.options, as: :check_boxes, include_blank: false %>
+			<%= f.input :petitions, include_hidden: false,
+				collection: FirstContactFile.petitions.options, as: :check_boxes %>
+			<%= f.input :results, include_hidden: false,
+				collection: FirstContactFile.results.options, as: :check_boxes %>
 	</div>
 
 	<div class="col-md-4 col-xs-12">
-			<%= f.input :first_contact_conditions,
-				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes, include_blank: false %>
+			<%= f.input :first_contact_conditions, include_hidden: false,
+				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes %>
 	</div>
 
 	<div class="row">
