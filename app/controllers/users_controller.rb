@@ -34,8 +34,10 @@ class UsersController < ApplicationController
 		authorize current_user
 
 		@user = User.new_with_session( sign_up_params || {}, session )
-		@user.person = Person.create( params[ :user ][ :person ].permit( "first_name" ) )
+		user_name = params[ :user ][ :person ].permit( :first_name )
+		@user.person = Person.create(  first_name: user_name[:first_name], email: sign_up_params[:email] )
 		@user.save
+		p @user.errors
 		yield user if block_given?
 		if @user.persisted?
 			if @user.active_for_authentication?
