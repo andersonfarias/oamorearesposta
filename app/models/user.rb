@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 	has_many :first_contact_files
 	validates_associated :person
 	validates_presence_of :person
+	validate :email_presence
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
@@ -22,5 +23,11 @@ class User < ActiveRecord::Base
 
 	def inactive_message
 		is_active ? super : "Usuário desativado."
+	end
+
+	def email_presence
+	  if person.email.nil? or person.email.blank?
+	  	errors[:email] << "Email deve ser informado."
+	  end
 	end
 end
