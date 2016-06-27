@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 		self.role ||= :user
 	end
 
-	belongs_to :person
+	belongs_to :person, dependent: :destroy
 	has_many :first_contact_files, inverse_of: :user
 	validates_associated :person
 	validates_presence_of :person

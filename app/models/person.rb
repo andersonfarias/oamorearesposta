@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
-	has_one :address
-	has_many :phones
+	has_one :address, inverse_of: :person, dependent: :destroy
+	has_many :phones, inverse_of: :person, dependent: :destroy
 
 	accepts_nested_attributes_for :phones
 	accepts_nested_attributes_for :address
