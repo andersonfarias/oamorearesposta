@@ -12,16 +12,18 @@ class FirstContactFilesController < ApplicationController
     @first_contact_file = FirstContactFile.new(
       is_new_partner: true,
       beneficiary: Beneficiary.new(person: Person.new(address: Address.new())),
-      support: Person.new(phones: [Phone.new]),
+      support: Person.new(phones: [Phone.new], age: 0),
       date: Date.today.strftime('%d/%m/%Y'),
-      contact_source: Person.new(phones: [Phone.new]))
+      contact_source: Person.new(phones: [Phone.new], age: 0))
   end
 
   def create
-    @file = current_user.first_contact_files.new(form_params)
-    if @file.save
-      redirect_to @file,
+    @first_contact_file = current_user.first_contact_files.new(form_params)
+    if @first_contact_file.save
+      redirect_to @first_contact_file,
         notice: t('controllers.actions.create.success', model: FirstContactFile.model_name.human(count: 1))
+    else
+      render 'new', notice: @first_contact_file.errors
     end
   end
 
