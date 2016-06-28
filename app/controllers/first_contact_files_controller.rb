@@ -1,11 +1,12 @@
 class FirstContactFilesController < ApplicationController
 
+  before_action :set_file, only: [:show, :edit, :update]
+
   def index
     @first_contact_files = FirstContactFile.all.paginate( :page => params[ :page ] )
   end
 
   def show
-    @first_contact_file = FirstContactFile.find(params[:id])
   end
 
   def new
@@ -18,7 +19,7 @@ class FirstContactFilesController < ApplicationController
   end
 
   def edit
-    @first_contact_file = FirstContactFile.find(params[:id])
+    @first_contact_file.date = @first_contact_file.date.strftime('%d/%m/%Y')
   end
 
   def create
@@ -31,7 +32,21 @@ class FirstContactFilesController < ApplicationController
     end
   end
 
+  def update
+    if @first_contact_file.update(form_params)
+      redirect_to @first_contact_file,
+        notice: t('controllers.actions.update.success', model: FirstContactFile.model_name.human(count: 1))
+    else
+      render 'edit', notice: @first_contact_file.errors
+    end
+
+  end
+
   private
+  def set_file
+    @first_contact_file = FirstContactFile.find(params[:id])
+  end
+
   def form_params
     params.require(:first_contact_file).permit(
       :date, :hour, :institution, :operational_context_first_contact,

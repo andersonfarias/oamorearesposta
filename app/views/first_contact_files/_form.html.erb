@@ -5,7 +5,7 @@
 	<div class="col-md-5 col-xs-12 col-md-offset-1">
 		<div class="row">
 			<div class="col-md-6 col-xs-12">
-				<%= f.input :date, class: 'first_contact_file', as: :datepicker %>
+				<%= f.input :date, as: :datepicker %>
 			</div>
 			<div class="col-md-6 col-xs-12">
 				<%= f.input :hour, include_blank: false,
@@ -55,9 +55,6 @@
 			    collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
 			</div>
 		</div>
-
-
-
 	</div>
 	<div class="col-md-5 col-xs-12">
 		<%= f.simple_fields_for :beneficiary do |b| %>
@@ -66,14 +63,15 @@
 		<div class="row">
 			<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
 		</div>
-
 	</div>
 </div>
+
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <hr style="border: 1px solid #e6e9ed">
   </div>
 </div>
+
 <div class="row">
 	<div class="col-md-5 col-xs-12 col-md-offset-1">
 		<%= f.input :number_of_previous_treatments, input_html: {style: "width: 30%"} %>
@@ -138,19 +136,16 @@
 			<%= f.input :answer, include_hidden: false,
 				collection: FirstContactFile.answer.options, as: :check_boxes %>
 	</div>
-
-	<div class="col-md-4 col-xs-12">
+	<div class="col-md-3 col-xs-12">
 			<%= f.input :petitions, include_hidden: false,
 				collection: FirstContactFile.petitions.options, as: :check_boxes %>
 			<%= f.input :results, include_hidden: false,
 				collection: FirstContactFile.results.options, as: :check_boxes %>
 	</div>
-
 	<div class="col-md-3 col-xs-12">
 			<%= f.input :first_contact_conditions, include_hidden: false,
 				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes %>
 	</div>
-
 	<div class="row">
 		<div class="col-md-12 col-xs-12">
 			<p>
@@ -160,7 +155,6 @@
 			<%= f.input :comments, as: :text, input_html: { :style=> "resize: vertical;", :rows => 4 } %>
 		</div>
 	</div>
-
 </div>
 
 <div class="ln_solid"></div>

@@ -101,15 +101,23 @@ pt-BR:
     first_contact_files:
       name: Folha de Primeiro Contato
       actions:
-        new:
-          name: Nova Folha
         index:
           name: Listagem
+        new:
+          name: Cadastrar Novo
+        show:
+          name: Visualizar
+        edit:
+          name: Editar
   actions:
     back: Voltar
     edit: Editar
     create: Criar
     new: Novo
+    show: Visualizar
+    delete: Remover
+  "true": Sim
+  "false": Não
   date:
     abbr_day_names:
     - Dom
