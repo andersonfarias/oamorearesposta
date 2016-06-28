@@ -1,4 +1,5 @@
 <div class="row">
+  <h4 class="col-md-offset-2"><%= Beneficiary.model_name.human(count: 1) %></h4>
   <div class="col-md-4 col-md-offset-2">
     <%= f.association :department, include_blank: false %>
   </div>
