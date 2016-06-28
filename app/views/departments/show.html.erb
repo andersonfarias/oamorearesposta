@@ -1,7 +1,10 @@
-<%= link_to "Editar", edit_department_path(@department), class: "btn btn-primary pull-right" %>
-<%= link_to "Voltar", departments_path(current_user), class: "btn btn-primary pull-right" %>
+<%= link_to t("actions.edit"), edit_department_path(@department), class: "btn btn-primary pull-right" %>
+<%= link_to t("actions.back"), departments_path(current_user), class: "btn btn-primary pull-right" %>
 <div class="x_content">
-  <p>Nome: <%= @department.id %></p>
-  <p>Nome: <%= @department.name %></p>
-  <p>Descrição: <%= @department.description %></p>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-md-offset-3">
+      <p> <label>Nome: </label> <%= @department.name %></p>
+      <p> <label>Descrição: </label> <%= @department.description %></p>
+    </div>
+  </div>
 </div>

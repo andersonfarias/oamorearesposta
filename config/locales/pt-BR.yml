@@ -105,6 +105,11 @@ pt-BR:
           name: Nova Folha
         index:
           name: Listagem
+  actions:
+    back: Voltar
+    edit: Editar
+    create: Criar
+    new: Novo
   date:
     abbr_day_names:
     - Dom

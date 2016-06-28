@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :departments
-	resources :beneficiaries
+	get 'beneficiaries/new' => 'first_contact_files#new'
+	resources :beneficiaries, except: [:new, :destroy]
 	resources :first_contact_files
 end

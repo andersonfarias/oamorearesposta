@@ -8,4 +8,8 @@ class City < ActiveRecord::Base
   def name_with_state_acronym
     "#{name}/#{state.acronym}"
   end
+
+  def to_s
+    "#{name}/#{state.acronym}"
+  end
 end
