@@ -17,6 +17,10 @@ class FirstContactFilesController < ApplicationController
       contact_source: Person.new(phones: [Phone.new], age: 0))
   end
 
+  def edit
+    @first_contact_file = FirstContactFile.find(params[:id])
+  end
+
   def create
     @first_contact_file = current_user.first_contact_files.new(form_params)
     if @first_contact_file.save
