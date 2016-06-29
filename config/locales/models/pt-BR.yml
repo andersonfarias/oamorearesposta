@@ -5,8 +5,8 @@ pt-BR:
         one: Usuário
         other: Usuários
       department:
-        one: Departamento
-        other: Departamentos
+        one: Núcleo
+        other: Núcleos
       beneficiary:
         one: Beneficiário
         other: Beneficiários
@@ -24,6 +24,7 @@ pt-BR:
         other: Estados
       first_contact_file:
         one: Ficha de Primeiro Contato
+        other: Fichas de Primeiro Contato
     attributes:
       person:
         first_name: Nome
@@ -38,7 +39,7 @@ pt-BR:
       phone:
         number: Número de Telefone
       beneficiary:
-        department: Departamento
+        department: Núcleo
         first_contact_file: Ficha de Primeiro Contato
       address:
         street: Rua/Av.
@@ -82,6 +83,8 @@ pt-BR:
         user: Operador
         contact_source: Nome da fonte da informação
         support: Pessoa de apoio
+        beneficiary_first_name: Nome Beneficiário
+        beneficiary_last_name: Sobrenome Beneficiário
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

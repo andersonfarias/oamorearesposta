@@ -41,9 +41,9 @@
             			<li>
             				<a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
               				<ul class="nav child_menu" style="display: none">
-												<li><a href="/departments">Departamentos</a></li>
-                				<li><a href="/beneficiaries">Beneficiários</a></li>
-												<li><a href="/first_contact_files">Ficha Primeiro Contato</a></li>
+												<li><a href="/departments"><%=Department.model_name.human(count: 2)%></a></li>
+                				<li><a href="/beneficiaries"><%=Beneficiary.model_name.human(count: 2)%></a></li>
+												<li><a href="/first_contact_files"><%=FirstContactFile.model_name.human(count: 2)%></a></li>
                 				<li><a href="#">Comunidades</a></li>
                 				<li><a href="#">Atividades</a></li>
               				</ul>
