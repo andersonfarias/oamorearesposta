@@ -33,7 +33,7 @@ select.select {
  padding: 6px 20px 6px 12px;
 }
  select.select {
-   background: url(down_arrow.png) no-repeat right 5px center;
+   background: url("/assets/down_arrow.png") no-repeat right 5px center;
  	 background-size: 10px 10px;
 }
 
