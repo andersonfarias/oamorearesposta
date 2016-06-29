@@ -36,3 +36,13 @@ select.select {
    background: url(down_arrow.png) no-repeat right 5px center;
  	 background-size: 10px 10px;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
