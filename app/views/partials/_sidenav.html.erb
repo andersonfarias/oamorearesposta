@@ -30,7 +30,7 @@
       		<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         		<div class="menu_section">
         			<% if not current_user.nil? %>
-                <h3><%= t( "models.user.roles.#{current_user.role}" ) %></h3>
+                <h3><%= t( "enum.user.roles.#{current_user.role}" ) %></h3>
               <% end %>
           			<ul class="nav side-menu">
             			<li>
@@ -63,8 +63,8 @@
 		              				<ul class="nav child_menu" style="display: none">
 		                				<li>
 		                					<%= link_to users_path do %>
-	                                            <i class="fa fa-users"></i>Usuários
-	                                        <% end %>
+	                                <i class="fa fa-users"></i>Usuários
+	                            <% end %>
 		                				</li>
 		              				</ul>
 		            			</li>
