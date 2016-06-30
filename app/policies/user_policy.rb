@@ -7,28 +7,32 @@ class UserPolicy
 	end
 
 	def index?
-		@current_user.admin?
+		@current_user.is_active and @current_user.admin?
 	end
 
 	def show?
-		@current_user.admin? or @current_user == @user
+		@current_user.is_active and ( @current_user.admin? or @current_user == @user )
 	end
 
 	def update?
-		@current_user.admin? or @current_user == @user
+		@current_user.is_active and ( @current_user.admin? or @current_user == @user )
 	end
 
 	def destroy?
 		return false if @current_user == @user
-		@current_user.admin?
+		@current_user.is_active and @current_user.admin?
 	end
 
 	def new?
-		@current_user.admin?
+		@current_user.is_active and @current_user.admin?
 	end
 
 	def create?
-		@current_user.admin?
+		@current_user.is_active and @current_user.admin?
+	end
+
+	def change_role?
+		@current_user.is_active and @current_user.admin?
 	end
 
 end
