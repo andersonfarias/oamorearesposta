@@ -12,7 +12,7 @@
 	            			<% if current_user.person.nil? or current_user.person.first_name.nil? %>
 		              			<span><%= current_user.email %></span>
 		            		<% else %>
-		              			<span><%= current_user.person.first_name %></span>	
+		              			<span><%= current_user.person.first_name %></span>
 		            		<% end %>
 	            		<% end %>
           				<span class=" fa fa-angle-down"></span>
