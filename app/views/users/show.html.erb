@@ -1,10 +1,16 @@
-<div class="x_title">
-    <h2>Show</h2>
-    <!-- <%= link_to "Adicionar Usuário", new_registration_path(current_user), class: "btn btn-primary pull-right" %> -->
-    <div class="clearfix"></div>
-</div>
-<div class="x_content">
-  <h3>User</h3>
-  <p>Name: <%= @user.name if @user.name %></p>
-  <p>Email: <%= @user.email if @user.email %></p>
-</div>
+<form class="form-horizontal form-label-left">
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.person.first_name' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @user.person.first_name %></span>
+	</div>
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.user.email' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @user.email %></span>
+	</div>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+			<%= link_to t( "actions.back" ), users_path(current_user), class: "btn btn-primary" %>
+		</div>
+	</div>
+</form>

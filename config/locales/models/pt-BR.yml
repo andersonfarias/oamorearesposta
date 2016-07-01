@@ -29,7 +29,7 @@ pt-BR:
       person:
         first_name: Nome
         last_name: Sobrenome
-        gender: Sexo
+        gender: Gênero
         age: Idade
         birthdate: Data do Aniversário
         email: Email
@@ -81,7 +81,7 @@ pt-BR:
         comments: Comentários
         beneficiary: Parceiro
         user: Operador
-        contact_source: Nome da fonte da informação
+        contact_source: Fonte da informação
         support: Pessoa de apoio
         beneficiary_first_name: Nome Beneficiário
         beneficiary_last_name: Sobrenome Beneficiário

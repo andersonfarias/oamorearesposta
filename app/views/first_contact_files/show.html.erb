@@ -1,31 +1,38 @@
-<%= link_to "#{t('actions.edit')}", edit_first_contact_file_path(@first_contact_file), method: :get, class: "btn btn-primary pull-right" %>
-<%= link_to t("actions.back"), first_contact_files_path(current_user), class: "btn btn-primary pull-right" %>
-<p>Data: <%=                     @first_contact_file.date.strftime('%d/%m/%Y') %></p>
-<p>Hora: <%=                     t("enum.first_contact_file.hour.#{@first_contact_file.hour}") %></p>
-<p>Intituição: <%=               @first_contact_file.institution %></p>
-<p>Contexto Operacional: <%=     t("enum.first_contact_file.operational_context_first_contacts.#{@first_contact_file.operational_context_first_contact}") %></p>
-<p>Como estabeleceu contato: <%= t("enum.first_contact_file.how_established_first_contacts.#{@first_contact_file.how_established_first_contact}") %></p>
-<p>Tipo do Contato: <%=          t("enum.first_contact_file.contact_source_types.#{@first_contact_file.contact_source_type}") %></p>
-<p>Como soube: <%=               t("enum.first_contact_file.how_person_knew_about_the_organizations.#{@first_contact_file.how_person_knew_about_the_organization}") %></p>
-<p>Relação: <%=                  t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{@first_contact_file.beneficiary_and_contact_source_relationship}") %></p>
-<p>Novo: <%=                     t @first_contact_file.is_new_partner %></p>
-<p>N Tratamento: <%=             @first_contact_file.number_of_previous_treatments %></p>
-<p>Lugar Tratamento: <%=         t("enum.first_contact_file.place_of_previous_treatments.#{@first_contact_file.place_of_previous_treatments}") %></p>
-<p>Estado familiar: <%=          t("enum.first_contact_file.marital_status.#{@first_contact_file.marital_status}") %></p>
-<p>N Filhor: <%=                 @first_contact_file.number_sons %></p>
-<p>N Filhas: <%=                 @first_contact_file.number_daughters %></p>
-<p>Grupo Etinico: <%=            t("enum.first_contact_file.ethnic_groups.#{@first_contact_file.ethnic_group}") %></p>
-<p>Religiao: <%=                 @first_contact_file.religion %></p>
-<p>Estrutura Familiar: <%=       t("enum.first_contact_file.family_structure.#{@first_contact_file.family_structure}") %></p>
-<p>Emprego: <%=                  t("enum.first_contact_file.job.#{@first_contact_file.job}") %></p>
+<form class="form-horizontal form-label-left">
+	<p>Data: <%=                     @first_contact_file.date.strftime('%d/%m/%Y') %></p>
+	<p>Hora: <%=                     t("enum.first_contact_file.hour.#{@first_contact_file.hour}") %></p>
+	<p>Intituição: <%=               @first_contact_file.institution %></p>
+	<p>Contexto Operacional: <%=     t("enum.first_contact_file.operational_context_first_contacts.#{@first_contact_file.operational_context_first_contact}") %></p>
+	<p>Como estabeleceu contato: <%= t("enum.first_contact_file.how_established_first_contacts.#{@first_contact_file.how_established_first_contact}") %></p>
+	<p>Tipo do Contato: <%=          t("enum.first_contact_file.contact_source_types.#{@first_contact_file.contact_source_type}") %></p>
+	<p>Como soube: <%=               t("enum.first_contact_file.how_person_knew_about_the_organizations.#{@first_contact_file.how_person_knew_about_the_organization}") %></p>
+	<p>Relação: <%=                  t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{@first_contact_file.beneficiary_and_contact_source_relationship}") %></p>
+	<p>Novo: <%=                     t @first_contact_file.is_new_partner %></p>
+	<p>N Tratamento: <%=             @first_contact_file.number_of_previous_treatments %></p>
+	<p>Lugar Tratamento: <%=         t("enum.first_contact_file.place_of_previous_treatments.#{@first_contact_file.place_of_previous_treatments}") %></p>
+	<p>Estado familiar: <%=          t("enum.first_contact_file.marital_status.#{@first_contact_file.marital_status}") %></p>
+	<p>N Filhor: <%=                 @first_contact_file.number_sons %></p>
+	<p>N Filhas: <%=                 @first_contact_file.number_daughters %></p>
+	<p>Grupo Etinico: <%=            t("enum.first_contact_file.ethnic_groups.#{@first_contact_file.ethnic_group}") %></p>
+	<p>Religiao: <%=                 @first_contact_file.religion %></p>
+	<p>Estrutura Familiar: <%=       t("enum.first_contact_file.family_structure.#{@first_contact_file.family_structure}") %></p>
+	<p>Emprego: <%=                  t("enum.first_contact_file.job.#{@first_contact_file.job}") %></p>
 
-<p>Beneficiario: <%=             @first_contact_file.beneficiary.person.first_name %></p>
-<p>Departamento: <%=             @first_contact_file.beneficiary.department.name %></p>
-<p>Telefone Fonte: <%=           @first_contact_file.contact_source.phones.first.number %></p>
-<p>Nome Suporte: <%=             @first_contact_file.support.first_name %></p>
+	<p>Beneficiario: <%=             @first_contact_file.beneficiary.person.first_name %></p>
+	<p>Departamento: <%=             @first_contact_file.beneficiary.department.name %></p>
+	<p>Telefone Fonte: <%=           @first_contact_file.contact_source.phones.first.number %></p>
+	<p>Nome Suporte: <%=             @first_contact_file.support.first_name %></p>
 
-<p>Resultados: <%=               @first_contact_file.results.map { |e| e.text }.join(", ") %></p>
-<p>Nivel Educação: <%=           @first_contact_file.education_levels.map { |e| e.text }.join(", ") %></p>
-<p>Respostas: <%=                @first_contact_file.answer.map { |e| e.text }.join(", ") %></p>
-<p>Petições: <%=                 @first_contact_file.petitions.map { |e| e.text }.join(", ") %></p>
-<p>Primeiro Contato: <%=         @first_contact_file.first_contact_conditions.map { |e| e.text }.join(", ") %></p>
+	<p>Resultados: <%=               @first_contact_file.results.map { |e| e.text }.join(", ") %></p>
+	<p>Nivel Educação: <%=           @first_contact_file.education_levels.map { |e| e.text }.join(", ") %></p>
+	<p>Respostas: <%=                @first_contact_file.answer.map { |e| e.text }.join(", ") %></p>
+	<p>Petições: <%=                 @first_contact_file.petitions.map { |e| e.text }.join(", ") %></p>
+	<p>Primeiro Contato: <%=         @first_contact_file.first_contact_conditions.map { |e| e.text }.join(", ") %></p>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+			<%= link_to t( "actions.back" ), first_contact_files_path(current_user), class: "btn btn-primary" %>
+			<%= link_to "#{t('actions.edit')}", edit_first_contact_file_path(@first_contact_file), method: :get, class: "btn btn-success" %>
+		</div>
+	</div>
+</form>

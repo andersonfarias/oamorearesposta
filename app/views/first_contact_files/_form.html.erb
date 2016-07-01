@@ -1,166 +1,179 @@
-<%= simple_form_for(@first_contact_file ) do |f| %>
+<%= simple_form_for( @first_contact_file ) do |f| %>
 	<%= f.error_notification %>
 	<br />
-<div class="row">
-	<div class="col-md-5 col-xs-12 col-md-offset-1">
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :date, as: :datepicker %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :hour, include_blank: false,
-			    collection: FirstContactFile.hours.keys.map { |key| [ t("enum.first_contact_file.hour.#{key}"), key]} %>
-			</div>
-		</div>
-	  <%= f.input :institution %>
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :operational_context_first_contact, include_blank: false,
-			    collection: FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("enum.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :how_established_first_contact,include_blank: false,
-			    collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("enum.first_contact_file.how_established_first_contacts.#{key}"), key]} %>
-			</div>
-		</div>
-		<label><%= FirstContactFile.human_attribute_name('contact_source') %></label>
-		<div class="row">
-			<%= f.simple_fields_for :contact_source do |cs| %>
-				<div class="col-md-9 col-xs-12">
-					<%= cs.input :first_name %>
+
+	<div class="row">
+		<div class="col-md-6 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>Dados Gerais</h2>
+					<div class="clearfix"></div>
 				</div>
-				<div class="col-md-3 col-xs-12">
-					<%= cs.input :age %>
+				<div class="x_content">
+					<br />
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<%= f.input :date, as: :datepicker %>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<%= f.input :hour, include_blank: false, collection: FirstContactFile.hours.keys.map { |key| [ t("enum.first_contact_file.hour.#{key}"), key]} %>
+						</div>
+					</div>
+					<%= f.input :institution %>
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<%= f.input :operational_context_first_contact, include_blank: false, collection: FirstContactFile.operational_context_first_contacts.keys.map { |key| [ t("enum.first_contact_file.operational_context_first_contacts.#{key}"), key]} %>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<%= f.input :how_established_first_contact,include_blank: false, collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("enum.first_contact_file.how_established_first_contacts.#{key}"), key]} %>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-6 col-xs-12">
-					<%= cs.input :gender, include_blank: false,
-						collection: Person.genders.keys.map { |key| [ t("enum.person.gender.#{key}"), key]} %>
+			</div>
+			<div class="x_panel">
+				<div class="x_title">
+					<h2><%= FirstContactFile.human_attribute_name('contact_source') %></h2>
+					<div class="clearfix"></div>
 				</div>
-				<div class="col-md-6 col-xs-12">
-					<%= cs.simple_fields_for :phones do |ph| %>
-						<%= ph.input :number, input_html: { class: 'phone-number'} %>
+				<div class="x_content">
+					<br />
+					<%= f.simple_fields_for :contact_source do |cs| %>
+						<div class="col-md-9 col-xs-12">
+							<%= cs.input :first_name %>
+						</div>
+						<div class="col-md-3 col-xs-12">
+							<%= cs.input :age %>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<%= cs.input :gender, include_blank: false, collection: Person.genders.keys.map { |key| [ t("enum.person.gender.#{key}"), key]} %>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<%= cs.simple_fields_for :phones do |ph| %>
+								<%= ph.input :number, input_html: { class: 'phone-number' } %>
+							<% end %>
+						</div>
 					<% end %>
+					<div class="col-md-12 col-xs-12">
+						<%= f.input :contact_source_type,include_blank: false, collection: FirstContactFile.contact_source_types.keys.map { |key| [ t("enum.first_contact_file.contact_source_types.#{key}"), key]} %>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<%= f.input :how_person_knew_about_the_organization,include_blank: false, collection: FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("enum.first_contact_file.how_person_knew_about_the_organizations.#{key}"), key]} %>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<%= f.input :beneficiary_and_contact_source_relationship,include_blank: false, collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
+					</div>
 				</div>
-			<% end %>
-		</div>
-		<%= f.input :contact_source_type,include_blank: false,
-	    collection: FirstContactFile.contact_source_types.keys.map { |key| [ t("enum.first_contact_file.contact_source_types.#{key}"), key]} %>
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :how_person_knew_about_the_organization,include_blank: false,
-			    collection: FirstContactFile.how_person_knew_about_the_organizations.keys.map { |key| [ t("enum.first_contact_file.how_person_knew_about_the_organizations.#{key}"), key]} %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :beneficiary_and_contact_source_relationship,include_blank: false,
-			    collection: FirstContactFile.beneficiary_and_contact_source_relationships.keys.map { |key| [ t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{key}"), key]} %>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-5 col-xs-12">
-		<%= f.simple_fields_for :beneficiary do |b| %>
-			<%= render 'beneficiaries/first_contact_form', f: b %>
-		<% end %>
-		<div class="row">
-			<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <hr style="border: 1px solid #e6e9ed">
-  </div>
-</div>
-
-<div class="row">
-	<div class="col-md-5 col-xs-12 col-md-offset-1">
-		<%= f.input :number_of_previous_treatments, input_html: {style: "width: 30%"} %>
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :place_of_previous_treatments, include_blank: false,
-			    collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("enum.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :marital_status,include_blank: false,
-					collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("enum.first_contact_file.marital_status.#{key}"), key]} %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :number_sons %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :number_daughters %>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-5">
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :ethnic_group, include_blank: false,
-			    collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("enum.first_contact_file.ethnic_groups.#{key}"), key]} %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :religion %>
-			</div>
-		</div>
-		<%= f.simple_fields_for :support do |s| %>
-			<div class="row">
-				<div class="col-md-7 col-xs-12">
-					<%= s.input :first_name, label: FirstContactFile.human_attribute_name('support') %>
+		<div class="col-md-6 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>Beneficiário</h2>
+					<div class="clearfix"></div>
 				</div>
-				<div class="col-md-5 col-xs-12">
-					<%= s.simple_fields_for :phones do |ph| %>
-						<%= ph.input :number, input_html: { class: 'phone-number'} %>
+				<div class="x_content">
+					<br />
+					<%= f.simple_fields_for :beneficiary do |b| %>
+						<%= render 'beneficiaries/first_contact_form', f: b %>
 					<% end %>
+					<div class="row">
+						<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
+					</div>
 				</div>
 			</div>
-		<% end %>
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :family_structure, include_blank: false,
-			    collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("enum.first_contact_file.family_structure.#{key}"), key]} %>
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<%= f.input :job, include_blank: false,
-					collection: FirstContactFile.jobs.keys.map { |key, value| [ t("enum.first_contact_file.job.#{key}"), key]} %>
-			</div>
 		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-4 col-xs-12 col-md-offset-1">
-			<%= f.input :education_levels, include_hidden: false,
-				collection: FirstContactFile.education_levels.options, as: :check_boxes %>
-			<%= f.input :answer, include_hidden: false,
-				collection: FirstContactFile.answer.options, as: :check_boxes %>
-	</div>
-	<div class="col-md-3 col-xs-12">
-			<%= f.input :petitions, include_hidden: false,
-				collection: FirstContactFile.petitions.options, as: :check_boxes %>
-			<%= f.input :results, include_hidden: false,
-				collection: FirstContactFile.results.options, as: :check_boxes %>
-	</div>
-	<div class="col-md-3 col-xs-12">
-			<%= f.input :first_contact_conditions, include_hidden: false,
-				collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes %>
 	</div>
 	<div class="row">
 		<div class="col-md-12 col-xs-12">
-			<p>
-				<%= f.label :user %>
-				<%= current_user.person.first_name %>
-			</p>
-			<%= f.input :comments, as: :text, input_html: { :style=> "resize: vertical;", :rows => 4 } %>
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>BBBB</h2>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					<br />
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<%= f.input :number_of_previous_treatments, input_html: {style: "width: 30%"} %>
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :place_of_previous_treatments, include_blank: false, collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("enum.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :marital_status,include_blank: false, collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("enum.first_contact_file.marital_status.#{key}"), key]} %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :number_sons %>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :number_daughters %>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :ethnic_group, include_blank: false, collection: FirstContactFile.ethnic_groups.keys.map { |key| [ t("enum.first_contact_file.ethnic_groups.#{key}"), key]} %>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :religion %>
+								</div>
+							</div>
+							<%= f.simple_fields_for :support do |s| %>
+								<div class="row">
+									<div class="col-md-7 col-xs-12">
+										<%= s.input :first_name, label: FirstContactFile.human_attribute_name('support') %>
+									</div>
+									<div class="col-md-5 col-xs-12">
+										<%= s.simple_fields_for :phones do |ph| %>
+											<%= ph.input :number, input_html: { class: 'phone-number'} %>
+										<% end %>
+									</div>
+								</div>
+							<% end %>
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :family_structure, include_blank: false, collection: FirstContactFile.family_structures.keys.map { |key, value| [ t("enum.first_contact_file.family_structure.#{key}"), key]} %>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<%= f.input :job, include_blank: false, collection: FirstContactFile.jobs.keys.map { |key, value| [ t("enum.first_contact_file.job.#{key}"), key]} %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-xs-12 col-md-offset-1">
+							<%= f.input :education_levels, include_hidden: false, collection: FirstContactFile.education_levels.options, as: :check_boxes %>
+							<%= f.input :answer, include_hidden: false, collection: FirstContactFile.answer.options, as: :check_boxes %>
+						</div>
+						<div class="col-md-3 col-xs-12">
+							<%= f.input :petitions, include_hidden: false, collection: FirstContactFile.petitions.options, as: :check_boxes %>
+							<%= f.input :results, include_hidden: false, collection: FirstContactFile.results.options, as: :check_boxes %>
+						</div>
+						<div class="col-md-3 col-xs-12">
+							<%= f.input :first_contact_conditions, include_hidden: false, collection: FirstContactFile.first_contact_conditions.options, as: :check_boxes %>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<p>
+									<%= f.label :user %>
+									<%= current_user.person.first_name %>
+								</p>
+								<%= f.input :comments, as: :text, input_html: { :style => "resize: vertical;", :rows => 4 } %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-
-<div class="ln_solid"></div>
-<div class="form-group">
-	<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
-		<%= f.button :submit, class: "btn btn-primary" %>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+			<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
+			<%= f.button :submit, class: "btn btn-success" %>
+		</div>
 	</div>
-</div>
 <% end %>

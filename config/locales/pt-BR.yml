@@ -53,8 +53,10 @@ pt-BR:
         destroy:
           name: Deletar Cadastro
           successful_msg: Usuário deletado com sucesso
+        show:
+          name: Visualizar
     departments:
-      name: Departamentos
+      name: Núcleos
       actions:
         index:
           name: Listagem
@@ -76,7 +78,7 @@ pt-BR:
         edit:
           name: Editar
     beneficiaries:
-      name: Beneficiarios
+      name: Beneficiários
       actions:
         index:
           name: Listagem
@@ -99,7 +101,7 @@ pt-BR:
         new:
           name: Cadastro
     first_contact_files:
-      name: Folha de Primeiro Contato
+      name: Ficha de Primeiro Contato
       actions:
         index:
           name: Listagem
@@ -114,6 +116,7 @@ pt-BR:
     edit: Editar
     create: Criar
     new: Novo
+    cancel: Cancelar
     show: Visualizar
     delete: Remover
     actions: Ações
