@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
 	authenticated :user do
 		root to: 'home#index', as: :authenticated_root
 	end
@@ -31,4 +30,5 @@ Rails.application.routes.draw do
 	get 'beneficiaries/new' => 'first_contact_files#new'
 	resources :beneficiaries, except: [:new, :destroy]
 	resources :first_contact_files
+  resources :comunities
 end

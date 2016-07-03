@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624162517) do
+ActiveRecord::Schema.define(version: 20160703202340) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -46,6 +46,26 @@ ActiveRecord::Schema.define(version: 20160624162517) do
   end
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+
+  create_table "citizens", force: :cascade do |t|
+    t.boolean  "leader"
+    t.string   "social_role"
+    t.integer  "person_id"
+    t.integer  "comunity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "citizens", ["comunity_id"], name: "index_citizens_on_comunity_id"
+  add_index "citizens", ["person_id"], name: "index_citizens_on_person_id"
+
+  create_table "comunities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "generators_theme"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -109,6 +129,16 @@ ActiveRecord::Schema.define(version: 20160624162517) do
   end
 
   add_index "phones", ["person_id"], name: "index_phones_on_person_id"
+
+  create_table "points", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "comunity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "points", ["comunity_id"], name: "index_points_on_comunity_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

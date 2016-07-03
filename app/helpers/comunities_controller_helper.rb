@@ -1,0 +1,2 @@
+module ComunitiesControllerHelper
+end
