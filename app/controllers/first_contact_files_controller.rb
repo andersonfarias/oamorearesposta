@@ -63,8 +63,10 @@ class FirstContactFilesController < ApplicationController
 			:results => [],
 			:first_contact_conditions => [],
 			:beneficiary_attributes => [
+				:id,
 				:department_id,
 				:person_attributes => [
+					:id,
 					:first_name,
 					:last_name,
 					:birthdate,
@@ -72,6 +74,7 @@ class FirstContactFilesController < ApplicationController
 					:gender,
 					:email,
 					:address_attributes => [
+						:id,
 						:street,
 						:neighborhood,
 						:number,
@@ -82,14 +85,16 @@ class FirstContactFilesController < ApplicationController
 				],
 			],
 			:contact_source_attributes => [
+				:id,
 				:first_name,
 				:age,
 				:gender,
-				[:phones_attributes => [:number]]
+				[:phones_attributes => [:id, :number]]
 			],
 			:support_attributes => [
+				:id,
 				:first_name,
-				[:phones_attributes => [:number]]
+				[:phones_attributes => [:id, :number]]
 		])
 	end
 
