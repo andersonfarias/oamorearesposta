@@ -6,7 +6,7 @@ class Beneficiary < ActiveRecord::Base
   accepts_nested_attributes_for :person
 
   validates_associated :person, :department
-  validates_presence_of :person, :department
+  validates_presence_of :person, :department, :first_contact_file
 
   def self.by_name_and_department params
     Beneficiary.joins(:department, :person)
