@@ -4,7 +4,8 @@ class DepartmentsController < ApplicationController
 	before_action :set_department, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@departments = Department.all.paginate( :page => params[ :page ] )
+		name = params[:department_name].to_s
+		@departments = Department.where("name LIKE '%#{name}%'").paginate( :page => params[ :page ] )
 	end
 
 	def show
