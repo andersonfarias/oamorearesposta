@@ -39,8 +39,12 @@
 				<td style="vertical-align: middle"><%= link_to b.person.full_name, b %></td>
 				<td style="vertical-align: middle"><%= link_to b.department.name, b.department %></td></td>
 				<td class="text-center">
-					<%= link_to "#{t('actions.show')}", beneficiary_path(b), class: "btn btn-primary" %>
-					<%= link_to "#{t('actions.edit')}", edit_beneficiary_path(b), method: :get, class: "btn btn-primary" %>
+					<%= link_to beneficiary_path(b) do %>
+            <i class="fa fa-search fa-lg"></i>
+          <% end %>
+					<%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get do %>
+            <i class="fa fa-pencil fa-lg"></i>
+          <% end %>
 				</td>
 			</tr>
 		<% end %>

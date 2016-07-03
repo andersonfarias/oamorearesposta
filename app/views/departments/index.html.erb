@@ -30,9 +30,15 @@
             <tr>
               <td style="vertical-align: middle"><%= link_to d.name, d %></td>
               <td class="col-md-4 col-xs-4 text-center">
-                  <%= link_to "#{t('actions.show')}", department_path(d), class: "btn btn-primary" %>
-                  <%= link_to "#{t('actions.edit')}", edit_department_path(d), class: "btn btn-primary" %>
-                  <%= link_to( "#{t('actions.delete')}", department_path( d ), :data => { :confirm => "Você tem certeza?" }, :method => :delete, :class => 'btn btn-danger' )%>
+                  <%= link_to department_path(d) do %>
+                    <i class="fa fa-search fa-lg"></i>
+                  <% end %>
+                  <%= link_to edit_department_path(d) do %>
+                    <i class="fa fa-pencil fa-lg"></i>
+                  <% end %>
+                  <%= link_to department_path( d ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
+                    <i class="fa fa-trash fa-lg"></i>
+                  <% end %>
               </td>
             </tr>
         <% end %>
