@@ -13,6 +13,12 @@ pt-BR:
       comunity:
         one: Comunidade
         other: Comunidades
+      point:
+        one: Localização
+        other: Localizações
+      citizen:
+        one: Cidação
+        other: Cidadões
       person:
         one: Pessoa
         other: Pessoas
@@ -61,6 +67,12 @@ pt-BR:
         name: Nome
         description: Descrição
         generators_theme: Temas Geradores
+      point:
+        longitude: Longitude
+        latitude: Latitude
+      citizen:
+        leader: Lider
+        social_role: Papel Social
       first_contact_file:
         date: Data do primeiro contato
         hour: Hora do primeiro contato
