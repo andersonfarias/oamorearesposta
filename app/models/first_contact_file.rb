@@ -1,7 +1,7 @@
 class FirstContactFile < ActiveRecord::Base
 	extend Enumerize
 
-	belongs_to :beneficiary, inverse_of: :first_contact_file, dependent: :destroy
+	belongs_to :beneficiary, inverse_of: :first_contact_file
 	belongs_to :user, inverse_of: :first_contact_files
 	belongs_to :contact_source, :class_name => "Person", dependent: :destroy
 	belongs_to :support, :class_name => "Person", dependent: :destroy
