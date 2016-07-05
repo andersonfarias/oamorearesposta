@@ -5,7 +5,7 @@ class DepartmentsController < ApplicationController
 
 	def index
 		@departments = Department
-			.where("name LIKE '%#{params[:department_name].to_s}%'")
+			.where("LOWER(name) LIKE LOWER('%#{params[:department_name].to_s}%')")
 			.paginate( :page => params[ :page ] )
 	end
 
