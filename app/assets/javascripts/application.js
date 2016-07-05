@@ -59,6 +59,10 @@
 
 //= require libs/jquery.numeric.js
 
+//= require libs/underscore.min.js
+
+//= require gmaps/google
+
 //= require_tree .
 
 $(document).ready(function() {

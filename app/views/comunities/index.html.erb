@@ -1,1 +1,51 @@
 <%= link_to "#{t('actions.new')} #{Comunity.model_name.human(count: 1)}", new_comunity_path(current_user), class: "btn btn-primary pull-right" %>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<% content_for :gmap_include do %>
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      provider: {
+        zoom:      12,
+        center:    new google.maps.LatLng(-5.077236803442222, -42.78968811035156),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+      },
+      internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @locais.to_json %>);
+      handler.bounds.extendWith(markers);
+      // handler.fitMapToBounds();
+    });
+
+    var map = handler.getMap();
+    var geocoder = new google.maps.Geocoder;
+    var infowindow = new google.maps.InfoWindow;
+
+    map.addListener('click', function(e) {
+      geocodeLatLng(geocoder, map, infowindow, e.latLng);
+    });
+
+    function geocodeLatLng(geocoder, map, infowindow, latlng) {
+      console.log(latlng);
+      geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            map.setZoom(11);
+            var marker = new google.maps.Marker({
+              position: latlng,
+              map: map
+            });
+            infowindow.setContent(results[1].formatted_address);
+            infowindow.open(map, marker);
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+    }
+  </script>
+<% end %>
