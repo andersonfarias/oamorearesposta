@@ -86,7 +86,9 @@
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label><%= t 'activerecord.attributes.phone.number' %>:</label>
-							
+							<div>
+								<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.contact_source.phones.first.number %></span>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-12 col-xs-12">
@@ -124,9 +126,7 @@
 				</div>
 				<div class="x_content">
 					<br />
-					
-
-
+					<%= render 'beneficiaries/show', beneficiary: @first_contact_file.beneficiary %>
 					<div class="row">
 						<div class="form-group">
 							<label><%= t 'activerecord.attributes.first_contact_file.is_new_partner' %>:</label>
@@ -252,14 +252,16 @@
 								<label><%= t 'activerecord.attributes.first_contact_file.education_levels' %>:</label>
 								<div>
 									<% @first_contact_file.education_levels.values.each do | i | %>
-										<span style="text-align: left" class="control-label col-sm-10"><%= t("activerecord.enumerize.first_contact_file.education_levels.#{i.downcase.tr(' ', '_')}") %></span>
+										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.education_levels.#{i.downcase.tr(' ', '_')}") %></span>
 									<% end %>
 								</div>
 							</div>
 							<div class="form-group">
 								<label><%= t 'activerecord.attributes.first_contact_file.answer' %>:</label>
 								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.answer %></span>
+									<% @first_contact_file.answer.values.each do | i | %>
+										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.answer.#{i.downcase.tr(' ', '_')}") %></span>
+									<% end %>
 								</div>
 							</div>
 						</div>
@@ -267,13 +269,17 @@
 							<div class="form-group">
 								<label><%= t 'activerecord.attributes.first_contact_file.petitions' %>:</label>
 								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.petitions %></span>
+									<% @first_contact_file.petitions.values.each do | i | %>
+										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.petitions.#{i.downcase.tr(' ', '_')}") %></span>
+									<% end %>
 								</div>
 							</div>
 							<div class="form-group">
 								<label><%= t 'activerecord.attributes.first_contact_file.results' %>:</label>
 								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.results %></span>
+									<% @first_contact_file.results.values.each do | i | %>
+										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.results.#{i.downcase.tr(' ', '_')}") %></span>
+									<% end %>
 								</div>
 							</div>
 						</div>
@@ -281,7 +287,9 @@
 							<div class="form-group">
 								<label><%= t 'activerecord.attributes.first_contact_file.first_contact_conditions' %>:</label>
 								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.first_contact_conditions %></span>
+									<% @first_contact_file.first_contact_conditions.values.each do | i | %>
+										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.first_contact_conditions.#{i.downcase.tr(' ', '_')}") %></span>
+									<% end %>
 								</div>
 							</div>
 						</div>

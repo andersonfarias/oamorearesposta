@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-md-5">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label><%= t 'activerecord.attributes.person.first_name' %>:</label>
+					<div>
+						<span style="text-align: left" class="control-label col-sm-10"><%= person.first_name %></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= t 'activerecord.attributes.person.last_name' %>:</label>
+			<div>
+				<span style="text-align: left" class="control-label col-sm-10"><%= person.last_name %></span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<div class="form-group">
+				<label><%= t 'activerecord.attributes.person.email' %>:</label>
+				<div>
+					<span style="text-align: left" class="control-label col-sm-10"><%= person.email %></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label><%= t 'activerecord.attributes.person.age' %>:</label>
+				<div>
+					<span style="text-align: left" class="control-label col-sm-10"><%= person.age %></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label><%= t 'activerecord.attributes.person.gender' %>:</label>
+				<div>
+					<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.person.gender.#{person.gender}") %></span>
+				</div>
+			</div>
+		</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= t 'activerecord.attributes.person.birthdate' %>:</label>
+			<div>
+				<span style="text-align: left" class="control-label col-sm-10"><%= person.birthdate %></span>
+			</div>
+		</div>
+	</div>
+</div>

@@ -203,9 +203,9 @@ pt-BR:
   enumerize:
     first_contact_file:
       education_levels:
-        fundamental_I: Fundamental I (6 anos)
-        fundamental_II: Fundamental II (6+3)
-        high_School: Ensino Médio (6+3+3)
+        fundamental_i: Fundamental I (6 anos)
+        fundamental_ii: Fundamental II (6+3)
+        high_school: Ensino Médio (6+3+3)
         technician: Técnico
         university: Diploma Universitario
         post_graduate: Pós Graduação
@@ -263,7 +263,7 @@ pt-BR:
         migration_immigration: Migração/Imigração
         stigma_of_sexual_identity: Estigma por identidade Sexual
       petitions:
-        petition_economic_support: Apoio Económico
+        petition_economic_support: Apoio Econômico
         care_delivery: Atenção ao Parto
         routing: Encaminhamento
         conversation: Conversa
