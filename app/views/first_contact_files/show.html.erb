@@ -1,5 +1,5 @@
-<form>
-	<div class="row" style="display: flex;">
+<form class="form-horizontal">
+	<div class="row">
 		<div class="col-md-6 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
@@ -7,45 +7,46 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<br />
+					<br/>
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.date' %>:</label>
-								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.date %></span>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.date' %>:</label>
+								<div class="col-xs-6">
+									<p class="form-control-static"><%= @first_contact_file.date %></p>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.hour' %>:</label>
-								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.hour.#{@first_contact_file.hour}") %></span>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.hour' %>:</label>
+								<div class="col-xs-12">
+									<p class="form-control-static"><%= t("enum.first_contact_file.hour.#{@first_contact_file.hour}") %></span>
 								</div>
 							</div>
 						</div>
+						<br/>
 					</div>
 					<div class="form-group">
-						<label><%= t 'activerecord.attributes.first_contact_file.institution' %>:</label>
-						<div>
-							<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.institution %></span>
+						<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.institution' %>:</label>
+						<div class="col-xs-12">
+							<p class="form-control-static"><%= @first_contact_file.institution %></p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.operational_context_first_contact' %>:</label>
-								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.operational_context_first_contacts.#{@first_contact_file.operational_context_first_contact}") %></span>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.operational_context_first_contact' %>:</label>
+								<div class="col-xs-12">
+									<p class="form-control-static"><%= t("enum.first_contact_file.operational_context_first_contacts.#{@first_contact_file.operational_context_first_contact}") %></p>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.how_established_first_contact' %>:</label>
-								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.how_established_first_contacts.#{@first_contact_file.how_established_first_contact}") %></span>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.how_established_first_contact' %>:</label>
+								<div class="col-xs-12">
+									<p class="form-control-static"><%= t("enum.first_contact_file.how_established_first_contacts.#{@first_contact_file.how_established_first_contact}") %></p>
 								</div>
 							</div>
 						</div>
@@ -58,60 +59,60 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<br />
+					<br/>
 					<div class="col-md-9 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.person.first_name' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.contact_source.first_name %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.first_name' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= @first_contact_file.contact_source.first_name %></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-3 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.person.age' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.contact_source.age %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.age' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= @first_contact_file.contact_source.age %></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.person.gender' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.person.gender.#{@first_contact_file.contact_source.gender}") %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.gender' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= t("enum.person.gender.#{@first_contact_file.contact_source.gender}") %></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.phone.number' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.contact_source.phones.first.number %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.phone.number' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= @first_contact_file.contact_source.phones.first.number %></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-12 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.first_contact_file.contact_source_type' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.contact_source_types.#{@first_contact_file.contact_source_type}") %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.contact_source_type' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= t("enum.first_contact_file.contact_source_types.#{@first_contact_file.contact_source_type}") %></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.first_contact_file.how_person_knew_about_the_organization' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.how_person_knew_about_the_organizations.#{@first_contact_file.how_person_knew_about_the_organization}") %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.how_person_knew_about_the_organization' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= t("enum.first_contact_file.how_person_knew_about_the_organizations.#{@first_contact_file.how_person_knew_about_the_organization}") %></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label><%= t 'activerecord.attributes.first_contact_file.beneficiary_and_contact_source_relationship' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{@first_contact_file.beneficiary_and_contact_source_relationship}") %></span>
+							<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.beneficiary_and_contact_source_relationship' %>:</label>
+							<div class="col-xs-12">
+								<p class="form-control-static"><%= t("enum.first_contact_file.beneficiary_and_contact_source_relationships.#{@first_contact_file.beneficiary_and_contact_source_relationship}") %></p>
 							</div>
 						</div>
 					</div>
@@ -125,13 +126,15 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<br />
+					<br/>
 					<%= render 'beneficiaries/show', beneficiary: @first_contact_file.beneficiary %>
 					<div class="row">
-						<div class="form-group">
-							<label><%= t 'activerecord.attributes.first_contact_file.is_new_partner' %>:</label>
-							<div>
-								<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.is_new_partner %></span>
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.is_new_partner' %>:</label>
+								<div class="col-xs-12">
+									<p class="form-control-static"><%= t @first_contact_file.is_new_partner %></p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -147,29 +150,29 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<br />
+					<br/>
 					<div class="row">
 						<div class="col-md-6 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.number_of_previous_treatments' %>:</label>
-								<div>
-									<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.number_of_previous_treatments %></span>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.number_of_previous_treatments' %>:</label>
+								<div class="col-xs-12">
+									<p class="form-control-static"><%= @first_contact_file.number_of_previous_treatments %></p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.place_of_previous_treatments' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.place_of_previous_treatments.#{@first_contact_file.place_of_previous_treatments}") %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.place_of_previous_treatments' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= t("enum.first_contact_file.place_of_previous_treatments.#{@first_contact_file.place_of_previous_treatments}") %></p>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.marital_status' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.marital_status.#{@first_contact_file.marital_status}") %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.marital_status' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= t("enum.first_contact_file.marital_status.#{@first_contact_file.marital_status}") %></p>
 										</div>
 									</div>
 								</div>
@@ -177,69 +180,73 @@
 							<div class="row">
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.number_sons' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.number_sons %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.number_sons' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= @first_contact_file.number_sons %></p>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.number_daughters' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.number_daughters %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.number_daughters' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= @first_contact_file.number_daughters %></p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-5">
+						<div class="col-md-6 col-xs-12">
 							<div class="row">
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.ethnic_group' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.ethnic_groups.#{@first_contact_file.ethnic_group}") %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.ethnic_group' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= t("enum.first_contact_file.ethnic_groups.#{@first_contact_file.ethnic_group}") %></p>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.religion' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.religion %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.religion' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= @first_contact_file.religion %></p>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-7 col-xs-12">
+								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.person.first_name' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.support.first_name %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= FirstContactFile.human_attribute_name('support') %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= @first_contact_file.support.first_name %></p>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-5 col-xs-12">
-
-									
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.phone.number' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= @first_contact_file.support.phones[0].number %></p>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.family_structure' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.family_structure.#{@first_contact_file.family_structure}") %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.family_structure' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= t("enum.first_contact_file.family_structure.#{@first_contact_file.family_structure}") %></p>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-6 col-xs-12">
 									<div class="form-group">
-										<label><%= t 'activerecord.attributes.first_contact_file.job' %>:</label>
-										<div>
-											<span style="text-align: left" class="control-label col-sm-10"><%= t("enum.first_contact_file.job.#{@first_contact_file.job}") %></span>
+										<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.job' %>:</label>
+										<div class="col-xs-12">
+											<p class="form-control-static"><%= t("enum.first_contact_file.job.#{@first_contact_file.job}") %></p>
 										</div>
 									</div>
 								</div>
@@ -249,46 +256,46 @@
 					<div class="row">
 						<div class="col-md-4 col-xs-12 col-md-offset-1">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.education_levels' %>:</label>
-								<div>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.education_levels' %>:</label>
+								<div class="col-xs-12">
 									<% @first_contact_file.education_levels.values.each do | i | %>
-										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.education_levels.#{i.downcase.tr(' ', '_')}") %></span>
+									<p class="form-control-static"><%= t("enumerize.first_contact_file.education_levels.#{i.downcase.tr(' ', '_')}") %></p>
 									<% end %>
 								</div>
 							</div>
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.answer' %>:</label>
-								<div>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.answer' %>:</label>
+								<div class="col-xs-12">
 									<% @first_contact_file.answer.values.each do | i | %>
-										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.answer.#{i.downcase.tr(' ', '_')}") %></span>
+									<p class="form-control-static"><%= t("enumerize.first_contact_file.answer.#{i.downcase.tr(' ', '_')}") %></p>
 									<% end %>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.petitions' %>:</label>
-								<div>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.petitions' %>:</label>
+								<div class="col-xs-12">
 									<% @first_contact_file.petitions.values.each do | i | %>
-										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.petitions.#{i.downcase.tr(' ', '_')}") %></span>
+									<p class="form-control-static"><%= t("enumerize.first_contact_file.petitions.#{i.downcase.tr(' ', '_')}") %></p>
 									<% end %>
 								</div>
 							</div>
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.results' %>:</label>
-								<div>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.results' %>:</label>
+								<div class="col-xs-12">
 									<% @first_contact_file.results.values.each do | i | %>
-										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.results.#{i.downcase.tr(' ', '_')}") %></span>
+									<p class="form-control-static"><%= t("enumerize.first_contact_file.results.#{i.downcase.tr(' ', '_')}") %></p>
 									<% end %>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-xs-12">
 							<div class="form-group">
-								<label><%= t 'activerecord.attributes.first_contact_file.first_contact_conditions' %>:</label>
-								<div>
+								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.first_contact_conditions' %>:</label>
+								<div class="col-xs-12">
 									<% @first_contact_file.first_contact_conditions.values.each do | i | %>
-										<span style="text-align: left" class="control-label col-sm-10"><%= t("enumerize.first_contact_file.first_contact_conditions.#{i.downcase.tr(' ', '_')}") %></span>
+									<p class="form-control-static"><%= t("enumerize.first_contact_file.first_contact_conditions.#{i.downcase.tr(' ', '_')}") %></p>
 									<% end %>
 								</div>
 							</div>
@@ -296,17 +303,17 @@
 						<div class="row">
 							<div class="col-md-12 col-xs-12">
 								<div class="form-group">
-									<label><%= t 'activerecord.attributes.first_contact_file.user' %>:</label>
-									<div>
-										<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.user.person.first_name %></span>
+									<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.user' %>:</label>
+									<div class="col-xs-12">
+										<p class="form-control-static"><%= @first_contact_file.user.person.first_name %></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-12 col-xs-12">
 								<div class="form-group">
-									<label><%= t 'activerecord.attributes.first_contact_file.comments' %>:</label>
-									<div>
-										<span style="text-align: left" class="control-label col-sm-10"><%= @first_contact_file.comments %></span>
+									<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.comments' %>:</label>
+									<div class="col-xs-12">
+										<p class="form-control-static"><%= @first_contact_file.comments %></p>
 									</div>
 								</div>
 							</div>
