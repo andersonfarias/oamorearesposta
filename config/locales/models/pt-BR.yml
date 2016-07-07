@@ -48,6 +48,7 @@ pt-BR:
       phone:
         number: Número de Telefone
       beneficiary:
+        code: Código
         department: Núcleo
         first_contact_file: Ficha de Primeiro Contato
       address:

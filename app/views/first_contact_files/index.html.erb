@@ -1,23 +1,25 @@
 <%= link_to "Nova Ficha", new_first_contact_file_path(current_user), method: :get, class: "btn btn-primary pull-right" %>
 <table class="table table-striped table-hover table-bordered">
-  <thead>
-      <th class="col-md-2 col-xs-2 text-center"><%= t "activerecord.attributes.first_contact_files.date" %></th>
-      <th class="col-md-4 col-xs-4 text-center"><%= t "activerecord.attributes.first_contact_files.beneficiary" %></th>
-      <th class="col-md-3 col-xs-3 text-center"><%= t "activerecord.attributes.first_contact_files.user" %></th>
-      <th class="col-md-3 col-xs-3 text-center"><%= t "actions.actions" %></th>
-  </thead>
-  <tbody>
-    <% @first_contact_files.each do |file| %>
-    <tr>
-      <td style="vertical-align: middle" class="text-center"><%= file.date.to_datetime.strftime(t "date.formats.default") %></td>
-      <td style="vertical-align: middle"><%= link_to file.beneficiary.person.full_name, file.beneficiary %> </td>
-      <td style="vertical-align: middle"><%= file.user.person.first_name %> <%= file.user.person.last_name %></td>
-      <td class="text-center">
-          <%= link_to "#{t('actions.show')}", first_contact_file_path(file), class: "btn btn-primary" %>
-          <%= link_to "#{t('actions.edit')}", edit_first_contact_file_path(file), method: :get, class: "btn btn-primary" %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
+    <thead>
+        <th class="col-md-2 col-xs-2 text-center"><%= t "activerecord.attributes.first_contact_files.date" %></th>
+        <th class="col-md-4 col-xs-4 text-center"><%= t "activerecord.attributes.first_contact_files.beneficiary" %></th>
+        <th class="col-md-3 col-xs-3 text-center"><%= t "activerecord.attributes.first_contact_files.user" %></th>
+        <th class="col-md-3 col-xs-3 text-center"><%= t "actions.actions" %></th>
+    </thead>
+    <tbody>
+        <% @first_contact_files.each do |file| %>
+        <tr>
+            <td style="vertical-align: middle" class="text-center"><%= file.date.to_datetime.strftime(t "date.formats.default") %></td>
+            <td style="vertical-align: middle"><%= link_to file.beneficiary.person.full_name, file.beneficiary %>
+            </td>
+            <td style="vertical-align: middle"><%= file.user.person.first_name %>
+                <%= file.user.person.last_name %></td>
+            <td class="text-center">
+                <%= link_to "#{t('actions.show')}", first_contact_file_path(file), class: "btn btn-primary" %>
+                <%= link_to "#{t('actions.edit')}", edit_first_contact_file_path(file), method: :get, class: "btn btn-primary" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 <%= will_paginate @first_contact_files, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
