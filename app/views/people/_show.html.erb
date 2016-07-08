@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="col-md-6">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.first_name' %>:</label>
+					<div class="col-xs-12">
+						<p class="form-control-static"><%= person.first_name %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.last_name' %>:</label>
+			<div class="col-xs-12">
+				<p class="form-control-static"><%= person.last_name %></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="form-group">
+			<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.email' %>:</label>
+			<div class="col-xs-12">
+				<p class="form-control-static"><%= person.email %></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.age' %>:</label>
+			<div class="col-xs-12">
+				<p class="form-control-static"><%= person.age %></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.gender' %>:</label>
+			<div class="col-xs-12">
+				<p class="form-control-static"><%= t("enum.person.gender.#{person.gender}") %></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.person.birthdate' %>:</label>
+			<div class="col-xs-12">
+				<p class="form-control-static"><%= person.birthdate %></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<%= render "addresses/show", address: person.address %>
+	</div>
+</div>

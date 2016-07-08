@@ -9,7 +9,7 @@ class BeneficiariesController < ApplicationController
 	end
 
 	def index
-		@beneficiaries = Beneficiary.by_name_and_department(params).paginate( :page => params[ :page ] )
+		@beneficiaries = Beneficiary.by_code_name_and_department( params ).paginate( :page => params[ :page ] )
 	end
 
 	private
@@ -17,4 +17,5 @@ class BeneficiariesController < ApplicationController
 	def set_beneficiary
 		@beneficiary = Beneficiary.find(params[:id])
 	end
+
 end

@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-group">
+			<label style="text-align: left;" class="control-label col-xs-12">Núcleo:</label>
+			<div class="col-xs-12">
+				<p class="form-control-static"><%= beneficiary.department.name %></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<%= render 'people/show', person: beneficiary.person %>
+	</div>
+</div>

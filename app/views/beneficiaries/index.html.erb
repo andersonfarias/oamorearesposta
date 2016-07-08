@@ -1,53 +1,59 @@
 <%= link_to "#{t('actions.new')} #{Beneficiary.model_name.human(count: 1)}", new_first_contact_file_path(current_user), method: :get, class: "btn btn-primary pull-right" %>
 
 <div class="x_panel">
-  <div class="x_title">
-    <h2>Filtros</h2>
-    <div class="clearfix"></div>
-  </div>
-  <div class="x_content">
-    <%= simple_form_for beneficiaries_path, method: :get, html: { class: 'form-horizontal form-label-left' } do |f| %>
-      <div class="row">
-				<div class="col-md-7 col-xs-12 col-md-offset-2">
-          <%= f.input :name, label: t("activerecord.attributes.person.first_name"), input_html: {name: "beneficiary_last_name"}, required: false, wrapper: :horizontal_form %>
+    <div class="x_title">
+        <h2>Filtros</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <%= simple_form_for beneficiaries_path, method: :get, html: { class: 'form-horizontal form-label-left' } do |f| %>
+        <div class="row">
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :id, label: t("activerecord.attributes.beneficiary.code"), input_html: {name: "beneficiary_id"}, required: false, wrapper: :horizontal_form %>
+            </div>
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :name, label: t("activerecord.attributes.person.first_name"), input_html: {name: "beneficiary_first_name"}, required: false, wrapper: :horizontal_form %>
+            </div>
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :name, label: t("activerecord.attributes.person.last_name"), input_html: {name: "beneficiary_last_name"}, required: false, wrapper: :horizontal_form %>
+            </div>
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :name, label: t("activerecord.attributes.beneficiary.department"), input_html: {name: "department_name"}, required: false, wrapper: :horizontal_form %>
+            </div>
         </div>
-				<div class="col-md-7 col-xs-12 col-md-offset-2">
-          <%= f.input :name, label: t("activerecord.attributes.person.last_name"), input_html: {name: "beneficiary_last_name"}, required: false, wrapper: :horizontal_form %>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <%= f.button :submit, "Buscar", class: "btn btn-success" %>
+            </div>
         </div>
-        <div class="col-md-7 col-xs-12 col-md-offset-2">
-					<%= f.input :name, label: t("activerecord.attributes.beneficiary.department"), input_html: {name: "department_name"}, required: false, wrapper: :horizontal_form %>
-        </div>
-      </div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<%= f.button :submit, "Buscar", class: "btn btn-success" %>
-				</div>
-			</div>
-    <%end%>
-  </div>
+        <%end%>
+    </div>
 </div>
 
 <table class="table table-striped table-hover table-bordered">
-	<thead>
-		<th class="col-md-4 col-xs-4 text-center"><%= t "activerecord.attributes.person.first_name" %></th>
-		<th class="col-md-4 col-xs-4 text-center"><%= t "activerecord.attributes.beneficiary.department" %></th>
-		<th class="col-md-3 col-xs-3 text-center"><%= t "actions.actions" %></th>
-	</thead>
-	<tbody>
-		<% @beneficiaries.each do |b| %>
-			<tr>
-				<td style="vertical-align: middle"><%= link_to b.person.full_name, b %></td>
-				<td style="vertical-align: middle"><%= link_to b.department.name, b.department %></td></td>
-				<td class="text-center">
-					<%= link_to beneficiary_path(b) do %>
+    <thead>
+        <th class="col-md-2 col-xs-2 text-center"><%= t "activerecord.attributes.beneficiary.code" %></th>
+        <th class="col-md-4 col-xs-4 text-center"><%= t "activerecord.attributes.person.first_name" %></th>
+        <th class="col-md-4 col-xs-4 text-center"><%= t "activerecord.attributes.beneficiary.department" %></th>
+        <th class="col-md-3 col-xs-3 text-center"><%= t "actions.actions" %></th>
+    </thead>
+    <tbody>
+        <% @beneficiaries.each do |b| %>
+        <tr>
+            <td><%= b.id %></td>
+            <td style="vertical-align: middle"><%= link_to b.person.full_name, b.first_contact_file %></td>
+            <td style="vertical-align: middle"><%= link_to b.department.name, b.department %></td>
+        </td>
+        <td class="text-center">
+            <%= link_to first_contact_file_path(b.first_contact_file) do %>
             <i class="fa fa-search fa-lg"></i>
-          <% end %>
-					<%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get do %>
+            <% end %>
+            <%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get do %>
             <i class="fa fa-pencil fa-lg"></i>
-          <% end %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</tbody>
 </table>
 <%= will_paginate @beneficiaries, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
