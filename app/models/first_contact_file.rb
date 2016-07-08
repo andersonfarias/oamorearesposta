@@ -62,16 +62,15 @@ class FirstContactFile < ActiveRecord::Base
 		:on_here, :in_another_place
 	]
 	enum marital_status: [
-		:not_married, :married, :separately,
+		:stable_union, :married, :separately,
 		:widower, :divorced,
 		:polygamy, :union_libre,
-		:other_marital_status
+		:other_marital_status, :not_married
 	]
 
 	enum ethnic_group: [
-		:white,
-		:black,
-		:brown
+		:black, :white, :indians,
+		:pardos, :yellow, :brown, :other_ethnic
 	]
 
 	enum family_structure: [
@@ -87,13 +86,14 @@ class FirstContactFile < ActiveRecord::Base
 
 	serialize :education_levels, Array
 	enumerize :education_levels, in: [
+		:other_scolarity, :unlettered,
 		:fundamental_I, :fundamental_II, :high_School,
 		:technician, :university,
 		:post_graduate, :can_write, :know_read,
 		:know_add, :know_subtract,
 		:know_multiply, :know__divisions,
 		:know_average, :know_percentages,
-		:using_Computer, :other_scolarity
+		:using_Computer
 	], multiple: true
 
 	serialize :first_contact_conditions, Array
@@ -110,7 +110,8 @@ class FirstContactFile < ActiveRecord::Base
 		:jobless, :tuberculosis, :family_problems,
 		:posttraumatic_stress_disorder, :sexual_problems,
 		:rape_of_children, :other_facilities,
-		:intravenous_drug_use, :hepatitis, :change_of_residence,
+		:intravenous_drug_use, :other_first_contition,
+		:hepatitis, :change_of_residence,
 		:migration_immigration, :stigma_of_sexual_identity, :illiteracy
 	], multiple: true
 
@@ -132,13 +133,13 @@ class FirstContactFile < ActiveRecord::Base
 	enumerize :answer, in: [
 		:mark_meeting, :gives_an_information, :answer_board_guidance,
 		:routing_answer, :listening_immediate_crisis_management,
-		:indicatios_and_suggestions, :accompaniment, :medical_care,
-		:hygiene_clean_clothes, :welcome_day_or_night, :other_answer
+		:indicatios_and_suggestions, :accompaniment, :other_answer, :medical_care,
+		:hygiene_clean_clothes, :welcome_day_or_night
 	], multiple: true
 
 	serialize :results, Array
 	enumerize :results, in: [
 		:came_to_meet, :followed_contact, :interrupted_contact,
-		:start_a_program, :activities_inclusion, :other_result
+		:start_a_program, :other_result, :activities_inclusion
 	], multiple: true
 end

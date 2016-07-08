@@ -11,3 +11,6 @@ CreateAdminService.new.call
 
 # Create all Brazilian States and Cities
 CreateStatesAndCitiesService.new.call
+
+# Beneficiary data migration
+# ImportBeneficiaryService.new.call
