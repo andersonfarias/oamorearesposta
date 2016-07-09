@@ -13,7 +13,7 @@ CreateAdminService.new.call
 CreateStatesAndCitiesService.new.call
 
 # Department data migration
-ImportDepartmentService.new.call
+# ImportDepartmentService.new.call
 
 # Beneficiary data migration
-ImportBeneficiaryService.new.call
+# ImportBeneficiaryService.new.call
