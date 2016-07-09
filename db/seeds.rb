@@ -7,10 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Create admin user
-CreateAdminService.new.call
+# CreateAdminService.new.call
 
 # Create all Brazilian States and Cities
-CreateStatesAndCitiesService.new.call
+# CreateStatesAndCitiesService.new.call
+
+# Department data migration
+ImportDepartmentService.new.call
 
 # Beneficiary data migration
-# ImportBeneficiaryService.new.call
+ImportBeneficiaryService.new.call
