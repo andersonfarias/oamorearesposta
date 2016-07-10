@@ -19,4 +19,4 @@
 # ImportBeneficiaryService.new.call
 
 # ClinicalDiary data migration
-ImportClinicalDayliService.new.call
+ImportComunityTreatmentDiaryService.new.call
