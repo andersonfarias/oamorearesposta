@@ -15,12 +15,17 @@ class FirstContactFile < ActiveRecord::Base
 		:number_sons, numericality: { only_integer: true }
 	validates_presence_of :hour, :operational_context_first_contact,
 		:how_established_first_contact, :how_person_knew_about_the_organization,
-		:beneficiary_and_contact_source_relationship, :place_of_previous_treatments,
+		:beneficiary_and_contact_source_relationship,
 		:marital_status, :ethnic_group, :family_structure, :job, :education_levels,
 		:first_contact_conditions, :petitions, :answer, :results, :contact_source,
 		:support, :beneficiary, :religion, :number_daughters, :number_sons,
 		:is_new_partner, :contact_source_type, :institution, :date,
 		:number_of_previous_treatments
+
+	validates_presence_of :place_of_previous_treatments, if: :number_of_previous_treatments_bigger_then_zero?
+	def number_of_previous_treatments_bigger_then_zero?
+		number_of_previous_treatments > 0
+	end
 
 	enum hour: [
 		:'0801_1100', :'1101_1400', :'1401_1700',
