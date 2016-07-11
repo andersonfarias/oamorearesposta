@@ -108,10 +108,10 @@
 						<%= f.input :number_of_previous_treatments, input_html: {style: "width: 30%"} %>
 						<div class="row">
 							<div class="col-md-6 col-xs-12">
-								<%= f.input :place_of_previous_treatments, include_blank: false, collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("enum.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
+								<%= f.input :place_of_previous_treatments, include_blank: true, collection: FirstContactFile.place_of_previous_treatments.keys.map { |key| [ t("enum.first_contact_file.place_of_previous_treatments.#{key}"), key]} %>
 							</div>
 							<div class="col-md-6 col-xs-12">
-								<%= f.input :marital_status,include_blank: false, collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("enum.first_contact_file.marital_status.#{key}"), key]} %>
+								<%= f.input :marital_status, include_blank: false, collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("enum.first_contact_file.marital_status.#{key}"), key]} %>
 							</div>
 						</div>
 						<div class="row">

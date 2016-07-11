@@ -181,12 +181,17 @@ pt-BR:
         widower: Viúvo/a
         divorced: Divorciado/a
         polygamy: Poligamia
-        union_libre: União libre
+        union_libre: União Livre
+        stable_union: União Estável
         other_marital_status: Outro
       ethnic_groups:
         white: Branco
         black: Negro
         brown: Moreno
+        indians: Indigena
+        pardos: Pardo
+        yellow: Amarelo
+        other_ethnic: Outros
       family_structure:
         lives_are: Vive só
         live_with_children: Vive só com filhos/as
@@ -225,6 +230,7 @@ pt-BR:
         student: Estudante
         never_was_employed: Nunca foi empregado
         other_scolarity: Outro
+        unlettered: Analfabeto
       first_contact_conditions:
         alcoholic_substances: Substâncias/álcool
         antisocial_behavior: Condutas antisociais
@@ -259,6 +265,7 @@ pt-BR:
         rape_of_children: Violação de crianças
         other_facilities: Outras dependências
         intravenous_drug_use: Uso de drogas intravenosas
+        other_first_contition: Outros
         hepatitis: Hepatite
         change_of_residence: Mudança de moradia
         migration_immigration: Migração/Imigração
