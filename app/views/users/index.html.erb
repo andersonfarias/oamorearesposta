@@ -1,4 +1,29 @@
 <%= link_to "Adicionar Usuário", new_registration_path(current_user), class: "btn btn-primary pull-right" %>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Filtros</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <%= simple_form_for users_path, method: :get, html: { class: 'form-horizontal form-label-left' } do |f| %>
+        <div class="row">
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :name, label: t("activerecord.attributes.person.first_name"), input_html: {name: "name"}, required: false, wrapper: :horizontal_form %>
+            </div>
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :email, label: t("activerecord.attributes.person.email"), input_html: {name: "email"}, required: false, wrapper: :horizontal_form %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <%= f.button :submit, "Buscar", class: "btn btn-success" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <th>Nome</th>
