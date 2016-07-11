@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703202340) do
+ActiveRecord::Schema.define(version: 20160710232621) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20160703202340) do
   create_table "beneficiaries", force: :cascade do |t|
     t.integer  "department_id"
     t.integer  "person_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "is_active",     default: true
   end
 
   add_index "beneficiaries", ["department_id"], name: "index_beneficiaries_on_department_id"

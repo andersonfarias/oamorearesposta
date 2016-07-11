@@ -26,7 +26,7 @@
                 <%= f.button :submit, "Buscar", class: "btn btn-success" %>
             </div>
         </div>
-        <%end%>
+        <% end %>
     </div>
 </div>
 
@@ -43,17 +43,19 @@
             <td><%= b.id %></td>
             <td style="vertical-align: middle"><%= link_to b.person.full_name, b.first_contact_file %></td>
             <td style="vertical-align: middle"><%= link_to b.department.name, b.department %></td>
-        </td>
-        <td class="text-center">
-            <%= link_to first_contact_file_path(b.first_contact_file) do %>
-            <i class="fa fa-search fa-lg"></i>
-            <% end %>
-            <%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get do %>
-            <i class="fa fa-pencil fa-lg"></i>
-            <% end %>
-        </td>
-    </tr>
-    <% end %>
-</tbody>
+            <td class="text-center">
+                <%= link_to first_contact_file_path(b.first_contact_file) do %>
+                <i class="fa fa-search fa-lg"></i>
+                <% end %>
+                <%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get do %>
+                <i class="fa fa-pencil fa-lg"></i>
+                <% end %>
+                <%= link_to beneficiary_path( b.id ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
+                <i class="fa fa-trash fa-lg"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 <%= will_paginate @beneficiaries, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
