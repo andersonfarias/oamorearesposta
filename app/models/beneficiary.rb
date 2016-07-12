@@ -2,6 +2,7 @@ class Beneficiary < ActiveRecord::Base
 	belongs_to :department
 	belongs_to :person, dependent: :destroy
 	has_one :first_contact_file, inverse_of: :beneficiary, dependent: :destroy
+	has_many :clinic_treatments
 
 	accepts_nested_attributes_for :person
 
