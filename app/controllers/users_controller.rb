@@ -5,28 +5,28 @@ class UsersController < ApplicationController
     after_action :verify_authorized
 
     def index
-        # @users = User.where(is_active: true).paginate(page: params[:page])
+        authorize current_user
         @users = User.by_name_and_email(params).paginate(page: params[:page])
-        authorize User
     end
 
     def show
         @user = User.find(params[:id])
-        @user = nil unless @user.is_active
         authorize @user
+        @user = nil unless @user.is_active
     end
 
     def destroy
         user = User.find(params[:id])
         authorize user
+
         user.is_active = false
         user.save
         redirect_to users_path, notice: t('controllers.users.actions.destroy.successful_msg')
     end
 
     def new
-        @user = User.new(person: Person.new)
         authorize current_user
+        @user = User.new(person: Person.new)
     end
 
     def create
