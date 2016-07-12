@@ -1,21 +1,26 @@
 class BeneficiariesController < ApplicationController
+    before_action :set_beneficiary, only: [:show, :edit]
 
-	before_action :set_beneficiary, only: [:show, :edit]
+    def edit
+    end
 
-	def edit
+    def show
+    end
+
+    def index
+        @beneficiaries = Beneficiary.by_code_name_and_department(params).paginate(page: params[:page])
+    end
+
+	def destroy
+		@beneficiary = Beneficiary.find( params[ :id ] )
+		@beneficiary.is_active = false
+		@beneficiary.save()
+		redirect_to beneficiaries_path, notice: t('controllers.actions.destroy.success', model: Beneficiary.model_name.human(count: 1))
 	end
 
-	def show
-	end
+    private
 
-	def index
-		@beneficiaries = Beneficiary.by_code_name_and_department( params ).paginate( :page => params[ :page ] )
-	end
-
-	private
-
-	def set_beneficiary
-		@beneficiary = Beneficiary.find(params[:id])
-	end
-
+    def set_beneficiary
+        @beneficiary = Beneficiary.find(params[:id])
+    end
 end

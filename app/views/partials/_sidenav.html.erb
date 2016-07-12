@@ -41,7 +41,9 @@
             			<li>
             				<a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
               				<ul class="nav child_menu" style="display: none">
-												<li><a href="/departments"><%=Department.model_name.human(count: 2)%></a></li>
+												<% if current_user.admin? || current_user.coordinator? %>
+													<li><a href="/departments"><%=Department.model_name.human(count: 2)%></a></li>
+												<% end %>
                 				<li><a href="/beneficiaries"><%=Beneficiary.model_name.human(count: 2)%></a></li>
                 				<li><a href="/comunities"><%=Comunity.model_name.human(count: 2)%></a></li>
                 				<li><a href="#">Atividades</a></li>
@@ -56,7 +58,7 @@
               				</ul>
             			</li>
             			<% if not current_user.nil? %>
-	            			<% if current_user.admin? %>
+	            			<% if current_user.admin? || current_user.coordinator? %>
 		            			<li>
 		            				<a><i class="fa fa-lock"></i>Segurança<span class="fa fa-chevron-down"></span></a>
 		              				<ul class="nav child_menu" style="display: none">

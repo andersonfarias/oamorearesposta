@@ -1,123 +1,119 @@
 class UsersController < ApplicationController
-	respond_to :html, :xml, :json
+    respond_to :html, :xml, :json
 
-	before_action :set_minimum_password_length, only: [ :new ]
-	after_action :verify_authorized
+    before_action :set_minimum_password_length, only: [:new]
+    after_action :verify_authorized
 
-	def index
-		@users = User.where( is_active: true ).paginate( :page => params[ :page ] )
-		authorize User
-	end
+    def index
+        authorize current_user
+        @users = User.by_name_and_email(params).paginate(page: params[:page])
+    end
 
-	def show
-		@user = User.find( params[ :id ] )
-		if not @user.is_active
-			@user = nil
-		end
-		authorize @user
-	end
+    def show
+        @user = User.find(params[:id])
+        authorize @user
+        @user = nil unless @user.is_active
+    end
 
-	def destroy
-		user = User.find( params[ :id ] )
-		authorize user
-		user.is_active = false
-		user.save()
-		redirect_to users_path, :notice => t( "controllers.users.actions.destroy.successful_msg" )
-	end
+    def destroy
+        user = User.find(params[:id])
+        authorize user
 
-	def new
-		@user = User.new( person: Person.new() )
-		authorize current_user
-	end
+        user.is_active = false
+        user.save
+        redirect_to users_path, notice: t('controllers.users.actions.destroy.successful_msg')
+    end
 
-	def create
-		authorize current_user
+    def new
+        authorize current_user
+        @user = User.new(person: Person.new)
+    end
 
-		@user = User.new_with_session( sign_up_params || {}, session )
-		user_name = params[ :user ][ :person ].permit( :first_name )
-		@user.person = Person.create(  first_name: user_name[:first_name], email: sign_up_params[:email] )
-		@user.save
-		p @user.errors
-		yield user if block_given?
-		if @user.persisted?
-			if @user.active_for_authentication?
-				set_flash_message! :notice, :signed_up
-				sign_up('user', @user)
-				respond_with user, location: after_sign_up_path_for(@user)
-			else
-				set_flash_message! :notice, :"signed_up_but_#{@user.inactive_message}"
-				expire_data_after_sign_in!
-				respond_with @user, location: after_inactive_sign_up_path_for(@user)
-			end
-		else
-			clean_up_passwords @user
-			set_minimum_password_length
-			respond_with @user
-		end
-	end
+    def create
+        authorize current_user
 
-	private
+        @user = User.new_with_session(sign_up_params || {}, session)
+        user_name = params[:user][:person].permit(:first_name)
+        @user.person = Person.create(first_name: user_name[:first_name], email: sign_up_params[:email])
+        @user.save
 
-	def secure_params
-		params.require(:user).permit(:role)
-	end
+        yield user if block_given?
+        if @user.persisted?
+            if @user.active_for_authentication?
+                set_flash_message! :notice, :signed_up
+                sign_up('user', @user)
+                respond_with user, location: after_sign_up_path_for(@user)
+            else
+                set_flash_message! :notice, :"signed_up_but_#{@user.inactive_message}"
+                expire_data_after_sign_in!
+                respond_with @user, location: after_inactive_sign_up_path_for(@user)
+            end
+        else
+            clean_up_passwords @user
+            set_minimum_password_length
+            respond_with @user
+        end
+    end
 
-	def sign_up_params
-		params.require( :user ).permit( :person, :email, :password, :password_confirmation )
-	end
+    private
 
-	def account_update_params
-		params.require( :user ).permit( :person, :email, :password, :password_confirmation )
-	end
+    def secure_params
+        params.require(:user).permit(:role)
+    end
 
-	def set_minimum_password_length
-		@minimum_password_length = User.password_length.min
-	end
+    def sign_up_params
+        params.require(:user).permit(:person, :email, :password, :password_confirmation)
+    end
 
-	def clean_up_passwords(object)
-		object.clean_up_passwords if object.respond_to?(:clean_up_passwords)
-	end
+    def account_update_params
+        params.require(:user).permit(:person, :email, :password, :password_confirmation)
+    end
 
-	def set_flash_message(key, kind, options = {})
-		message = find_message(kind, options)
-		if options[:now]
-			flash.now[key] = message if message.present?
-		else
-			flash[key] = message if message.present?
-		end
-	end
+    def set_minimum_password_length
+        @minimum_password_length = User.password_length.min
+    end
 
-	def set_flash_message!(key, kind, options = {})
-		if is_flashing_format?
-			set_flash_message(key, kind, options)
-		end
-	end
+    def clean_up_passwords(object)
+        object.clean_up_passwords if object.respond_to?(:clean_up_passwords)
+    end
 
-	def find_message(kind, options = {})
-		options[:scope] ||= translation_scope
-		options[:default] = Array(options[:default]).unshift(kind.to_sym)
-		options[:resource_name] = 'user'
-		options = devise_i18n_options(options)
-		I18n.t("#{options[:resource_name]}.#{kind}", options)
-	end
+    def set_flash_message(key, kind, options = {})
+        message = find_message(kind, options)
+        if options[:now]
+            flash.now[key] = message if message.present?
+        else
+            flash[key] = message if message.present?
+        end
+    end
 
-	def translation_scope
-		"devise.#{controller_name}"
-	end
+    def set_flash_message!(key, kind, options = {})
+        set_flash_message(key, kind, options) if is_flashing_format?
+    end
 
-	def devise_i18n_options(options)
-		options
-	end
+    def find_message(kind, options = {})
+        options[:scope] ||= translation_scope
+        options[:default] = Array(options[:default]).unshift(kind.to_sym)
+        options[:resource_name] = 'user'
+        options = devise_i18n_options(options)
+        I18n.t("#{options[:resource_name]}.#{kind}", options)
+    end
 
-	def after_inactive_sign_up_path_for(resource)
-		scope = Devise::Mapping.find_scope!(resource)
-		router_name = Devise.mappings[scope].router_name
-		context = router_name ? send(router_name) : self
-		context.respond_to?(:root_path) ? context.root_path : "/"
-	end
+    def translation_scope
+        "devise.#{controller_name}"
+    end
 
-	def after_sign_up_path_for(resource)
-		after_sign_in_path_for(resource)
-	end
+    def devise_i18n_options(options)
+        options
+    end
 
+    def after_inactive_sign_up_path_for(resource)
+        scope = Devise::Mapping.find_scope!(resource)
+        router_name = Devise.mappings[scope].router_name
+        context = router_name ? send(router_name) : self
+        context.respond_to?(:root_path) ? context.root_path : '/'
+    end
+
+    def after_sign_up_path_for(resource)
+        after_sign_in_path_for(resource)
+    end
 end
