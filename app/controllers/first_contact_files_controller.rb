@@ -14,8 +14,8 @@ class FirstContactFilesController < ApplicationController
 			is_new_partner: true,
 			beneficiary: Beneficiary.new(person: Person.new(address: Address.new())),
 			support: Person.new(phones: [Phone.new], age: 0),
-			date: Date.today.strftime('%d/%m/%Y'),
-		contact_source: Person.new(phones: [Phone.new], age: 0))
+			date: Date.today.strftime(t "date.formats.default"),
+			contact_source: Person.new(phones: [Phone.new], age: 0))
 	end
 
 	def edit
