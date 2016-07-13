@@ -88,6 +88,11 @@ pt-BR:
           name: Visualizar
         edit:
           name: Editar
+    clinic_treatments:
+      name: Diários Clínico
+      actions:
+        new:
+          name: Cadastrar Novo / Visualizar
     comunities:
       name: Comunidades
       actions:
