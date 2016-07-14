@@ -51,14 +51,16 @@
   <div class="x_content">
     <table class="table table-striped table-hover table-bordered">
       <thead>
-        <th class="col-md-2 col-xs-4 text-center">Data</th>
-        <th class="col-md-10 col-xs-8 text-center">Descrição</th>
+        <th class="col-md-2 col-xs-3 text-center"><%= t "activerecord.attributes.clinic_treatment.date" %></th>
+        <th class="col-md-8 col-xs-6 text-center"><%= t "activerecord.attributes.clinic_treatment.description" %></th>
+        <th class="col-md-2 col-xs-3 text-center"><%= t "activerecord.attributes.clinic_treatment.user" %></th>
       </thead>
       <tbody>
         <% @clinic_treatments.each do |ct| %>
         <tr>
           <td style="vertical-align: middle"><%= date_format ct.date %></td>
           <td style="vertical-align: middle"><%= ct.description %></td>
+          <td style="vertical-align: middle"><%= ct.user.person.full_name %></td>
         </tr>
         <% end %>
       </tbody>
