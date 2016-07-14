@@ -10,6 +10,12 @@ pt-BR:
       beneficiary:
         one: Beneficiário
         other: Beneficiários
+      diary:
+        one: Diário
+        other: Diários
+      clinic_treatment:
+        one: Diário Clínico
+        other: Diários Clínoco
       comunity:
         one: Comunidade
         other: Comunidades
@@ -51,6 +57,15 @@ pt-BR:
         code: Código
         department: Núcleo
         first_contact_file: Ficha de Primeiro Contato
+      diary:
+        date: Data
+        description: Descrição
+        user: Operador
+      clinic_treatment:
+        date: Data
+        description: Descrição
+        user: Operador
+        beneficiary: Beneficiario
       address:
         street: Rua/Av.
         neighborhood: Bairro

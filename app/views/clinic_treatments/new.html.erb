@@ -1,0 +1,68 @@
+<div class="x_panel">
+  <div class="x_title">
+      <h2>Novo Diário Clínico</h2>
+      <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <%= simple_form_for( @clinic_treatment ) do |f| %>
+    	<%= f.error_notification %>
+    	<br/>
+      <div class="col-md-4 col-xs-12">
+        <div class="col-md-12 col-xs-12">
+          <%= f.label :user %>
+        </div>
+        <div class="col-md-12 col-xs-12">
+          <%= current_user.person.full_name %>
+        </div>
+      </div>
+      <div class="col-md-5 col-xs-12">
+        <div class="col-md-12 col-xs-12">
+          <%= f.label :beneficiary %>
+        </div>
+        <div class="col-md-12 col-xs-12">
+          <%= @clinic_treatment.beneficiary.person.full_name %>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-12">
+        <%= f.input :date, as: :datepicker %>
+      </div>
+      <div class="col-md-12 col-xs-12">
+        <%= f.input :description, as: :text, input_html: { :style => "resize: vertical;", :rows => 4 } %>
+      </div>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :beneficiary_id, value: @clinic_treatment.beneficiary.id %>
+
+    	<div class="form-group">
+    		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+    			<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
+    			<%= f.button :submit, class: "btn btn-success" %>
+    		</div>
+    	</div>
+    <% end %>
+  </div>
+</div>
+
+<div class="x_panel">
+  <div class="x_title">
+      <h2>Lista de Diários Clínico</h2>
+      <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <th class="col-md-2 col-xs-4 text-center">Data</th>
+        <th class="col-md-10 col-xs-8 text-center">Descrição</th>
+      </thead>
+      <tbody>
+        <% @clinic_treatments.each do |ct| %>
+        <tr>
+          <td style="vertical-align: middle"><%= date_format ct.date %></td>
+          <td style="vertical-align: middle"><%= ct.description %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= will_paginate @clinic_treatments, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>

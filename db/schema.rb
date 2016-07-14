@@ -76,6 +76,19 @@ ActiveRecord::Schema.define(version: 20160714002441) do
     t.boolean  "is_active",   default: true
   end
 
+  create_table "diaries", force: :cascade do |t|
+    t.text     "description"
+    t.date     "date"
+    t.integer  "user_id"
+    t.integer  "beneficiary_id"
+    t.string   "type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "diaries", ["beneficiary_id"], name: "index_diaries_on_beneficiary_id"
+  add_index "diaries", ["user_id"], name: "index_diaries_on_user_id"
+
   create_table "first_contact_files", force: :cascade do |t|
     t.date     "date"
     t.integer  "hour"

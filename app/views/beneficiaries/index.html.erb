@@ -44,14 +44,17 @@
             <td style="vertical-align: middle"><%= link_to b.person.full_name, b.first_contact_file %></td>
             <td style="vertical-align: middle"><%= link_to b.department.name, b.department %></td>
             <td class="text-center">
-                <%= link_to first_contact_file_path(b.first_contact_file) do %>
+                <%= link_to first_contact_file_path(b.first_contact_file), title: t('actions.show') do %>
                 <i class="fa fa-search fa-lg"></i>
                 <% end %>
-                <%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get do %>
+                <%= link_to edit_first_contact_file_path(b.first_contact_file), method: :get, title: t('actions.edit') do %>
                 <i class="fa fa-pencil fa-lg"></i>
                 <% end %>
-                <%= link_to beneficiary_path( b.id ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
+                <%= link_to beneficiary_path( b.id ), :data => { :confirm => "Você tem certeza?" }, :method => :delete, title: t('actions.delete') do %>
                 <i class="fa fa-trash fa-lg"></i>
+                <% end %>
+                <%= link_to new_clinic_treatment_path( beneficiary_id: b.id ), method: :get, title: ClinicTreatment.model_name.human(count: 1) do %>
+                <i class="fa fa-user-md fa-lg"></i>
                 <% end %>
             </td>
         </tr>
