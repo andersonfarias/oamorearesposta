@@ -25,7 +25,7 @@ class ImportComunityTreatmentDiaryService
 			created_at = diary[5]
 			ClinicTreatment.create(beneficiary_id: beneficiary, date: date, description: comment, user_id: user_id)
 		end
-		puts 'CLINIC TREATMENT CREATED'
+		puts 'BENEFICIARIES CLINIC TREATMENTS CREATED'
 	end
 
 end
