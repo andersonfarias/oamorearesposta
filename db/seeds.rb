@@ -10,7 +10,7 @@
 # CreateAdminService.new.call
 
 # Employees data migration
-ImportEmployeesService.new.call
+# ImportEmployeesService.new.call
 
 # Create all Brazilian States and Cities
 # CreateStatesAndCitiesService.new.call
@@ -22,4 +22,4 @@ ImportEmployeesService.new.call
 # ImportBeneficiaryService.new.call
 
 # ClinicalDiary data migration
-ImportComunityTreatmentDiaryService.new.call
+# ImportComunityTreatmentDiaryService.new.call
