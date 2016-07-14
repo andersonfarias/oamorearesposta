@@ -1,21 +1,19 @@
 require 'csv'
 
 class ImportComunityTreatmentDiaryService
-	USERS = {"Rita Lisboa" => 1,
-			 "Ricardo Oliveira Silva" => 2, 
-			 "Mantovani Lopes de Oliveira" => 3,
-			 "Fellipe Carlos Soares" => 4,
-			 "kleyton rodrigues" => 5,
-			 "Francisca das Chagas Ferreira" => 6,
-			 "Thais Andrade Guimes" => 7,
-			 "juliagaleno" => 8,
-			 "Denise Assun?" => 9,
-			 "Thais Andrade" => 10,
-			 "Leylane" => 11}
+	USERS = {"Rita Lisboa" => "ritaf.lisboa@gmail.com",
+			 "Mantovani Lopes de Oliveira" => "thormlo51@gmail.com",
+			 "Thais Andrade" => "thais.hepa.ufrgs@gmail.com"}
 
 	def call
+		puts 'CREATING CLINIC TREATMENT'
 		aux = 0
 		list = []
+
+		USERS.each do |key, value|
+			USERS[key] = User.find_by(email: value).id
+		end
+
 		CSV.foreach("#{Rails.root}/app/services/migration_files/clinical_daylis.csv") do |r|
 		 	row = r.first
 			diary = row.split("|")
@@ -23,10 +21,11 @@ class ImportComunityTreatmentDiaryService
 			beneficiary = diary[1]
 			date = diary[2]
 			comment = diary[3]
-			user = USERS[diary[4]]
+			user_id = USERS[diary[4]] || USERS["Rita Lisboa"]
 			created_at = diary[5]
+			ClinicTreatment.create(beneficiary_id: beneficiary, date: date, description: comment, user_id: user_id)
 		end
-		
+		puts 'CLINIC TREATMENT CREATED'
 	end
-	
+
 end

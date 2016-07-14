@@ -2,6 +2,7 @@ require 'csv'
 
 class ImportBeneficiaryService
 	def call
+		puts 'CREATING BENEFICIARIES'
 		FirstContactFile.destroy_all
 
 		aux = 0
@@ -9,26 +10,26 @@ class ImportBeneficiaryService
 		 	row = r.first
 			beneficiary = row.split("|")
 			aux += 1
-			
+
 			family_structure = if beneficiary[21] == "Outros" then 5 else beneficiary[21] end
-			
+
 			answer = []
 			if beneficiary[61] && !beneficiary[61].empty?
 				beneficiary[61].split(";").each {|v| answer << FirstContactFile.answer.values.at(v.to_i-1)}
 			else
 				answer << FirstContactFile.answer.values.at(7)
 			end
-			
+
 			petitions = []
 			if beneficiary[63] && !beneficiary[63].empty?
-				beneficiary[63].split(";").each {|v| petitions << FirstContactFile.petitions.values.at(v.to_i-1)} 
+				beneficiary[63].split(";").each {|v| petitions << FirstContactFile.petitions.values.at(v.to_i-1)}
 			else
 				petitions << FirstContactFile.petitions.values.at(24)
 			end
 
 			results = []
 			if beneficiary[62] && !beneficiary[62].empty?
-				beneficiary[62].split(";").each {|v| results << FirstContactFile.results.values.at(v.to_i-1)} 
+				beneficiary[62].split(";").each {|v| results << FirstContactFile.results.values.at(v.to_i-1)}
 			else
 				results << FirstContactFile.results.values.at(4)
 			end
@@ -49,7 +50,7 @@ class ImportBeneficiaryService
 			else
 				education_levels << FirstContactFile.education_levels.values.at(0)
 			end
-			
+
 			f = FirstContactFile.create(
 				id: beneficiary[0].to_i,
 				date: beneficiary[4],
@@ -99,7 +100,7 @@ class ImportBeneficiaryService
 							Phone.new()
 						]
 					)
-				), 
+				),
 				contact_source: Person.new(
 					first_name: "Não Informado",
 					age: 0,
@@ -118,5 +119,6 @@ class ImportBeneficiaryService
 			p "Linha: #{aux} - Errro: #{f.errors.messages}" if !f.errors.empty?
 			p "===========================================" if !f.errors.empty?
 		end
+		puts 'BENEFICIARIES CREATED'
 	end
 end
