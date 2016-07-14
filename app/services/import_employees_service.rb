@@ -1,7 +1,8 @@
 class ImportEmployeesService
   USERS = {"Rita Lisboa" => "ritaf.lisboa@gmail.com",
 			 "Mantovani Lopes de Oliveira" => "thormlo51@gmail.com",
-			 "Thais Andrade" => "thais.hepa.ufrgs@gmail.com"}
+			 "Thais Andrade" => "thais.hepa.ufrgs@gmail.com",
+       "Billy Heverton da Silva Meneses" => "tutlle007@gmail.com"}
   def call
     USERS.each do |nome, email|
       user = User.find_or_create_by!(email: email) do |user|
