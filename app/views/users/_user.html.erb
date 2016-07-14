@@ -10,8 +10,15 @@
 		<%= f.submit 'Alterar permissão', :class => 'btn btn-default btn-sm' %>
 	<% end %>
 </td>
-<td>
+<td class="col-md-4 col-xs-4 text-center">
 	<% if current_user.admin? || current_user.coordinator? %>
-		<%= link_to( "Deletar", user_path( user ), :data => { :confirm => "Você tem certeza?" }, :method => :delete, :class => 'btn btn-danger' ) unless user == current_user %>
+		<%= link_to user_path( user ) do %>
+			<i class="fa fa-search fa-lg"></i>
+		<% end %>
+		<% if user != current_user %>
+			<%= link_to user_path( user ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
+				<i class="fa fa-trash fa-lg"></i>
+			<% end %>
+		<% end %>
 	<% end %>
 </td>

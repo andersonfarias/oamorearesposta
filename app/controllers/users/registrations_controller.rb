@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 		authorize current_user
 		if not current_user.is_active
-			redirect_to users_path, :alert => t( "controllers.users.update.inactive_user" )
+			redirect_to users_path, :alert => t( "controllers.users.actions.update.inactive_user" )
 			return
 		end
 
@@ -32,9 +32,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	end
 
 	def change_role
-		authorize current_user
+		@user = User.find( params[ :id ] )
+		authorize @user
 
-		user = User.find( params[ :id ] ).update( params[ :user ].permit( 'role' ) )
+		@user.update( params[ :user ].permit( 'role' ) )
 
 		redirect_to :controller => '/users', :action => 'index'
 	end
