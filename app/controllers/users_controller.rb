@@ -12,7 +12,10 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         authorize @user
-        @user = nil unless @user.is_active
+        if not @user.is_active
+    			redirect_to users_path, :alert => t( "controllers.users.actions.show.inactive_user" )
+    			return
+        end
     end
 
     def destroy

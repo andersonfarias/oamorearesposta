@@ -55,6 +55,7 @@ pt-BR:
           successful_msg: Usuário deletado com sucesso
         show:
           name: Visualizar
+          inactive_user: Não é possível visualizar um usuário inativo
     departments:
       name: Núcleos
       actions:
@@ -64,8 +65,12 @@ pt-BR:
           name: Cadastrar Novo
         show:
           name: Visualizar
+          inactive_department: Não é possível visualizar um núcleo desativado
         edit:
           name: Editar
+        update:
+          name: Editar
+          inactive_department: Não é possível editar um núcleo desativado
     people:
       name: Pessoas
       actions:

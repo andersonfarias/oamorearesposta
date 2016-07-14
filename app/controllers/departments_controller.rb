@@ -5,14 +5,15 @@ class DepartmentsController < ApplicationController
 
     def index
         authorize current_user
-
-        @departments = Department
-                       .where("LOWER(name) LIKE LOWER('%#{params[:department_name]}%')")
-                       .paginate(page: params[:page])
+        @departments = Department.by_name(params).paginate(page: params[:page])
     end
 
     def show
         authorize @department
+        if not @department.is_active
+    			redirect_to departments_path, :alert => t( "controllers.departments.actions.show.inactive_department" )
+    			return
+        end
     end
 
     def new
@@ -30,10 +31,18 @@ class DepartmentsController < ApplicationController
 
     def edit
         authorize @department
+        if not @department.is_active
+    			redirect_to departments_path, :alert => t( "controllers.departments.actions.update.inactive_department" )
+    			return
+        end
     end
 
     def update
         authorize @department
+        if not @department.is_active
+    			redirect_to departments_path, :alert => t( "controllers.departments.actions.update.inactive_department" )
+    			return
+        end
         if @department.update(department_params)
             redirect_to @department,
                         notice: t('controllers.actions.update.success', model: Department.model_name.human(count: 1))
@@ -42,7 +51,8 @@ class DepartmentsController < ApplicationController
 
     def destroy
         authorize @department
-        if @department.destroy
+        @department.is_active = false
+        if @department.save()
             redirect_to departments_path,
                         notice: t('controllers.actions.destroy.success', model: Department.model_name.human(count: 1))
         end
