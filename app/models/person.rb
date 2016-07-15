@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
     accepts_nested_attributes_for :address
 
     validates_presence_of :first_name
-    validates_numericality_of :age, only_integer: true
+    validates_numericality_of :age, only_integer: true, greater_than: 0, less_than: 99
     validates_format_of :email, with: Devise.email_regexp, unless: 'email.nil? or email.blank?'
     validates :birthdate, past_date: true
 

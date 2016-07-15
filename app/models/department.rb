@@ -6,4 +6,8 @@ class Department < ActiveRecord::Base
     def self.by_name(params)
         Department.where(["LOWER(name) LIKE LOWER('%#{params[:department_name]}%') AND is_active = :active", { active: TRUE }])
     end
+
+    def self.active
+        Department.where(['is_active = :active', { active: TRUE }]).order(:name)
+    end
 end
