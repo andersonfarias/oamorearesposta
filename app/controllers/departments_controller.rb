@@ -5,7 +5,7 @@ class DepartmentsController < ApplicationController
 
     def index
         authorize current_user
-        @departments = Department.by_name(params).paginate(page: params[:page])
+        @departments = Department.by_name_and_status(params).paginate(page: params[:page])
     end
 
     def show
