@@ -11,4 +11,8 @@ class Department < ActiveRecord::Base
           { active: params[:is_active].to_bool }])
       end
     end
+
+    def self.active
+        Department.where(['is_active = :active', { active: TRUE }]).order(:name)
+    end
 end
