@@ -141,7 +141,7 @@
 							<div class="form-group">
 								<label style="text-align: left;" class="control-label col-xs-12"><%= t 'activerecord.attributes.first_contact_file.is_new_partner' %>:</label>
 								<div class="col-xs-12">
-									<p class="form-control-static"><%= t @first_contact_file.is_new_partner %></p>
+									<p class="form-control-static"><%= t "#{@first_contact_file.is_new_partner}" %></p>
 								</div>
 							</div>
 						</div>
@@ -175,7 +175,7 @@
 											<p class="form-control-static">
 												<% if @first_contact_file.place_of_previous_treatments %>
 													<%= t("enum.first_contact_file.place_of_previous_treatments.#{@first_contact_file.place_of_previous_treatments}") %>
-												<% end %>		
+												<% end %>
 											</p>
 										</div>
 									</div>

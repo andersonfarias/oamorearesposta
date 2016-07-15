@@ -1,4 +1,6 @@
 pt-BR:
+  "false": Não
+  "true": Sim
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Próximo &#8594;"
@@ -141,8 +143,6 @@ pt-BR:
     show: Visualizar
     delete: Remover
     actions: Ações
-  "true": Sim
-  "false": Não
   date:
     abbr_day_names:
     - Dom

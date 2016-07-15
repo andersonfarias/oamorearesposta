@@ -9,8 +9,12 @@
   <div class="x_content">
     <%= simple_form_for departments_path, method: :get, html: { class: 'form-horizontal form-label-left' } do |f| %>
       <div class="row">
-        <div class="col-md-7 col-xs-12 col-md-offset-2">
+        <div class="col-md-6 col-xs-12 col-md-offset-1">
           <%= f.input :name,label: t("activerecord.attributes.department.name"), input_html: {name: "department_name"}, required: false, wrapper: :horizontal_form %>
+        </div>
+        <div class="col-md-3 col-xs-12 ">
+          <%= f.input :is_active, collection: {t("true") => TRUE, t("false") => FALSE}, wrapper: :horizontal_form,
+            label: t("activerecord.attributes.department.is_active"), input_html: {name: "is_active"}, required: false %>
         </div>
         <div class="col-xs-12 text-center">
           <%= f.button :submit, "Buscar", class: "btn btn-success" %>
@@ -23,12 +27,14 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <th class="text-center"><%= t "activerecord.attributes.department.name" %></th>
+        <th class="col-md-1 col-xs-1 text-center"><%= t "activerecord.attributes.department.is_active" %></th>
         <th class="col-md-3 col-xs-3 text-center"><%= t "actions.actions" %></th>
     </thead>
     <tbody>
         <% @departments.each do |d| %>
             <tr>
               <td style="vertical-align: middle"><%= link_to d.name, d %></td>
+              <td class="text-center" style="vertical-align: middle"><%= t("#{d.is_active}") %></td>
               <td class="col-md-4 col-xs-4 text-center">
                   <%= link_to department_path(d) do %>
                     <i class="fa fa-search fa-lg"></i>

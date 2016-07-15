@@ -10,10 +10,6 @@ class DepartmentsController < ApplicationController
 
     def show
         authorize @department
-        if not @department.is_active
-    			redirect_to departments_path, :alert => t( "controllers.departments.actions.show.inactive_department" )
-    			return
-        end
     end
 
     def new
@@ -31,18 +27,10 @@ class DepartmentsController < ApplicationController
 
     def edit
         authorize @department
-        if not @department.is_active
-    			redirect_to departments_path, :alert => t( "controllers.departments.actions.update.inactive_department" )
-    			return
-        end
     end
 
     def update
         authorize @department
-        if not @department.is_active
-    			redirect_to departments_path, :alert => t( "controllers.departments.actions.update.inactive_department" )
-    			return
-        end
         if @department.update(department_params)
             redirect_to @department,
                         notice: t('controllers.actions.update.success', model: Department.model_name.human(count: 1))
@@ -65,6 +53,6 @@ class DepartmentsController < ApplicationController
     end
 
     def department_params
-        params.require(:department).permit(:name, :description)
+        params.require(:department).permit(:name, :description, :is_active)
     end
 end

@@ -4,6 +4,11 @@ class Department < ActiveRecord::Base
     validates_presence_of :name
 
     def self.by_name(params)
-        Department.where(["LOWER(name) LIKE LOWER('%#{params[:department_name]}%') AND is_active = :active", { active: TRUE }])
+      if params[:is_active].nil? or params[:is_active].empty?
+        Department.where(["LOWER(name) LIKE LOWER('%#{params[:department_name]}%')"])
+      else
+        Department.where(["LOWER(name) LIKE LOWER('%#{params[:department_name]}%') AND is_active = :active",
+          { active: params[:is_active].to_bool }])
+      end
     end
 end

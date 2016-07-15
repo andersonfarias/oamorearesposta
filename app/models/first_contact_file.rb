@@ -19,7 +19,7 @@ class FirstContactFile < ActiveRecord::Base
 		:marital_status, :ethnic_group, :family_structure, :job, :education_levels,
 		:first_contact_conditions, :petitions, :answer, :results, :contact_source,
 		:support, :beneficiary, :religion, :number_daughters, :number_sons,
-		:is_new_partner, :contact_source_type, :institution, :date,
+		:contact_source_type, :institution, :date,
 		:number_of_previous_treatments
 
 	validates_presence_of :place_of_previous_treatments, if: :number_of_previous_treatments_bigger_then_zero?

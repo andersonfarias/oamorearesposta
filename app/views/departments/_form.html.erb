@@ -1,9 +1,19 @@
-<%= simple_form_for( @department, html: { class: 'form-horizontal form-label-left' } ) do |f| %>
+<%= simple_form_for( @department ) do |f| %>
 	<%= f.error_notification %>
 	<br/>
-
-	<%= f.input :name, required: true, :wrapper => :gentelella %>
-	<%= f.input :description, as: :text, input_html: { :style=> "resize: vertical;", :rows => 6, }, :wrapper => :gentelella  %>
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2 col-xs-12">
+			<%= f.input :name, required: true %>
+		</div>
+		<div class="col-md-3 col-xs-12">
+				<%= f.input :is_active, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 col-xs-12">
+		<%= f.input :description, as: :text, input_html: { :style=> "resize: vertical;", :rows => 6, } %>
+		</div>
+	</div>
 
 	<div class="ln_solid"></div>
 	<div class="form-group">

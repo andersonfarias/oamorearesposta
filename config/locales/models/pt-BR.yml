@@ -51,6 +51,7 @@ pt-BR:
       department:
         name: Nome
         description: Descrição
+        is_active: Ativo
       phone:
         number: Número de Telefone
       beneficiary:
