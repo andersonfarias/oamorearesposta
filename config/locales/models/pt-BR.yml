@@ -122,6 +122,7 @@ pt-BR:
         beneficiary_last_name: Sobrenome Beneficiário
     errors:
       messages:
+        future_date: 'Não pode ser uma data futura'
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
