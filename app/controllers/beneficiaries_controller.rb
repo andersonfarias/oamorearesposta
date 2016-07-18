@@ -15,8 +15,6 @@ class BeneficiariesController < ApplicationController
         @beneficiary = Beneficiary.find(params[:id])
         @beneficiary.is_active = false
         @beneficiary.save
-        p @beneficiary.errors.full_messages
-        p @beneficiary.person.errors.full_messages
         redirect_to beneficiaries_path, notice: t('controllers.actions.destroy.success', model: Beneficiary.model_name.human(count: 1))
     end
 
