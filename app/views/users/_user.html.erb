@@ -1,16 +1,23 @@
-<td>
+<td class="col-md-3 col-xs-4" style="vertical-align: middle">
 	<%= user.person.full_name %>
 </td>
-<td>
+<td class="col-md-3 col-xs-4" style="vertical-align: middle">
 	<%= link_to user.email, user %>
 </td>
-<td>
-	<%= form_for(user) do |f| %>
-		<%= f.select( :role, User.roles.keys.map { | role | [ t( "enum.user.roles.#{role}" ), role ] } ) %>
-		<%= f.submit 'Alterar permissão', :class => 'btn btn-default btn-sm' %>
+<td class="col-md-4 col-xs-4 text-center" style="vertical-align: middle; padding: 4px">
+	<%= simple_form_for(user) do |f| %>
+		
+		<div class="col-md-8 col-xs-8" style="height: 35px">
+			<%= f.input :role, include_blank: false, label: false, collection: User.roles.keys.map { |key| [ t("enum.user.roles.#{key}"), key]} %>	
+		</div>
+		<%= f.button :submit, "Alterar", class: "btn btn-warning", style: "margin: 0px" %>
+		
 	<% end %>
 </td>
-<td class="col-md-4 col-xs-4 text-center">
+<td class="col-md-1 col-xs-4 text-center" style="vertical-align: middle">
+	<%= t("#{user.is_active}")  %>
+</td>
+<td class="col-md-1 col-xs-4 text-center" style="vertical-align: middle">
 	<% if current_user.admin? || current_user.coordinator? %>
 		<%= link_to user_path( user ) do %>
 			<i class="fa fa-search fa-lg"></i>

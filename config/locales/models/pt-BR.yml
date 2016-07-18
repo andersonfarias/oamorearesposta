@@ -41,6 +41,8 @@ pt-BR:
         one: Ficha de Primeiro Contato
         other: Fichas de Primeiro Contato
     attributes:
+      user:
+        role: Permissão
       person:
         first_name: Nome
         last_name: Sobrenome

@@ -18,7 +18,14 @@ class User < ActiveRecord::Base
            :recoverable, :trackable, :validatable, :timeoutable
 
     def self.by_name_and_email(params)
-      User.joins(:person).where(["LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND users.is_active = :active", { active: TRUE }])
+        if params[:is_active].nil? or params[:is_active].empty?
+            User.joins(:person).where("(LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') OR LOWER(people.last_name) LIKE LOWER('%#{params[:name]}%')) 
+                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%')")
+        else
+            User.joins(:person).where(["LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') 
+                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND users.is_active = :active", 
+                { active: params[:is_active].to_bool }])
+        end
     end
 
     def active_for_authentication?
