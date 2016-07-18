@@ -5,7 +5,7 @@ class Department < ActiveRecord::Base
 
     def self.by_name_and_status(params)
       if params[:is_active].nil? or params[:is_active].empty?
-        Department.where(["LOWER(name) LIKE LOWER('%#{params[:department_name]}%')"])
+        Department.where(["LOWER(name) LIKE LOWER( :name ) AND is_active = :active", { name: "%#{params[:department_name]}%", active: TRUE } ])
       else
         Department.where(["LOWER(name) LIKE LOWER('%#{params[:department_name]}%') AND is_active = :active",
           { active: params[:is_active].to_bool }])

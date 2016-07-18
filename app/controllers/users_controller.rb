@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def index
         authorize current_user
-        @users = User.by_name_and_email(params).paginate(page: params[:page])
+        @users = User.by_name_and_email(params).paginate(page: params[:page]).order( "people.first_name" )
     end
 
     def show

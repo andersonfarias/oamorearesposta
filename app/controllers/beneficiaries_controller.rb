@@ -8,15 +8,17 @@ class BeneficiariesController < ApplicationController
     end
 
     def index
-        @beneficiaries = Beneficiary.by_code_name_and_department(params).paginate(page: params[:page])
+        @beneficiaries = Beneficiary.by_code_name_and_department(params).paginate(page: params[:page]).order(:id)
     end
 
-	def destroy
-		@beneficiary = Beneficiary.find( params[ :id ] )
-		@beneficiary.is_active = false
-		@beneficiary.save()
-		redirect_to beneficiaries_path, notice: t('controllers.actions.destroy.success', model: Beneficiary.model_name.human(count: 1))
-	end
+    def destroy
+        @beneficiary = Beneficiary.find(params[:id])
+        @beneficiary.is_active = false
+        @beneficiary.save
+        p @beneficiary.errors.full_messages
+        p @beneficiary.person.errors.full_messages
+        redirect_to beneficiaries_path, notice: t('controllers.actions.destroy.success', model: Beneficiary.model_name.human(count: 1))
+    end
 
     private
 
