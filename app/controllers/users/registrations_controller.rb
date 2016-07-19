@@ -31,11 +31,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		result
 	end
 
-	def change_role
+	def change_user
 		@user = User.find( params[ :id ] )
 		authorize @user
 
-		@user.update( params[ :user ].permit( 'role' ) )
+		@user.update( params[ :user ].permit( 'role', 'is_active' ) )
 
 		redirect_to :controller => '/users', :action => 'index'
 	end

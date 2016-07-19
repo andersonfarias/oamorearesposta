@@ -31,7 +31,7 @@ class UserPolicy
         active_and_admin_or_coordinator(@current_user) || @current_user == @record
     end
 
-    def change_role?
+    def change_user?
 				active_and_admin_or_coordinator(@current_user) || @current_user == @record
     end
 

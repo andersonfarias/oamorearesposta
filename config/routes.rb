@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 	get '/users/sign_up' => 'users#new'
 	post '/users' => 'users#create'
 	put '/users' => 'users/registrations#update'
-	patch '/users/:id' => 'users/registrations#change_role'
+	patch '/users/:id' => 'users/registrations#change_user'
 
 	devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords', confirmations: 'users/confirmations' } do
 		get '/users/sign_out' => 'device/sessions#destroy'
