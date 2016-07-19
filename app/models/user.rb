@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
 
     def self.by_name_and_email(params)
         if params[:is_active].nil? or params[:is_active].empty?
-            User.joins(:person).where("(LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') OR LOWER(people.last_name) LIKE LOWER('%#{params[:name]}%')) 
-                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%')")
+            User.joins(:person).where(["(LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') OR LOWER(people.last_name) LIKE LOWER('%#{params[:name]}%')) 
+                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND is_active = :active", { name: "%#{params[:department_name]}%", active: TRUE } ])
         else
             User.joins(:person).where(["LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') 
                 AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND users.is_active = :active", 
