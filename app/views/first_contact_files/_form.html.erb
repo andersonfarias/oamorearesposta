@@ -86,9 +86,16 @@
 				<br/>
 				<%= f.simple_fields_for :beneficiary do |b| %>
 				<%= render 'beneficiaries/first_contact_form', f: b %>
-				<% end %>
 				<div class="row">
-					<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
+					<% if edit %>
+					<div class="col-md-6 col-xs-12">
+						<%= b.input :is_active, as: :radio_buttons, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
+					</div>
+					<% end %>
+				<% end %>
+					<div class="col-md-6 col-xs-12">
+						<%= f.input :is_new_partner, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-12 col-xs-12"} %>
+					</div>
 				</div>
 			</div>
 		</div>

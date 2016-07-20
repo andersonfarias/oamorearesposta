@@ -33,14 +33,12 @@ class FirstContactFilesController < ApplicationController
 	end
 
 	def update
-		p form_params[:is_new_partner]
 		if @first_contact_file.update(form_params)
 			redirect_to @first_contact_file,
 				notice: t('controllers.actions.update.success', model: FirstContactFile.model_name.human(count: 1))
 		else
 			render 'edit', notice: @first_contact_file.errors
 		end
-
 	end
 
 	private
@@ -66,6 +64,7 @@ class FirstContactFilesController < ApplicationController
 			:beneficiary_attributes => [
 				:id,
 				:department_id,
+				:is_active,
 				:person_attributes => [
 					:id,
 					:first_name,
