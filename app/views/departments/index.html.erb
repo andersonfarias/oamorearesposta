@@ -13,7 +13,7 @@
           <%= f.input :name,label: t("activerecord.attributes.department.name"), input_html: {name: "department_name"}, required: false, wrapper: :horizontal_form %>
         </div>
         <div class="col-md-3 col-xs-12 ">
-          <%= f.input :is_active, collection: {t("true") => TRUE, t("false") => FALSE}, wrapper: :horizontal_form,
+          <%= f.input :is_active, include_blank: false, collection: {t("true") => TRUE, t("false") => FALSE}, wrapper: :horizontal_form,
             label: t("activerecord.attributes.department.is_active"), input_html: {name: "is_active"}, required: false %>
         </div>
         <div class="col-xs-12 text-center">
