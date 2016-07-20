@@ -60,6 +60,7 @@ pt-BR:
         code: Código
         department: Núcleo
         first_contact_file: Ficha de Primeiro Contato
+        is_active: Ativo
       diary:
         date: Data
         description: Descrição

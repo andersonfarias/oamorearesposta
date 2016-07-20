@@ -15,8 +15,14 @@ class Beneficiary < ActiveRecord::Base
 			code_condition = "beneficiaries.id = #{params[ "beneficiary_id" ]} AND "
 		end
 
-		Beneficiary.joins(:department, :person).where(["#{code_condition}LOWER(people.first_name) LIKE LOWER('%#{params[:beneficiary_first_name].to_s}%')
-				AND LOWER(people.last_name) LIKE LOWER('%#{params[:beneficiary_last_name].to_s}%')
-				AND LOWER(departments.name) LIKE LOWER('%#{params[:department_name].to_s}%') AND beneficiaries.is_active = :active", { active: TRUE } ])
+		if params[:is_active].nil? or params[:is_active].empty?
+			Beneficiary.joins(:department, :person).where(["#{code_condition}LOWER(people.first_name) LIKE LOWER('%#{params[:beneficiary_first_name].to_s}%')
+					AND LOWER(people.last_name) LIKE LOWER('%#{params[:beneficiary_last_name].to_s}%')
+					AND LOWER(departments.name) LIKE LOWER('%#{params[:department_name].to_s}%') AND beneficiaries.is_active = :active", { active: TRUE } ])
+		else
+			Beneficiary.joins(:department, :person).where(["#{code_condition}LOWER(people.first_name) LIKE LOWER('%#{params[:beneficiary_first_name].to_s}%')
+					AND LOWER(people.last_name) LIKE LOWER('%#{params[:beneficiary_last_name].to_s}%')
+					AND LOWER(departments.name) LIKE LOWER('%#{params[:department_name].to_s}%') AND beneficiaries.is_active = :active", { active: params[:is_active].to_bool } ])
+		end
 	end
 end
