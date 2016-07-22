@@ -6,6 +6,8 @@ class Diary < ActiveRecord::Base
 
 	validates_presence_of :axis
 
+	validates :date, past_date: true
+
 	serialize :axis, Array
 	enumerize :axis, in: [
 		:prevention_and_organization,
