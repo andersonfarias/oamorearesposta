@@ -52,7 +52,7 @@
 					<%= cs.input :first_name %>
 				</div>
 				<div class="col-md-3 col-xs-12">
-					<%= cs.input :age, :input_html => { :maxlength => 2, :min => 1, :max => 99 } %>
+					<%= cs.input :age, :input_html => { :maxlength => 2, :min => 0, :max => 99 } %>
 				</div>
 				<div class="col-md-6 col-xs-12">
 					<%= cs.input :gender, include_blank: false, collection: Person.genders.keys.map { |key| [ t("enum.person.gender.#{key}"), key]} %>
