@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714002441) do
+ActiveRecord::Schema.define(version: 20160722011839) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160714002441) do
     t.string   "type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "axis"
   end
 
   add_index "diaries", ["beneficiary_id"], name: "index_diaries_on_beneficiary_id"

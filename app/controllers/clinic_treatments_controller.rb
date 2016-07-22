@@ -23,7 +23,7 @@ class ClinicTreatmentsController < ApplicationController
 
   private
   def diary_params
-    params.require(:clinic_treatment).permit(:date, :description, :user_id, :beneficiary_id)
+    params.require(:clinic_treatment).permit(:date, :description, :user_id, :beneficiary_id, :axis => [])
   end
 
 end

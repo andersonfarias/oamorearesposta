@@ -65,11 +65,13 @@ pt-BR:
         date: Data
         description: Descrição
         user: Operador
+        axis: Eixo
       clinic_treatment:
         date: Data
         description: Descrição
         user: Operador
         beneficiary: Beneficiario
+        axis: Eixo
       address:
         street: Rua/Av.
         neighborhood: Bairro
@@ -227,6 +229,13 @@ pt-BR:
         never_was_employed: Nunca foi empregado
         other_job: Outro
   enumerize:
+    diary:
+      axis:
+        prevention_and_organization: Prevenção e Organização
+        basic_assistance: Assistência Básica
+        education: Educação
+        medical_therapies_and_psychological: Terapias Médicas e Psicológicas
+        work: Trabalho
     first_contact_file:
       education_levels:
         fundamental_i: Fundamental I (6 anos)
