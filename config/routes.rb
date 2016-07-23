@@ -30,6 +30,6 @@ Rails.application.routes.draw do
 	get 'beneficiaries/new' => 'first_contact_files#new'
 	resources :beneficiaries, except: [:new]
 	resources :first_contact_files
-  resources :comunities
-	resources :clinic_treatments, only: [:new, :create]
+	resources :comunities
+	resources :clinic_treatments, only: [:new, :create, :edit, :update]
 end

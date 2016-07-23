@@ -55,9 +55,10 @@
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <th class="col-md-1 col-xs-1 text-center"><%= t "activerecord.attributes.clinic_treatment.date" %></th>
-        <th class="col-md-2 col-xs-4 text-center"><%= t "activerecord.attributes.clinic_treatment.axis" %></th>
-        <th class="col-md-7 col-xs-6 text-center"><%= t "activerecord.attributes.clinic_treatment.description" %></th>
+        <th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.clinic_treatment.axis" %></th>
+        <th class="col-md-6 col-xs-6 text-center"><%= t "activerecord.attributes.clinic_treatment.description" %></th>
         <th class="col-md-2 col-xs-1 text-center"><%= t "activerecord.attributes.clinic_treatment.user" %></th>
+        <th class="text-center"><%= t "actions.actions" %></th>
       </thead>
       <tbody>
         <% @clinic_treatments.each do |ct| %>
@@ -72,6 +73,11 @@
           </td>
           <td style="vertical-align: middle"><%= ct.description %></td>
           <td style="vertical-align: middle"><%= ct.user.person.full_name %></td>
+          <td class="text-center" style="vertical-align: middle">
+            <%= link_to edit_clinic_treatment_path(ct, current_page: @clinic_treatments.current_page) do %>
+              <i class="fa fa-pencil fa-lg"></i>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>

@@ -100,6 +100,8 @@ pt-BR:
       actions:
         new:
           name: Cadastrar Novo / Visualizar
+        edit:
+          name: Editar
     comunities:
       name: Comunidades
       actions:
