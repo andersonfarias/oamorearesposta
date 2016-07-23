@@ -9,6 +9,7 @@
 	<%= f.input :email, required: true, :wrapper => :gentelella %>
 	<%= f.input :password, required: true, :wrapper => :gentelella %>
 	<%= f.input :password_confirmation, required: true, :wrapper => :gentelella %>
+	<%= f.input :partner, :as => :autocomplete, :source_query => autocomplete_partner_name_partners_url, :items => 5, :minLength => 3 , :wrapper => :gentelella %>
 
 	<div class="ln_solid"></div>
 	<div class="form-group">

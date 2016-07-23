@@ -35,6 +35,10 @@ class UserPolicy
 				active_and_admin_or_coordinator(@current_user) || @current_user == @record
     end
 
+    def edit?
+      active_and_admin_or_coordinator(@current_user)
+    end
+
 		private
 
 		def active_and_admin_or_coordinator user

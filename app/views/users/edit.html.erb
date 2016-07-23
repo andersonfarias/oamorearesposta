@@ -1,0 +1,23 @@
+<%= simple_form_for(@user, html: { class: 'form-horizontal form-label-left' } ) do |f| %>
+	<%= f.error_notification %>
+	<br />
+
+  <div class="form-group">
+		<label class="control-label col-sm-3"><%= t 'activerecord.attributes.person.first_name' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-9"><%= @user.person.first_name %></span>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-3"><%= t 'activerecord.attributes.user.email' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-9"><%= @user.email %></span>
+	</div>
+
+	<%= f.input :partner, :as => :autocomplete, :source_query => autocomplete_partner_name_partners_url, :items => 5, :minLength => 3 , :wrapper => :gentelella %>
+
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+			<%= link_to t( "actions.cancel" ), users_path, class: "btn btn-primary" %>
+			<%= f.button :submit, class: "btn btn-success" %>
+		</div>
+	</div>
+<% end %>

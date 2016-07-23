@@ -38,6 +38,7 @@ class UsersController < ApplicationController
         @user = User.new_with_session(sign_up_params || {}, session)
         user_name = params[:user][:person].permit(:first_name)
         @user.person = Person.create(first_name: user_name[:first_name], email: sign_up_params[:email])
+        @user.partner = Partner.find(params[:user][:partner_id]) if params[:user].key?(:partner_id)
         @user.save
 
         yield user if block_given?
@@ -58,6 +59,11 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+      @user = User.find(params[:id])
+      authorize @user
+    end
+
     private
 
     def secure_params
@@ -65,11 +71,11 @@ class UsersController < ApplicationController
     end
 
     def sign_up_params
-        params.require(:user).permit(:person, :email, :password, :password_confirmation)
+        params.require(:user).permit(:person, :email, :password, :password_confirmation, :partner_id)
     end
 
     def account_update_params
-        params.require(:user).permit(:person, :email, :password, :password_confirmation)
+        params.require(:user).permit(:person, :email, :password, :password_confirmation, :partner_id)
     end
 
     def set_minimum_password_length

@@ -8,7 +8,7 @@
 	<% if user.is_active %>
 		<%= simple_form_for(user) do |f| %>
 			<div class="col-md-8 col-xs-8" style="height: 35px">
-			<%= f.input :role, include_blank: false, label: false, collection: User.roles.keys.map { |key| [ t("enum.user.roles.#{key}"), key]} %>	
+			<%= f.input :role, include_blank: false, label: false, collection: User.roles.keys.map { |key| [ t("enum.user.roles.#{key}"), key]} %>
 			</div>
 			<%= f.button :submit, "Alterar", class: "btn btn-warning", style: "margin: 0px" %>
 		<% end %>
@@ -21,7 +21,7 @@
 		<%= t("#{user.is_active}")  %>
 	<% else %>
 		<%= simple_form_for(user) do |f| %>
-			<%= f.input :is_active, :as => :hidden, :input_html => { checked: true, value: true } %>	
+			<%= f.input :is_active, :as => :hidden, :input_html => { checked: true, value: true } %>
 			<%= f.button :submit, "Ativar", class: "btn btn-success", style: "margin: 0px" %>
 		<% end %>
 	<% end %>
@@ -30,6 +30,11 @@
 	<% if current_user.admin? || current_user.coordinator? %>
 		<%= link_to user_path( user ) do %>
 			<i class="fa fa-search fa-lg"></i>
+		<% end %>
+		<% if user.is_active %>
+			<%= link_to edit_user_path( user ) do %>
+				<i class="fa fa-pencil fa-lg"></i>
+			<% end %>
 		<% end %>
 		<% if user != current_user %>
 			<%= link_to user_path( user ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>

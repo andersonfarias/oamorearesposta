@@ -3,6 +3,10 @@ class PartnersController < ApplicationController
 
     before_action :set_partner, only: [:show, :edit, :update, :destroy]
 
+    def autocomplete_partner_name
+        render json: to_autocomplete_items(Partner.by_name_and_status(person_name: params[:q]))
+    end
+
     def index
         authorize current_user
         @partners = Partner.by_name_and_status(params).paginate(page: params[:page])
@@ -76,7 +80,7 @@ class PartnersController < ApplicationController
         )
     end
 
-    def given_second_contact(params)
+    def given_second_contact params
         return false unless params.key?(:partner)
         return false unless params[:partner].key?(:contact_person_2_attributes)
 
@@ -86,5 +90,11 @@ class PartnersController < ApplicationController
             end
         end
         false
+    end
+
+    def to_autocomplete_items items
+        items.collect do |item|
+            [item.id.to_s, item.to_s]
+        end
     end
 end

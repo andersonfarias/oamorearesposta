@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		@user = User.find( params[ :id ] )
 		authorize @user
 
-		@user.update( params[ :user ].permit( 'role', 'is_active' ) )
+		@user.update( params[ :user ].permit( 'role', 'is_active', 'partner_id' ) )
 
 		redirect_to :controller => '/users', :action => 'index'
 	end

@@ -46,6 +46,7 @@ pt-BR:
     attributes:
       user:
         role: Permissão
+        partner: Parceiro
       person:
         first_name: Nome
         last_name: Sobrenome
