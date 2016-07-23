@@ -14,7 +14,7 @@ class Partner < ActiveRecord::Base
 
 
     enum partner_type: [
-        :donor, :financier, :supplier, :piaui_receipt, :network_resource, :volunteering
+        :supplier, :financier, :donor, :network_resource, :piaui_receipt, :volunteering
     ]
 
     serialize :work_areas, Array
