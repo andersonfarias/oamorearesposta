@@ -74,8 +74,9 @@ $(document).ready(function() {
         minView: 2
     });
 
-  $('input.date-input').inputmask("99/99/9999")
-  $('input.phone-number').inputmask("(99)99999-9999")
+  $('input.date-input').inputmask("99/99/9999");
+  $('input.phone-number').inputmask("(99)99999-9999");
+  $('input.cnpj').inputmask("99.999.999/9999-99");
 
-  $('input[type="number"]').numericInput()
+  $('input[type="number"]').numericInput();
 });

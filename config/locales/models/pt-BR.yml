@@ -40,6 +40,9 @@ pt-BR:
       first_contact_file:
         one: Ficha de Primeiro Contato
         other: Fichas de Primeiro Contato
+      partner:
+        one: Recurso Comunitário
+        other: Rede de Recursos Comunitários
     attributes:
       user:
         role: Permissão
@@ -93,6 +96,14 @@ pt-BR:
       citizen:
         leader: Lider
         social_role: Papel Social
+      partner:
+        fantasy_name: Nome Fantasia
+        contact_person_1: Referência para contato
+        contact_person_2: Outra referência para contato
+        cnpj: CNPJ
+        partner_type: Tipo
+        work_areas: Áreas de atuação
+        is_active: Ativo
       first_contact_file:
         date: Data do primeiro contato
         hour: Hora do primeiro contato
@@ -226,6 +237,24 @@ pt-BR:
         student: Estudante
         never_was_employed: Nunca foi empregado
         other_job: Outro
+    partner:
+      work_areas:
+        health: Saúde
+        education: Educação
+        culture_and_leisure: Cultura e Lazer
+        professional_training: Capacitação Profissional
+        therapy_in_general: Terapia em Geral
+        social_assistance: Assistência Social
+        entrepreneurship: Empreendedorismo
+        environment: Meio Ambiente
+        community_mobilization: Mobilização Comunitária
+      partner_type:
+        donor: Doador
+        financier: Financiador
+        supplier: Fornecedor
+        piaui_receipt: Nota Fiscal Piauiense
+        network_resource: Rede de Recursos
+        volunteering: Voluntariado
   enumerize:
     first_contact_file:
       education_levels:
@@ -336,3 +365,14 @@ pt-BR:
         start_a_program: Inicia um programa
         activities_inclusion: Inclusão em atividades
         other_result: Outro
+    partner:
+      work_areas:
+        health: Saúde
+        education: Educação
+        culture_and_leisure: Cultura e Lazer
+        professional_training: Capacitação Profissional
+        therapy_in_general: Terapia em Geral
+        social_assistance: Assistência Social
+        entrepreneurship: Empreendedorismo
+        environment: Meio Ambiente
+        community_mobilization: Mobilização Comunitária

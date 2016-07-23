@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714002441) do
+ActiveRecord::Schema.define(version: 20160723130352) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -124,6 +124,22 @@ ActiveRecord::Schema.define(version: 20160714002441) do
 
   add_index "first_contact_files", ["beneficiary_id"], name: "index_first_contact_files_on_beneficiary_id"
   add_index "first_contact_files", ["user_id"], name: "index_first_contact_files_on_user_id"
+
+  create_table "partners", force: :cascade do |t|
+    t.integer  "person_id"
+    t.string   "fantasy_name"
+    t.integer  "people_id"
+    t.integer  "contact_person_1_id"
+    t.integer  "contact_person_2_id"
+    t.string   "cnpj"
+    t.integer  "partner_type"
+    t.boolean  "is_active",           default: true
+    t.string   "work_areas"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "partners", ["person_id"], name: "index_partners_on_person_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"

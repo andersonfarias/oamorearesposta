@@ -1,0 +1,109 @@
+<%= simple_form_for( @partner ) do |f| %>
+<%= f.error_notification %>
+<br/>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Instituição / Pessoa / Grupo</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-2 col-xs-12">
+                <%= f.input :cnpj, input_html: { class: 'cnpj'} %>
+            </div>
+            <div class="col-md-5 col-xs-12">
+                <%= f.input :fantasy_name %>
+            </div>
+        </div>
+        <%= f.simple_fields_for :person do |p| %>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-2 col-xs-12">
+                <%= f.input :partner_type, include_blank: false, collection: Partner.partner_types.keys.map { |key, value| [ t("enum.partner.partner_type.#{key}"), key]} %>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <%= p.input :first_name, required: true %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-2 col-xs-12">
+                <%= p.input :email, as: :email %>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <%= p.simple_fields_for :phones do |ph| %>
+                <%= ph.input :number, input_html: { class: 'phone-number'} %>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <%= p.simple_fields_for :address do |a| %>
+                <%= render "addresses/form", f: a %>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <%= f.input :work_areas, include_hidden: false, collection: Partner.work_areas.options, as: :check_boxes %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title">
+        <h2><%= t('activerecord.attributes.partner.contact_person_1') %></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <%= f.simple_fields_for :contact_person_1 do |cp1| %>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <%= cp1.input :first_name, required: true %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-2 col-xs-12">
+                <%= cp1.input :email, as: :email %>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <%= cp1.simple_fields_for :phones do |ph| %>
+                <%= ph.input :number, input_html: { class: 'phone-number' } %>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title">
+        <h2><%= t('activerecord.attributes.partner.contact_person_2') %></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <%= f.simple_fields_for :contact_person_2 do |cp2| %>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <%= cp2.input :first_name, required: false %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-2 col-xs-12">
+                <%= cp2.input :email, as: :email %>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <%= cp2.simple_fields_for :phones do |ph| %>
+                <%= ph.input :number, input_html: { class: 'phone-number' } %>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<div class="ln_solid"></div>
+<div class="form-group">
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+        <%= link_to t( "actions.cancel" ), partners_path(current_user), class: "btn btn-primary" %>
+        <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+</div>
+<% end %>

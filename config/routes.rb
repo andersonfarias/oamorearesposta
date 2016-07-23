@@ -32,4 +32,5 @@ Rails.application.routes.draw do
 	resources :first_contact_files
   resources :comunities
 	resources :clinic_treatments, only: [:new, :create]
+	resources :partners
 end
