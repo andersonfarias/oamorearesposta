@@ -13,7 +13,7 @@ class Partner < ActiveRecord::Base
     accepts_nested_attributes_for :contact_person_2
 
     enum partner_type: [
-        :donor, :financier, :supplier, :piaui_receipt, :network_resource, :volunteering
+        :supplier, :financier, :donor, :network_resource, :piaui_receipt, :volunteering
     ]
 
     serialize :work_areas, Array
