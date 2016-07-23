@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160723130352) do
     t.string   "type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "axis"
   end
 
   add_index "diaries", ["beneficiary_id"], name: "index_diaries_on_beneficiary_id"

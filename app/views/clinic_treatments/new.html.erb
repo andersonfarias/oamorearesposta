@@ -8,25 +8,28 @@
     	<%= f.error_notification %>
     	<br/>
       <div class="col-md-4 col-xs-12">
-        <div class="col-md-12 col-xs-12">
+        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
           <%= f.label :user %>
         </div>
-        <div class="col-md-12 col-xs-12">
+        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
           <%= current_user.person.full_name %>
         </div>
       </div>
       <div class="col-md-5 col-xs-12">
-        <div class="col-md-12 col-xs-12">
+        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
           <%= f.label :beneficiary %>
         </div>
-        <div class="col-md-12 col-xs-12">
+        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
           <%= @clinic_treatment.beneficiary.person.full_name %>
         </div>
       </div>
       <div class="col-md-3 col-xs-12">
         <%= f.input :date, as: :datepicker %>
       </div>
-      <div class="col-md-12 col-xs-12">
+      <div class="col-md-4 col-xs-12">
+        <%= f.input :axis, include_hidden: false, collection: Diary.axis.options, as: :check_boxes %>
+      </div>
+      <div class="col-md-8 col-xs-12">
         <%= f.input :description, as: :text, input_html: { :style => "resize: vertical;", :rows => 4 } %>
       </div>
 
@@ -51,16 +54,30 @@
   <div class="x_content">
     <table class="table table-striped table-hover table-bordered">
       <thead>
-        <th class="col-md-2 col-xs-3 text-center"><%= t "activerecord.attributes.clinic_treatment.date" %></th>
-        <th class="col-md-8 col-xs-6 text-center"><%= t "activerecord.attributes.clinic_treatment.description" %></th>
-        <th class="col-md-2 col-xs-3 text-center"><%= t "activerecord.attributes.clinic_treatment.user" %></th>
+        <th class="col-md-1 col-xs-1 text-center"><%= t "activerecord.attributes.clinic_treatment.date" %></th>
+        <th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.clinic_treatment.axis" %></th>
+        <th class="col-md-6 col-xs-6 text-center"><%= t "activerecord.attributes.clinic_treatment.description" %></th>
+        <th class="col-md-2 col-xs-1 text-center"><%= t "activerecord.attributes.clinic_treatment.user" %></th>
+        <th class="text-center"><%= t "actions.actions" %></th>
       </thead>
       <tbody>
         <% @clinic_treatments.each do |ct| %>
         <tr>
           <td style="vertical-align: middle"><%= date_format ct.date %></td>
+          <td style="vertical-align: middle">
+            <% ct.axis.values.each do | a | %>
+              <ul style="padding: 0px 0px 5px 7px; margin: 0px;">
+                <li><%= t("enumerize.diary.axis.#{a}") %></li>
+              </ul>
+            <% end %>
+          </td>
           <td style="vertical-align: middle"><%= ct.description %></td>
           <td style="vertical-align: middle"><%= ct.user.person.full_name %></td>
+          <td class="text-center" style="vertical-align: middle">
+            <%= link_to edit_clinic_treatment_path(ct, current_page: @clinic_treatments.current_page) do %>
+              <i class="fa fa-pencil fa-lg"></i>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
