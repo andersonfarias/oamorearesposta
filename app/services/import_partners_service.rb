@@ -1,7 +1,7 @@
 require 'csv'
 
 class ImportPartnersService
-
+	Partner.destroy_all
 	WORK_AREA = [:not_informed, :education,  :environment,  :not_informed, :professional_training,
 		:social_assistance, :not_informed, :culture_and_leisure, :not_informed, :entrepreneurship, 
 		:not_informed, :not_informed, :not_informed, :community_mobilization, :not_informed,
@@ -23,13 +23,13 @@ class ImportPartnersService
 		 	row = r.first
 			partner = row.split("|")
 			partner_id = 	partner[0]
-			fantasy_name = 	partner[3]
-			cnpj = 			partner[5]
-			cep = 			partner[6]
-			street = 		partner[7]
-			number = 		partner[8]
-			complement = 	partner[9]
-			neighborhood = 	partner[10]
+			fantasy_name = 	partner[3].gsub("'","")
+			cnpj = 			partner[5].gsub("'","")
+			cep = 			partner[6].gsub("'","")
+			street = 		partner[7].gsub("'","")
+			number = 		partner[8].gsub("'","")
+			complement = 	partner[9].gsub("'","")
+			neighborhood = 	partner[10].gsub("'","")
 			file_phones =	[partner[14], partner[15]]
 			email = 		partner[16].gsub("'","")
 			type = 			partner[18]
