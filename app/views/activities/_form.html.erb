@@ -1,0 +1,29 @@
+<%= simple_form_for( @activity ) do |f| %>
+    <%= f.error_notification %>
+    <br/>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2 col-xs-12">
+            <%= f.input :name, required: true %>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <%= f.input :axis, include_blank: false, collection: Diary.axis.options.map { |key, value| [ t("enumerize.diary.axis.#{key}"), key]} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2 col-xs-12">
+            <%= f.association :department, include_blank: false, collection: Department.active, required: true %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2 col-xs-12">
+            <%= f.input :description, as: :text, input_html: { :style => "resize: vertical;", :rows => 4 } %>
+        </div>
+    </div>
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+            <%= link_to t( "actions.cancel" ), activities_path(current_user), class: "btn btn-primary" %>
+            <%= f.button :submit, class: "btn btn-success" %>
+        </div>
+    </div>
+<% end %>

@@ -35,4 +35,5 @@ Rails.application.routes.draw do
 	resources :partners do
 		get :autocomplete_partner_name, :on => :collection
 	end
+	resources :activities
 end

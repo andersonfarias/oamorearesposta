@@ -43,6 +43,9 @@ pt-BR:
       partner:
         one: Recurso Comunitário
         other: Rede de Recursos Comunitários
+      activity:
+        one: Atividade
+        other: Atividades
     attributes:
       user:
         role: Permissão
@@ -138,6 +141,12 @@ pt-BR:
         support: Pessoa de apoio
         beneficiary_first_name: Nome Beneficiário
         beneficiary_last_name: Sobrenome Beneficiário
+      activity:
+        name: Nome
+        description: Descrição
+        department: Núcleo
+        axis: Eixo
+        is_active: Ativo
     errors:
       messages:
         future_date: 'Não pode ser uma data futura'

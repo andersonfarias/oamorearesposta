@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723205327) do
+ActiveRecord::Schema.define(version: 20160724230113) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "axis"
+    t.integer  "department_id"
+    t.boolean  "is_active",     default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "activities", ["department_id"], name: "index_activities_on_department_id"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"

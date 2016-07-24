@@ -1,0 +1,29 @@
+<form class="form-horizontal form-label-left">
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.activity.name' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @activity.name %></span>
+	</div>
+  <div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.activity.axis' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @activity.axis %></span>
+	</div>
+  <div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.activity.department' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @activity.department.name %></span>
+	</div>
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.activity.is_active' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= t("#{@activity.is_active}") %></span>
+	</div>
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.activity.description' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @activity.description %></span>
+	</div>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+			<%= link_to t( "actions.back" ), activities_path(current_user), class: "btn btn-primary" %>
+			<%= link_to t( "actions.edit" ), edit_activity_path(@activity), class: "btn btn-success" %>
+		</div>
+	</div>
+</form>
