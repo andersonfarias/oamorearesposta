@@ -28,10 +28,9 @@ class PartnersController < ApplicationController
 
     def create
         @partner = Partner.new(partner_params)
+        @partner.contact_person_2 = nil if partner_params[:contact_person_2_attributes][:first_name].blank?
+
         authorize @partner
-
-        @partner.contact_person_2 = nil unless given_second_contact(partner_params)
-
         if @partner.save
             redirect_to @partner, notice: t('controllers.actions.create.success', model: Partner.model_name.human(count: 1))
         else
@@ -78,18 +77,6 @@ class PartnersController < ApplicationController
             contact_person_1_attributes: [:id, :first_name, :email, phones_attributes: [:id, :number]],
             contact_person_2_attributes: [:id, :first_name, :email, phones_attributes: [:id, :number]]
         )
-    end
-
-    def given_second_contact params
-        return false unless params.key?(:partner)
-        return false unless params[:partner].key?(:contact_person_2_attributes)
-
-        [:id, :first_name, :email, :phones_attributes].each do |attr|
-            if params[:partner][:contact_person_2_attributes].key?(attr)
-                return true unless blank?(params[:partner][:contact_person_2_attributes].key?(attr))
-            end
-        end
-        false
     end
 
     def to_autocomplete_items items
