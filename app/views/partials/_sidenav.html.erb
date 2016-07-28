@@ -48,16 +48,7 @@
 													<li><a href="/departments"><%=Department.model_name.human(count: 2)%></a></li>
 												<% end %>
                 				<li><a href="/beneficiaries"><%=Beneficiary.model_name.human(count: 2)%></a></li>
-                				<li><a href="/comunities"><%=Comunity.model_name.human(count: 2)%></a></li>
                 				<li><a href="/activities"><%=Activity.model_name.human(count: 2)%></a></li>
-              				</ul>
-            			</li>
-            			<li>
-            				<a><i class="fa fa-bar-chart-o"></i>Relatórios<span class="fa fa-chevron-down"></span></a>
-              				<ul class="nav child_menu" style="display: none">
-                				<li><a href="#">Relatório 1</a></li>
-                				<li><a href="#">Relatório 2</a></li>
-                				<li><a href="#">Relatório 3</a></li>
               				</ul>
             			</li>
             			<% if not current_user.nil? %>
