@@ -19,6 +19,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'enumerize', '~> 1.1', '>= 1.1.1'
 gem 'bourbon'
 gem "font-awesome-rails"
+gem "cocoon"
 
 group :development do
   gem 'better_errors'

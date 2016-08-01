@@ -2,7 +2,11 @@ class UsersController < ApplicationController
     respond_to :html, :xml, :json
 
     before_action :set_minimum_password_length, only: [:new]
-    after_action :verify_authorized
+    after_action :verify_authorized, except: [:autocomplete_user_name]
+
+    def autocomplete_user_name
+        render json: to_autocomplete_items(User.by_name(user_name: params[:q]))
+    end
 
     def index
         authorize current_user
@@ -124,5 +128,11 @@ class UsersController < ApplicationController
 
     def after_sign_up_path_for(resource)
         after_sign_in_path_for(resource)
+    end
+
+    def to_autocomplete_items items
+        items.collect do |item|
+            [item.id.to_s, item.to_s]
+        end
     end
 end

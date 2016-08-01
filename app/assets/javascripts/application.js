@@ -19,7 +19,7 @@
 //= require js/flot/jquery.flot.pie.js
 //= require js/flot/jquery.flot.orderBars.js
 //= require js/flot/jquery.flot.time.min.js
-//= require js/flot/date.js
+
 //= require js/flot/jquery.flot.spline.js
 //= require js/flot/jquery.flot.stack.js
 //= require js/flot/curvedLines.js
@@ -59,6 +59,8 @@
 
 //= require libs/jquery.numeric.js
 
+//= require cocoon
+
 //= require_tree .
 
 $(document).ready(function() {
@@ -79,4 +81,5 @@ $(document).ready(function() {
   $('input.cnpj').inputmask("99.999.999/9999-99");
 
   $('input[type="number"]').numericInput();
+
 });

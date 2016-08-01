@@ -1,3 +1,12 @@
+<% if params[:notice] %>
+<div class="alert alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <ul>
+      <li><%= params[:notice] %></li>
+  </ul>
+</div>
+<% end %>
+
 <%= link_to "#{t('actions.new')} #{Activity.model_name.human(count: 1)}", new_activity_path(current_user), class: "btn btn-primary pull-right" %>
 
 <div class="x_panel">
@@ -19,7 +28,7 @@
                 <%= f.button :submit, "Buscar", class: "btn btn-success" %>
             </div>
         </div>
-        <%end%>
+        <% end %>
     </div>
 </div>
 
@@ -35,14 +44,21 @@
             <td style="vertical-align: middle"><%= link_to a.name, a %></td>
             <td class="text-center" style="vertical-align: middle"><%= t("#{a.is_active}") %></td>
             <td class="col-md-4 col-xs-4 text-center">
+                <% if a.is_active%>
+                    <%= link_to new_activity_diary_path( activity_id: a.id ), method: :get, title: t("activerecord.models.activity_diary.one") do %>
+                    <i class="fa fa-file-text fa-lg"></i>
+                    <% end %>
+                <% end %>
                 <%= link_to activity_path(a) do %>
                 <i class="fa fa-search fa-lg"></i>
                 <% end %>
-                <%= link_to edit_activity_path(a) do %>
-                <i class="fa fa-pencil fa-lg"></i>
-                <% end %>
-                <%= link_to activity_path( a ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
-                <i class="fa fa-trash fa-lg"></i>
+                <% if a.is_active%>
+                    <%= link_to edit_activity_path(a) do %>
+                    <i class="fa fa-pencil fa-lg"></i>
+                    <% end %>
+                    <%= link_to activity_path( a ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
+                    <i class="fa fa-trash fa-lg"></i>
+                    <% end %>
                 <% end %>
             </td>
         </tr>

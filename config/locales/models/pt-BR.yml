@@ -46,6 +46,9 @@ pt-BR:
       activity:
         one: Atividade
         other: Atividades
+      activity_diary:
+        one: Ocorrência
+        other: Ocorrências
     attributes:
       user:
         role: Permissão
@@ -73,6 +76,8 @@ pt-BR:
         description: Descrição
         user: Operador
         axis: Eixo
+      activity_diary:
+        user: Coordenador(a)
       clinic_treatment:
         date: Data
         description: Descrição
@@ -147,6 +152,9 @@ pt-BR:
         department: Núcleo
         axis: Eixo
         is_active: Ativo
+      attendance:
+        beneficiary: Beneficiário
+        observation: Observação
     errors:
       messages:
         future_date: 'Não pode ser uma data futura'

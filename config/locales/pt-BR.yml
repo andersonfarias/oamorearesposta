@@ -158,6 +158,19 @@ pt-BR:
           name: Visualizar
         edit:
           name: Editar
+    activity_diaries:
+      name: Ocorrências
+      actions:
+        index:
+          name: Listagem
+        new:
+          name: Cadastrar Novo
+        show:
+          name: Visualizar
+        edit:
+          name: Editar
+        create:
+          name: Cadastrar Novo
   actions:
     back: Voltar
     edit: Editar
@@ -294,6 +307,9 @@ pt-BR:
         one: não possui o tamanho esperado (1 caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
+      at_least_one_presence: Deve ser registrada a presença de ao menos um beneficiário
+      repeated_beneficiary_presence: Os seguintes beneficiários foram registrados mais de uma vez
+      cant_change_inactive_activity_diary: Não é possível alterar uma atividade  que esteja inativa
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:

@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-offset-2 col-md-8 col-xs-12">
+        <%= f.input :beneficiary, :as => :autocomplete, :source_query => autocomplete_beneficiary_name_beneficiaries_url, :items => 5, :minLength => 3, :required => false %>
+        <span class="help-block hidden show_when_invalid"><%= t('errors.messages.blank') %></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-8 col-xs-12">
+        <%= f.input :observation, as: :text, input_html: { :style => "resize: vertical;", :rows => 4 } %>
+    </div>
+</div>

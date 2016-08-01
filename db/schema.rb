@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724230113) do
+ActiveRecord::Schema.define(version: 20160725114708) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160724230113) do
   end
 
   add_index "activities", ["department_id"], name: "index_activities_on_department_id"
+
+  create_table "activity_diaries", force: :cascade do |t|
+    t.integer  "diary_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "activity_diaries", ["activity_id"], name: "index_activity_diaries_on_activity_id"
+  add_index "activity_diaries", ["diary_id"], name: "index_activity_diaries_on_diary_id"
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -39,6 +49,17 @@ ActiveRecord::Schema.define(version: 20160724230113) do
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
   add_index "addresses", ["person_id"], name: "index_addresses_on_person_id"
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "activity_diary_id"
+    t.integer  "beneficiary_id"
+    t.text     "observation"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "attendances", ["activity_diary_id"], name: "index_attendances_on_activity_diary_id"
+  add_index "attendances", ["beneficiary_id"], name: "index_attendances_on_beneficiary_id"
 
   create_table "beneficiaries", force: :cascade do |t|
     t.integer  "department_id"

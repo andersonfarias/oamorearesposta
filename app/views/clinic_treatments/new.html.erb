@@ -61,21 +61,28 @@
         <th class="text-center"><%= t "actions.actions" %></th>
       </thead>
       <tbody>
-        <% @clinic_treatments.each do |ct| %>
+        <% @items.each do |i| %>
         <tr>
-          <td style="vertical-align: middle"><%= date_format ct.date %></td>
+          <td style="vertical-align: middle"><%= date_format i[:date] %></td>
           <td style="vertical-align: middle">
-            <% ct.axis.values.each do | a | %>
-              <ul style="padding: 0px 0px 5px 7px; margin: 0px;">
-                <li><%= t("enumerize.diary.axis.#{a}") %></li>
-              </ul>
+            <% if i[:type] == 'a' %>
+                <h5>Participação em atividade</h5>
+                <span><%= i[:activity] %></span>
+            <% else %>
+                <% i[:axis].values.each do | a | %>
+                  <ul style="padding: 0px 0px 5px 7px; margin: 0px;">
+                    <li><%= t("enumerize.diary.axis.#{a}") %></li>
+                  </ul>
+                <% end %>
             <% end %>
           </td>
-          <td style="vertical-align: middle"><%= ct.description %></td>
-          <td style="vertical-align: middle"><%= ct.user.person.full_name %></td>
+          <td style="vertical-align: middle"><%= i[:description] %></td>
+          <td style="vertical-align: middle"><%= i[:name] %></td>
           <td class="text-center" style="vertical-align: middle">
-            <%= link_to edit_clinic_treatment_path(ct, current_page: @clinic_treatments.current_page) do %>
-              <i class="fa fa-pencil fa-lg"></i>
+            <% if i[:type] == 'ct' %>
+                <%= link_to edit_clinic_treatment_path(i[:id], current_page: @items.current_page) do %>
+                  <i class="fa fa-pencil fa-lg"></i>
+                <% end %>
             <% end %>
           </td>
         </tr>
@@ -84,4 +91,4 @@
     </table>
   </div>
 </div>
-<%= will_paginate @clinic_treatments, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
+<%= will_paginate @items, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>

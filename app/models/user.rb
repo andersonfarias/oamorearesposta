@@ -18,19 +18,28 @@ class User < ActiveRecord::Base
     devise :database_authenticatable, :registerable, :confirmable,
            :recoverable, :trackable, :validatable, :timeoutable
 
+    def to_s
+        person.full_name
+    end
+
+    def self.by_name(params)
+        args = { name: "%#{params[:user_name]}%", active: TRUE }
+        User.joins(:person).where(['LOWER(people.first_name) LIKE LOWER( :name ) AND is_active = :active', args]).order('people.first_name')
+    end
+
     def self.by_name_and_email(params)
-        if params[:is_active].nil? or params[:is_active].empty?
+        if params[:is_active].nil? || params[:is_active].empty?
             User.joins(:person).where(["(LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') OR LOWER(people.last_name) LIKE LOWER('%#{params[:name]}%'))
-                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND is_active = :active", { name: "%#{params[:department_name]}%", active: TRUE } ])
+                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND is_active = :active", { name: "%#{params[:department_name]}%", active: TRUE }])
         else
             User.joins(:person).where(["LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%')
                 AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND users.is_active = :active",
-                { active: params[:is_active].to_bool }])
+                                       { active: params[:is_active].to_bool }])
         end
     end
 
     def active_for_authentication?
-      super && is_active
+        super && is_active
     end
 
     def inactive_message
