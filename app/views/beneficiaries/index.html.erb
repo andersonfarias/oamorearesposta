@@ -67,6 +67,9 @@
                 <%= link_to new_clinic_treatment_path( beneficiary_id: b.id ), method: :get, title: ClinicTreatment.model_name.human(count: 1) do %>
                 <i class="fa fa-user-md fa-lg"></i>
                 <% end %>
+                <%= link_to new_ppcl_path( beneficiary_id: b.id ), method: :get, title: Ppcl.model_name.human(count: 1) do %>
+                <i class="fa fa-share-alt fa-lg"></i>
+                <% end %>
             </td>
         </tr>
         <% end %>

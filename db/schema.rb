@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725114708) do
+ActiveRecord::Schema.define(version: 20160802223138) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -204,6 +204,25 @@ ActiveRecord::Schema.define(version: 20160725114708) do
   end
 
   add_index "points", ["comunity_id"], name: "index_points_on_comunity_id"
+
+  create_table "ppcls", force: :cascade do |t|
+    t.string   "name"
+    t.string   "dc_reference"
+    t.integer  "age"
+    t.integer  "gender"
+    t.string   "relationship"
+    t.string   "social_role"
+    t.integer  "partner_device"
+    t.integer  "treatment_device"
+    t.integer  "institutional_device"
+    t.integer  "beneficiary_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "user_id"
+  end
+
+  add_index "ppcls", ["beneficiary_id"], name: "index_ppcls_on_beneficiary_id"
+  add_index "ppcls", ["user_id"], name: "index_ppcls_on_user_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

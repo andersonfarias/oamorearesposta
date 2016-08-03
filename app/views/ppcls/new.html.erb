@@ -1,0 +1,112 @@
+<div class="x_panel">
+	<div class="x_title">
+		<h2>Novo PPCL</h2>
+		<div class="clearfix"></div>
+	</div>
+	<div class="x_content">
+	    <%= simple_form_for( @ppcl ) do |f| %>
+			<%= f.error_notification %>
+			<br/>
+			<div class="col-md-4 col-xs-12">
+				<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+					<%= f.label :user %>
+				</div>
+				<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+					<%= current_user.person.full_name %>
+				</div>
+			</div>
+			<div class="col-md-5 col-xs-12">
+				<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+					<%= f.label :beneficiary %>
+				</div>
+				<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+					<%= @ppcl.beneficiary.person.full_name %>
+				</div>
+			</div>
+			<br style="margin-bottom: 35px">
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="col-md-12 col-xs-12">
+						<%= f.input :name %>	
+					</div>
+					<div class="col-md-8 col-xs-12">
+						<%= f.input :dc_reference %>	
+					</div>
+					<div class="col-md-4 col-xs-12">
+						<%= f.input :age %>		
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12">
+						<%= f.input :gender, include_blank: false, collection: Ppcl.genders.keys.map { |key| [ t("enum.ppcl.gender.#{key}"), key]} %>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<%= f.input :relationship %>
+					</div>
+					<div class="col-md-12 col-xs-12">
+						<%= f.input :social_role %>
+					</div>
+				</div>
+				<div class="col-md-12 col-xs-12">
+					<div class="col-md-4 col-xs-12">
+						<%= f.input :partner_device, include_blank: false, collection: Ppcl.partner_devices.keys.map { |key| [ t("enum.ppcl.partner_device.#{key}"), key]} %>
+					</div>
+					<div class="col-md-4 col-xs-12">
+						<%= f.input :treatment_device, include_blank: false, collection: Ppcl.treatment_devices.keys.map { |key| [ t("enum.ppcl.treatment_device.#{key}"), key]} %>
+					</div>
+					<div class="col-md-4 col-xs-12">
+						<%= f.input :institutional_device, include_blank: false, collection: Ppcl.institutional_devices.keys.map { |key| [ t("enum.ppcl.institutional_device.#{key}"), key]} %>
+					</div>
+				</div>
+			</div>
+
+			<%= f.hidden_field :user_id, value: current_user.id %>
+			<%= f.hidden_field :beneficiary_id, value: @ppcl.beneficiary.id %>
+
+			<div class="ln_solid"></div>
+			<div class="form-group">
+				<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+					<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
+					<%= f.button :submit, class: "btn btn-success" %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="x_panel">
+	<div class="x_title">
+		<h2>Lista de PPCL</h2>
+		<div class="clearfix"></div>
+	</div>
+	<div class="x_content">
+		<table class="table table-striped table-hover table-bordered">
+			<thead>
+				<th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.name" %></th>
+				<th class="col-md-2 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.relationship" %></th>
+				<th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.social_role" %></th>
+				<th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.dc_reference" %></th>
+				<th class="col-md-1 text-center"><%= t "actions.actions" %></th>
+			</thead>
+			<tbody>
+				<% @ppcls.each do |p| %>
+					<tr>
+						<td><%= p.name %></td>
+						<td><%= p.relationship %></td>
+						<td><%= p.social_role %></td>
+						<td><%= p.dc_reference %></td>
+						<td class="text-center">
+							<%= link_to p, :remote => true do %>
+								<i class="fa fa-search fa-lg"></i>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<%= render "partials/modal" %>
+
+<%= will_paginate @ppcls, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>

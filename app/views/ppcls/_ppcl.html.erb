@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-md-8">
+      <label><%= t 'activerecord.attributes.ppcl.dc_reference' %></label><br>
+      <%= @ppcl.dc_reference %>  
+    </div>
+    <div class="col-md-4">
+      <label><%= t 'activerecord.attributes.ppcl.age' %></label><br>
+      <%= @ppcl.age %>      
+    </div>
+    <div class="col-md-6" style="margin-top:20px;">
+      <label><%= t 'activerecord.attributes.ppcl.partner_device' %></label><br>
+      <%= t("enum.ppcl.gender.#{@ppcl.partner_device}") %>
+    </div>
+    <div class="col-md-6" style="margin-top:20px;">
+      <label><%= t 'activerecord.attributes.ppcl.treatment_device' %></label><br>
+      <%= t("enum.ppcl.gender.#{@ppcl.treatment_device}") %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="col-md-6">
+      <label><%= t 'activerecord.attributes.ppcl.gender' %></label><br>
+      <%= t("enum.ppcl.gender.#{@ppcl.gender}") %>
+    </div>
+    <div class="col-md-6">
+      <label><%= t 'activerecord.attributes.ppcl.relationship' %></label><br>
+      <%= @ppcl.relationship %>
+    </div>
+    <div class="col-md-6" style="margin-top:20px;">
+      <label><%= t 'activerecord.attributes.ppcl.institutional_device' %></label><br>
+      <%= t("enum.ppcl.gender.#{@ppcl.institutional_device}") %>
+    </div>
+    <div class="col-md-6" style="margin-top:20px;">
+      <label><%= t 'activerecord.attributes.ppcl.social_role' %></label><br>
+      <%= @ppcl.social_role %>
+    </div>
+  </div>
+</div>

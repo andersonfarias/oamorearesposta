@@ -41,7 +41,7 @@ class ClinicTreatmentsController < ApplicationController
             redirect_to new_clinic_treatment_path(beneficiary_id: diary_params[:beneficiary_id]),
                         notice: t('controllers.actions.create.success', model: ClinicTreatment.model_name.human(count: 1))
         else
-            @clinic_treatments = ClinicTreatment.by_beneficiary(params[:beneficiary_id])
+            @clinic_treatments = ClinicTreatment.by_beneficiary(diary_params[:beneficiary_id])
                                                 .paginate(page: params[:page])
             render 'new', notice: @clinic_treatment.errors
         end
@@ -52,7 +52,7 @@ class ClinicTreatmentsController < ApplicationController
             redirect_to new_clinic_treatment_path(beneficiary_id: diary_params[:beneficiary_id], page: params[:clinic_treatment][:current_page]),
                         notice: t('controllers.actions.update.success', model: ClinicTreatment.model_name.human(count: 1))
         else
-            @clinic_treatments = ClinicTreatment.by_beneficiary(params[:beneficiary_id])
+            @clinic_treatments = ClinicTreatment.by_beneficiary(diary_params[:beneficiary_id])
                                                 .paginate(page: params[:page])
             render 'new', notice: @clinic_treatment.errors
         end

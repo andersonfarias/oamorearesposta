@@ -5,6 +5,7 @@ class Beneficiary < ActiveRecord::Base
     has_many :clinic_treatments, dependent: :destroy
     has_many :attendances
     has_many :activity_diaries, through: :attendances
+    has_many :ppcls, dependent: :destroy
 
     accepts_nested_attributes_for :person
 

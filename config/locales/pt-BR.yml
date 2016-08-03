@@ -102,6 +102,13 @@ pt-BR:
           name: Cadastrar Novo / Visualizar
         edit:
           name: Editar
+    ppcls:
+      name: PPCL
+      actions:
+        new:
+          name: Cadastrar Novo / Visualizar
+        edit:
+          name: Editar
     comunities:
       name: Comunidades
       actions:

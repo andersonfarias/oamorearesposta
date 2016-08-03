@@ -49,6 +49,9 @@ pt-BR:
       activity_diary:
         one: Ocorrência
         other: Ocorrências
+      ppcl:
+        one: PPCL
+        other: PPCLs
     attributes:
       user:
         role: Permissão
@@ -71,6 +74,18 @@ pt-BR:
         department: Núcleo
         first_contact_file: Ficha de Primeiro Contato
         is_active: Ativo
+      ppcl:
+        name: Nome
+        age: Idade
+        gender: Gênero
+        dc_reference: Referência no DC
+        relationship: Relação
+        social_role: Papel Social
+        user: Operador
+        beneficiary: Beneficiário
+        partner_device: Disp. Parceiro
+        treatment_device: Disp. Trat. Comun.
+        institutional_device: Disp. Institucional
       diary:
         date: Data
         description: Descrição
@@ -176,6 +191,24 @@ pt-BR:
         female: Feminino
         male: Masculino
         transgender: Transgenero
+    ppcl:
+      gender:
+        female: Feminino
+        male: Masculino
+        transgender: Transgenero
+      partner_device:
+        rs: RS - Rede Subjetiva
+        rp: RP - Rede Primária
+        rlo_partner: RLO - Rede de Líderes de Opnião
+      treatment_device:
+        team: Equipe
+        rsc: RSC - Rede Subjetiva Comunitária
+        ro: RO - Rede Operativa
+        rrc: RRC - Rede de Recursos Comunitários
+        rlo_treatment: RLO - Rede de Líderes de Opnião
+      institutional_device:
+        public_institutional: Pública
+        private_institutional: Privada
     first_contact_file:
       hour:
         '0801_1100': Das 08:01 às 11:00
