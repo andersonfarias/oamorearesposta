@@ -2,7 +2,7 @@ class Ppcl < ActiveRecord::Base
 	belongs_to :beneficiary
 	belongs_to :user
 
-	scope :by_beneficiary, ->(id) { where(beneficiary_id: id).order(id: :desc)  }
+	scope :by_beneficiary, ->(id) { where(beneficiary_id: id).order(name: :asc)  }
 
 	validates_presence_of :name, :dc_reference, :age, :gender, :relationship, 
 			:social_role, :partner_device, :treatment_device, :institutional_device, :beneficiary, :user
