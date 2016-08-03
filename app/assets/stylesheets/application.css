@@ -55,3 +55,12 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+
+div.modal.modal-popup {
+  margin: auto; 
+  width: 70%; 
+  padding: 10px; 
+  background-color: white; 
+  height: 50%; 
+  border-radius: 20px;
+}
