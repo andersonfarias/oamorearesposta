@@ -1,8 +1,4 @@
 <div class="x_panel">
-	<div class="x_title">
-		<h2>Novo PPCL</h2>
-		<div class="clearfix"></div>
-	</div>
 	<div class="x_content">
 	    <%= simple_form_for( @ppcl ) do |f| %>
 			<%= f.error_notification %>
@@ -66,53 +62,10 @@
 			<div class="ln_solid"></div>
 			<div class="form-group">
 				<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
-					<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
+					<%= link_to t( "actions.cancel" ), new_ppcl_path( beneficiary_id: @ppcl.beneficiary.id, page: @current_page ), method: :get, title: Ppcl.model_name.human(count: 1), class: "btn btn-primary" %>
 					<%= f.button :submit, class: "btn btn-success" %>
 				</div>
 			</div>
 		<% end %>
 	</div>
 </div>
-
-<div class="x_panel">
-	<div class="x_title">
-		<h2>Lista de PPCL</h2>
-		<div class="clearfix"></div>
-	</div>
-	<div class="x_content">
-		<table class="table table-striped table-hover table-bordered">
-			<thead>
-				<th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.name" %></th>
-				<th class="col-md-2 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.relationship" %></th>
-				<th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.social_role" %></th>
-				<th class="col-md-3 col-xs-4 text-center"><%= t "activerecord.attributes.ppcl.dc_reference" %></th>
-				<th class="col-md-1 text-center"><%= t "actions.actions" %></th>
-			</thead>
-			<tbody>
-				<% @ppcls.each do |p| %>
-					<tr>
-						<td><%= p.name %></td>
-						<td><%= p.relationship %></td>
-						<td><%= p.social_role %></td>
-						<td><%= p.dc_reference %></td>
-						<td class="text-center">
-							<%= link_to p, :remote => true do %>
-								<i class="fa fa-search fa-lg"></i>
-							<% end %>
-							<%= link_to ppcl_path( p ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
-								<i class="fa fa-trash fa-lg"></i>
-							<% end %>
-							<%= link_to edit_ppcl_path(p[:id], current_page: @ppcls.current_page) do %>
-								<i class="fa fa-pencil fa-lg"></i>
-							<% end %>
-						</td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-</div>
-
-<%= render "partials/modal" %>
-
-<%= will_paginate @ppcls, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>
