@@ -63,6 +63,7 @@ pt-BR:
         age: Idade
         birthdate: Data do Aniversário
         email: Email
+        cpf: CPF
       department:
         name: Nome
         description: Descrição

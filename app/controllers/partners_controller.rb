@@ -75,7 +75,7 @@ class PartnersController < ApplicationController
         params.require(:partner).permit(
             :id, :fantasy_name, :cnpj, :partner_type, :contact_person_2_id, work_areas: [],
             person_attributes: [
-                :id, :first_name, :email, phones_attributes: [:id, :number],
+                :id, :first_name, :cpf, :email, phones_attributes: [:id, :number],
                                           address_attributes: [:id, :street, :number, :neighborhood, :cep, :city_id, :complement]
             ],
             contact_person_1_attributes: [:id, :first_name, :email, phones_attributes: [:id, :number]],

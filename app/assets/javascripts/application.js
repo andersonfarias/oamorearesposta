@@ -79,6 +79,7 @@ $(document).ready(function() {
   $('input.date-input').inputmask("99/99/9999");
   $('input.phone-number').inputmask("(99)99999-9999");
   $('input.cnpj').inputmask("99.999.999/9999-99");
+  $('input.cpf').inputmask("999.999.999-99");
 
   $('input[type="number"]').numericInput();
 

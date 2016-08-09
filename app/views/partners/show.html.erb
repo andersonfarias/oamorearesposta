@@ -7,7 +7,7 @@
         <div class="x_content">
             <br/>
             <div class="row">
-                <div class="col-md-4 col-md-offset-2 col-xs-12">
+                <div class="col-md-4 col-md-offset-1 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-2"><%= t 'activerecord.attributes.partner.cnpj' %>:</label>
                         <span style="text-align: left" class="control-label col-sm-8"><%= @partner.cnpj %></span>
@@ -21,27 +21,33 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-md-offset-2 col-xs-12">
+                <div class="col-md-2 col-md-offset-1 col-xs-12">
                     <div class="form-group">
-                        <label class="control-label col-sm-2"><%= t 'activerecord.attributes.partner.partner_type' %>:</label>
+                        <label class="control-label col-sm-3"><%= t 'activerecord.attributes.partner.partner_type' %>:</label>
                         <span style="text-align: left" class="control-label col-sm-8"><%= t("enum.partner.partner_type.#{@partner.partner_type}") %></span>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12">
                     <div class="form-group">
-                        <label class="control-label col-sm-4"><%= t 'activerecord.attributes.person.first_name' %>:</label>
+                        <label class="control-label col-sm-2"><%= t 'activerecord.attributes.person.first_name' %>:</label>
                         <span style="text-align: left" class="control-label col-sm-8"><%= @partner.person.first_name %></span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3"><%= t 'activerecord.attributes.person.cpf' %>:</label>
+                        <span style="text-align: left" class="control-label col-sm-8"><%= @partner.person.cpf %></span>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-md-offset-2 col-xs-12">
+                <div class="col-md-4 col-md-offset-1 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-2"><%= t 'activerecord.attributes.person.email' %>:</label>
                         <span style="text-align: left" class="control-label col-sm-8"><%= @partner.person.email %></span>
                     </div>
                 </div>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-5 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-4"><%= t 'activerecord.attributes.phone.number' %>:</label>
                         <span style="text-align: left" class="control-label col-sm-6"><%= @partner.person.phones[0].number %></span>
@@ -49,7 +55,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <div class="col-md-8 col-md-offset-1 col-xs-12">
                     <%= render 'addresses/show', address: @partner.person.address %>
                 </div>
             </div>
