@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     end
     resources :first_contact_files
     resources :comunities
-    resources :clinic_treatments, only: [:new, :create, :edit, :update]
+    resources :clinic_treatments
     resources :ppcls
     resources :partners do
         get :autocomplete_partner_name, on: :collection

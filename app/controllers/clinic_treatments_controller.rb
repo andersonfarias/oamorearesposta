@@ -1,5 +1,5 @@
 class ClinicTreatmentsController < ApplicationController
-    before_action :set_clinic_treatment, only: [:edit, :update]
+    before_action :set_clinic_treatment, only: [:edit, :update, :destroy]
 
     def new
         @clinic_treatment = ClinicTreatment.new(
@@ -55,6 +55,14 @@ class ClinicTreatmentsController < ApplicationController
             @clinic_treatments = ClinicTreatment.by_beneficiary(diary_params[:beneficiary_id])
                                                 .paginate(page: params[:page])
             render 'new', notice: @clinic_treatment.errors
+        end
+    end
+
+    def destroy
+        beneficiary_id = @clinic_treatment.beneficiary_id
+        if @clinic_treatment.destroy
+            redirect_to new_clinic_treatment_path(beneficiary_id: beneficiary_id, page: params[:current_page]),
+                notice: t('controllers.actions.destroy.success', model: ClinicTreatment.model_name.human(count: 1))
         end
     end
 

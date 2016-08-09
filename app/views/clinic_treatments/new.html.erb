@@ -83,6 +83,9 @@
                 <%= link_to edit_clinic_treatment_path(i[:id], current_page: @items.current_page) do %>
                   <i class="fa fa-pencil fa-lg"></i>
                 <% end %>
+                <%= link_to clinic_treatment_path(id: i[:id], current_page: @items.current_page ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
+                  <i class="fa fa-trash fa-lg"></i>
+                <% end %>
             <% end %>
           </td>
         </tr>
