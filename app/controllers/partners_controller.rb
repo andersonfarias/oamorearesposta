@@ -87,7 +87,7 @@ class PartnersController < ApplicationController
         partner_id = params[:partner][:contact_person_2_attributes][:id]
         params[:partner].except!(:contact_person_2_attributes) 
         params[:partner][:contact_person_2_id] = nil
-        Person.find(partner_id).destroy
+        Person.find(partner_id).destroy if Person.exists?(partner_id)
     end
 
     def to_autocomplete_items items
