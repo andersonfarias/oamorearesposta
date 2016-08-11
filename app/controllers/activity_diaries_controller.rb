@@ -1,7 +1,7 @@
 class ActivityDiariesController < ApplicationController
     respond_to :html, :xml, :json
 
-    before_action :set_activity_diary, only: [:edit, :update, :destroy]
+    before_action :set_activity_diary, only: [:edit, :update, :show, :destroy]
 
     def new
         activity = Activity.find(params[:activity_id])
@@ -49,6 +49,9 @@ class ActivityDiariesController < ApplicationController
             @activity_diaries = ActivityDiary.by_activity(params[:activity_id]).paginate(page: params[:page])
             render 'new', notice: @activity_diary.errors, locals: { attendances: attendances }
         end
+    end
+
+    def show
     end
 
     def edit

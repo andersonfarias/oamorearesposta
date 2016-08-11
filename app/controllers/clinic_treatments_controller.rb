@@ -16,7 +16,7 @@ class ClinicTreatmentsController < ApplicationController
             @items << { id: ct.id, date: ct.date, type: 'ct', axis: ct.axis, description: ct.description, name: ct.user.person.full_name }
         end
         @attendances.each do |a|
-            @items << { id: a.id, date: a.activity_diary.diary.date, type: 'a', axis: a.activity_diary.diary.axis, description: a.activity_diary.diary.description, name: a.activity_diary.diary.user.person.full_name, activity: a.activity_diary.activity.name }
+            @items << { id: a.activity_diary.id, date: a.activity_diary.diary.date, type: 'a', axis: a.activity_diary.diary.axis, description: a.activity_diary.diary.description, name: a.activity_diary.diary.user.person.full_name, activity: a.activity_diary.activity.name }
         end
 
         @items = @items.sort! do |x, y|

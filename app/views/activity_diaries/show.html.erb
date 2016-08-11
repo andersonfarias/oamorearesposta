@@ -1,0 +1,63 @@
+<form class="form-horizontal form-label-left">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Ocorrência</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <br/>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label col-sm-6"><%= t 'activerecord.attributes.activity_diary.user' %>:</label>
+                        <span style="text-align: left" class="control-label col-sm-6"><%= @activity_diary.diary.user.person.full_name %></span>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label col-sm-6"><%= t 'activerecord.attributes.diary.date' %>:</label>
+                        <span style="text-align: left" class="control-label col-sm-6"><%= @activity_diary.diary.date %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-10 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2"><%= t 'activerecord.attributes.diary.description' %>:</label>
+                        <span style="text-align: left" class="control-label col-sm-8"><%= @activity_diary.diary.description %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row x_title">
+                <div class="col-md-6">
+                    <h4>Presença</h4>
+                </div>
+            </div>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <th class="col-md-6 col-xs-12"><%= t "activerecord.attributes.attendance.beneficiary" %></th>
+                    <th class="col-md-6 col-xs-12"><%= t "activerecord.attributes.attendance.observation" %></th>
+                </thead>
+                <tbody>
+                    <% @activity_diary.attendances.each_with_index do |attendance, index| %>
+                      <tr>
+                        <td class="row">
+                            <span class="col-md-12 col-sm-12 col-xs-12"><%= attendance.beneficiary.person.full_name %></span>
+                        </td>
+                        <td class="row">
+                            <p class="col-md-12 col-sm-12 col-xs-12" style="word-wrap: break-word"><%= attendance.observation %></span>
+                        </td>
+                      </tr>
+                    <% end %>
+                </tbody>
+              </table>
+        </div>
+        <div class="ln_solid"></div>
+      	<div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+      			     <%= link_to t( "actions.back" ), new_activity_diary_path( activity_id: @activity_diary.activity.id ), method: :get, class: "btn btn-primary" %>
+      			     <%= link_to t( "actions.edit" ), edit_activity_diary_path( @activity_diary ), class: "btn btn-success" %>
+      		  </div>
+      	</div>
+    </div>
+</form>

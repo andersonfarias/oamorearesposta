@@ -86,6 +86,10 @@
                 <%= link_to clinic_treatment_path(id: i[:id], current_page: @items.current_page ), :data => { :confirm => "Você tem certeza?" }, :method => :delete do %>
                   <i class="fa fa-trash fa-lg"></i>
                 <% end %>
+            <% else %>
+                <%= link_to activity_diary_path(id: i[:id]) do %>
+                    <i class="fa fa-search fa-lg"></i>
+                <% end %>
             <% end %>
           </td>
         </tr>

@@ -120,6 +120,9 @@
                     <td style="vertical-align: middle"><%= date_format ad.diary.date %></td>
                     <td style="vertical-align: middle"><%= ad.diary.description %></td>
                     <td class="text-center" style="vertical-align: middle">
+                        <%= link_to activity_diary_path(ad) do %>
+                            <i class="fa fa-search fa-lg"></i>
+                        <% end %>
                         <%= link_to edit_activity_diary_path(ad, current_page: @activity_diaries.current_page) do %>
                             <i class="fa fa-pencil fa-lg"></i>
                         <% end %>
