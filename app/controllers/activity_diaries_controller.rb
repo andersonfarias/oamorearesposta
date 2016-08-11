@@ -80,9 +80,6 @@ class ActivityDiariesController < ApplicationController
                 end
             end
 
-            p 'weqtrwetrywryteqwryteqw'
-            p @activity_diary.attendances
-
             redirect_to new_activity_diary_path(activity_id: activity_diary_params[:activity_id], page: params[:activity_diary][:current_page]),
                         notice: t('controllers.actions.update.success', model: ActivityDiary.model_name.human(count: 1))
         else
