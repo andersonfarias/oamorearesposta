@@ -23,7 +23,7 @@ class ActivityDiary < ActiveRecord::Base
     def attendance_with_same_beneficiary?
         beneficiaries_frequency = Hash.new
         attendances.each do |a|
-            key = a.beneficiary.person.first_name
+            key = a.beneficiary.person.full_name
             value = beneficiaries_frequency.key?(key) ? beneficiaries_frequency[key] + 1 : 1
 
             beneficiaries_frequency[key] = value
