@@ -54,37 +54,39 @@
         </div>
         <div class="ln_solid"></div>
 
-        <div class="row x_title">
-            <div class="col-md-6">
-                <h4>Fotos</h4>
+        <% if @activity_diary.file_pictures.any? %>
+            <div class="row x_title">
+                <div class="col-md-6">
+                    <h4>Fotos</h4>
+                </div>
             </div>
-        </div>
+        
+            <ul class="bxslider">
+              <% @activity_diary.file_pictures.each do |document| %>
+                <li>
+                    <img style="height: 300px;"
+                       src="<%= url_for(:controller => "file_pictures", :action => "show", :id => document.id) %>" />
+                        <div style="text-align: center;">
+                            <%= link_to document.file_name, document, method: :get %>
+                        </div>
+                       
+                </li>
+              <% end %>
+            </ul>
 
-        <ul class="bxslider">
-          <% @activity_diary.file_pictures.each do |document| %>
-            <li>
-                <img style="height: 300px;"
-                   src="<%= url_for(:controller => "file_pictures", :action => "show", :id => document.id) %>" />
-                    <div style="text-align: center;">
-                        <%= link_to document.file_name, document, method: :get %>
-                    </div>
-                   
-            </li>
-          <% end %>
-        </ul>
-
-        <div id="bx-pager">
-            <div class="row" style="padding-left: 10px">
-                <% @activity_diary.file_pictures.each_with_index do |document, index| %>
-                    <div class="col-md-1" style="padding: 0px;  width: 60px">
-                      <a data-slide-index="<%= index %>" href="">
-                        <img style="height: 50px; width: 50px;"
-                           src="<%= url_for(:controller => "file_pictures", :action => "show", :id => document.id) %>" />
-                      </a>
-                    </div>
-                <% end %>
+            <div id="bx-pager">
+                <div class="row" style="padding-left: 10px">
+                    <% @activity_diary.file_pictures.each_with_index do |document, index| %>
+                        <div class="col-md-1" style="padding: 0px;  width: 60px">
+                          <a data-slide-index="<%= index %>" href="">
+                            <img style="height: 50px; width: 50px;"
+                               src="<%= url_for(:controller => "file_pictures", :action => "show", :id => document.id) %>" />
+                          </a>
+                        </div>
+                    <% end %>
+                </div>
             </div>
-        </div>
+        <% end %>
 
         <br>
 
