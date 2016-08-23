@@ -20,6 +20,7 @@ gem 'enumerize', '~> 1.1', '>= 1.1.1'
 gem 'bourbon'
 gem "font-awesome-rails"
 gem "cocoon"
+gem 'bxslider-rails'
 
 group :development do
   gem 'better_errors'

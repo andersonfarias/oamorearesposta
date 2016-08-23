@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @files.each do |document| %>
+      <tr>
+        <td><img style="width: 100px; height: 100px"
+           src="<%= url_for(:controller => "file_pictures", :action => "show", :id => document.id) %>" /></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

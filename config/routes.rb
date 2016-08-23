@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
     authenticated :user do
         root to: 'home#index', as: :authenticated_root
     end
@@ -42,4 +43,5 @@ Rails.application.routes.draw do
     end
     resources :activities
     resources :activity_diaries
+    resources :file_pictures, only: [:show, :index]
 end

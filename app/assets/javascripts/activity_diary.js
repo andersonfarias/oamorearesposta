@@ -90,6 +90,22 @@ $(document).ready(function() {
         }
     }
 
+    var onFileTableClick = function(e, table) {
+        var clickedToRemoveItem = $(e.target).parent().is('.remove_file_activity_diary');
+        if (clickedToRemoveItem) {
+            $(e.target).closest("tr").remove();
+            table.find("tbody tr").each(function() {
+                var index = $(this).index();
+                $(this).find("input[type='hidden']").each(function() {
+                    var name = $(this).attr('name');
+                    $(this).attr('name', name.replace(/\d+/i, index + ''));
+                });
+            });
+
+            return;
+        }
+    }
+
     $('#activity_diary_attendances_nested_form').on('cocoon:before-insert', function(e, insertedItem) {
         beforeInsertCocoon($('#activity_diary_attendances_nested_form'), insertedItem);
     });
@@ -112,6 +128,10 @@ $(document).ready(function() {
 
     $('#activity_diary_attendances_edit_table').on('click', function(e) {
         onTableClick(e, $('#activity_diary_attendances_edit_table'));
+    });
+
+    $('#activity_diary_files_edit_table').on('click', function(e) {
+        onFileTableClick(e, $('#remove_file_activity_diary'));
     });
 
     $('#activity_diary_attendances_create_table .observation-text').hide();

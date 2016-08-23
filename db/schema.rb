@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809231036) do
+ActiveRecord::Schema.define(version: 20160820184752) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_index "activities", ["department_id"], name: "index_activities_on_department_id"
+  add_index "activities", ["department_id"], name: "index_activities_on_department_id", using: :btree
 
   create_table "activity_diaries", force: :cascade do |t|
     t.integer  "diary_id"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "activity_diaries", ["activity_id"], name: "index_activity_diaries_on_activity_id"
-  add_index "activity_diaries", ["diary_id"], name: "index_activity_diaries_on_diary_id"
+  add_index "activity_diaries", ["activity_id"], name: "index_activity_diaries_on_activity_id", using: :btree
+  add_index "activity_diaries", ["diary_id"], name: "index_activity_diaries_on_diary_id", using: :btree
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
-  add_index "addresses", ["person_id"], name: "index_addresses_on_person_id"
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
+  add_index "addresses", ["person_id"], name: "index_addresses_on_person_id", using: :btree
 
   create_table "attendances", force: :cascade do |t|
     t.integer  "activity_diary_id"
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "attendances", ["activity_diary_id"], name: "index_attendances_on_activity_diary_id"
-  add_index "attendances", ["beneficiary_id"], name: "index_attendances_on_beneficiary_id"
+  add_index "attendances", ["activity_diary_id"], name: "index_attendances_on_activity_diary_id", using: :btree
+  add_index "attendances", ["beneficiary_id"], name: "index_attendances_on_beneficiary_id", using: :btree
 
   create_table "beneficiaries", force: :cascade do |t|
     t.integer  "department_id"
@@ -69,8 +72,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.boolean  "is_active",     default: true
   end
 
-  add_index "beneficiaries", ["department_id"], name: "index_beneficiaries_on_department_id"
-  add_index "beneficiaries", ["person_id"], name: "index_beneficiaries_on_person_id"
+  add_index "beneficiaries", ["department_id"], name: "index_beneficiaries_on_department_id", using: :btree
+  add_index "beneficiaries", ["person_id"], name: "index_beneficiaries_on_person_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -79,7 +82,7 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "citizens", force: :cascade do |t|
     t.boolean  "leader"
@@ -90,8 +93,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "citizens", ["comunity_id"], name: "index_citizens_on_comunity_id"
-  add_index "citizens", ["person_id"], name: "index_citizens_on_person_id"
+  add_index "citizens", ["comunity_id"], name: "index_citizens_on_comunity_id", using: :btree
+  add_index "citizens", ["person_id"], name: "index_citizens_on_person_id", using: :btree
 
   create_table "comunities", force: :cascade do |t|
     t.string   "name"
@@ -120,8 +123,19 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.string   "axis"
   end
 
-  add_index "diaries", ["beneficiary_id"], name: "index_diaries_on_beneficiary_id"
-  add_index "diaries", ["user_id"], name: "index_diaries_on_user_id"
+  add_index "diaries", ["beneficiary_id"], name: "index_diaries_on_beneficiary_id", using: :btree
+  add_index "diaries", ["user_id"], name: "index_diaries_on_user_id", using: :btree
+
+  create_table "file_pictures", force: :cascade do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.binary   "file_contents"
+    t.integer  "activity_diary_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "file_pictures", ["activity_diary_id"], name: "index_file_pictures_on_activity_diary_id", using: :btree
 
   create_table "first_contact_files", force: :cascade do |t|
     t.date     "date"
@@ -156,8 +170,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.integer  "support_id"
   end
 
-  add_index "first_contact_files", ["beneficiary_id"], name: "index_first_contact_files_on_beneficiary_id"
-  add_index "first_contact_files", ["user_id"], name: "index_first_contact_files_on_user_id"
+  add_index "first_contact_files", ["beneficiary_id"], name: "index_first_contact_files_on_beneficiary_id", using: :btree
+  add_index "first_contact_files", ["user_id"], name: "index_first_contact_files_on_user_id", using: :btree
 
   create_table "partners", force: :cascade do |t|
     t.integer  "person_id"
@@ -173,7 +187,7 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",                         null: false
   end
 
-  add_index "partners", ["person_id"], name: "index_partners_on_person_id"
+  add_index "partners", ["person_id"], name: "index_partners_on_person_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
@@ -194,7 +208,7 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "phones", ["person_id"], name: "index_phones_on_person_id"
+  add_index "phones", ["person_id"], name: "index_phones_on_person_id", using: :btree
 
   create_table "points", force: :cascade do |t|
     t.float    "latitude"
@@ -204,7 +218,7 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "points", ["comunity_id"], name: "index_points_on_comunity_id"
+  add_index "points", ["comunity_id"], name: "index_points_on_comunity_id", using: :btree
 
   create_table "ppcls", force: :cascade do |t|
     t.string   "name"
@@ -222,8 +236,8 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.integer  "user_id"
   end
 
-  add_index "ppcls", ["beneficiary_id"], name: "index_ppcls_on_beneficiary_id"
-  add_index "ppcls", ["user_id"], name: "index_ppcls_on_user_id"
+  add_index "ppcls", ["beneficiary_id"], name: "index_ppcls_on_beneficiary_id", using: :btree
+  add_index "ppcls", ["user_id"], name: "index_ppcls_on_user_id", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
@@ -255,9 +269,19 @@ ActiveRecord::Schema.define(version: 20160809231036) do
     t.integer  "partner_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["partner_id"], name: "index_users_on_partner_id"
-  add_index "users", ["person_id"], name: "index_users_on_person_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["partner_id"], name: "index_users_on_partner_id", using: :btree
+  add_index "users", ["person_id"], name: "index_users_on_person_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "activities", "departments"
+  add_foreign_key "activity_diaries", "activities"
+  add_foreign_key "activity_diaries", "diaries"
+  add_foreign_key "diaries", "beneficiaries"
+  add_foreign_key "diaries", "users"
+  add_foreign_key "file_pictures", "activity_diaries"
+  add_foreign_key "partners", "people"
+  add_foreign_key "ppcls", "beneficiaries"
+  add_foreign_key "ppcls", "users"
+  add_foreign_key "users", "partners"
 end

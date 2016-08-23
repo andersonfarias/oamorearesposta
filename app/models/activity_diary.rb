@@ -3,6 +3,7 @@ class ActivityDiary < ActiveRecord::Base
     belongs_to :activity
     has_many :attendances, dependent: :destroy
     has_many :beneficiaries, through: :attendances
+    has_many :file_pictures, dependent: :destroy
 
     validates_presence_of :diary, :activity
     validates_associated :diary, :activity

@@ -31,6 +31,7 @@ class ActivityDiariesController < ApplicationController
         end
 
         if @activity_diary.save
+            files_not_save = save_file_pictures(params["activity_diary"]["files"])
             @activity_diaries = ActivityDiary.by_activity(params[:activity_id]).paginate(page: params[:page])
             redirect_to action: 'new', activity_id: @activity_diary.activity.id, notice: t('controllers.actions.create.success', model: ActivityDiary.model_name.human(count: 1))
         else
@@ -70,13 +71,31 @@ class ActivityDiariesController < ApplicationController
         previous_attendances_ids = []
         @activity_diary.attendances.each { |a| previous_attendances_ids << a.id }
 
+        previous_file_pictures_ids = []
+        @activity_diary.file_pictures.each { |a| previous_file_pictures_ids << a.id }
+
         if @activity_diary.update(activity_diary_params)
+            files_not_save = save_file_pictures(params["activity_diary"]["files"])
             params_attendances_ids = []
             activity_diary_params[:attendances_attributes].each { |item| params_attendances_ids << item[:id] }
 
             @activity_diary.attendances.each do |a|
                 if !params_attendances_ids.include?(a.id.to_s) && previous_attendances_ids.include?(a.id)
                     a.destroy
+                end
+            end
+
+            params_file_pictures_ids = []
+            if params["activity_diary"]["old_files"]
+                params["activity_diary"]["old_files"].each { |item| params_file_pictures_ids << item[1]["id"] }
+                @activity_diary.file_pictures.each do |fp|
+                    if !params_file_pictures_ids.include?(fp.id.to_s) && previous_file_pictures_ids.include?(fp.id)
+                        fp.destroy
+                    end
+                end
+            else
+                @activity_diary.file_pictures.each do |fp|
+                    fp.destroy
                 end
             end
 
@@ -102,12 +121,31 @@ class ActivityDiariesController < ApplicationController
 
     private
 
+    def save_file_pictures files
+        files_not_save = []  
+        if files
+            files.each do |img|  
+              file = FilePicture.new
+              file.file_name = File.basename(img.original_filename.rpartition('.')[0])
+              file.content_type = img.content_type
+              file.file_contents = img.read
+              file.activity_diary = @activity_diary
+              unless file.save
+                files_not_save << File.basename(img.original_filename)
+              end
+            end
+        end
+        files_not_save
+    end
+
     def set_activity_diary
         @activity_diary = ActivityDiary.find(params[:id])
     end
 
     def activity_diary_params
-        args = params.require(:activity_diary).permit(:id, :activity_id, :diary_id, diary: [:id, :date, :description, :user_id], attendances_attributes: [:id, :beneficiary_id, :observation, :_destroy])
+        args = params.require(:activity_diary).permit(:id, :activity_id, 
+            :diary_id, diary: [:id, :date, :description, :user_id], 
+            attendances_attributes: [:id, :beneficiary_id, :observation, :_destroy])
         if args.key?(:diary_id)
             diary = Diary.find(args[:diary_id])
             diary.update_attributes(args[:diary])

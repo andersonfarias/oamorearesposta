@@ -13,6 +13,7 @@
 //= require jquery
 
 //= require jquery_ujs
+//= require bxslider
 //= require turbolinks
 
 //= require js/flot/jquery.flot.js
@@ -82,5 +83,12 @@ $(document).ready(function() {
   $('input.cpf').inputmask("999.999.999-99");
 
   $('input[type="number"]').numericInput();
+
+  $('.bxslider').bxSlider({
+    mode: 'fade',
+    captions: true,
+    pagerCustom: '#bx-pager'
+    // slideWidth: 360
+  });
 
 });
