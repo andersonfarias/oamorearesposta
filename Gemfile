@@ -21,6 +21,7 @@ gem 'bourbon'
 gem "font-awesome-rails"
 gem "cocoon"
 gem 'bxslider-rails'
+gem 'gon'
 
 group :development do
   gem 'better_errors'

@@ -59,6 +59,9 @@
 //= require libs/locale/bootstrap-datetimepicker.pt-BR.js
 
 //= require libs/jquery.numeric.js
+//= require libs/canvasjs.js
+//= require libs/excanvas.js
+//= require libs/jquery.canvasjs.js
 
 //= require cocoon
 
@@ -90,5 +93,9 @@ $(document).ready(function() {
     pagerCustom: '#bx-pager'
     // slideWidth: 360
   });
+
+  Chart.defaults.global.legend = {
+    enabled: false
+  };
 
 });

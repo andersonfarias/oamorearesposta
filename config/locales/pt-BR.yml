@@ -95,6 +95,8 @@ pt-BR:
           name: Visualizar
         edit:
           name: Editar
+        report:
+          name: Relatório
     clinic_treatments:
       name: Diários Clínico
       actions:

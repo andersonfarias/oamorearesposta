@@ -39,18 +39,24 @@
 							<% end %>
             			</li>
             			<li>
-            				<a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
-              				<ul class="nav child_menu" style="display: none">
-												<% if current_user.admin? || current_user.coordinator? %>
-													<li><a href="/partners"><%=Partner.model_name.human(count: 2)%></a></li>
-												<% end %>
-												<% if current_user.admin? || current_user.coordinator? %>
-													<li><a href="/departments"><%=Department.model_name.human(count: 2)%></a></li>
-												<% end %>
-                				<li><a href="/beneficiaries"><%=Beneficiary.model_name.human(count: 2)%></a></li>
-                				<li><a href="/activities"><%=Activity.model_name.human(count: 2)%></a></li>
-              				</ul>
-            			</li>
+                    <a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu" style="display: none">
+                        <% if current_user.admin? || current_user.coordinator? %>
+                          <li><a href="/partners"><%=Partner.model_name.human(count: 2)%></a></li>
+                        <% end %>
+                        <% if current_user.admin? || current_user.coordinator? %>
+                          <li><a href="/departments"><%=Department.model_name.human(count: 2)%></a></li>
+                        <% end %>
+                        <li><a href="/beneficiaries"><%=Beneficiary.model_name.human(count: 2)%></a></li>
+                        <li><a href="/activities"><%=Activity.model_name.human(count: 2)%></a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a><i class="fa fa-edit"></i>Relatórios<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu" style="display: none">
+                        <li><a href="/beneficiaries/report"><%=Beneficiary.model_name.human(count: 2)%></a></li>
+                      </ul>
+                  </li>
             			<% if not current_user.nil? %>
 	            			<% if current_user.admin? || current_user.coordinator? %>
 		            			<li>

@@ -30,10 +30,13 @@ Rails.application.routes.draw do
         get :autocomplete_user_name, on: :collection
     end
     resources :departments
+
     get 'beneficiaries/new' => 'first_contact_files#new'
+    get 'beneficiaries/report' => 'beneficiaries#report'
     resources :beneficiaries, except: [:new] do
         get :autocomplete_beneficiary_name, on: :collection
     end
+    
     resources :first_contact_files
     resources :comunities
     resources :clinic_treatments

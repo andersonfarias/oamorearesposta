@@ -26,7 +26,6 @@ class Beneficiary < ActiveRecord::Base
 
     def self.by_name_and_status(params)
         args = { name: "%#{params[:person_name]}%", active: TRUE }
-        #Beneficiary.joins(:person).where(['( LOWER(people.first_name) LIKE LOWER( :name ) OR ( LOWER(people.last_name) LIKE LOWER( :name ) ) ) AND is_active = :active', args]).order('people.first_name')
         Beneficiary.joins(:person).where(['(LOWER(people.first_name) || \' \' || LOWER(people.last_name) ) LIKE LOWER( :name ) AND is_active = :active', args]).order('people.first_name')
     end
 
@@ -45,5 +44,34 @@ class Beneficiary < ActiveRecord::Base
       					AND LOWER(people.last_name) LIKE LOWER('%#{params[:beneficiary_last_name]}%')
       					AND LOWER(departments.name) LIKE LOWER('%#{params[:department_name]}%') AND beneficiaries.is_active = :active", { active: params[:is_active].to_bool }])
         end
+    end
+
+    def self.report_search params
+        possible_params = %w(
+            people.gender 
+            people.age 
+            first_contact_files.date 
+            first_contact_files.hour 
+            first_contact_files.marital_status 
+            first_contact_files.how_established_first_contact 
+            first_contact_files.education_levels 
+            first_contact_files.first_contact_conditions 
+            first_contact_files.results 
+            first_contact_files.answer)
+        search_params = Hash.new
+        params.each do |p| 
+            if p[0] == "first_contact_files.date" and p[1].present?
+                search_params[p[0]] = DateTime.parse(p[1]).strftime('%Y-%m-%d')
+            else
+                search_params[p[0]] = p[1] if possible_params.include? p[0] and p[1].present?
+            end
+        end
+        unless search_params.empty?
+            finded_beneficiaries = Beneficiary.select(:"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date")
+                .joins(:first_contact_file, :person).where(search_params)
+        else
+            finded_beneficiaries = []
+        end
+        
     end
 end
