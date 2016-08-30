@@ -319,9 +319,9 @@ pt-BR:
         work: Trabalho
     first_contact_file:
       education_levels:
-        fundamental_i: Fundamental I (6 anos)
-        fundamental_ii: Fundamental II (6+3)
-        high_school: Ensino Médio (6+3+3)
+        fundamental_I: Fundamental I (6 anos)
+        fundamental_II: Fundamental II (6+3)
+        high_School: Ensino Médio (6+3+3)
         technician: Técnico
         university: Diploma Universitario
         post_graduate: Pós Graduação

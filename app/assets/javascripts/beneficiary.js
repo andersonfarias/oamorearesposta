@@ -6,25 +6,31 @@ $(document).ready(function() {
       legend:{
         verticalAlign: "center",
         horizontalAlign: "left",
-        fontSize: 20,
+        fontSize: 15,
       },
-      theme: "theme2",
+      theme: "theme4",
       data: [
       {
         click: function(e){
-          var obj = gon.detalhado.filter(function(env) {return env.key==e.dataPoint.key})[0]
+          e.chart.options.data[0].dataPoints.forEach(function(value, index) {
+            value.exploded = false;
+          });
+          e.dataPoint.exploded = true
+
+          var beneficiaries = e.dataPoint.beneficiaries;
           $("#show_table tbody").empty();
-          obj.beneficiaries.forEach(function(value, index){
+          beneficiaries.forEach(function(value, index){
             $("#show_table tbody").append('<tr class="child"><td>'+value.first_name+" "+value.first_name+'</td></tr>');
           });
-          $("#report").css("display","block")
+          $("#report").css("display","block");
         },
+
         type: "pie",       
-        indexLabelFontFamily: "Helvetica",       
+        // indexLabelFontFamily: "Helvetica",
         indexLabelFontSize: 15,
         indexLabel: "#percent%",
         showInLegend: true,
-        toolTipContent:"{y}",
+        toolTipContent:"{legendText}: {y}",
         dataPoints: gon.data
       }
       ]

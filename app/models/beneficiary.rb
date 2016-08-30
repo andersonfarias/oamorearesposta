@@ -67,7 +67,7 @@ class Beneficiary < ActiveRecord::Base
             end
         end
         unless search_params.empty?
-            finded_beneficiaries = Beneficiary.select(:"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date")
+            finded_beneficiaries = Beneficiary.select(:"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
                 .joins(:first_contact_file, :person).where(search_params)
         else
             finded_beneficiaries = []
