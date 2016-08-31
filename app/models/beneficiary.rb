@@ -47,31 +47,38 @@ class Beneficiary < ActiveRecord::Base
     end
 
     def self.report_search params
-        possible_params = %w(
+        simple_params = %w(
             people.gender 
             people.age 
             first_contact_files.date 
             first_contact_files.hour 
             first_contact_files.marital_status 
-            first_contact_files.how_established_first_contact 
+            first_contact_files.how_established_first_contact)
+        
+        enumerize_params = %w(
             first_contact_files.education_levels 
             first_contact_files.first_contact_conditions 
             first_contact_files.results 
             first_contact_files.answer)
-        search_params = Hash.new
+
+        seach_enumerize = []
+        simple_search = Hash.new
         params.each do |p| 
+            seach_enumerize << p if enumerize_params.include? p[0] and p[1].present?
             if p[0] == "first_contact_files.date" and p[1].present?
-                search_params[p[0]] = DateTime.parse(p[1]).strftime('%Y-%m-%d')
+                simple_search[p[0]] = DateTime.parse(p[1]).strftime('%Y-%m-%d')
             else
-                search_params[p[0]] = p[1] if possible_params.include? p[0] and p[1].present?
+                simple_search[p[0]] = p[1] if simple_params.include? p[0] and p[1].present?
             end
         end
-        unless search_params.empty?
-            finded_beneficiaries = Beneficiary.select(:"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
-                .joins(:first_contact_file, :person).where(search_params)
+
+        sql_seach = seach_enumerize.map {|k,v| "#{k} LIKE '%#{v}%'" }.join(" AND ")
+        unless simple_search.empty?
+            finded_beneficiaries = Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
+                .joins(:first_contact_file, :person).where(simple_search).where(sql_seach)
         else
-            finded_beneficiaries = []
+            finded_beneficiaries = Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
+                .joins(:first_contact_file, :person).where(sql_seach)
         end
-        
     end
 end

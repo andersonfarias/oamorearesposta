@@ -4,6 +4,10 @@ $(document).ready(function() {
     {
       animationEnabled: true,
       legend:{
+        itemclick: function(e){
+          click_event(e);
+          e.chart.render();
+        },
         verticalAlign: "center",
         horizontalAlign: "left",
         fontSize: 15,
@@ -12,21 +16,9 @@ $(document).ready(function() {
       data: [
       {
         click: function(e){
-          e.chart.options.data[0].dataPoints.forEach(function(value, index) {
-            value.exploded = false;
-          });
-          e.dataPoint.exploded = true
-
-          var beneficiaries = e.dataPoint.beneficiaries;
-          $("#show_table tbody").empty();
-          beneficiaries.forEach(function(value, index){
-            $("#show_table tbody").append('<tr class="child"><td>'+value.first_name+" "+value.first_name+'</td></tr>');
-          });
-          $("#report").css("display","block");
+          click_event(e);
         },
-
         type: "pie",       
-        // indexLabelFontFamily: "Helvetica",
         indexLabelFontSize: 15,
         indexLabel: "#percent%",
         showInLegend: true,
@@ -36,6 +28,40 @@ $(document).ready(function() {
       ]
     });
     chart.render();
+  }
+
+  function click_event(e) {
+    e.chart.options.data[0].dataPoints.forEach(function(value, index) {
+      value.exploded = false;
+    });
+
+    e.dataPoint.exploded = true
+
+    if ($.fn.dataTable.isDataTable( '#show_table' )) {
+      $("#show_table").DataTable().destroy();
+      $("#show_table tbody").empty();
+    }
+
+    var beneficiaries = e.dataPoint.beneficiaries;
+    beneficiaries.forEach(function(value, index){
+      $("#show_table tbody").append('<tr class="child">'+
+        '<td class="col-md-2">'+value.id+'</td>' +
+        '<td class="col-md-10">'+value.first_name+" "+value.last_name+'</td></tr>');
+    });
+
+    $("#report").css("display","block");
+    $("#show_table").DataTable({
+      searching: false,
+      lengthChange: false,
+      // info: false,
+      language: {
+        info: "Exibindo _START_ ao _END_ de _TOTAL_",
+        paginate: {
+            previous:   "Anterior",
+            next:       "Próximo"
+        }
+      }
+    });
   }
 
   $('.close-fieldset').click(function () {

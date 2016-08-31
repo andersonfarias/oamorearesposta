@@ -39,8 +39,6 @@ class BeneficiariesController < ApplicationController
                     end
                 end
 
-                group_by_education_lavel.each { |e| p e[0]  }
-
                 @beneficiaries.group_by(&:gender).each do |b|
                     @data << {y: b[1].count, legendText: t("enum.person.gender.#{Person.genders.keys[b[0]]}"), beneficiaries: b[1]}
                 end
