@@ -71,14 +71,9 @@ class Beneficiary < ActiveRecord::Base
                 simple_search[p[0]] = p[1] if simple_params.include? p[0] and p[1].present?
             end
         end
-
         sql_seach = seach_enumerize.map {|k,v| "#{k} LIKE '%#{v}%'" }.join(" AND ")
-        unless simple_search.empty?
-            finded_beneficiaries = Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
+        
+        Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
                 .joins(:first_contact_file, :person).where(simple_search).where(sql_seach)
-        else
-            finded_beneficiaries = Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
-                .joins(:first_contact_file, :person).where(sql_seach)
-        end
     end
 end

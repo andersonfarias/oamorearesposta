@@ -25,13 +25,13 @@ class BeneficiariesController < ApplicationController
     end
 
     def report
-        @beneficiaries = Beneficiary.report_search(params)
-        unless @beneficiaries.empty?
-            @data = []
+        @data = []
+        beneficiaries = Beneficiary.report_search(params) if params["commit"]
+        unless beneficiaries.nil?
             case params["group_option"]
             when "people.gender"
                 group_by_education_lavel = Hash.new{|hash, key| hash[key] = Array.new;}
-                @beneficiaries.each do |b|
+                beneficiaries.each do |b|
                     FirstContactFile.education_levels.values.each do |el|
                         if b.education_levels.include? el.to_s
                             group_by_education_lavel[el] << b 
@@ -39,16 +39,16 @@ class BeneficiariesController < ApplicationController
                     end
                 end
 
-                @beneficiaries.group_by(&:gender).each do |b|
+                beneficiaries.group_by(&:gender).each do |b|
                     @data << {y: b[1].count, legendText: t("enum.person.gender.#{Person.genders.keys[b[0]]}"), beneficiaries: b[1]}
                 end
             when "first_contact_files.date"
-                @beneficiaries.group_by(&:date).each do |b|
+                beneficiaries.group_by(&:date).each do |b|
                     @data << {y: b[1].count, legendText: b[0].strftime('%d/%m/%Y'), beneficiaries: b[1]}
                 end
             when "first_contact_files.education_levels"
                 group_by_education_lavel = Hash.new{|hash, key| hash[key] = Array.new;}
-                @beneficiaries.each do |b|
+                beneficiaries.each do |b|
                     FirstContactFile.education_levels.values.each do |el|
                         group_by_education_lavel[el] << b  if b.education_levels.include? el.to_s
                     end
