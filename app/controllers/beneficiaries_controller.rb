@@ -30,15 +30,6 @@ class BeneficiariesController < ApplicationController
         unless beneficiaries.nil?
             case params["group_option"]
             when "people.gender"
-                group_by_education_lavel = Hash.new{|hash, key| hash[key] = Array.new;}
-                beneficiaries.each do |b|
-                    FirstContactFile.education_levels.values.each do |el|
-                        if b.education_levels.include? el.to_s
-                            group_by_education_lavel[el] << b 
-                        end
-                    end
-                end
-
                 beneficiaries.group_by(&:gender).each do |b|
                     @data << {y: b[1].count, legendText: t("enum.person.gender.#{Person.genders.keys[b[0]]}"), beneficiaries: b[1]}
                 end
