@@ -26,7 +26,7 @@ class BeneficiariesController < ApplicationController
 
     def report
         @data = []
-        beneficiaries = Beneficiary.report_search(params) if params["commit"]
+        beneficiaries = Beneficiary.report_search(params) if params["group_option"]
         unless beneficiaries.nil?
             case params["group_option"]
             when "people.gender"
