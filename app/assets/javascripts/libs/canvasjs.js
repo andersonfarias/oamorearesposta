@@ -1425,61 +1425,21 @@
 		downloadLink.download = fullFileName;
 		downloadLink.href = img;
 		downloadLink.target = "_blank";
-		var e;
+		event = document.createEvent("MouseEvents");
 
+		event.initMouseEvent("click", true, false, window,
+						 0, 0, 0, 0, 0, false, false, false,
+						 false, 0, null);
 
-		if (typeof (Blob) !== "undefined" && !!new Blob()) {
-
-			//alert("blob");
-			var imgData = img.replace(/^data:[a-z/]*;base64,/, '');
-
-			var byteString = atob(imgData);
-			var buffer = new ArrayBuffer(byteString.length);
-			var intArray = new Uint8Array(buffer);
-			for (var i = 0; i < byteString.length; i++) {
-				intArray[i] = byteString.charCodeAt(i);
-			}
-
-			var blob = new Blob([intArray.buffer], { type: "image/" + format });
-
-			// Save the blob
-			try {
-				window.navigator.msSaveBlob(blob, fullFileName);
-				saved = true;
-			}
-			catch (e) {
-				downloadLink.dataset.downloadurl = [mimeType, downloadLink.download, downloadLink.href].join(':');
-				downloadLink.href = window.URL.createObjectURL(blob);
-			}
+		if (downloadLink.dispatchEvent) {
+			//alert("dispatchEvent");
+			downloadLink.dispatchEvent(event);
 		}
-
-		if (!saved) {
-
-			try {
-
-				event = document.createEvent("MouseEvents");
-
-				event.initMouseEvent("click", true, false, window,
-								 0, 0, 0, 0, 0, false, false, false,
-								 false, 0, null);
-
-				if (downloadLink.dispatchEvent) {
-					//alert("dispatchEvent");
-					downloadLink.dispatchEvent(event);
-				}
-				else if (downloadLink.fireEvent) {
-					//alert("fireEvent");
-					downloadLink.fireEvent("onclick");
-				}
-
-			} catch (e) {
-				var win = window.open();
-				//alert("<IE10");
-				//window.console.log("IE");
-				win.document.write("<img src='" + img + "'></img><div>Please right click on the image and save it to your device</div>");
-				win.document.close();
-			}
+		else if (downloadLink.fireEvent) {
+			//alert("fireEvent");
+			downloadLink.fireEvent("onclick");
 		}
+		
 	}
 
 	var base64Images = {
@@ -1888,6 +1848,10 @@
 	Chart.prototype._updateOptions = function () {
 		var _this = this;
 
+		$( "#link_download" ).click(function() {
+		  exportCanvas(_this.canvas, "jpeg", _this.exportFileName);
+		});
+
 		this.updateOption("width");
 		this.updateOption("height");
 
@@ -2053,6 +2017,7 @@
 
 
 		if (!this._dropdownMenu && this.exportEnabled && isCanvasSupported) {
+
 			this._dropdownMenu = document.createElement("div");
 			this._dropdownMenu.setAttribute("tabindex", -1);
 			this._dropdownMenu.style.cssText = "position: absolute; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; cursor: pointer;right: 1px;top: 25px;min-width: 120px;outline: 0;border: 1px solid silver;font-size: 14px;font-family: Calibri, Verdana, sans-serif;padding: 5px 0px 5px 0px;text-align: left;background-color: #fff;line-height: 20px;box-shadow: 2px 2px 10px #888888;";

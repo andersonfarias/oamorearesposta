@@ -3,6 +3,7 @@ $(document).ready(function() {
     var chart = new CanvasJS.Chart("chartContainer",
     {
       animationEnabled: true,
+      exportFileName: "Grafico",
       legend:{
         itemclick: function(e){
           click_event(e);
