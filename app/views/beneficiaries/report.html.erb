@@ -8,13 +8,13 @@
 		    </div>
 	        <div class="row">
 	        	<div class="col-md-5 col-xs-12">
-	        		<%= f.label t("activerecord.attributes.first_contact_file.date"), required: false %>
-	        		<%= f.input :date, as: :datepicker, input_html: {name: "first_contact_files.date"}, required: false, label: false %>	
+	        		<%= f.label "Data Inicial Prim. Contato", required: false %>
+	        		<%= f.input :date, as: :datepicker, input_html: {name: "initial_date"}, required: false, label: false %>	
 	        	</div>
-				<div class="col-md-5 col-xs-12">
-					<%= f.label t("activerecord.attributes.first_contact_file.hour"), required: false %>
-					<%= f.input :hour, input_html: {name: "first_contact_files.hour"}, collection: FirstContactFile.hours.keys.map { |key| [ t("enum.first_contact_file.hour.#{key}"), key]}, required: false, label: false %>
-				</div>
+	        	<div class="col-md-5 col-xs-12">
+	        		<%= f.label "Data Final Prim. Contato", required: false %>
+	        		<%= f.input :date, as: :datepicker, input_html: {name: "final_date"}, required: false, label: false %>	
+	        	</div>
 				<div class="col-md-2 col-xs-12">
 					<%= f.label t("activerecord.attributes.person.age"), required: false %>
 					<%= f.input :age, input_html: {name: "people.age", :maxlength => 2, :min => 0, :max => 99}, required: false, label: false %>
@@ -32,18 +32,6 @@
 						collection: FirstContactFile.marital_statuses.keys.map { |key| [ t("enum.first_contact_file.marital_status.#{key}"), key]}, required: false, label: false %>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-7 col-xs-6">
-					<%= f.label t("activerecord.attributes.first_contact_file.how_established_first_contact"), required: false %>
-					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.how_established_first_contact"}, 
-						collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("enum.first_contact_file.how_established_first_contacts.#{key}"), key]}, required: false, label: false %>
-				</div>
-				<div class="col-md-5 col-xs-6">
-					<%= f.label t("activerecord.attributes.first_contact_file.education_levels"), required: false %>
-					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.education_levels"}, 
-						collection: FirstContactFile.education_levels.values.map { |key| [ t("enumerize.first_contact_file.education_levels.#{key}"), key]}, required: false, label: false %>
-				</div>
-	        </div>
 	        <div class="row">
 				<div class="col-md-6 col-xs-12">
 					<%= f.label t("activerecord.attributes.first_contact_file.first_contact_conditions"), required: false %>
@@ -62,6 +50,22 @@
 					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.answer"}, 
 						collection: FirstContactFile.answer.values.map { |key| [ t("enumerize.first_contact_file.answer.#{key}"), key]}, required: false, label: false %>
 				</div>
+				<div class="col-md-6 col-xs-12">
+					<%= f.label t("activerecord.attributes.first_contact_file.hour"), required: false %>
+					<%= f.input :hour, input_html: {name: "first_contact_files.hour"}, collection: FirstContactFile.hours.keys.map { |key| [ t("enum.first_contact_file.hour.#{key}"), key]}, required: false, label: false %>
+				</div>
+	        </div>
+	        <div class="row">
+				<div class="col-md-7 col-xs-6">
+					<%= f.label t("activerecord.attributes.first_contact_file.how_established_first_contact"), required: false %>
+					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.how_established_first_contact"}, 
+						collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("enum.first_contact_file.how_established_first_contacts.#{key}"), key]}, required: false, label: false %>
+				</div>
+				<div class="col-md-5 col-xs-6">
+					<%= f.label t("activerecord.attributes.first_contact_file.education_levels"), required: false %>
+					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.education_levels"}, 
+						collection: FirstContactFile.education_levels.values.map { |key| [ t("enumerize.first_contact_file.education_levels.#{key}"), key]}, required: false, label: false %>
+				</div>
 	        </div>
 	    </div>
 	    
@@ -73,7 +77,7 @@
 		    <div class="col-md-4">
 		    	<%= f.label t("activerecord.attributes.person.gender") %>
 		    	<%= f.input :group_option, label: false, input_html: {name: "group_option"}, include_blank: false,
-		    		collection: { "Sexo" => "people.gender", "Data" => "first_contact_files.date", "Escolaridade" => "first_contact_files.education_levels"} %>
+		    		collection: { "Sexo" => "people.gender", "Escolaridade" => "first_contact_files.education_levels", "Ano Prim. Contato" => "year_date", "Mês/Ano Data Prim. Contato" => "month_year_date"} %>
 		    </div>
 		</div>
 

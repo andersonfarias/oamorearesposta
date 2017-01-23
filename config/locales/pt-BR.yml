@@ -85,7 +85,7 @@ pt-BR:
         edit:
           name: Editar
     beneficiaries:
-      name: Beneficiários
+      name: Parceiros
       actions:
         index:
           name: Listagem
@@ -316,8 +316,8 @@ pt-BR:
         one: não possui o tamanho esperado (1 caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
-      at_least_one_presence: Deve ser registrada a presença de ao menos um beneficiário
-      repeated_beneficiary_presence: Os seguintes beneficiários foram registrados mais de uma vez
+      at_least_one_presence: Deve ser registrada a presença de ao menos um parceiro
+      repeated_beneficiary_presence: Os seguintes parceiros foram registrados mais de uma vez
       cant_change_inactive_activity_diary: Não é possível alterar uma atividade  que esteja inativa
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'

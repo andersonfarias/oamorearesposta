@@ -31,11 +31,17 @@ class BeneficiariesController < ApplicationController
             case params["group_option"]
             when "people.gender"
                 beneficiaries.group_by(&:gender).each do |b|
-                    @data << {y: b[1].count, legendText: t("enum.person.gender.#{Person.genders.keys[b[0]]}"), beneficiaries: b[1]}
+                    @data << {y: b[1].count, legendText: t("enum.person.gender.#{Person.genders.keys[b[0]]}"), beneficiaries: b[1], sort: t("enum.person.gender.#{Person.genders.keys[b[0]]}")}
                 end
-            when "first_contact_files.date"
-                beneficiaries.group_by(&:date).each do |b|
-                    @data << {y: b[1].count, legendText: b[0].strftime('%d/%m/%Y'), beneficiaries: b[1]}
+             when "year_date"
+                grouped_beneficiaries = beneficiaries.group_by {|b| b.date.year }
+                grouped_beneficiaries.each do |l|
+                    @data << {y: l[1].count, legendText: l[1].first.date.strftime('%Y'), beneficiaries: l[1], sort: l[1].first.date.year}
+                end
+            when "month_year_date"
+                grouped_beneficiaries = beneficiaries.group_by {|b| b.date.beginning_of_month }
+                grouped_beneficiaries.each do |l|
+                    @data << {y: l[1].count, legendText: l[1].first.date.strftime('%m/%Y'), beneficiaries: l[1], sort: l[1].first.date.beginning_of_month}
                 end
             when "first_contact_files.education_levels"
                 group_by_education_lavel = Hash.new{|hash, key| hash[key] = Array.new;}
@@ -45,10 +51,10 @@ class BeneficiariesController < ApplicationController
                     end
                 end
                 group_by_education_lavel.each do |b|
-                    @data << {y: b[1].count, legendText: t("enumerize.first_contact_file.education_levels.#{b[0]}"), beneficiaries: b[1]}
+                    @data << {y: b[1].count, legendText: t("enumerize.first_contact_file.education_levels.#{b[0]}"), beneficiaries: b[1], sort: t("enumerize.first_contact_file.education_levels.#{b[0]}")}
                 end
             end
-            gon.data = @data
+            gon.data = @data.sort_by { |e| e[:sort]  }
         end
     end
 

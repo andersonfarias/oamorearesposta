@@ -47,10 +47,12 @@ class Beneficiary < ActiveRecord::Base
     end
 
     def self.report_search params
+        p "======="
+        p params
+
         simple_params = %w(
             people.gender 
             people.age 
-            first_contact_files.date 
             first_contact_files.hour 
             first_contact_files.marital_status 
             first_contact_files.how_established_first_contact)
@@ -65,15 +67,25 @@ class Beneficiary < ActiveRecord::Base
         simple_search = Hash.new
         params.each do |p| 
             seach_enumerize << p if enumerize_params.include? p[0] and p[1].present?
-            if p[0] == "first_contact_files.date" and p[1].present?
-                simple_search[p[0]] = DateTime.parse(p[1]).strftime('%Y-%m-%d')
+            if p[0] == "first_contact_files.hour" and p[1].present?
+                simple_search[p[0]] = FirstContactFile.hours[p[1]]
             else
                 simple_search[p[0]] = p[1] if simple_params.include? p[0] and p[1].present?
             end
         end
         sql_seach = seach_enumerize.map {|k,v| "#{k} LIKE '%#{v}%'" }.join(" AND ")
-        
-        Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
+
+        result = Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
                 .joins(:first_contact_file, :person).where(simple_search).where(sql_seach)
+
+        if !params[:initial_date].blank?
+            result = result.select {|b| b.date >= params[:initial_date].to_datetime}
+        end
+
+        if !params[:final_date].blank?
+            result = result.select {|b| b.date <= params[:final_date].to_datetime}
+        end
+
+        result
     end
 end

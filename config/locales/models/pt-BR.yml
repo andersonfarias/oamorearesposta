@@ -8,8 +8,8 @@ pt-BR:
         one: Núcleo
         other: Núcleos
       beneficiary:
-        one: Beneficiário
-        other: Beneficiários
+        one: Parceiro
+        other: Parceiros
       diary:
         one: Diário
         other: Diários
@@ -83,7 +83,7 @@ pt-BR:
         relationship: Relação
         social_role: Papel Social
         user: Operador
-        beneficiary: Beneficiário
+        beneficiary: Parceiro
         partner_device: Disp. Parceiro
         treatment_device: Disp. Trat. Comun.
         institutional_device: Disp. Institucional
@@ -160,8 +160,8 @@ pt-BR:
         user: Operador
         contact_source: Fonte da informação
         support: Pessoa de apoio
-        beneficiary_first_name: Nome Beneficiário
-        beneficiary_last_name: Sobrenome Beneficiário
+        beneficiary_first_name: Nome Parceiro
+        beneficiary_last_name: Sobrenome Parceiro
       activity:
         name: Nome
         description: Descrição
@@ -169,7 +169,7 @@ pt-BR:
         axis: Eixo
         is_active: Ativo
       attendance:
-        beneficiary: Beneficiário
+        beneficiary: Parceiro
         observation: Observação
     errors:
       messages:
