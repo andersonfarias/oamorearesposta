@@ -9,17 +9,5 @@
 # Create admin user
 CreateAdminService.new.call
 
-# Employees data migration
-# ImportEmployeesService.new.call
-
 # Create all Brazilian States and Cities
 CreateStatesAndCitiesService.new.call
-
-# Department data migration
-# ImportDepartmentService.new.call
-
-# Beneficiary data migration
-# ImportBeneficiaryService.new.call
-
-# ClinicalDiary data migration
-# ImportComunityTreatmentDiaryService.new.call
