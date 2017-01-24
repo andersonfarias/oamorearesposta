@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><%= content_for?( :title ) ? yield( :title ) : "Oamorearesposta" %></title>
-		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Oamorearesposta" %>">
+		<title><%= content_for?( :title ) ? yield( :title ) : ENV['COMPANY_NAME'] %></title>
+		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : ENV['COMPANY_NAME'] %>">
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 		<%= Gon::Base.render_data %>
