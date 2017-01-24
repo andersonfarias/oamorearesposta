@@ -3,7 +3,7 @@
 		<div class="left_col scroll-view">
         	<div class="navbar nav_title" style="border: 0;">
 				<%= link_to url_for( action: 'index', controller: '/home' ), { class: "site_title" } do %>
-					<span style="font-size: 18px;"><%= request.env["COMPANY_NAME"] %></span>
+					<span style="font-size: 18px;"><%= ENV['COMPANY_NAME'] %></span>
 				<% end %>
         	</div>
       	<div class="clearfix"></div>
