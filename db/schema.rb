@@ -128,15 +128,14 @@ ActiveRecord::Schema.define(version: 20170206184319) do
 
   create_table "evaluations", force: :cascade do |t|
     t.string   "number"
+    t.string   "organization_code"
     t.integer  "beneficiary_id"
-    t.date     "treatment_initial_date"
-    t.date     "treatment_conclusion_date"
+    t.integer  "problems_during_process_id"
     t.date     "interruptions"
     t.boolean  "concluded_process"
     t.boolean  "developing_process"
     t.boolean  "suspensions"
     t.date     "evaluation_date"
-    t.integer  "problems_during_process_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
@@ -295,7 +294,6 @@ ActiveRecord::Schema.define(version: 20170206184319) do
     t.string   "deslocacao_forcada"
     t.string   "migracao_ou_imigracao"
     t.string   "estigma_por_sua_identidade_sexual"
-    t.string   "outro"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

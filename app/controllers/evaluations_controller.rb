@@ -7,6 +7,7 @@ class EvaluationsController < ApplicationController
 	def new
 		@evaluation = Evaluation.new(
 			evaluation_date: Date.today,
+			organization_code: "AMRBR",
 			beneficiary: Beneficiary.find(params[:beneficiary_id]),
 			problems_during_process: ProblemsDuringProcess.new)
 	end

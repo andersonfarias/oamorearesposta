@@ -183,8 +183,3 @@ collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 disabled: true,
 wrapper: :inline_radio_evaluation, checked: @evaluation.problems_during_process.estigma_por_sua_identidade_sexual %>
-<%= f.input :outro, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-disabled: true,
-wrapper: :inline_radio_evaluation, checked: @evaluation.problems_during_process.outro %>

@@ -2,6 +2,7 @@ class CreateEvaluations < ActiveRecord::Migration
   def change
     create_table :evaluations do |t|
       t.string :number
+      t.string :organization_code
       t.references :beneficiary, index: true, foreign_key: true
       t.references :problems_during_process, index: true, foreign_key: true
       t.date :interruptions

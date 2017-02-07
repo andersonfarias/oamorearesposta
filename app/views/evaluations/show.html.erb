@@ -16,10 +16,10 @@
 			          <%= @evaluation.beneficiary.person.full_name %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
-			          <%= f.label(:department, "Código/Nome Departamento") %>
+			          <%= f.label(:department, "Código da Organização") %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
-			          <%= @evaluation.beneficiary.department.id.to_s + " - " + @evaluation.beneficiary.department.name %>
+			          <%= @evaluation.organization_code %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
 			          <%= f.label( :date_first_contact, "Data Avaliação") %>
