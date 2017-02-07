@@ -82,6 +82,12 @@ $(document).ready(function() {
         minView: 2
     });
 
+  $("input.radio_buttons").each(function() {
+    if ($(this).attr("disable_ops").indexOf($(this).attr("value")) >= 0) {
+      $(this).prop( "disabled", true );
+    }
+  });
+
   $('input.date-input').inputmask("99/99/9999");
   $('input.phone-number').inputmask("(99)99999-9999");
   $('input.cnpj').inputmask("99.999.999/9999-99");

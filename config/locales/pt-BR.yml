@@ -180,6 +180,19 @@ pt-BR:
           name: Editar
         create:
           name: Cadastrar Novo
+    evaluations:
+      name: Avaliações
+      actions:
+        index:
+          name: Listagem
+        new:
+          name: Cadastrar Novo
+        show:
+          name: Visualizar
+        edit:
+          name: Editar
+        create:
+          name: Cadastrar Novo
   actions:
     back: Voltar
     edit: Editar

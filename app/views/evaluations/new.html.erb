@@ -1,0 +1,77 @@
+<%= simple_form_for( @evaluation ) do |f| %>
+
+<div class="row" style="display: flex;">
+	<div class="col-md-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Dados Gerais</h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<div class="col-md-6 col-xs-12">
+					<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label :beneficiary, "Parceiro" %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.beneficiary.person.full_name %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label(:department, "Código/Nome Departamento") %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.beneficiary.department.id.to_s + " - " + @evaluation.beneficiary.department.name %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label( :date_first_contact, "Data Avaliação") %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.evaluation_date.strftime('%d/%m/%Y') %>
+			        </div>
+			    </div>
+			    <div class="col-md-6 col-xs-12">
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label "Data do Primeiro Contato" %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.beneficiary.first_contact_file.date.strftime('%d/%m/%Y') %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label "Data Início Tratamento Comunitário" %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			        	<% if !@evaluation.beneficiary.clinic_treatments.nil? and !@evaluation.beneficiary.clinic_treatments.empty? %>
+			          		<%= @evaluation.beneficiary.clinic_treatments.first.date.strftime('%d/%m/%Y') %>
+			          	<% end%>
+			        </div>
+		        </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" style="display: flex;">
+	<div class="col-md-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Problemas Durante Processo</h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<div class="col-md-12 col-xs-12">
+					<%= f.simple_fields_for :problems_during_process do |p| %>
+						<%= render 'problems_during_process_fields', f: p %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ln_solid"></div>
+<div class="form-group">
+	<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+		<%= link_to t( "actions.cancel" ), evaluations_path(current_user), class: "btn btn-primary" %>
+		<%= f.button :submit, class: "btn btn-success" %>
+	</div>
+</div>
+<% end %>

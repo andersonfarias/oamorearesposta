@@ -52,6 +52,9 @@ pt-BR:
       ppcl:
         one: PPCL
         other: PPCLs
+      evaluation:
+        one: Avaliação
+        other: Avaliações
     attributes:
       user:
         role: Permissão
@@ -171,6 +174,12 @@ pt-BR:
       attendance:
         beneficiary: Parceiro
         observation: Observação
+      evaluation:
+        problems_during_process: Problemas Durante Processo
+      independent_variable:
+        assistance_activity: Atividades Assistenciais
+      problems_during_process:
+        sustancias_alcool: Sustáncias/Álcool
     errors:
       messages:
         future_date: 'Não pode ser uma data futura'

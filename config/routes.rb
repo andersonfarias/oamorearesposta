@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
     
     resources :first_contact_files
+    resources :evaluations
     resources :comunities
     resources :clinic_treatments
     resources :ppcls
