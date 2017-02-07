@@ -46,7 +46,7 @@ wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :gravidez_parto, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :doencas, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
@@ -56,7 +56,7 @@ wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :pobreza_extrema, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :vida_na_rua, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
@@ -106,17 +106,17 @@ wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :hiv, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :enfermidades_por_transmissao_sexual, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :trafico_de_pessoas, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :sem_trabalho, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
@@ -126,7 +126,7 @@ wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :tuberculose, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,4,5"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :problemas_familiares, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
@@ -136,27 +136,27 @@ wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :transtorno_de_estres_pos_traumatico, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :analfabetismo, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,4,5"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :problemas_sexuais, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,4,5"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :violacao_abuso_de_criancas, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :outras_dependencias, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,4,5"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :uso_de_drogas_intravenosa, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
@@ -166,20 +166,20 @@ wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :hepatites, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :deslocacao_forcada, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :migracao_ou_imigracao, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,4,5"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>
 <%= f.input :estigma_por_sua_identidade_sexual, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "4,5"}, 
+input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, checked: :'0' %>

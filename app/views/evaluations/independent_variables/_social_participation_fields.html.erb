@@ -1,0 +1,10 @@
+<%= f.input  :recebeu_ajuda_para_participar_de_grupos_e_associacoes, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
+<%= f.input  :educacao_em_direitos_humanos_e_sociais, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>

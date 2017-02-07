@@ -9,7 +9,19 @@ class EvaluationsController < ApplicationController
 			evaluation_date: Date.today,
 			organization_code: "AMRBR",
 			beneficiary: Beneficiary.find(params[:beneficiary_id]),
-			problems_during_process: ProblemsDuringProcess.new)
+			problems_during_process: ProblemsDuringProcess.new,
+			independent_variable: IndependentVariable.new(
+				albergue: Albergue.new,
+				assistance_activity: AssistanceActivity.new,
+				health: Health.new,
+				community_treatment: CommunityTreatment.new,
+				diagnosis_and_case_evaluation: DiagnosisAndCaseEvaluation.new,
+				education: Education.new,
+				guidelines_reference: GuidelinesReference.new,
+				involved_structure: InvolvedStructure.new,
+				social_participation: SocialParticipation.new,
+				used_technique: UsedTechnique.new,
+				work: Work.new))
 	end
 
 	def create

@@ -1,3 +1,3 @@
 class ProblemsDuringProcess < ActiveRecord::Base
-	has_one :evaluation, inverse_of: :beneficiary, dependent: :destroy
+	has_one :evaluation
 end

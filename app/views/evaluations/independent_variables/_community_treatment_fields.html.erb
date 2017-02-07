@@ -1,0 +1,30 @@
+<%= f.input  :a_equipe_foi_envolvida, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
+<%= f.input  :a_rede_subjetiva_comunitaria_foi_envolvida, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
+<%= f.input  :a_rede_operativa_foi_envolvida, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
+<%= f.input  :a_rede_de_recursos_comunitarios_foi_envolvida, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
+<%= f.input  :a_rede_de_lideres_de_opiniao_foi_envolvida, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
+<%= f.input  :a_rede_subjetiva_do_parceiro_foi_envolvida, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "4,5"}, 
+wrapper: :inline_radio_evaluation, checked: :'0' %>
