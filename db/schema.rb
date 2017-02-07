@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206184319) do
+ActiveRecord::Schema.define(version: 20170207175548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,65 @@ ActiveRecord::Schema.define(version: 20170206184319) do
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
   add_index "addresses", ["person_id"], name: "index_addresses_on_person_id", using: :btree
+
+  create_table "albergues", force: :cascade do |t|
+    t.string   "recebeu_acolhida_durante_a_noite"
+    t.string   "recebeu_acolhida_durante_o_dia"
+    t.string   "a_pessoa_teve_acesso_a_um_chuveiro"
+    t.string   "a_pessoa_recebeu_produtos_para_banho"
+    t.string   "a_pessoa_teve_acesso_ao_banheiro"
+    t.string   "a_pessoa_recebeu_roupa_limpa"
+    t.string   "a_pessoa_pode_lavar_sua_roupa"
+    t.string   "a_pessoa_recebeu_comida_cafe_cha_biscoitos_etc"
+    t.string   "a_pessoa_recebeu_alimentaco_completa"
+    t.string   "a_pessoa_recebeu_apoio_financeiro_para_algum_servico"
+    t.string   "a_pessoa_recebeu_alguma_bolsa_de_estudo"
+    t.string   "foi_ajudada_em_momentos_de_perigo"
+    t.string   "apoio_para_o_parto"
+    t.string   "transporte"
+    t.string   "proteco_para_os_filhos_as"
+    t.string   "defesa_legal"
+    t.string   "fianca_para_sair_da_priso"
+    t.string   "documentaco"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  create_table "alcohols", force: :cascade do |t|
+    t.string   "tomar_alcool_durante_a_gravidez"
+    t.string   "tomar_alcool_de_ma_qualidade"
+    t.string   "trabalha_em_negocios_que_pedem_ou_exigem_o_consumo_de_licor"
+    t.string   "mistura_o_consumo_de_alcool_com_outras_spa_ilicitas"
+    t.string   "passar_de_um_uso_por_via_oral_para_outras_vias_nariz_intravenan"
+    t.string   "uso_de_alcool"
+    t.string   "nao_controlar_a_qualidade_da_substancia"
+    t.string   "usar_simultaneamente_tipos_diferentes_de_alcool"
+    t.string   "misturar_drogas_medicamentosa_com_o_consumo_de_alcool"
+    t.string   "embriagar_se_sozinho"
+    t.string   "tomar_grandes_quantidades_de_alcool"
+    t.string   "tomar_alcool_de_fardos_contaminados_ou_sujos"
+    t.string   "embriagar_se_em_grupo"
+    t.string   "misturar_alcool_de_96_com_bebidas_a_gas"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "assistance_activities", force: :cascade do |t|
+    t.string   "foi_ministrado_medicamentos"
+    t.string   "foram_tratadas_as_feridas"
+    t.string   "foi_realizado_diagnosticos"
+    t.string   "foi_trocada_as_seringas"
+    t.string   "foi_distribuido_preservativos"
+    t.string   "foi_dado_medicamentos_para_hiv"
+    t.string   "foi_dado_medicamentos_para_dst"
+    t.string   "foi_realizado_teste_clinico_para_hiv"
+    t.string   "foi_realizado_teste_clinico_para_dst"
+    t.string   "foi_realizado_teste_clinico_para_tb"
+    t.string   "foi_ministrado_medicamentos_para_tb"
+    t.string   "foi_realizado_tratamentos_substitutivos"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
 
   create_table "attendances", force: :cascade do |t|
     t.integer  "activity_diary_id"
@@ -96,6 +155,17 @@ ActiveRecord::Schema.define(version: 20170206184319) do
   add_index "citizens", ["comunity_id"], name: "index_citizens_on_comunity_id", using: :btree
   add_index "citizens", ["person_id"], name: "index_citizens_on_person_id", using: :btree
 
+  create_table "community_treatments", force: :cascade do |t|
+    t.string   "a_equipe_foi_envolvida"
+    t.string   "a_rede_subjetiva_comunitaria_foi_envolvida"
+    t.string   "a_rede_operativa_foi_envolvida"
+    t.string   "a_rede_de_recursos_comunitarios_foi_envolvida"
+    t.string   "a_rede_de_lideres_de_opiniao_foi_envolvida"
+    t.string   "a_rede_subjetiva_do_parceiro_foi_envolvida"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
+
   create_table "comunities", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -112,6 +182,97 @@ ActiveRecord::Schema.define(version: 20170206184319) do
     t.boolean  "is_active",   default: true
   end
 
+  create_table "dependent_educations", force: :cascade do |t|
+    t.string   "nao_tem_recursos_financeiros_para_estudar"
+    t.string   "se_encontra_em_contextos_escolares_negativos"
+    t.string   "ausenta_se_da_escola_capacitacao"
+    t.string   "nao_tem_capacitacao_tecnica_e_ou_profissional"
+    t.string   "nao_tem_ocupacao_ou_habilidades_produtivas"
+    t.string   "tem_problemas_de_aprendizagem"
+    t.string   "nao_completou_escola_secundaria"
+    t.string   "nao_compretou_a_escola_primaria"
+    t.string   "nao_saber_ler"
+    t.string   "nao_sabe_escrever"
+    t.string   "nao_sabe_fazer_calculos_basicos"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
+
+  create_table "dependent_healths", force: :cascade do |t|
+    t.string   "vive_com_hiv_e_tem_relacoes_sexuais_sem_protecao"
+    t.string   "nao_tem_direito_a_medicamentos_vitais"
+    t.string   "tem_sida_hiv"
+    t.string   "e_hiv_positivo"
+    t.string   "tem_hepatite"
+    t.string   "consumir_drogas_durante_a_gravidez"
+    t.string   "ter_uma_gravidez_em_situacao_de_risco"
+    t.string   "tem_dst_ets_std"
+    t.string   "não_tem_acesso_a_servicos_medicos_basicos"
+    t.string   "praticar_construcoes_corporais_sem_condicoes_medicas_adequadas"
+    t.string   "ter_doencas_e_nao_se_tratar"
+    t.string   "ter_passado_por_aborto_mal_feito"
+    t.string   "tem_tuberculose"
+    t.string   "gravidez_indesejada"
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
+  end
+
+  create_table "dependent_variables", force: :cascade do |t|
+    t.integer  "dependent_education_id"
+    t.integer  "drug_id"
+    t.integer  "job_id"
+    t.integer  "sexual_life_id"
+    t.integer  "self_security_id"
+    t.integer  "dependent_health_id"
+    t.integer  "group_life_id"
+    t.integer  "family_id"
+    t.integer  "alcohol_id"
+    t.integer  "legality_id"
+    t.integer  "home_id"
+    t.integer  "hygiene_id"
+    t.integer  "feeding_id"
+    t.integer  "psychological_situation_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "dependent_variables", ["alcohol_id"], name: "index_dependent_variables_on_alcohol_id", using: :btree
+  add_index "dependent_variables", ["dependent_education_id"], name: "index_dependent_variables_on_dependent_education_id", using: :btree
+  add_index "dependent_variables", ["dependent_health_id"], name: "index_dependent_variables_on_dependent_health_id", using: :btree
+  add_index "dependent_variables", ["drug_id"], name: "index_dependent_variables_on_drug_id", using: :btree
+  add_index "dependent_variables", ["family_id"], name: "index_dependent_variables_on_family_id", using: :btree
+  add_index "dependent_variables", ["feeding_id"], name: "index_dependent_variables_on_feeding_id", using: :btree
+  add_index "dependent_variables", ["group_life_id"], name: "index_dependent_variables_on_group_life_id", using: :btree
+  add_index "dependent_variables", ["home_id"], name: "index_dependent_variables_on_home_id", using: :btree
+  add_index "dependent_variables", ["hygiene_id"], name: "index_dependent_variables_on_hygiene_id", using: :btree
+  add_index "dependent_variables", ["job_id"], name: "index_dependent_variables_on_job_id", using: :btree
+  add_index "dependent_variables", ["legality_id"], name: "index_dependent_variables_on_legality_id", using: :btree
+  add_index "dependent_variables", ["psychological_situation_id"], name: "index_dependent_variables_on_psychological_situation_id", using: :btree
+  add_index "dependent_variables", ["self_security_id"], name: "index_dependent_variables_on_self_security_id", using: :btree
+  add_index "dependent_variables", ["sexual_life_id"], name: "index_dependent_variables_on_sexual_life_id", using: :btree
+
+  create_table "diagnosis_and_case_evaluations", force: :cascade do |t|
+    t.string   "foi_realizado_um_diagnostico_individual"
+    t.string   "foi_realizado_um_diagnostico_familiar"
+    t.string   "foi_realizado_um_diagnostico_de_rede"
+    t.string   "existe_uma_hpc_ficha_de_primeiro_contato"
+    t.string   "existe_uma_spicl_seguimento_de_processos_em_comunidade_locais"
+    t.string   "foi_realizada_uma_avaliacao_da_demanda"
+    t.string   "foi_realizada_uma_avaliacao_dos_recursos_da_pessoa"
+    t.string   "foi_realiazada_uma_avaliacao_dos_recursos_da_rede_subjetiva_da_"
+    t.string   "o_processo_de_tratamento_foi_programado_em_equipe"
+    t.string   "o_processo_de_tratamento_foi_programa_pela_rede_operativa"
+    t.string   "foram_definidos_os_objetivos_e_metas"
+    t.string   "objetivos_e_metas_foram_avaliados"
+    t.string   "foi_realizada_uma_avaliacao_formal"
+    t.string   "o_processo_global_foi_avaliado_em_equipe"
+    t.string   "o_processo_foi_concluido"
+    t.string   "o_processo_foi_interrompido"
+    t.string   "a_pessoa_faleceu"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
   create_table "diaries", force: :cascade do |t|
     t.text     "description"
     t.date     "date"
@@ -126,6 +287,37 @@ ActiveRecord::Schema.define(version: 20170206184319) do
   add_index "diaries", ["beneficiary_id"], name: "index_diaries_on_beneficiary_id", using: :btree
   add_index "diaries", ["user_id"], name: "index_diaries_on_user_id", using: :btree
 
+  create_table "drugs", force: :cascade do |t|
+    t.string   "cometer_crimes_para_consumir"
+    t.string   "usar_simultaneamente_varios_tipos_de_drogas"
+    t.string   "usar_agulhas_nao_esterilizadas"
+    t.string   "traficar_drogas_como_forma_de_comercio"
+    t.string   "traficar_drogas_para_sustentar_o_uso_pessoal"
+    t.string   "nao_controlar_a_qualidade_da_substancia"
+    t.string   "passar_o_tempo_em_lugares_onde_se_vende_e_consome_drogas"
+    t.string   "prostituir_se_para_comprar_droga"
+    t.string   "consumir_drogas"
+    t.string   "uso_intramuscular_ou_por_intravena"
+    t.string   "consumir_novas_drogas"
+    t.string   "droga_se_sozinho"
+    t.string   "troca_de_vendedor"
+    t.string   "droga_se_em_lugares_nao_seguros"
+    t.string   "compartilhar_seringas"
+    t.string   "usa_cannabis_haxixe_hongos_peiote_datura"
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.string   "oficinas_ou_cursos_de_alfabetizacao"
+    t.string   "apoio_para_recuperacao_escolar"
+    t.string   "recebeu_ajuda_para_se_inserir_em_uma_escola"
+    t.string   "recebeu_uma_bolsa_de_estudos"
+    t.string   "foi_inserida_em_uma_escola_formal"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
   create_table "evaluations", force: :cascade do |t|
     t.string   "number"
     t.string   "organization_code"
@@ -138,10 +330,38 @@ ActiveRecord::Schema.define(version: 20170206184319) do
     t.date     "evaluation_date"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "independent_variable_id"
   end
 
   add_index "evaluations", ["beneficiary_id"], name: "index_evaluations_on_beneficiary_id", using: :btree
+  add_index "evaluations", ["independent_variable_id"], name: "index_evaluations_on_independent_variable_id", using: :btree
   add_index "evaluations", ["problems_during_process_id"], name: "index_evaluations_on_problems_during_process_id", using: :btree
+
+  create_table "families", force: :cascade do |t|
+    t.string   "familia_com_condutas_de_codependencia_"
+    t.string   "nao_ter_vinculos_familiares_ou_afetivos"
+    t.string   "ter_vinculos_familiares_de_alto_conflito_ou_risco"
+    t.string   "foi_expulso_de_sua_familia"
+    t.string   "vive_eventos_de_violencia_intrafamiliar"
+    t.string   "em_sua_familia_ha_pessoas_dependentes_de_drogas_e_alcool"
+    t.string   "familia_desintegrada"
+    t.string   "ter_abandonado_sua_familia"
+    t.string   "a_familia_pratica_a_exploracao_sexual"
+    t.string   "utilizador_de_drogras_ud_ou_udi_que_coloca_em_risco_a_sua_famil"
+    t.string   "ter_algum_familiar_que_produz_vende_comercializa_droga"
+    t.string   "familia_em_condicoes_de_extrema_pobreza"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "feedings", force: :cascade do |t|
+    t.string   "alimentar_se_menos_de_uma_vez_ao_dia"
+    t.string   "alimentar_se_na_rua_sem_controle_higienico"
+    t.string   "ficar_dias_sem_se_alimentar"
+    t.string   "tirar_sua_alimentacao_do_lixo"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
 
   create_table "file_pictures", force: :cascade do |t|
     t.string   "file_name"
@@ -189,6 +409,153 @@ ActiveRecord::Schema.define(version: 20170206184319) do
 
   add_index "first_contact_files", ["beneficiary_id"], name: "index_first_contact_files_on_beneficiary_id", using: :btree
   add_index "first_contact_files", ["user_id"], name: "index_first_contact_files_on_user_id", using: :btree
+
+  create_table "group_lives", force: :cascade do |t|
+    t.string   "endividamento_com_o_vendedor_de_drogas"
+    t.string   "ser_membro_de_grupo_composto_exclusivamente_de_pessoas_de_alto_"
+    t.string   "participar_de_grupo_com_atividades_criminosas"
+    t.string   "ter_amigos_que_consomem_qualquer_tipo_de_droga"
+    t.string   "ter_relacoes_afetivas_com_o_vendedor_de_drogas"
+    t.string   "ter_perdido_amigos_por_causa_do_consumo_de_spa"
+    t.string   "estar_sozinho"
+    t.string   "ter_vinculos_com_grupos_ou_pessoas_à_margem_da_lei"
+    t.string   "ter_relacoes_conflitivas_com_as_pessoas_com_as_quais_vive"
+    t.string   "ser_vitima_de_discriminacao_pelo_grupo_com_o_qual_vive"
+    t.string   "nao_ser_utilizador_de_drogas_por_intravena_udi_e_viver_com_uma_"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "guidelines_references", force: :cascade do |t|
+    t.integer  "foi_orientado_informado_ou_encaminhado_para_uma_escola_curso_ou"
+    t.integer  "a_gesteo_da_iniciativa_e_feita_em_conjunto"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_01"
+    t.integer  "orientacao_indicacao_encaminhamento_para_uma_oficina_de_capacit"
+    t.integer  "esta_iniciativa_e_implementada_conjuntamente_01"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_02"
+    t.integer  "orientacao_referente_a_uma_agencia_de_tratamento"
+    t.integer  "a_gestao_da_iniciativa_e_feita_em_conjunto_01"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_03"
+    t.integer  "orientacao_referente_a_uma_agencia_de_tratamento_nao_registrada"
+    t.integer  "a_gestao_da_iniciativa_e_feita_em_conjunto_02"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_04"
+    t.integer  "a_pessoa_recebeu_orientacao_para_uma_possibilidade_de_trabalho"
+    t.integer  "a_gestao_da_iniciativa_e_feita_em_conjunto_03"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_05"
+    t.integer  "orientacao_sobre_um_hospital_ou_um_serviço_medico"
+    t.integer  "esta_iniciativa_e_implementada_conjuntamente_02"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_06"
+    t.integer  "orientacoes_sobre_atividades_e_grupos_de_participacao_sociocult"
+    t.integer  "esta_iniciativa_e_implementada_conjuntamente_003"
+    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_07"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "healths", force: :cascade do |t|
+    t.string   "sobre_hiv"
+    t.string   "sobre_sexo_seguro_"
+    t.string   "sobre_uso_seguro_de_drogas"
+    t.string   "sobre_doencas_transmitidas_por_via_sanguinea_e_sexual"
+    t.string   "primeros_socorros"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.string   "viver_em_espacos_publicos_em_mas_condicoes"
+    t.string   "viver_com_pessoas_de_alto_risco"
+    t.string   "viver_em_lugares_de_consumo"
+    t.string   "viver_em_lugares_sem_higiene_nem_servicos_basicos"
+    t.string   "moradia_precaria"
+    t.string   "viver_em_estruturas_semelhantes_ao_cortico"
+    t.string   "viver_em_zonas_com_presenca_de_grupos_armados_à_margem_da_lei"
+    t.string   "vivir_en_superlotacao"
+    t.string   "viver_em_uma_comunidade_de_alto_risco"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+  end
+
+  create_table "hygienes", force: :cascade do |t|
+    t.string   "trocar_de_roupa_menos_de_uma_vez_por_semana"
+    t.string   "tomar_banho_menos_de_uma_vez_por_semana"
+    t.string   "nao_ter_um_lugar_para_tomar_banho"
+    t.string   "nao_ter_roupa_limpa"
+    t.string   "nao_cuidar_da_limpeza_de_seu_espaco_moradia"
+    t.string   "lavar_sua_roupa_menos_de_uma_vez_por_semana"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  create_table "independent_variables", force: :cascade do |t|
+    t.integer  "assistance_activity_id"
+    t.integer  "community_treatment_id"
+    t.integer  "albergue_id"
+    t.integer  "diagnosis_and_case_evaluation_id"
+    t.integer  "education_id"
+    t.integer  "guidelines_reference_id"
+    t.integer  "health_id"
+    t.integer  "involved_structure_id"
+    t.integer  "social_participation_id"
+    t.integer  "used_technique_id"
+    t.integer  "work_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "independent_variables", ["albergue_id"], name: "index_independent_variables_on_albergue_id", using: :btree
+  add_index "independent_variables", ["assistance_activity_id"], name: "index_independent_variables_on_assistance_activity_id", using: :btree
+  add_index "independent_variables", ["community_treatment_id"], name: "index_independent_variables_on_community_treatment_id", using: :btree
+  add_index "independent_variables", ["diagnosis_and_case_evaluation_id"], name: "index_independent_variables_on_diagnosis_and_case_evaluation_id", using: :btree
+  add_index "independent_variables", ["education_id"], name: "index_independent_variables_on_education_id", using: :btree
+  add_index "independent_variables", ["guidelines_reference_id"], name: "index_independent_variables_on_guidelines_reference_id", using: :btree
+  add_index "independent_variables", ["health_id"], name: "index_independent_variables_on_health_id", using: :btree
+  add_index "independent_variables", ["involved_structure_id"], name: "index_independent_variables_on_involved_structure_id", using: :btree
+  add_index "independent_variables", ["social_participation_id"], name: "index_independent_variables_on_social_participation_id", using: :btree
+  add_index "independent_variables", ["used_technique_id"], name: "index_independent_variables_on_used_technique_id", using: :btree
+  add_index "independent_variables", ["work_id"], name: "index_independent_variables_on_work_id", using: :btree
+
+  create_table "involved_structures", force: :cascade do |t|
+    t.integer  "territorios_comunitarios"
+    t.integer  "ha_bens_e_serviços_na_comunidade_tidos_como_naturais"
+    t.integer  "recursos_oferecidos_pelos_atores_tidos_como_privados"
+    t.integer  "centros_de_baixa_de_exigencia_e_baixa_complexidade"
+    t.integer  "centros_de_baixa_de_exigencia_e_media_complexidade"
+    t.integer  "centros_de_baixa_de_exigencia_e_alta_complexidade"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "ter_ocupacao_ilegal"
+    t.string   "estar_sem_trabalho_ou_sem_ocupacao"
+    t.string   "trabalhar_em_lugares_onde_se_promova_ou_exigem_o_consumo_de_dro"
+    t.string   "ter_uma_ocupacao_de_alto_risco_relacionado_com_as_drogas_ou_seg"
+    t.string   "ter_um_trabalho_no_qual_ha_exploracao_grave_de_mao_de_obra"
+    t.string   "vive_em_um_contexto_onde_nao_ha_oportunidades_de_trabalho"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "legalities", force: :cascade do |t|
+    t.string   "cometer_roubos"
+    t.string   "cometer_assaltos"
+    t.string   "traficar_drogas"
+    t.string   "pertencer_a_grupos_criminosos_e_quadrilhas"
+    t.string   "estar_na_prisao"
+    t.string   "participar_em_acoes_criminosas"
+    t.string   "consumir_drogas_em_lugares_publicos"
+    t.string   "ter_documentos_falsos"
+    t.string   "portar_armas_sem_salvo_conduto_e_armas_brancas"
+    t.string   "manter_se_com_dinheiro_e_produtos_de_atividades_criminosas"
+    t.string   "ter_estado_privado_de_liberdade"
+    t.string   "estar_sem_documentos_legais_de_imigrante"
+    t.string   "nao_ter_documentos_de_identidade"
+    t.string   "cometer_homicidios_ou_produzir_lesoes_a_outrem"
+    t.string   "ser_fugitivo_da_justica_ou_reu_ausente"
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+  end
 
   create_table "partners", force: :cascade do |t|
     t.integer  "person_id"
@@ -298,11 +665,80 @@ ActiveRecord::Schema.define(version: 20170206184319) do
     t.datetime "updated_at",                          null: false
   end
 
+  create_table "psychological_situations", force: :cascade do |t|
+    t.string   "viver_uma_depressao"
+    t.string   "viver_experiencias_psicoticas"
+    t.string   "viver_transtornos_de_limites_de_personalidade"
+    t.string   "viver_situacao_de_panico"
+    t.string   "transtorno_de_ansiedade"
+    t.string   "personalidade_antissocial"
+    t.string   "alteracoes_graves_do_humor_devido_ao_abuso_de_substancias"
+    t.string   "somatizar_situacoes_de_estres_ou_conflito"
+    t.string   "viver_situacoes_de_luto"
+    t.string   "transtorno_por_estres_pos_traumatico"
+    t.string   "troca_de_conduta_depois_de_ter_sido_vitima_de_violencia"
+    t.string   "teve_pensamentos_de_suicidio"
+    t.string   "tentou_suicidio"
+    t.string   "lhe_foi_receitado_algum_medicamento_por_problema_psicologico"
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
+  end
+
+  create_table "self_securities", force: :cascade do |t|
+    t.string   "tem_inimigos"
+    t.string   "viver_em_comunidades_de_alto_risco"
+    t.string   "realizar_atividades_ilegais"
+    t.string   "andar_armado"
+    t.string   "ter_condutas_violentas_frente_aos_outros"
+    t.string   "pertencer_a_grupos_organizados_de_alto_risco"
+    t.string   "nao_ter_um_grupo_de_referencia_estar_sozinho"
+    t.string   "trabalhar_como_operador_de_rua"
+    t.string   "nao_ter_vinculacao_com_instancias_licitas_e_legais_que_reforcam"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "sexual_lives", force: :cascade do |t|
+    t.integer  "nao_utiliza_preservativos"
+    t.integer  "ter_relacoes_sexuais_com_companheiros_perigosos_"
+    t.integer  "ter_relacoes_sexuais_sob_efeito_de_droga_intoxicado_etc"
+    t.integer  "ter_relacoes_sexuais_de_maneira_desprotegida_com_o_a_parceiro_a"
+    t.integer  "ter_relacoes_sexuais_em_lugares_de_alto_risco"
+    t.integer  "iniciar_a_vida_sexual_precocemente_sem_infomacoes"
+    t.integer  "nao_tomar_em_conta_o_periodo_de_latencia_nos_testes_clinicos_pa"
+    t.integer  "nao_fazer_testes_medicos_periodicos"
+    t.integer  "nao_fazer_um_teste_clinico_depois_de_uma_relacao_sexual_sem_pre"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+  end
+
+  create_table "social_participations", force: :cascade do |t|
+    t.string   "recebeu_ajuda_para_participar_de_grupos_e_associacoes"
+    t.string   "educacao_em_direitos_humanos_e_sociais"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.string   "acronym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "used_techniques", force: :cascade do |t|
+    t.string   "aconselhamento_e_orientacao_individual"
+    t.string   "psicoterapia_individual"
+    t.string   "visitas_familiares"
+    t.string   "participacao_em_grupos_de_discucao"
+    t.string   "terapia_de_grupo"
+    t.string   "terapia_familiar"
+    t.string   "terapia_de_rede"
+    t.string   "grupo_de_autoajuda"
+    t.string   "trabalhou_na_organizacao_como_forma_de_tratamento"
+    t.string   "trabalhou_como_operador_para_a_organizacao"
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -333,16 +769,62 @@ ActiveRecord::Schema.define(version: 20170206184319) do
   add_index "users", ["person_id"], name: "index_users_on_person_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "works", force: :cascade do |t|
+    t.string   "oficinas_para_capacitacao_profissional"
+    t.string   "realizou_uma_pratica_de_trabalho"
+    t.string   "recebeu_ajuda_para_encontrar_trabalho"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
   add_foreign_key "activities", "departments"
   add_foreign_key "activity_diaries", "activities"
   add_foreign_key "activity_diaries", "diaries"
+  add_foreign_key "addresses", "cities"
+  add_foreign_key "addresses", "people"
+  add_foreign_key "beneficiaries", "departments"
+  add_foreign_key "beneficiaries", "people"
+  add_foreign_key "cities", "states"
+  add_foreign_key "citizens", "comunities"
+  add_foreign_key "citizens", "people"
+  add_foreign_key "dependent_variables", "alcohols"
+  add_foreign_key "dependent_variables", "dependent_educations"
+  add_foreign_key "dependent_variables", "dependent_healths"
+  add_foreign_key "dependent_variables", "drugs"
+  add_foreign_key "dependent_variables", "families"
+  add_foreign_key "dependent_variables", "feedings"
+  add_foreign_key "dependent_variables", "group_lives"
+  add_foreign_key "dependent_variables", "homes"
+  add_foreign_key "dependent_variables", "hygienes"
+  add_foreign_key "dependent_variables", "jobs"
+  add_foreign_key "dependent_variables", "legalities"
+  add_foreign_key "dependent_variables", "psychological_situations"
+  add_foreign_key "dependent_variables", "self_securities"
+  add_foreign_key "dependent_variables", "sexual_lives"
   add_foreign_key "diaries", "beneficiaries"
   add_foreign_key "diaries", "users"
   add_foreign_key "evaluations", "beneficiaries"
+  add_foreign_key "evaluations", "independent_variables"
   add_foreign_key "evaluations", "problems_during_processes"
   add_foreign_key "file_pictures", "activity_diaries"
+  add_foreign_key "first_contact_files", "beneficiaries"
+  add_foreign_key "first_contact_files", "users"
+  add_foreign_key "independent_variables", "albergues"
+  add_foreign_key "independent_variables", "assistance_activities"
+  add_foreign_key "independent_variables", "community_treatments"
+  add_foreign_key "independent_variables", "diagnosis_and_case_evaluations"
+  add_foreign_key "independent_variables", "educations"
+  add_foreign_key "independent_variables", "guidelines_references"
+  add_foreign_key "independent_variables", "healths"
+  add_foreign_key "independent_variables", "involved_structures"
+  add_foreign_key "independent_variables", "social_participations"
+  add_foreign_key "independent_variables", "used_techniques"
+  add_foreign_key "independent_variables", "works"
   add_foreign_key "partners", "people"
+  add_foreign_key "phones", "people"
+  add_foreign_key "points", "comunities"
   add_foreign_key "ppcls", "beneficiaries"
   add_foreign_key "ppcls", "users"
   add_foreign_key "users", "partners"
+  add_foreign_key "users", "people"
 end
