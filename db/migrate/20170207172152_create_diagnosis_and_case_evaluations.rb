@@ -8,7 +8,7 @@ class CreateDiagnosisAndCaseEvaluations < ActiveRecord::Migration
       t.string :existe_uma_spicl_seguimento_de_processos_em_comunidade_locais
       t.string :foi_realizada_uma_avaliacao_da_demanda
       t.string :foi_realizada_uma_avaliacao_dos_recursos_da_pessoa
-      t.string :foi_realiazada_uma_avaliacao_dos_recursos_da_rede_subjetiva_da_pessoa
+      t.string :foi_realiazada_uma_avaliacao_dos_recursos_da_rede_subjetiva
       t.string :o_processo_de_tratamento_foi_programado_em_equipe
       t.string :o_processo_de_tratamento_foi_programa_pela_rede_operativa
       t.string :foram_definidos_os_objetivos_e_metas

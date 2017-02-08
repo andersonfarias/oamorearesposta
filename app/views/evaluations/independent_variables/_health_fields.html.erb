@@ -2,24 +2,24 @@
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "4,5"}, 
-wrapper: :inline_radio_evaluation, checked: :'0' %>
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
 <%= f.input  :sobre_sexo_seguro_, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "4,5"}, 
-wrapper: :inline_radio_evaluation, checked: :'0' %>
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
 <%= f.input  :sobre_uso_seguro_de_drogas, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "4,5"}, 
-wrapper: :inline_radio_evaluation, checked: :'0' %>
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
 <%= f.input  :sobre_doencas_transmitidas_por_via_sanguinea_e_sexual, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "4,5"}, 
-wrapper: :inline_radio_evaluation, checked: :'0' %>
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
 <%= f.input  :primeros_socorros, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "4,5"}, 
-wrapper: :inline_radio_evaluation, checked: :'0' %>
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>

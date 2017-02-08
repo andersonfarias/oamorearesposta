@@ -1,10 +1,10 @@
 class CreateGuidelinesReferences < ActiveRecord::Migration
   def change
     create_table :guidelines_references do |t|
-      t.string :foi_orientado_informado_ou_encaminhado_para_uma_escola_curso_ou_atividade_educativa_
+      t.string :foi_orientado_informado_ou_encaminhado_para_uma_escola
       t.string :a_gesteo_da_iniciativa_e_feita_em_conjunto
       t.string :esta_iniciativa_foi_avaliada_em_conjunto_01
-      t.string :orientacao_indicacao_encaminhamento_para_uma_oficina_de_capacitacao_para_o_trabalho
+      t.string :orientacao_indicacao_encaminhamento_para_uma_oficina
       t.string :esta_iniciativa_e_implementada_conjuntamente_01
       t.string :esta_iniciativa_foi_avaliada_em_conjunto_02
       t.string :orientacao_referente_a_uma_agencia_de_tratamento
@@ -19,7 +19,7 @@ class CreateGuidelinesReferences < ActiveRecord::Migration
       t.string :orientacao_sobre_um_hospital_ou_um_serviço_medico
       t.string :esta_iniciativa_e_implementada_conjuntamente_02
       t.string :esta_iniciativa_foi_avaliada_em_conjunto_06
-      t.string :orientacoes_sobre_atividades_e_grupos_de_participacao_sociocultural
+      t.string :orientacoes_sobre_atividades_grupos_participacao_sociocultural
       t.string :esta_iniciativa_e_implementada_conjuntamente_003
       t.string :esta_iniciativa_foi_avaliada_em_conjunto_07
 

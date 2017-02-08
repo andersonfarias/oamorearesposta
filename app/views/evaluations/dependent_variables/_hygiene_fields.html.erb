@@ -1,0 +1,24 @@
+<%= f.input :trocar_de_roupa_menos_de_uma_vez_por_semana, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :tomar_banho_menos_de_uma_vez_por_semana, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :nao_ter_um_lugar_para_tomar_banho, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :nao_ter_roupa_limpa, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :nao_cuidar_da_limpeza_de_seu_espaco_moradia, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :lavar_sua_roupa_menos_de_uma_vez_por_semana, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>

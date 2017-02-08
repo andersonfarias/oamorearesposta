@@ -1,0 +1,66 @@
+<%= f.input :cometer_roubos, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :cometer_assaltos, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :traficar_drogas, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :pertencer_a_grupos_criminosos_e_quadrilhas, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :estar_na_prisao, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "1,2,3,4"}, 
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :participar_em_acoes_criminosas, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :consumir_drogas_em_lugares_publicos, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :ter_documentos_falsos, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "1,2,3,4"}, 
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :portar_armas_sem_salvo_conduto_e_armas_brancas, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :manter_se_com_dinheiro_e_produtos_de_atividades_criminosas, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :ter_estado_privado_de_liberdade, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "1,2,3,4"}, 
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :estar_sem_documentos_legais_de_imigrante, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "1,2,3,4"}, 
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :nao_ter_documentos_de_identidade, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "1,2,3,4"}, 
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :cometer_homicidios_ou_produzir_lesoes_a_outrem, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :ser_fugitivo_da_justica_ou_reu_ausente, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+input_html: {disable_ops: "1,2,3,4"}, 
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>

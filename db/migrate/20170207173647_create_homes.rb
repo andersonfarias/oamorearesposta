@@ -7,7 +7,7 @@ class CreateHomes < ActiveRecord::Migration
       t.string :viver_em_lugares_sem_higiene_nem_servicos_basicos
       t.string :moradia_precaria
       t.string :viver_em_estruturas_semelhantes_ao_cortico
-      t.string :viver_em_zonas_com_presenca_de_grupos_armados_à_margem_da_lei
+      t.string :viver_em_zonas_com_presenca_de_grupos_armados_a_margem_da_lei
       t.string :vivir_en_superlotacao
       t.string :viver_em_uma_comunidade_de_alto_risco
 

@@ -1,3 +1,3 @@
 class SexualLife < ActiveRecord::Base
-  belongs_to :dependent_variable
+  has_one :dependent_variable
 end

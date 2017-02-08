@@ -5,7 +5,7 @@ class CreateAlcohols < ActiveRecord::Migration
       t.string :tomar_alcool_de_ma_qualidade
       t.string :trabalha_em_negocios_que_pedem_ou_exigem_o_consumo_de_licor
       t.string :mistura_o_consumo_de_alcool_com_outras_spa_ilicitas
-      t.string :passar_de_um_uso_por_via_oral_para_outras_vias_nariz_intravenanosa_vagina
+      t.string :passar_de_uso_oral_para_outras_vias_nariz_intravenanosa_vagina
       t.string :uso_de_alcool
       t.string :nao_controlar_a_qualidade_da_substancia
       t.string :usar_simultaneamente_tipos_diferentes_de_alcool

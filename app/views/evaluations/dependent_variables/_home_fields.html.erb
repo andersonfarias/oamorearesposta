@@ -1,0 +1,36 @@
+<%= f.input :viver_em_espacos_publicos_em_mas_condicoes, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :viver_com_pessoas_de_alto_risco, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :viver_em_lugares_de_consumo, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :viver_em_lugares_sem_higiene_nem_servicos_basicos, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :moradia_precaria, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :viver_em_estruturas_semelhantes_ao_cortico, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :viver_em_zonas_com_presenca_de_grupos_armados_a_margem_da_lei, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :vivir_en_superlotacao, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>
+<%= f.input :viver_em_uma_comunidade_de_alto_risco, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, checked: :'0', disabled: is_show_view %>

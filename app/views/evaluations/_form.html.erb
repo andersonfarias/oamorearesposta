@@ -1,0 +1,133 @@
+<%= simple_form_for( @evaluation ) do |f| %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :beneficiary_id, value: @evaluation.beneficiary.id %>
+<%= f.hidden_field :evaluation_date, value: @evaluation.evaluation_date %>
+<%= f.hidden_field :organization_code, value: @evaluation.organization_code %>
+
+<div class="row" style="display: flex;">
+	<div class="col-md-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Dados Gerais</h2>
+				<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<div class="col-md-6 col-xs-12">
+					<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label :number, "Número" %>
+			        </div>
+			        <div class="col-md-6 col-xs-12" style="padding-left: 0px;">
+			          <%= f.input :number, label: false, disabled: is_show_view %>
+			        </div>
+					<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label :beneficiary, "Parceiro" %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.beneficiary.person.full_name %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label(:organization_code, "Código da Organização") %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.organization_code %>
+			        </div>
+			    </div>
+			    <div class="col-md-6 col-xs-12">
+			    	<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label( :evaluation_date, "Data Avaliação") %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.evaluation_date.strftime('%d/%m/%Y') %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label "Data do Primeiro Contato" %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= @evaluation.beneficiary.first_contact_file.date.strftime('%d/%m/%Y') %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			          <%= f.label "Data Início Tratamento Comunitário" %>
+			        </div>
+			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+			        	<% if !@evaluation.beneficiary.clinic_treatments.nil? and !@evaluation.beneficiary.clinic_treatments.empty? %>
+			          		<%= @evaluation.beneficiary.clinic_treatments.first.date.strftime('%d/%m/%Y') %>
+			          	<% end%>
+			        </div>
+		        </div>
+				<div class="col-md-12 col-xs-12" style="padding: 0px; width: 102%; right: 1%;">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>Problemas Durante Processo</h2>
+							<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
+								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							<div class="col-md-12 col-xs-12">
+								<%= f.simple_fields_for :problems_during_process do |pro_dur_pro| %>
+									<%= render 'problems_during_process_fields', f: pro_dur_pro, is_show_view: is_show_view %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" style="display: flex;">
+	<div class="col-md-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Variáveis Independentes</h2>
+				<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<div class="col-md-12 col-xs-12">
+					<%= f.simple_fields_for :independent_variable do |ind_var| %>
+						<%= render 'independent_variable_fields', f: ind_var, is_show_view: is_show_view %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" style="display: flex;">
+	<div class="col-md-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Variáveis Dependentes</h2>
+				<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<div class="col-md-12 col-xs-12">
+					<%= f.simple_fields_for :dependent_variable do |dep_var| %>
+						<%= render 'dependent_variable_fields', f: dep_var, is_show_view: is_show_view %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ln_solid"></div>
+<div class="form-group">
+	<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+		<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
+		<%= f.button :submit, class: "btn btn-success" %>
+	</div>
+</div>
+<% end %>

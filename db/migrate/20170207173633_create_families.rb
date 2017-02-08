@@ -10,7 +10,7 @@ class CreateFamilies < ActiveRecord::Migration
       t.string :familia_desintegrada
       t.string :ter_abandonado_sua_familia
       t.string :a_familia_pratica_a_exploracao_sexual
-      t.string :utilizador_de_drogras_ud_ou_udi_que_coloca_em_risco_a_sua_familia
+      t.string :utilizador_de_drogras_ud_ou_udi_que_coloca_em_risco_sua_familia
       t.string :ter_algum_familiar_que_produz_vende_comercializa_droga
       t.string :familia_em_condicoes_de_extrema_pobreza
 

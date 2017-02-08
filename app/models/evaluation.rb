@@ -1,4 +1,5 @@
 class Evaluation < ActiveRecord::Base
+  belongs_to :user
   belongs_to :beneficiary
   belongs_to :problems_during_process
   belongs_to :dependent_variable

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207175548) do
+ActiveRecord::Schema.define(version: 20170208180847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "tomar_alcool_de_ma_qualidade"
     t.string   "trabalha_em_negocios_que_pedem_ou_exigem_o_consumo_de_licor"
     t.string   "mistura_o_consumo_de_alcool_com_outras_spa_ilicitas"
-    t.string   "passar_de_um_uso_por_via_oral_para_outras_vias_nariz_intravenan"
+    t.string   "passar_de_uso_oral_para_outras_vias_nariz_intravenanosa_vagina"
     t.string   "uso_de_alcool"
     t.string   "nao_controlar_a_qualidade_da_substancia"
     t.string   "usar_simultaneamente_tipos_diferentes_de_alcool"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "tomar_alcool_de_fardos_contaminados_ou_sujos"
     t.string   "embriagar_se_em_grupo"
     t.string   "misturar_alcool_de_96_com_bebidas_a_gas"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
   end
 
   create_table "assistance_activities", force: :cascade do |t|
@@ -259,7 +259,7 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "existe_uma_spicl_seguimento_de_processos_em_comunidade_locais"
     t.string   "foi_realizada_uma_avaliacao_da_demanda"
     t.string   "foi_realizada_uma_avaliacao_dos_recursos_da_pessoa"
-    t.string   "foi_realiazada_uma_avaliacao_dos_recursos_da_rede_subjetiva_da_"
+    t.string   "foi_realiazada_uma_avaliacao_dos_recursos_da_rede_subjetiva"
     t.string   "o_processo_de_tratamento_foi_programado_em_equipe"
     t.string   "o_processo_de_tratamento_foi_programa_pela_rede_operativa"
     t.string   "foram_definidos_os_objetivos_e_metas"
@@ -269,8 +269,8 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "o_processo_foi_concluido"
     t.string   "o_processo_foi_interrompido"
     t.string   "a_pessoa_faleceu"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   create_table "diaries", force: :cascade do |t|
@@ -331,11 +331,15 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "independent_variable_id"
+    t.integer  "user_id"
+    t.integer  "dependent_variable_id"
   end
 
   add_index "evaluations", ["beneficiary_id"], name: "index_evaluations_on_beneficiary_id", using: :btree
+  add_index "evaluations", ["dependent_variable_id"], name: "index_evaluations_on_dependent_variable_id", using: :btree
   add_index "evaluations", ["independent_variable_id"], name: "index_evaluations_on_independent_variable_id", using: :btree
   add_index "evaluations", ["problems_during_process_id"], name: "index_evaluations_on_problems_during_process_id", using: :btree
+  add_index "evaluations", ["user_id"], name: "index_evaluations_on_user_id", using: :btree
 
   create_table "families", force: :cascade do |t|
     t.string   "familia_com_condutas_de_codependencia_"
@@ -347,7 +351,7 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "familia_desintegrada"
     t.string   "ter_abandonado_sua_familia"
     t.string   "a_familia_pratica_a_exploracao_sexual"
-    t.string   "utilizador_de_drogras_ud_ou_udi_que_coloca_em_risco_a_sua_famil"
+    t.string   "utilizador_de_drogras_ud_ou_udi_que_coloca_em_risco_sua_familia"
     t.string   "ter_algum_familiar_que_produz_vende_comercializa_droga"
     t.string   "familia_em_condicoes_de_extrema_pobreza"
     t.datetime "created_at",                                                      null: false
@@ -412,7 +416,7 @@ ActiveRecord::Schema.define(version: 20170207175548) do
 
   create_table "group_lives", force: :cascade do |t|
     t.string   "endividamento_com_o_vendedor_de_drogas"
-    t.string   "ser_membro_de_grupo_composto_exclusivamente_de_pessoas_de_alto_"
+    t.string   "ser_membro_de_grupo_composto_de_pessoas_de_alto_risco"
     t.string   "participar_de_grupo_com_atividades_criminosas"
     t.string   "ter_amigos_que_consomem_qualquer_tipo_de_droga"
     t.string   "ter_relacoes_afetivas_com_o_vendedor_de_drogas"
@@ -421,33 +425,33 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "ter_vinculos_com_grupos_ou_pessoas_à_margem_da_lei"
     t.string   "ter_relacoes_conflitivas_com_as_pessoas_com_as_quais_vive"
     t.string   "ser_vitima_de_discriminacao_pelo_grupo_com_o_qual_vive"
-    t.string   "nao_ser_utilizador_de_drogas_por_intravena_udi_e_viver_com_uma_"
+    t.string   "nao_usar_drogas_intravena_udi_e_viver_com_pessoa_que_utilizador"
     t.datetime "created_at",                                                      null: false
     t.datetime "updated_at",                                                      null: false
   end
 
   create_table "guidelines_references", force: :cascade do |t|
-    t.integer  "foi_orientado_informado_ou_encaminhado_para_uma_escola_curso_ou"
-    t.integer  "a_gesteo_da_iniciativa_e_feita_em_conjunto"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_01"
-    t.integer  "orientacao_indicacao_encaminhamento_para_uma_oficina_de_capacit"
-    t.integer  "esta_iniciativa_e_implementada_conjuntamente_01"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_02"
-    t.integer  "orientacao_referente_a_uma_agencia_de_tratamento"
-    t.integer  "a_gestao_da_iniciativa_e_feita_em_conjunto_01"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_03"
-    t.integer  "orientacao_referente_a_uma_agencia_de_tratamento_nao_registrada"
-    t.integer  "a_gestao_da_iniciativa_e_feita_em_conjunto_02"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_04"
-    t.integer  "a_pessoa_recebeu_orientacao_para_uma_possibilidade_de_trabalho"
-    t.integer  "a_gestao_da_iniciativa_e_feita_em_conjunto_03"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_05"
-    t.integer  "orientacao_sobre_um_hospital_ou_um_serviço_medico"
-    t.integer  "esta_iniciativa_e_implementada_conjuntamente_02"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_06"
-    t.integer  "orientacoes_sobre_atividades_e_grupos_de_participacao_sociocult"
-    t.integer  "esta_iniciativa_e_implementada_conjuntamente_003"
-    t.integer  "esta_iniciativa_foi_avaliada_em_conjunto_07"
+    t.string   "foi_orientado_informado_ou_encaminhado_para_uma_escola"
+    t.string   "a_gesteo_da_iniciativa_e_feita_em_conjunto"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_01"
+    t.string   "orientacao_indicacao_encaminhamento_para_uma_oficina"
+    t.string   "esta_iniciativa_e_implementada_conjuntamente_01"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_02"
+    t.string   "orientacao_referente_a_uma_agencia_de_tratamento"
+    t.string   "a_gestao_da_iniciativa_e_feita_em_conjunto_01"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_03"
+    t.string   "orientacao_referente_a_uma_agencia_de_tratamento_nao_registrada"
+    t.string   "a_gestao_da_iniciativa_e_feita_em_conjunto_02"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_04"
+    t.string   "a_pessoa_recebeu_orientacao_para_uma_possibilidade_de_trabalho"
+    t.string   "a_gestao_da_iniciativa_e_feita_em_conjunto_03"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_05"
+    t.string   "orientacao_sobre_um_hospital_ou_um_serviço_medico"
+    t.string   "esta_iniciativa_e_implementada_conjuntamente_02"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_06"
+    t.string   "orientacoes_sobre_atividades_grupos_participacao_sociocultural"
+    t.string   "esta_iniciativa_e_implementada_conjuntamente_003"
+    t.string   "esta_iniciativa_foi_avaliada_em_conjunto_07"
     t.datetime "created_at",                                                      null: false
     t.datetime "updated_at",                                                      null: false
   end
@@ -469,7 +473,7 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "viver_em_lugares_sem_higiene_nem_servicos_basicos"
     t.string   "moradia_precaria"
     t.string   "viver_em_estruturas_semelhantes_ao_cortico"
-    t.string   "viver_em_zonas_com_presenca_de_grupos_armados_à_margem_da_lei"
+    t.string   "viver_em_zonas_com_presenca_de_grupos_armados_a_margem_da_lei"
     t.string   "vivir_en_superlotacao"
     t.string   "viver_em_uma_comunidade_de_alto_risco"
     t.datetime "created_at",                                                    null: false
@@ -516,12 +520,12 @@ ActiveRecord::Schema.define(version: 20170207175548) do
   add_index "independent_variables", ["work_id"], name: "index_independent_variables_on_work_id", using: :btree
 
   create_table "involved_structures", force: :cascade do |t|
-    t.integer  "territorios_comunitarios"
-    t.integer  "ha_bens_e_serviços_na_comunidade_tidos_como_naturais"
-    t.integer  "recursos_oferecidos_pelos_atores_tidos_como_privados"
-    t.integer  "centros_de_baixa_de_exigencia_e_baixa_complexidade"
-    t.integer  "centros_de_baixa_de_exigencia_e_media_complexidade"
-    t.integer  "centros_de_baixa_de_exigencia_e_alta_complexidade"
+    t.string   "territorios_comunitarios"
+    t.string   "ha_bens_e_serviços_na_comunidade_tidos_como_naturais"
+    t.string   "recursos_oferecidos_pelos_atores_tidos_como_privados"
+    t.string   "centros_de_baixa_de_exigencia_e_baixa_complexidade"
+    t.string   "centros_de_baixa_de_exigencia_e_media_complexidade"
+    t.string   "centros_de_baixa_de_exigencia_e_alta_complexidade"
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
   end
@@ -529,12 +533,12 @@ ActiveRecord::Schema.define(version: 20170207175548) do
   create_table "jobs", force: :cascade do |t|
     t.string   "ter_ocupacao_ilegal"
     t.string   "estar_sem_trabalho_ou_sem_ocupacao"
-    t.string   "trabalhar_em_lugares_onde_se_promova_ou_exigem_o_consumo_de_dro"
-    t.string   "ter_uma_ocupacao_de_alto_risco_relacionado_com_as_drogas_ou_seg"
+    t.string   "trabalhar_em_lugares_que_promove_ou_exigem_o_consumo_de_drogas"
+    t.string   "ter_ocupacao_de_alto_risco_relacionado_a_drogas_ou_seguranca"
     t.string   "ter_um_trabalho_no_qual_ha_exploracao_grave_de_mao_de_obra"
     t.string   "vive_em_um_contexto_onde_nao_ha_oportunidades_de_trabalho"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
   end
 
   create_table "legalities", force: :cascade do |t|
@@ -693,21 +697,21 @@ ActiveRecord::Schema.define(version: 20170207175548) do
     t.string   "pertencer_a_grupos_organizados_de_alto_risco"
     t.string   "nao_ter_um_grupo_de_referencia_estar_sozinho"
     t.string   "trabalhar_como_operador_de_rua"
-    t.string   "nao_ter_vinculacao_com_instancias_licitas_e_legais_que_reforcam"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
+    t.string   "nao_ter_vinculacao_com_instancias_licitas_e_legais"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "sexual_lives", force: :cascade do |t|
-    t.integer  "nao_utiliza_preservativos"
-    t.integer  "ter_relacoes_sexuais_com_companheiros_perigosos_"
-    t.integer  "ter_relacoes_sexuais_sob_efeito_de_droga_intoxicado_etc"
-    t.integer  "ter_relacoes_sexuais_de_maneira_desprotegida_com_o_a_parceiro_a"
-    t.integer  "ter_relacoes_sexuais_em_lugares_de_alto_risco"
-    t.integer  "iniciar_a_vida_sexual_precocemente_sem_infomacoes"
-    t.integer  "nao_tomar_em_conta_o_periodo_de_latencia_nos_testes_clinicos_pa"
-    t.integer  "nao_fazer_testes_medicos_periodicos"
-    t.integer  "nao_fazer_um_teste_clinico_depois_de_uma_relacao_sexual_sem_pre"
+    t.string   "nao_utiliza_preservativos"
+    t.string   "ter_relacoes_sexuais_com_companheiros_perigosos_"
+    t.string   "ter_relacoes_sexuais_sob_efeito_de_droga_intoxicado_etc"
+    t.string   "ter_relacoes_sexuais_de_maneira_desprotegida_com_o_a_parceiro_a"
+    t.string   "ter_relacoes_sexuais_em_lugares_de_alto_risco"
+    t.string   "iniciar_a_vida_sexual_precocemente_sem_infomacoes"
+    t.string   "nao_tomar_em_conta_periodo_latente_nos_testes_clinicos_para_hiv"
+    t.string   "nao_fazer_testes_medicos_periodicos"
+    t.string   "nao_fazer_teste_clinico_apos_relacao_sexual_sem_preservativo"
     t.datetime "created_at",                                                      null: false
     t.datetime "updated_at",                                                      null: false
   end
@@ -797,8 +801,10 @@ ActiveRecord::Schema.define(version: 20170207175548) do
   add_foreign_key "diaries", "beneficiaries"
   add_foreign_key "diaries", "users"
   add_foreign_key "evaluations", "beneficiaries"
+  add_foreign_key "evaluations", "dependent_variables"
   add_foreign_key "evaluations", "independent_variables"
   add_foreign_key "evaluations", "problems_during_processes"
+  add_foreign_key "evaluations", "users"
   add_foreign_key "file_pictures", "activity_diaries"
   add_foreign_key "independent_variables", "albergues"
   add_foreign_key "independent_variables", "assistance_activities"

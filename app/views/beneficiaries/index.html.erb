@@ -70,6 +70,9 @@
                 <%= link_to new_ppcl_path( beneficiary_id: b.id ), method: :get, title: Ppcl.model_name.human(count: 1) do %>
                 <i class="fa fa-share-alt fa-lg"></i>
                 <% end %>
+                <%= link_to new_evaluation_path( beneficiary_id: b.id ), method: :get, title: Evaluation.model_name.human(count: 1) do %>
+                <i class="fa fa-edit fa-lg"></i>
+                <% end %>
             </td>
         </tr>
         <% end %>

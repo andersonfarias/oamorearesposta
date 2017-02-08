@@ -9,7 +9,7 @@ class CreateSelfSecurities < ActiveRecord::Migration
       t.string :pertencer_a_grupos_organizados_de_alto_risco
       t.string :nao_ter_um_grupo_de_referencia_estar_sozinho
       t.string :trabalhar_como_operador_de_rua
-      t.string :nao_ter_vinculacao_com_instancias_licitas_e_legais_que_reforcam_a_seguranca_pessoal
+      t.string :nao_ter_vinculacao_com_instancias_licitas_e_legais
 
       t.timestamps null: false
     end
