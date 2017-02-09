@@ -57,7 +57,7 @@ class ActivityDiariesController < ApplicationController
 
     def edit
         @current_page = params[:current_page]
-        @activity_diary.diary.date = @activity_diary.diary.date.strftime('%d/%m/%Y')
+        @activity_diary.diary.date = @activity_diary.diary.date.strftime('%d/%m/%Y') if !@activity_diary.diary.date.nil?
 
         attendances = []
         unless @activity_diary.attendances.empty?

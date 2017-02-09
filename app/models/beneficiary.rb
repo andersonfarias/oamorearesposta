@@ -48,9 +48,6 @@ class Beneficiary < ActiveRecord::Base
     end
 
     def self.report_search params
-        p "======="
-        p params
-
         simple_params = %w(
             people.gender 
             people.age 

@@ -83,7 +83,7 @@ $(document).ready(function() {
     });
 
   $("input.radio_buttons").each(function() {
-    if ($(this).attr("disable_ops").indexOf($(this).attr("value")) >= 0) {
+    if ($(this).attr("disable_ops") != null && $(this).attr("disable_ops").indexOf($(this).attr("value")) >= 0) {
       $(this).prop( "disabled", true );
     }
   });

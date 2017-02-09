@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208180847) do
+ActiveRecord::Schema.define(version: 20170209115330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -328,11 +328,12 @@ ActiveRecord::Schema.define(version: 20170208180847) do
     t.boolean  "developing_process"
     t.boolean  "suspensions"
     t.date     "evaluation_date"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "independent_variable_id"
     t.integer  "user_id"
     t.integer  "dependent_variable_id"
+    t.boolean  "is_active",                  default: true
   end
 
   add_index "evaluations", ["beneficiary_id"], name: "index_evaluations_on_beneficiary_id", using: :btree

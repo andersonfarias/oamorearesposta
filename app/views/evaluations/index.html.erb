@@ -1,1 +1,63 @@
-<%= link_to "Nova Avaliação", new_evaluation_path(current_user), method: :get, class: "btn btn-primary pull-right" %>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Filtros</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <%= simple_form_for evaluations_path, method: :get, html: { class: 'form-horizontal form-label-left' } do |f| %>
+        <div class="row">
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :number, label: "Número", label_html: {style: "text-align: left;"}, input_html: {name: "number"}, required: false, wrapper: :horizontal_form %>
+            </div>
+             <div class="col-md-offset-2 col-md-7 col-xs-12">
+		       <%= f.input :beneficiary, required: false, wrapper: :horizontal_form, label: "Beneficiario", input_html: {name: "beneficiary_name"} %>
+		    </div>
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <div class="col-md-6 col-xs-12">
+	                <%= f.input :evaluation_date, label: "Data da Avaliação (Inicio)", input_html: {name: "initial_date"}, required: false, as: :datepicker  %>
+	            </div>
+                <div class="col-md-6 col-xs-12">
+	                <%= f.input :evaluation_date, label: "Data da Avaliação (Fim)", input_html: {name: "final_date"}, required: false, as: :datepicker  %>
+	            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <%= f.button :submit, "Buscar", class: "btn btn-success" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+    	<th class="text-center"><%= "Id" %></th>
+        <th class="text-center"><%= "Número" %></th>
+        <th class="text-center"><%= "Parceiro" %></th>
+        <th class="text-center"><%= "Data Avaliação" %></th>
+        <th class="text-center"><%= t "actions.actions" %></th>
+    </thead>
+    <tbody>
+        <% @evaluations.each do |e| %>
+        <tr>
+            <td class="col-md-1 text-center" ><%= e.id %></td>
+            <td class="col-md-2" style="vertical-align: middle"><%= link_to e.number, e %></td>
+            <td class="col-md-5" style="vertical-align: middle"><%= e.beneficiary.person.full_name %></td>
+            <td class="col-md-2 text-center" style="vertical-align: middle"><%= e.evaluation_date.strftime('%d/%m/%Y') %></td>
+            <td class="col-md-2 text-center">
+                <%= link_to evaluation_path(e), title: t('actions.show') do %>
+                <i class="fa fa-search fa-lg"></i>
+                <% end %>
+                <%= link_to edit_evaluation_path(e), method: :get, title: t('actions.edit') do %>
+                <i class="fa fa-pencil fa-lg"></i>
+                <% end %>
+                <%= link_to evaluation_path( e ), :data => { :confirm => "Você tem certeza?" }, :method => :delete, title: t('actions.delete') do %>
+                <i class="fa fa-trash fa-lg"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= will_paginate @evaluations, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>

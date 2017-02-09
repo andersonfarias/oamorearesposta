@@ -2,6 +2,7 @@ class EvaluationsController < ApplicationController
 	before_filter :set_evaluation
 
 	def index
+		@evaluations = Evaluation.search_result(params).paginate( :page => params[ :page ] )
 	end
 
 	def new
@@ -55,6 +56,14 @@ class EvaluationsController < ApplicationController
 
 	def edit
 	end
+
+	def destroy
+        @evaluation.is_active = false
+        if @evaluation.save()
+            redirect_to evaluations_path,
+                        notice: t('controllers.actions.destroy.success', model: Evaluation.model_name.human(count: 1))
+        end
+    end
 
 	private
 	def set_evaluation
