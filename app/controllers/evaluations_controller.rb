@@ -77,6 +77,9 @@ class EvaluationsController < ApplicationController
         	:organization_code,
         	:evaluation_date,
         	:number,
+        	:concluded_process,
+        	:suspensions,
+        	:developing_process,
         	:problems_during_process_attributes => [
         		:sustancias_alcool, :condutas_antissociais, :psiquiatricas, :comportamentais, :relacionais, :violencia_intrafamiliar, :violacao_abuso_sexual_adultos, :trabalho_sexual, :legal, :gravidez_parto, :doencas, :pobreza_extrema, :vida_na_rua, :apoio_econômico, :escolares, :exclusao_grave, :violencia_intracomunitaria, :redes_interinstitucionais, :crises_psicologicas, :capacitacao_e_formacao, :organizacao_e_planejamento, :hiv, :enfermidades_por_transmissao_sexual, :trafico_de_pessoas, :sem_trabalho, :tuberculose, :problemas_familiares, :transtorno_de_estres_pos_traumatico, :analfabetismo, :problemas_sexuais, :violacao_abuso_de_criancas, :outras_dependencias, :uso_de_drogas_intravenosa, :hepatites, :deslocacao_forcada, :migracao_ou_imigracao, :estigma_por_sua_identidade_sexual],
  			:independent_variable_attributes => [
