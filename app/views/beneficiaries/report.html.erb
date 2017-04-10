@@ -75,7 +75,7 @@
 		        <div class="clearfix"></div>
 		    </div>
 		    <div class="col-md-4">
-		    	<%= f.label t("activerecord.attributes.person.gender") %>
+		    	<%= f.label "Por: " %>
 		    	<%= f.input :group_option, label: false, input_html: {name: "group_option"}, include_blank: false,
 		    		collection: { "Sexo" => "people.gender", "Escolaridade" => "first_contact_files.education_levels", "Ano Prim. Contato" => "year_date", "Mês/Ano Data Prim. Contato" => "month_year_date"} %>
 		    </div>
