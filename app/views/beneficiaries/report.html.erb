@@ -56,12 +56,12 @@
 				</div>
 	        </div>
 	        <div class="row">
-				<div class="col-md-7 col-xs-6">
+				<div class="col-md-6 col-xs-6">
 					<%= f.label t("activerecord.attributes.first_contact_file.how_established_first_contact"), required: false %>
 					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.how_established_first_contact"}, 
 						collection: FirstContactFile.how_established_first_contacts.keys.map { |key| [ t("enum.first_contact_file.how_established_first_contacts.#{key}"), key]}, required: false, label: false %>
 				</div>
-				<div class="col-md-5 col-xs-6">
+				<div class="col-md-6 col-xs-6">
 					<%= f.label t("activerecord.attributes.first_contact_file.education_levels"), required: false %>
 					<%= f.input :how_established_first_contact, input_html: {name: "first_contact_files.education_levels"}, 
 						collection: FirstContactFile.education_levels.values.map { |key| [ t("enumerize.first_contact_file.education_levels.#{key}"), key]}, required: false, label: false %>
