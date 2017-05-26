@@ -9,9 +9,9 @@
             <div class="col-md-7 col-xs-12 col-md-offset-2">
                 <%= f.input :number, label: "Número", label_html: {style: "text-align: left;"}, input_html: {name: "number"}, required: false, wrapper: :horizontal_form %>
             </div>
-             <div class="col-md-offset-2 col-md-7 col-xs-12">
-		       <%= f.input :beneficiary, required: false, wrapper: :horizontal_form, label: "Beneficiario", input_html: {name: "beneficiary_name"} %>
-		    </div>
+            <div class="col-md-7 col-xs-12 col-md-offset-2">
+                <%= f.input :number, label: "Beneficiario", label_html: {style: "text-align: left;"}, input_html: {name: "beneficiary_name"}, required: false, wrapper: :horizontal_form %>
+            </div>
             <div class="col-md-7 col-xs-12 col-md-offset-2">
                 <div class="col-md-6 col-xs-12">
 	                <%= f.input :evaluation_date, label: "Data da Avaliação (Inicio)", input_html: {name: "initial_date"}, required: false, as: :datepicker  %>
@@ -46,11 +46,8 @@
             <td class="col-md-5" style="vertical-align: middle"><%= e.beneficiary.person.full_name %></td>
             <td class="col-md-2 text-center" style="vertical-align: middle"><%= e.evaluation_date.strftime('%d/%m/%Y') %></td>
             <td class="col-md-2 text-center">
-                <%= link_to evaluation_path(e), title: t('actions.show') do %>
+                <%= link_to evaluation_path(e, format: "html"), title: t('actions.show') do %>
                 <i class="fa fa-search fa-lg"></i>
-                <% end %>
-                <%= link_to edit_evaluation_path(e), method: :get, title: t('actions.edit') do %>
-                <i class="fa fa-pencil fa-lg"></i>
                 <% end %>
                 <%= link_to evaluation_path( e ), :data => { :confirm => "Você tem certeza?" }, :method => :delete, title: t('actions.delete') do %>
                 <i class="fa fa-trash fa-lg"></i>

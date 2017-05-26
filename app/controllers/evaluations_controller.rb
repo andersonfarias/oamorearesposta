@@ -9,35 +9,38 @@ class EvaluationsController < ApplicationController
 		@evaluation = Evaluation.new(
 			evaluation_date: Date.today,
 			organization_code: "AMRBR",
+			concluded_process: false,
+			developing_process: true,
+			suspensions: false,
 			beneficiary: Beneficiary.find(params[:beneficiary_id]),
-			problems_during_process: ProblemsDuringProcess.new,
+			problems_during_process: ProblemsDuringProcess.init,
 			independent_variable: IndependentVariable.new(
-				albergue: Albergue.new,
-				assistance_activity: AssistanceActivity.new,
-				health: Health.new,
-				community_treatment: CommunityTreatment.new,
-				diagnosis_and_case_evaluation: DiagnosisAndCaseEvaluation.new,
-				education: Education.new,
-				guidelines_reference: GuidelinesReference.new,
-				involved_structure: InvolvedStructure.new,
-				social_participation: SocialParticipation.new,
-				used_technique: UsedTechnique.new,
-				work: Work.new),
+				albergue: Albergue.init,
+				assistance_activity: AssistanceActivity.init,
+				health: Health.init,
+				community_treatment: CommunityTreatment.init,
+				diagnosis_and_case_evaluation: DiagnosisAndCaseEvaluation.init,
+				education: Education.init,
+				guidelines_reference: GuidelinesReference.init,
+				involved_structure: InvolvedStructure.init,
+				social_participation: SocialParticipation.init,
+				used_technique: UsedTechnique.init,
+				work: Work.init),
 			dependent_variable: DependentVariable.new(
-				dependent_education: DependentEducation.new,
-				drug: Drug.new,
-				job: Job.new,
-				sexual_life: SexualLife.new,
-				self_security: SelfSecurity.new,
-				dependent_health: DependentHealth.new,
-				group_life: GroupLife.new,
-				family: Family.new,
-				alcohol: Alcohol.new,
-				legality: Legality.new,
-				home: Home.new,
-				hygiene: Hygiene.new,
-				feeding: Feeding.new,
-				psychological_situation: PsychologicalSituation.new)
+				dependent_education: DependentEducation.init,
+				drug: Drug.init,
+				job: Job.init,
+				sexual_life: SexualLife.init,
+				self_security: SelfSecurity.init,
+				dependent_health: DependentHealth.init,
+				group_life: GroupLife.init,
+				family: Family.init,
+				alcohol: Alcohol.init,
+				legality: Legality.init,
+				home: Home.init,
+				hygiene: Hygiene.init,
+				feeding: Feeding.init,
+				psychological_situation: PsychologicalSituation.init)
 		)
 	end
 
@@ -52,6 +55,10 @@ class EvaluationsController < ApplicationController
 	end
 
 	def show
+		respond_to do |format|
+			format.html
+			format.xls
+ 		end
 	end
 
 	def edit

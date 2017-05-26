@@ -1,0 +1,71 @@
+<Row>
+	<Cell ss:StyleID="title2" ><Data ss:Type="Number">2</Data></Cell>
+	<Cell ss:StyleID="title2" ><Data ss:Type="String">Dados Gerais</Data></Cell>
+	<Cell ss:StyleID="title2" ss:MergeAcross="6" ><Data ss:Type="String"></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.1</Data></Cell>
+	<Cell><Data ss:Type="String">Número Folha</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="Number"><%= @evaluation.number %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.1</Data></Cell>
+	<Cell><Data ss:Type="String">Parceiro (apenas as iniciais)</Data></Cell>
+	<Cell ss:MergeAcross="8" ><Data ss:Type="String"><%= @evaluation.beneficiary.person.full_name %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.3</Data></Cell>
+	<Cell><Data ss:Type="String">Código da organização</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><%= @evaluation.organization_code %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.4</Data></Cell>
+	<Cell><Data ss:Type="String">Data do primeiro contato</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><%= @evaluation.beneficiary.first_contact_file.date.strftime('%d/%m/%Y') %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.5</Data></Cell>
+	<Cell><Data ss:Type="String">Data de início do tratamento Comunitário</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><% if !@evaluation.beneficiary.clinic_treatments.nil? and !@evaluation.beneficiary.clinic_treatments.empty? %><%= @evaluation.beneficiary.clinic_treatments.first.date.strftime('%d/%m/%Y').strip %><% end%></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.6</Data></Cell>
+	<Cell><Data ss:Type="String">Data de conclusão do tratamento Comunitário</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.7</Data></Cell>
+	<Cell><Data ss:Type="String">Interrupções (data)</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.8</Data></Cell>
+	<Cell><Data ss:Type="String">Processo concluído</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><%= t "#{@evaluation.concluded_process}" %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.9</Data></Cell>
+	<Cell><Data ss:Type="String">Processo em desenvolvimento</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><%= t "#{@evaluation.developing_process}" %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.10</Data></Cell>
+	<Cell><Data ss:Type="String">Suspenções</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><%= t "#{@evaluation.suspensions}" %></Data></Cell>
+</Row>
+
+<Row>
+	<Cell><Data ss:Type="Number">2.11</Data></Cell>
+	<Cell><Data ss:Type="String">Data da avaliação</Data></Cell>
+	<Cell ss:MergeAcross="6" ><Data ss:Type="String"><%= @evaluation.evaluation_date.strftime('%d/%m/%Y') %></Data></Cell>
+</Row>

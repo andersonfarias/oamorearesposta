@@ -33,7 +33,7 @@
 			          <%= @evaluation.organization_code %>
 			        </div>
 			        
-					<%= f.input :concluded_process, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-5 col-xs-12", style: "top: 7px; padding: 0px;"}, label: "Processo Concluído", checked: false %>
+					<%= f.input :concluded_process, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-5 col-xs-12", style: "top: 7px; padding: 0px;"}, label: "Processo Concluído" %>
 			    </div>
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
@@ -56,8 +56,8 @@
 			          		<%= @evaluation.beneficiary.clinic_treatments.first.date.strftime('%d/%m/%Y') %>
 			          	<% end%>
 			        </div>
-					<%= f.input :developing_process, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-5 col-xs-12", style: "top: 7px; padding: 0px;"}, label: "Processo em Desen.", checked: false %>
-		        	<%= f.input :suspensions, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-5 col-xs-12", style: "top: 7px; padding: 0px;"}, label: "Suspenções", checked: false %>
+					<%= f.input :developing_process, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-5 col-xs-12", style: "top: 7px; padding: 0px;"}, label: "Processo em Desen." %>
+		        	<%= f.input :suspensions, as: :radio_buttons, wrapper: :inline_radio, label_html: {class: "col-md-5 col-xs-12", style: "top: 7px; padding: 0px;"}, label: "Suspenções" %>
 		        </div>
 
 				<div class="col-md-12 col-xs-12" style="padding: 0px; width: 102%; right: 1%;">
@@ -124,12 +124,13 @@
 		</div>
 	</div>
 </div>
-
-<div class="ln_solid"></div>
-<div class="form-group">
-	<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
-		<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
-		<%= f.button :submit, class: "btn btn-success" %>
+<%if not is_show_view %>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+			<%= link_to t( "actions.cancel" ), beneficiaries_path(current_user), class: "btn btn-primary" %>
+			<%= f.button :submit, class: "btn btn-success" %>
+		</div>
 	</div>
-</div>
+<% end %>
 <% end %>
