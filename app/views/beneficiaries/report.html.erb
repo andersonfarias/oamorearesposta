@@ -74,10 +74,19 @@
 		        <h2>Agrupamento</h2>
 		        <div class="clearfix"></div>
 		    </div>
-		    <div class="col-md-4">
+		    <div class="col-md-6">
 		    	<%= f.label "Por: " %>
 		    	<%= f.input :group_option, label: false, input_html: {name: "group_option"}, include_blank: false,
-		    		collection: { "Sexo" => "people.gender", "Escolaridade" => "first_contact_files.education_levels", "Ano Prim. Contato" => "year_date", "Mês/Ano Data Prim. Contato" => "month_year_date"} %>
+		    		collection: { 
+		    			"Gênero" => "people.gender", 
+		    			"Ano Prim. Contato" => "year_date", 
+		    			"Mês/Ano Data Prim. Contato" => "month_year_date",
+		    			"Respostas" => "first_contact_files.answer",
+		    			"Resultados" => "first_contact_files.results",
+		    			"Estado Familiar" => "first_contact_files.marital_status", 
+		    			"Escolaridade" => "first_contact_files.education_levels", 
+		    			"Condições Primeiro Contato" => "first_contact_files.first_contact_conditions",
+		    			"Como Estabeleceu Primeiro Contato" => "first_contact_files.how_established_first_contact"} %>
 		    </div>
 		</div>
 

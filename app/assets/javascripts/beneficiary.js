@@ -12,6 +12,7 @@ $(document).ready(function() {
         verticalAlign: "center",
         horizontalAlign: "left",
         fontSize: 15,
+        itemWidth:200,
       },
       theme: "theme4",
       data: [

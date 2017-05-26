@@ -53,6 +53,56 @@ class BeneficiariesController < ApplicationController
                 group_by_education_lavel.each do |b|
                     @data << {y: b[1].count, legendText: t("enumerize.first_contact_file.education_levels.#{b[0]}"), beneficiaries: b[1], sort: t("enumerize.first_contact_file.education_levels.#{b[0]}")}
                 end
+            when "first_contact_files.first_contact_conditions"
+                group_by_first_contact_conditions = Hash.new{|hash, key| hash[key] = Array.new;}
+                beneficiaries.each do |b|
+                    FirstContactFile.first_contact_conditions.values.each do |fcc|
+                        group_by_first_contact_conditions[fcc] << b  if b.first_contact_conditions.include? fcc.to_s
+                    end
+                end
+                group_by_first_contact_conditions.each do |b|
+                    @data << {y: b[1].count, legendText: t("enumerize.first_contact_file.first_contact_conditions.#{b[0]}"), beneficiaries: b[1], sort: t("enumerize.first_contact_file.first_contact_conditions.#{b[0]}")}
+                end
+            when "first_contact_files.results"
+                group_by_results = Hash.new{|hash, key| hash[key] = Array.new;}
+                beneficiaries.each do |b|
+                    FirstContactFile.results.values.each do |i|
+                        group_by_results[i] << b  if b.results.include? i.to_s
+                    end
+                end
+                group_by_results.each do |b|
+                    @data << {y: b[1].count, legendText: t("enumerize.first_contact_file.results.#{b[0]}"), beneficiaries: b[1], sort: t("enumerize.first_contact_file.results.#{b[0]}")}
+                end
+            when "first_contact_files.answer"
+                group_by_answer = Hash.new{|hash, key| hash[key] = Array.new;}
+                beneficiaries.each do |b|
+                    FirstContactFile.answer.values.each do |i|
+                        group_by_answer[i] << b  if b.answer.include? i.to_s
+                    end
+                end
+                group_by_answer.each do |b|
+                    @data << {y: b[1].count, legendText: t("enumerize.first_contact_file.answer.#{b[0]}"), beneficiaries: b[1], sort: t("enumerize.first_contact_file.answer.#{b[0]}")}
+                end
+            when "first_contact_files.how_established_first_contact"
+                group_by_how_established_first_contact = Hash.new{|hash, key| hash[key] = Array.new;}
+                beneficiaries.each do |b|
+                    FirstContactFile.how_established_first_contacts.values.each do |i|
+                        group_by_how_established_first_contact[i] << b  if b.how_established_first_contact == i
+                    end
+                end
+                group_by_how_established_first_contact.each do |b|
+                    @data << {y: b[1].count, legendText: t("enum.first_contact_file.how_established_first_contacts.#{FirstContactFile.how_established_first_contacts.key(b[0])}"), beneficiaries: b[1], sort: t("enum.first_contact_file.how_established_first_contacts.#{FirstContactFile.how_established_first_contacts.key(b[0])}")}
+                end
+            when "first_contact_files.marital_status"
+                group_by_marital_status = Hash.new{|hash, key| hash[key] = Array.new;}
+                beneficiaries.each do |b|
+                    FirstContactFile.how_established_first_contacts.values.each do |i|
+                        group_by_marital_status[i] << b  if b.marital_status == i
+                    end
+                end
+                group_by_marital_status.each do |b|
+                    @data << {y: b[1].count, legendText: t("enum.first_contact_file.marital_status.#{FirstContactFile.marital_statuses.key(b[0])}"), beneficiaries: b[1], sort: t("enum.first_contact_file.marital_status.#{FirstContactFile.marital_statuses.key(b[0])}")}
+                end
             end
             gon.data = @data.sort_by { |e| e[:sort]  }
         end

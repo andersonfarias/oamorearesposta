@@ -73,7 +73,17 @@ class Beneficiary < ActiveRecord::Base
         end
         sql_seach = seach_enumerize.map {|k,v| "#{k} LIKE '%#{v}%'" }.join(" AND ")
 
-        result = Beneficiary.select(:id, :"people.first_name", :"people.last_name", :"people.gender", :"first_contact_files.date", :"first_contact_files.education_levels")
+        result = Beneficiary.select(:id, 
+                                    :"people.first_name", 
+                                    :"people.last_name", 
+                                    :"people.gender", 
+                                    :"first_contact_files.date", 
+                                    :"first_contact_files.answer",
+                                    :"first_contact_files.results",
+                                    :"first_contact_files.marital_status",
+                                    :"first_contact_files.education_levels",
+                                    :"first_contact_files.how_established_first_contact",
+                                    :"first_contact_files.first_contact_conditions")
                 .joins(:first_contact_file, :person).where(simple_search).where(sql_seach)
 
         if !params[:initial_date].blank?
