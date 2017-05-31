@@ -188,9 +188,17 @@ pt-BR:
         developing_process: Processo em desenvolvimento
         suspensions: Suspensões (Nº)
         evaluation_date: Data da Avaliação
+        dependent_variable: Variáveis Dependentes
+        independent_variable: Variáveis Independentes
+        problems_during_process: Problemas Durante o Processo
       problems_during_process:
         sustancias_alcool: Sustáncias/Álcool
-      dependente_variable:
+      dependent_variable:
+        dependent_education: Educação
+        drug: Substâncias (Alcohol e Drogas)
+        job: Trabalho
+        self_security: Segurança Pessoal
+        dependent_health: Saúde
         main_network: Rede Primária
         basic_assistance: Assistência Básica
       main_network:
