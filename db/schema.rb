@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209115330) do
+ActiveRecord::Schema.define(version: 20170531001734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,128 @@ ActiveRecord::Schema.define(version: 20170209115330) do
 
   add_index "attendances", ["activity_diary_id"], name: "index_attendances_on_activity_diary_id", using: :btree
   add_index "attendances", ["beneficiary_id"], name: "index_attendances_on_beneficiary_id", using: :btree
+
+  create_table "axis1s", force: :cascade do |t|
+    t.string   "i_3_1_1"
+    t.string   "i_3_1_2"
+    t.string   "i_3_1_3"
+    t.string   "i_3_1_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis2s", force: :cascade do |t|
+    t.string   "i_3_2_1"
+    t.string   "i_3_2_2"
+    t.string   "i_3_2_3"
+    t.string   "i_3_2_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis3s", force: :cascade do |t|
+    t.string   "i_3_3_1"
+    t.string   "i_3_3_2"
+    t.string   "i_3_3_3"
+    t.string   "i_3_3_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis4s", force: :cascade do |t|
+    t.string   "i_3_4_1"
+    t.string   "i_3_4_2"
+    t.string   "i_3_4_3"
+    t.string   "i_3_4_4"
+    t.string   "i_3_4_5"
+    t.string   "i_3_4_6"
+    t.string   "i_3_4_7"
+    t.string   "i_3_4_8"
+    t.string   "i_3_4_9"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis5s", force: :cascade do |t|
+    t.string   "i_3_5_1"
+    t.string   "i_3_5_2"
+    t.string   "i_3_5_3"
+    t.string   "i_3_5_4"
+    t.string   "i_3_5_5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis_1s", force: :cascade do |t|
+    t.string   "i_3_1_1"
+    t.string   "i_3_1_2"
+    t.string   "i_3_1_3"
+    t.string   "i_3_1_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis_2s", force: :cascade do |t|
+    t.string   "i_3_2_1"
+    t.string   "i_3_2_2"
+    t.string   "i_3_2_3"
+    t.string   "i_3_2_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis_3s", force: :cascade do |t|
+    t.string   "i_3_3_1"
+    t.string   "i_3_3_2"
+    t.string   "i_3_3_3"
+    t.string   "i_3_3_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis_4s", force: :cascade do |t|
+    t.string   "i_3_4_1"
+    t.string   "i_3_4_2"
+    t.string   "i_3_4_3"
+    t.string   "i_3_4_4"
+    t.string   "i_3_4_5"
+    t.string   "i_3_4_6"
+    t.string   "i_3_4_7"
+    t.string   "i_3_4_8"
+    t.string   "i_3_4_9"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "axis_5s", force: :cascade do |t|
+    t.string   "i_3_5_1"
+    t.string   "i_3_5_2"
+    t.string   "i_3_5_3"
+    t.string   "i_3_5_4"
+    t.string   "i_3_5_5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "basic_assistances", force: :cascade do |t|
+    t.string   "i_10_1"
+    t.string   "i_10_2"
+    t.string   "i_10_3"
+    t.string   "i_10_4"
+    t.string   "i_10_5"
+    t.string   "i_10_6"
+    t.string   "i_10_7"
+    t.string   "i_10_8"
+    t.string   "i_10_9"
+    t.string   "i_10_10"
+    t.string   "i_10_11"
+    t.string   "i_10_12"
+    t.string   "i_10_13"
+    t.string   "i_10_14"
+    t.string   "i_10_15"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "beneficiaries", force: :cascade do |t|
     t.integer  "department_id"
@@ -234,9 +356,12 @@ ActiveRecord::Schema.define(version: 20170209115330) do
     t.integer  "psychological_situation_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "main_network_id"
+    t.integer  "basic_assistance_id"
   end
 
   add_index "dependent_variables", ["alcohol_id"], name: "index_dependent_variables_on_alcohol_id", using: :btree
+  add_index "dependent_variables", ["basic_assistance_id"], name: "index_dependent_variables_on_basic_assistance_id", using: :btree
   add_index "dependent_variables", ["dependent_education_id"], name: "index_dependent_variables_on_dependent_education_id", using: :btree
   add_index "dependent_variables", ["dependent_health_id"], name: "index_dependent_variables_on_dependent_health_id", using: :btree
   add_index "dependent_variables", ["drug_id"], name: "index_dependent_variables_on_drug_id", using: :btree
@@ -247,6 +372,7 @@ ActiveRecord::Schema.define(version: 20170209115330) do
   add_index "dependent_variables", ["hygiene_id"], name: "index_dependent_variables_on_hygiene_id", using: :btree
   add_index "dependent_variables", ["job_id"], name: "index_dependent_variables_on_job_id", using: :btree
   add_index "dependent_variables", ["legality_id"], name: "index_dependent_variables_on_legality_id", using: :btree
+  add_index "dependent_variables", ["main_network_id"], name: "index_dependent_variables_on_main_network_id", using: :btree
   add_index "dependent_variables", ["psychological_situation_id"], name: "index_dependent_variables_on_psychological_situation_id", using: :btree
   add_index "dependent_variables", ["self_security_id"], name: "index_dependent_variables_on_self_security_id", using: :btree
   add_index "dependent_variables", ["sexual_life_id"], name: "index_dependent_variables_on_sexual_life_id", using: :btree
@@ -506,10 +632,30 @@ ActiveRecord::Schema.define(version: 20170209115330) do
     t.integer  "work_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "axis_1_id"
+    t.integer  "axis_2_id"
+    t.integer  "axis_3_id"
+    t.integer  "axis_4_id"
+    t.integer  "axis_5_id"
+    t.integer  "axis1_id"
+    t.integer  "axis2_id"
+    t.integer  "axis3_id"
+    t.integer  "axis4_id"
+    t.integer  "axis5_id"
   end
 
   add_index "independent_variables", ["albergue_id"], name: "index_independent_variables_on_albergue_id", using: :btree
   add_index "independent_variables", ["assistance_activity_id"], name: "index_independent_variables_on_assistance_activity_id", using: :btree
+  add_index "independent_variables", ["axis1_id"], name: "index_independent_variables_on_axis1_id", using: :btree
+  add_index "independent_variables", ["axis2_id"], name: "index_independent_variables_on_axis2_id", using: :btree
+  add_index "independent_variables", ["axis3_id"], name: "index_independent_variables_on_axis3_id", using: :btree
+  add_index "independent_variables", ["axis4_id"], name: "index_independent_variables_on_axis4_id", using: :btree
+  add_index "independent_variables", ["axis5_id"], name: "index_independent_variables_on_axis5_id", using: :btree
+  add_index "independent_variables", ["axis_1_id"], name: "index_independent_variables_on_axis_1_id", using: :btree
+  add_index "independent_variables", ["axis_2_id"], name: "index_independent_variables_on_axis_2_id", using: :btree
+  add_index "independent_variables", ["axis_3_id"], name: "index_independent_variables_on_axis_3_id", using: :btree
+  add_index "independent_variables", ["axis_4_id"], name: "index_independent_variables_on_axis_4_id", using: :btree
+  add_index "independent_variables", ["axis_5_id"], name: "index_independent_variables_on_axis_5_id", using: :btree
   add_index "independent_variables", ["community_treatment_id"], name: "index_independent_variables_on_community_treatment_id", using: :btree
   add_index "independent_variables", ["diagnosis_and_case_evaluation_id"], name: "index_independent_variables_on_diagnosis_and_case_evaluation_id", using: :btree
   add_index "independent_variables", ["education_id"], name: "index_independent_variables_on_education_id", using: :btree
@@ -560,6 +706,27 @@ ActiveRecord::Schema.define(version: 20170209115330) do
     t.string   "ser_fugitivo_da_justica_ou_reu_ausente"
     t.datetime "created_at",                                                 null: false
     t.datetime "updated_at",                                                 null: false
+  end
+
+  create_table "main_networks", force: :cascade do |t|
+    t.string   "i_9_1"
+    t.string   "i_9_2"
+    t.string   "i_9_3"
+    t.string   "i_9_4"
+    t.string   "i_9_5"
+    t.string   "i_9_6"
+    t.string   "i_9_7"
+    t.string   "i_9_8"
+    t.string   "i_9_9"
+    t.string   "i_9_10"
+    t.string   "i_9_11"
+    t.string   "i_9_12"
+    t.string   "i_9_13"
+    t.string   "i_9_14"
+    t.string   "i_9_15"
+    t.string   "i_9_16"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "partners", force: :cascade do |t|
@@ -786,6 +953,7 @@ ActiveRecord::Schema.define(version: 20170209115330) do
   add_foreign_key "activity_diaries", "activities"
   add_foreign_key "activity_diaries", "diaries"
   add_foreign_key "dependent_variables", "alcohols"
+  add_foreign_key "dependent_variables", "basic_assistances"
   add_foreign_key "dependent_variables", "dependent_educations"
   add_foreign_key "dependent_variables", "dependent_healths"
   add_foreign_key "dependent_variables", "drugs"
@@ -796,6 +964,7 @@ ActiveRecord::Schema.define(version: 20170209115330) do
   add_foreign_key "dependent_variables", "hygienes"
   add_foreign_key "dependent_variables", "jobs"
   add_foreign_key "dependent_variables", "legalities"
+  add_foreign_key "dependent_variables", "main_networks"
   add_foreign_key "dependent_variables", "psychological_situations"
   add_foreign_key "dependent_variables", "self_securities"
   add_foreign_key "dependent_variables", "sexual_lives"
@@ -809,6 +978,16 @@ ActiveRecord::Schema.define(version: 20170209115330) do
   add_foreign_key "file_pictures", "activity_diaries"
   add_foreign_key "independent_variables", "albergues"
   add_foreign_key "independent_variables", "assistance_activities"
+  add_foreign_key "independent_variables", "axis1s"
+  add_foreign_key "independent_variables", "axis2s"
+  add_foreign_key "independent_variables", "axis3s"
+  add_foreign_key "independent_variables", "axis4s"
+  add_foreign_key "independent_variables", "axis5s"
+  add_foreign_key "independent_variables", "axis_1s"
+  add_foreign_key "independent_variables", "axis_2s"
+  add_foreign_key "independent_variables", "axis_3s"
+  add_foreign_key "independent_variables", "axis_4s"
+  add_foreign_key "independent_variables", "axis_5s"
   add_foreign_key "independent_variables", "community_treatments"
   add_foreign_key "independent_variables", "diagnosis_and_case_evaluations"
   add_foreign_key "independent_variables", "educations"

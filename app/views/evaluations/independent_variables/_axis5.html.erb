@@ -1,0 +1,7 @@
+<% @data = YAML.load(File.open("#{Rails.root}/config/locales/models/#{I18n.locale}.yml")) %>
+<% @data["#{I18n.locale}"]["activerecord"]["attributes"]["axis5"].each do |key, value| %>
+	<%= f.input  key, as: :radio_buttons, label: value,
+	collection: Evaluation.ops.keys.map { |key| [key, key]},
+	label_html: {class: "col-md-7 col-xs-12"},
+	wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<% end %>

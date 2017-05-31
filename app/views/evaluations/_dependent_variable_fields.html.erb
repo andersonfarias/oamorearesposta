@@ -20,7 +20,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Droga</h2>
+			<h2>Substâncias (Alcohol e Drogas)</h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -49,25 +49,6 @@
 			<div class="col-md-12 col-xs-12">
 				<%= f.simple_fields_for :job do |i| %>
 					<%= render 'evaluations/dependent_variables/job_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Vida Sexual</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :sexual_life do |i| %>
-					<%= render 'evaluations/dependent_variables/sexual_life_fields', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>
@@ -115,7 +96,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Vida de Grupo</h2>
+			<h2><%= f.label :main_network %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -123,8 +104,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :group_life do |i| %>
-					<%= render 'evaluations/dependent_variables/group_life_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :main_network do |i| %>
+					<%= render 'evaluations/dependent_variables/main_network', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>
@@ -134,7 +115,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Família</h2>
+			<h2><%= f.label :basic_assistance %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -142,122 +123,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :family do |i| %>
-					<%= render 'evaluations/dependent_variables/family_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Álcool</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :alcohol do |i| %>
-					<%= render 'evaluations/dependent_variables/alcohol_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Legalidade</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :legality do |i| %>
-					<%= render 'evaluations/dependent_variables/legality_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Moradia</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :home do |i| %>
-					<%= render 'evaluations/dependent_variables/home_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Higiêne</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :hygiene do |i| %>
-					<%= render 'evaluations/dependent_variables/hygiene_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Alimentação</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :feeding do |i| %>
-					<%= render 'evaluations/dependent_variables/feeding_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Situação Psicológica</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :psychological_situation do |i| %>
-					<%= render 'evaluations/dependent_variables/psychological_situation_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :basic_assistance do |i| %>
+					<%= render 'evaluations/dependent_variables/basic_assistance', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>

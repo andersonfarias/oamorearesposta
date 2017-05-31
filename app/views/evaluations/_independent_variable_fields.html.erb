@@ -1,7 +1,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Atividades Assistenciais</h2>
+			<h2><%= f.label :axis1 %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -9,8 +9,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :assistance_activity do |i| %>
-					<%= render 'evaluations/independent_variables/assistance_activity_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :axis1 do |i| %>
+					<%= render 'evaluations/independent_variables/axis1', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>
@@ -20,7 +20,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Albergue</h2>
+			<h2><%= f.label :axis2 %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -28,8 +28,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :albergue do |i| %>
-					<%= render 'evaluations/independent_variables/albergue_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :axis2 do |i| %>
+					<%= render 'evaluations/independent_variables/axis2', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Saúde</h2>
+			<h2><%= f.label :axis3 %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -47,8 +47,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :health do |i| %>
-					<%= render 'evaluations/independent_variables/health_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :axis3 do |i| %>
+					<%= render 'evaluations/independent_variables/axis3', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Educação</h2>
+			<h2><%= f.label :axis4 %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -66,8 +66,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :education do |i| %>
-					<%= render 'evaluations/independent_variables/education_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :axis4 do |i| %>
+					<%= render 'evaluations/independent_variables/axis4', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 <div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>Trabalho</h2>
+			<h2><%= f.label :axis5 %></h2>
 			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
 				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 			</ul>
@@ -85,122 +85,8 @@
 		</div>
 		<div class="x_content">
 			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :work do |i| %>
-					<%= render 'evaluations/independent_variables/work_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Participação Social</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :social_participation do |i| %>
-					<%= render 'evaluations/independent_variables/social_participation_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Direcionamentos/Orientações e referências durante o processo CBT</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :guidelines_reference do |i| %>
-					<%= render 'evaluations/independent_variables/guidelines_reference_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Desenvolvimento do Tratamento Comunitario</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :community_treatment do |i| %>
-					<%= render 'evaluations/independent_variables/community_treatment_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Diagnóstico e Avaliação do Caso</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :diagnosis_and_case_evaluation do |i| %>
-					<%= render 'evaluations/independent_variables/diagnosis_and_case_evaluation_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Estruturas Envolvidas</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :involved_structure do |i| %>
-					<%= render 'evaluations/independent_variables/involved_structure_fields', f: i, is_show_view: is_show_view %>
-				<% end %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-md-12 col-xs-12" style="padding: 0px; width: 104%; right: 2%;">
-	<div class="x_panel">
-		<div class="x_title">
-			<h2>Tecnicas Utilizadas</h2>
-			<ul class="nav navbar-right panel_toolbox" style="min-width: 25px;">
-				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="x_content">
-			<div class="col-md-12 col-xs-12">
-				<%= f.simple_fields_for :used_technique do |i| %>
-					<%= render 'evaluations/independent_variables/used_technique_fields', f: i, is_show_view: is_show_view %>
+				<%= f.simple_fields_for :axis5 do |i| %>
+					<%= render 'evaluations/independent_variables/axis5', f: i, is_show_view: is_show_view %>
 				<% end %>
 			</div>
 		</div>

@@ -13,6 +13,8 @@ class DependentVariable < ActiveRecord::Base
   belongs_to :hygiene
   belongs_to :feeding
   belongs_to :psychological_situation
+  belongs_to :main_network
+  belongs_to :basic_assistance
 
   accepts_nested_attributes_for :dependent_education
   accepts_nested_attributes_for :drug
@@ -28,4 +30,6 @@ class DependentVariable < ActiveRecord::Base
   accepts_nested_attributes_for :hygiene
   accepts_nested_attributes_for :feeding
   accepts_nested_attributes_for :psychological_situation
+  accepts_nested_attributes_for :main_network
+  accepts_nested_attributes_for :basic_assistance
 end

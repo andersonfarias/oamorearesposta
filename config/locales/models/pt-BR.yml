@@ -175,11 +175,94 @@ pt-BR:
         beneficiary: Parceiro
         observation: Observação
       evaluation:
-        problems_during_process: Problemas Durante Processo
-      independent_variable:
-        assistance_activity: Atividades Assistenciais
+        number: Registro Nº
+        beneficiary: Parceiro NN
+        organization_code: Código da Organização
+        fisrt_contact_date: Data do Primeiro Contato
+        beneficiary_was_referred_other_service: O parceiro foi encaminhado para outros serviços
+        interruption_before_tc: O parceiro interrompeu o contato antes de iniciar o TC
+        treatment_start_date: Data do Inicio do Tratamento
+        date_concluded_process: Dada da conclusão do tratamento
+        interruptions: Interrupções
+        concluded_process: O processo foi concluído
+        developing_process: Processo em desenvolvimento
+        suspensions: Suspensões (Nº)
+        evaluation_date: Data da Avaliação
       problems_during_process:
         sustancias_alcool: Sustáncias/Álcool
+      dependente_variable:
+        main_network: Rede Primária
+        basic_assistance: Assistência Básica
+      main_network:
+        i_9_1: Membro de grupo composto prevalentemente de pessoas de alto risco
+        i_9_2: Participar em grupo que comete delitos
+        i_9_3: Ter amigos que consomem drogas
+        i_9_4: Ter vínculos com grupos ou pessoas à margem da lei
+        i_9_5: Ser vítima de discriminação pelo grupo com o qual vive
+        i_9_6: Família com condutas de codependência
+        i_9_7: Não ter vínculos familiares ou afetivos
+        i_9_8: Ver vínculos familiares de alto conflito ou risco
+        i_9_9: Vive eventos de violência intrafamiliar
+        i_9_10: Em sua família há pessoas dependentes de drogas e álcool
+        i_9_11: Familia desintegrada. 
+        i_9_12: Ter abandonado sua família
+        i_9_13: Ter algum familiar que produz, vende ou comercia drogas
+        i_9_14: Família em condição de extrema pobreza
+        i_9_15: Não ter um grupo de referência (estar só)
+        i_9_16: Não ter vinculação com instâncias lícitas e legais que reforcem a segurança pessoal
+      basic_assistance:
+        i_10_1: Viver em espaços públicos ao ar livre
+        i_10_2: Vive com pessoas de alto risco
+        i_10_3: Vive em lugares sem higiene nem serviços básicos
+        i_10_4: Vive de aluguel
+        i_10_5: Vive em uma comuidade de alto risco
+        i_10_6: Muda de roupa menos de uma vez por semana
+        i_10_7: Toma banho menos de uma vez por semana
+        i_10_8: Não ter  um lugar onde tomar banho
+        i_10_9: Não ter roupa limpa
+        i_10_10: Não cuidar da limpeza de sua casa
+        i_10_11: Lavar sua roupa menos de uma vez por semana
+        i_10_12: Alimentar-se menos de uma vez ao dia
+        i_10_13: Alimentar-se na rua sem controle higiênico
+        i_10_14: Ficar vários dias sem alimentar-se
+        i_10_15: Pegar alimentos no lixo
+      independent_variable:
+        axis1: TC Eixo 1
+        axis2: TC Eixo 2 Dispositivo do Parceiro
+        axis3: TC Eixo 3 Dispositivo do Parceiro
+        axis4: TC Eixo 4 Dispositivo do Parceiro
+        axis5: TC Eixo 5 Dispositivo do Parceiro
+      axis1:
+        i_3_1_1: É um nó da Rede Subjetiva Comunitária
+        i_3_1_2: "Características da Rede Subjetiva do Parceiro: Amplitude"
+        i_3_1_3: "Caracteristicas da Rede Subjetiva do Parceiro: Densidade"
+        i_3_1_4: "Características da Rede Subjetiva do Parceiro: Homofilia em termos de vulnerabilidade"
+      axis2: 
+        i_3_2_1: Recebeu assistência básica em saude
+        i_3_2_2: Recebeu assistência básica em serviços sociais
+        i_3_2_3: Recebeu assistência básica em alimentação
+        i_3_2_4: Recebeu assistência básica em Direitos
+      axis3: 
+        i_3_3_1: Educação formal direta em saúde
+        i_3_3_2: Educação básica
+        i_3_3_3: Educação profissional para o trabalho ou ocupação
+        i_3_3_4: Educação em Direitos Humanos
+      axis4: 
+        i_3_4_1: Assistência médica para HIV/DST/Hepatite/TB
+        i_3_4_2: Foram feitos tratamentos substitutos
+        i_3_4_3: Foram feitos tratamentos alternativos
+        i_3_4_4: Assistência psiquiátrica
+        i_3_4_5: Foi vinculado a um processo de tratamento por Consumo de Drogas
+        i_3_4_6: Orientação
+        i_3_4_7: Trabalho com Familias
+        i_3_4_8: Grupos de Autoajuda
+        i_3_4_9: Atenção Psicossocial
+      axis5: 
+        i_3_5_1: Foi ajudado a encontrar um trabalho ou ocupação
+        i_3_5_2: Foi ajudado a organizar um empreendimento
+        i_3_5_3: Foi ajudado a melhorar suas condições de empregabilidade
+        i_3_5_4: Usou alguma forma de apoio financeiro (microcrédito)
+        i_3_5_5: Trabalhou no processo de TC como forma de tratamento
     errors:
       messages:
         future_date: 'Não pode ser uma data futura'

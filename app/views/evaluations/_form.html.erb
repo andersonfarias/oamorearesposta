@@ -18,16 +18,16 @@
 			<div class="x_content">
 				<div class="col-md-6 col-xs-12">
 					<div class="col-md-6 col-xs-12" style="padding-left: 0px;">
-			        <%= f.input :number, label: false, disabled: is_show_view, label: "Número", input_html: {class: "col-md-6 col-xs-12"} %>
+			        <%= f.input :number, disabled: is_show_view, input_html: {class: "col-md-6 col-xs-12"}, required: true %>
 			        </div>
 					<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
-			          <%= f.label :beneficiary, "Parceiro" %>
+			          <%= f.label :beneficiary %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
 			          <%= @evaluation.beneficiary.person.full_name %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
-			          <%= f.label(:organization_code, "Código da Organização") %>
+			          <%= f.label :organization_code %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
 			          <%= @evaluation.organization_code %>
@@ -37,7 +37,7 @@
 			    </div>
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="col-md-12 col-xs-12" style="padding-left: 0px;">
-			          <%= f.label( :evaluation_date, "Data Avaliação") %>
+			          <%= f.label :evaluation_date %>
 			        </div>
 			        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
 			          <%= @evaluation.evaluation_date.strftime('%d/%m/%Y') %>

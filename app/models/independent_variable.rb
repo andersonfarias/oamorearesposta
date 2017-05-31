@@ -10,6 +10,11 @@ class IndependentVariable < ActiveRecord::Base
   belongs_to :social_participation
   belongs_to :used_technique
   belongs_to :work
+  belongs_to :axis1
+  belongs_to :axis2
+  belongs_to :axis3
+  belongs_to :axis4
+  belongs_to :axis5
 
   accepts_nested_attributes_for :albergue
   accepts_nested_attributes_for :assistance_activity
@@ -22,4 +27,9 @@ class IndependentVariable < ActiveRecord::Base
   accepts_nested_attributes_for :social_participation
   accepts_nested_attributes_for :used_technique
   accepts_nested_attributes_for :work
+  accepts_nested_attributes_for :axis1
+  accepts_nested_attributes_for :axis2
+  accepts_nested_attributes_for :axis3
+  accepts_nested_attributes_for :axis4
+  accepts_nested_attributes_for :axis5
 end
