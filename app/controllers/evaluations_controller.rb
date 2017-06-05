@@ -3,6 +3,21 @@ class EvaluationsController < ApplicationController
 
 	def index
 		@evaluations = Evaluation.search_result(params).paginate( :page => params[ :page ] )
+
+		respond_to do |format|
+			format.html
+			format.xls do 
+				@sheets = Hash.new{|hash, key| hash[key] = Array.new;}
+				if !@evaluations.nil? and !@evaluations.empty?
+					@evaluations.order(:evaluation_date).group_by(&:beneficiary_id).each do |beneficiary_id, evaluations|  
+						evaluations.each_with_index do |e, i|  
+							@sheets[i] << e
+						end
+					end
+				end
+				render xls: @sheets
+			end
+ 		end
 	end
 
 	def new

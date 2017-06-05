@@ -32,16 +32,7 @@ collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "1,2,3,4"}, 
 wrapper: :inline_radio_evaluation, disabled: is_show_view %>
-<%= f.input :tem_dst_ets_std, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "1,2,3,4"}, 
-wrapper: :inline_radio_evaluation, disabled: is_show_view %>
 <%= f.input :não_tem_acesso_a_servicos_medicos_basicos, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-wrapper: :inline_radio_evaluation, disabled: is_show_view %>
-<%= f.input :praticar_construcoes_corporais_sem_condicoes_medicas_adequadas, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 wrapper: :inline_radio_evaluation, disabled: is_show_view %>
@@ -50,11 +41,6 @@ collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 wrapper: :inline_radio_evaluation, disabled: is_show_view %>
 <%= f.input :ter_passado_por_aborto_mal_feito, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-input_html: {disable_ops: "1,2,3,4"}, 
-wrapper: :inline_radio_evaluation, disabled: is_show_view %>
-<%= f.input :tem_tuberculose, as: :radio_buttons, 
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 input_html: {disable_ops: "1,2,3,4"}, 

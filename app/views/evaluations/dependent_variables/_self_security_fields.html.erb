@@ -22,15 +22,3 @@ wrapper: :inline_radio_evaluation, disabled: is_show_view %>
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 wrapper: :inline_radio_evaluation, disabled: is_show_view %>
-<%= f.input :nao_ter_um_grupo_de_referencia_estar_sozinho, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-wrapper: :inline_radio_evaluation, disabled: is_show_view %>
-<%= f.input :trabalhar_como_operador_de_rua, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-wrapper: :inline_radio_evaluation, disabled: is_show_view %>
-<%= f.input :nao_ter_vinculacao_com_instancias_licitas_e_legais, as: :radio_buttons, 
-collection: Evaluation.ops.keys.map { |key| [key, key]},
-label_html: {class: "col-md-7 col-xs-12"},
-wrapper: :inline_radio_evaluation, disabled: is_show_view %>

@@ -1,0 +1,15 @@
+<Row>
+	<Cell ss:StyleID="title3" ><Data ss:Type="String">3.3</Data></Cell>
+	<Cell ss:StyleID="title3" ><Data ss:Type="String"><%= t('activerecord.attributes.independent_variable.axis3') %></Data></Cell>
+</Row>
+
+<% @data = YAML.load(File.open("#{Rails.root}/config/locales/models/#{I18n.locale}.yml")) %>
+<% @data["#{I18n.locale}"]["activerecord"]["attributes"]["axis3"].each do |key, value| %>
+	<Row>
+		<Cell><Data ss:Type="String"><%= key.sub("i_", "").gsub("_",".") %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= value %></Data></Cell>
+		<% evaluations.each do |e| %>
+			<Cell><Data ss:Type="String"><%= e.independent_variable.axis3.read_attribute(key) %></Data></Cell>
+		<% end %>
+	</Row>
+<% end %>

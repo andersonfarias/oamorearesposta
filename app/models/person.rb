@@ -19,4 +19,8 @@ class Person < ActiveRecord::Base
     def full_name
         "#{first_name} #{last_name}"
     end
+
+    def initials
+        "#{first_name} #{last_name}".scan(/(\A\w|(?<=\s)\w)/).flatten.join
+    end
 end

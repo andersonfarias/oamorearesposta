@@ -193,6 +193,42 @@ pt-BR:
         problems_during_process: Problemas Durante o Processo
       problems_during_process:
         sustancias_alcool: Sustáncias/Álcool
+        condutas_antissociais: Condutas antissociais
+        psiquiatricas: Psiquiátricas
+        comportamentais: Comportamentais
+        relacionais: Relacionais
+        violencia_intrafamiliar: Violência Intrafamiliar
+        violacao_abuso_sexual_adultos: Violação/abuso sexual - Adultos
+        trabalho_sexual: Trabalho sexual
+        legal: Legal
+        gravidez_parto: Gravidez/Parto.
+        doencas: Doenças
+        pobreza_extrema: Pobreza extrema
+        vida_na_rua: Vida na rua
+        apoio_econômico: Apoio econômico
+        escolares: Escolares
+        exclusao_grave: Exclusão grave
+        violencia_intracomunitaria: Violência Intracomunitária
+        redes_interinstitucionais: Redes Interinstitucionais
+        crises_psicologicas: Crises psicológicas
+        capacitacao_e_formacao: Capacitação e Formação
+        organizacao_e_planejamento: Organização e planejamento
+        hiv: HIV
+        enfermidades_por_transmissao_sexual: Enfermidades por transmissão sexual (ETS)
+        trafico_de_pessoas: Tráfico de pessoas
+        sem_trabalho: Sem Trabalho
+        tuberculose: Tuberculose
+        problemas_familiares: Problemas familiares
+        transtorno_de_estres_pos_traumatico: Transtorno de Estrés pós Traumático
+        analfabetismo: Analfabetismo
+        problemas_sexuais: Problemas sexuais
+        violacao_abuso_de_criancas: Violação/abuso de crianças
+        outras_dependencias: Outras dependências
+        uso_de_drogas_intravenosa: Uso de drogas intravenosa
+        hepatites: Hepatítes
+        deslocacao_forcada: Deslocação forçada
+        migracao_ou_imigracao: Migração ou Imigração
+        estigma_por_sua_identidade_sexual: Estígma por sua identidade sexual
       dependent_variable:
         dependent_education: Educação
         drug: Substâncias (Alcohol e Drogas)
@@ -201,6 +237,53 @@ pt-BR:
         dependent_health: Saúde
         main_network: Rede Primária
         basic_assistance: Assistência Básica
+      dependent_education:
+        nao_tem_recursos_financeiros_para_estudar: Não tem recursos para estudar
+        nao_completou_escola_secundaria: Não completou o Ensino Médio
+        nao_compretou_a_escola_primaria: Não completou o Ensino Fundamental
+        nao_saber_ler: Não sabe ler
+        nao_sabe_escrever: Não sabe escrever
+      drug:
+        usar_simultaneamente_varios_tipos_de_drogas: Usar simultaneamente tipos diferentes de drogas
+        usar_agulhas_nao_esterilizadas: Usar agulhas não esterelizadas
+        traficar_drogas_para_sustentar_o_uso_pessoal: Traficar drogas para sustentar o uso pessoal
+        nao_controlar_a_qualidade_da_substancia: Não controlar a qualidade da substância
+        passar_o_tempo_em_lugares_onde_se_vende_e_consome_drogas: Passar muito tempo em lugares onde se vende e consome drogas
+        prostituir_se_para_comprar_droga:   Prostituir-se para comprar drogas
+        consumir_drogas: Consumir drogas 
+        uso_intramuscular_ou_por_intravena: Uso de Drogas Injetáveis
+        consumir_alcool: Consumir álcool
+        droga_se_sozinho: Usar drogas sozinho
+        troca_de_vendedor: Mudar de vendedor de drogas
+        droga_se_em_lugares_nao_seguros: Drogar-se ou embriagar-se em lugares não seguros
+        compartilhar_seringas: Compartilhar seringas
+        usar_drogas_pesadas: Usar drogas pesadas (heroína, cocaína, anfetaminas etc.)
+        misturar_medicamentos: Misturar medicamentos com o consumo de álcool
+      job:
+        ter_ocupacao_ilegal: Ter ocupação ilegal
+        estar_sem_trabalho_ou_sem_ocupacao: Estar sem trabalho ou ocupação
+        trabalhar_em_lugares_que_promove_ou_exigem_o_consumo_de_drogas: Trabalhar em lugares onde se promova ou exija o consumo de drogas
+        ter_ocupacao_de_alto_risco_relacionado_a_drogas_ou_seguranca:   Ter uma ocupaçao de alto risco relacionado com drogas ou segurança pessoal
+        ter_um_trabalho_no_qual_ha_exploracao_grave_de_mao_de_obra: Ter um trabalho no qual há exploração grave da mão de obra do trabalhador
+        vive_em_um_contexto_onde_nao_ha_oportunidades_de_trabalho:  Vive em contexto onde não há oportunidades de trabalho
+      self_security:
+        tem_inimigos: Ter inimigos
+        viver_em_comunidades_de_alto_risco: Viver em comunidade de alto risco
+        realizar_atividades_ilegais: Realizar atividades ilegais
+        andar_armado: Andar armado
+        ter_condutas_violentas_frente_aos_outros: Ter condutas violentas para com os outros
+      dependent_health:
+        vive_com_hiv_e_tem_relacoes_sexuais_sem_protecao: Ter relações sexuais desprotegidas com companheiro estável
+        nao_tem_direito_a_medicamentos_vitais: Não tem direito a medicamentos vitais
+        tem_sida_hiv: Tem AIDS e não se trata
+        e_hiv_positivo: É soro Positivo HIV e não se trata
+        tem_hepatite: Tem Hepatite e não se trata
+        consumir_drogas_durante_a_gravidez: Consumir drogas durante su embarazo
+        ter_uma_gravidez_em_situacao_de_risco: Tener un embarazo en situación de riesgo
+        não_tem_acesso_a_servicos_medicos_basicos: Não tem acesso a serviços médicos básicos
+        ter_doencas_e_nao_se_tratar: Ter doenças e não tratar-se
+        ter_passado_por_aborto_mal_feito: Ter abortos mal feitos
+        gravidez_indesejada: Gravidez indesejada
       main_network:
         i_9_1: Membro de grupo composto prevalentemente de pessoas de alto risco
         i_9_2: Participar em grupo que comete delitos

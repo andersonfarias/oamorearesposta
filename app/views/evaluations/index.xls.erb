@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Styles>
+    <Style ss:ID="title">
+      <Font ss:Bold="1" ss:Color="#FFFFFF" ss:Size="14" />
+      <Interior ss:Color="#000000" ss:Pattern="Solid" />
+    </Style>
+
+    <Style ss:ID="title2">
+      <Font ss:Bold="1" ss:Size="14" />
+      <Interior ss:Color="#944DFF" ss:Pattern="Solid" />
+    </Style>
+
+    <Style ss:ID="title3">
+      <Font ss:Bold="1" ss:Size="14" />
+      <Interior ss:Color="#C299FF" ss:Pattern="Solid" />
+    </Style>
+
+    <Style ss:ID="checked">
+      <Interior ss:Color="#AAFF80" ss:Pattern="Solid" />
+    </Style>
+
+    <Style ss:ID="black">
+      <Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
+    </Style>
+  </Styles>
+  <% @sheets.each do | key, evaluations| %>
+    <Worksheet ss:Name="Avaliação <%= key %>">
+      <Table>
+        <Column ss:Index="1" ss:Width="50" />
+        <Column ss:Index="2" ss:Width="350" />
+        
+        <Row>
+          <Cell ss:StyleID="title" ><Data ss:Type="String">No.</Data></Cell>
+          <Cell ss:StyleID="title" ><Data ss:Type="String">Itens</Data></Cell>
+          <% evaluations.each do |e| %>
+            <Cell><Data ss:Type="String"><%= e.beneficiary.id %></Data></Cell>
+          <% end %>
+        </Row>
+
+        <%= render 'evaluations/xls_files/general_data', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/problems_during_process_fields', evaluations: evaluations %>
+
+        <Row>
+          <Cell ss:StyleID="title" ><Data ss:Type="String">3</Data></Cell>
+          <Cell ss:StyleID="title" ><Data ss:Type="String"><%= t('activerecord.attributes.evaluation.independent_variable') %></Data></Cell>
+        </Row>
+
+        <%= render 'evaluations/xls_files/independent_variables/axis_1', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/independent_variables/axis_2', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/independent_variables/axis_3', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/independent_variables/axis_4', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/independent_variables/axis_5', evaluations: evaluations %>
+
+        <Row>
+          <Cell ss:StyleID="title" ss:MergeAcross="1"  ><Data ss:Type="String"><%= t('activerecord.attributes.evaluation.dependent_variable') %></Data></Cell>
+        </Row>
+
+        <%= render 'evaluations/xls_files/dependent_variables/dependent_education', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/dependent_variables/drug', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/dependent_variables/job', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/dependent_variables/self_security', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/dependent_variables/dependent_health', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/dependent_variables/main_network', evaluations: evaluations %>
+        <%= render 'evaluations/xls_files/dependent_variables/basic_assistance', evaluations: evaluations %>
+
+      </Table>
+    </Worksheet>
+  <% end %>
+</Workbook>
