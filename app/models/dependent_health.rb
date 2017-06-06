@@ -16,6 +16,9 @@ class DependentHealth < ActiveRecord::Base
 			ter_doencas_e_nao_se_tratar: "0",
 			ter_passado_por_aborto_mal_feito: "0",
 			tem_tuberculose: "0",
-			gravidez_indesejada: "0")
+			gravidez_indesejada: "0",
+			nao_utiliza_preservativos: "0",
+			vida_sexual_precoce: "0",
+			nao_faz_testes_medicos: "0")
 	end
 end

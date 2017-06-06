@@ -11,6 +11,11 @@ class SelfSecurity < ActiveRecord::Base
 			pertencer_a_grupos_organizados_de_alto_risco: "0",
 			nao_ter_um_grupo_de_referencia_estar_sozinho: "0",
 			trabalhar_como_operador_de_rua: "0",
-			nao_ter_vinculacao_com_instancias_licitas_e_legais: "0")
+			nao_ter_vinculacao_com_instancias_licitas_e_legais: "0",
+			estar_preso: "0",
+			cometer_crime: "0",
+			relacao_companheiro_perigoso: "0",
+			relacao_sob_efeito_droga: "0",
+			relacao_lugar_risco: "0")
 	end
 end

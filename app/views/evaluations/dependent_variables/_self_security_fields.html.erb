@@ -22,3 +22,23 @@ wrapper: :inline_radio_evaluation, disabled: is_show_view %>
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :estar_preso, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :cometer_crime, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :relacao_companheiro_perigoso, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :relacao_sob_efeito_droga, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :relacao_lugar_risco, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>

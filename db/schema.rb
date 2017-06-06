@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605212703) do
+ActiveRecord::Schema.define(version: 20170606043615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,6 +337,9 @@ ActiveRecord::Schema.define(version: 20170605212703) do
     t.string   "gravidez_indesejada"
     t.datetime "created_at",                                                     null: false
     t.datetime "updated_at",                                                     null: false
+    t.string   "nao_utiliza_preservativos"
+    t.string   "vida_sexual_precoce"
+    t.string   "nao_faz_testes_medicos"
   end
 
   create_table "dependent_variables", force: :cascade do |t|
@@ -689,6 +692,9 @@ ActiveRecord::Schema.define(version: 20170605212703) do
     t.string   "vive_em_um_contexto_onde_nao_ha_oportunidades_de_trabalho"
     t.datetime "created_at",                                                     null: false
     t.datetime "updated_at",                                                     null: false
+    t.string   "mantem_se_com_dinheiro_ilegal"
+    t.string   "nao_tem_officio_ou_habilidades"
+    t.string   "traficar_drogas"
   end
 
   create_table "legalities", force: :cascade do |t|
@@ -871,6 +877,11 @@ ActiveRecord::Schema.define(version: 20170605212703) do
     t.string   "nao_ter_vinculacao_com_instancias_licitas_e_legais"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
+    t.string   "estar_preso"
+    t.string   "cometer_crime"
+    t.string   "relacao_companheiro_perigoso"
+    t.string   "relacao_sob_efeito_droga"
+    t.string   "relacao_lugar_risco"
   end
 
   create_table "sexual_lives", force: :cascade do |t|

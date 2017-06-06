@@ -266,12 +266,20 @@ pt-BR:
         ter_ocupacao_de_alto_risco_relacionado_a_drogas_ou_seguranca:   Ter uma ocupaçao de alto risco relacionado com drogas ou segurança pessoal
         ter_um_trabalho_no_qual_ha_exploracao_grave_de_mao_de_obra: Ter um trabalho no qual há exploração grave da mão de obra do trabalhador
         vive_em_um_contexto_onde_nao_ha_oportunidades_de_trabalho:  Vive em contexto onde não há oportunidades de trabalho
+        mantem_se_com_dinheiro_ilegal: Manter-se com dinheiro de atividades delitivas
+        nao_tem_officio_ou_habilidades: Nâo tem ofício ou habilidades produtivas
+        traficar_drogas: Traficar drogas
       self_security:
         tem_inimigos: Ter inimigos
         viver_em_comunidades_de_alto_risco: Viver em comunidade de alto risco
         realizar_atividades_ilegais: Realizar atividades ilegais
         andar_armado: Andar armado
         ter_condutas_violentas_frente_aos_outros: Ter condutas violentas para com os outros
+        estar_preso: Estar preso
+        cometer_crime: Cometer roubos ou assaltos
+        relacao_companheiro_perigoso: Ter relações sexuais com companheiros perigosos
+        relacao_sob_efeito_droga: Ter relações sexuais estando sob efeito de drogas ou intoxicado
+        relacao_lugar_risco: Ter relações sexuais em lugares de alto risco
       dependent_health:
         vive_com_hiv_e_tem_relacoes_sexuais_sem_protecao: Ter relações sexuais desprotegidas com companheiro estável
         nao_tem_direito_a_medicamentos_vitais: Não tem direito a medicamentos vitais
@@ -284,6 +292,9 @@ pt-BR:
         ter_doencas_e_nao_se_tratar: Ter doenças e não tratar-se
         ter_passado_por_aborto_mal_feito: Ter abortos mal feitos
         gravidez_indesejada: Gravidez indesejada
+        nao_utiliza_preservativos: Não utiliza preservativo
+        vida_sexual_precoce: Começar a vida sexual precocemente sem informação
+        nao_faz_testes_medicos: Não fazer testes médicos periódicos
       main_network:
         i_9_1: Membro de grupo composto prevalentemente de pessoas de alto risco
         i_9_2: Participar em grupo que comete delitos

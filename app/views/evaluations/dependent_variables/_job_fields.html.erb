@@ -22,3 +22,15 @@ wrapper: :inline_radio_evaluation, disabled: is_show_view %>
 collection: Evaluation.ops.keys.map { |key| [key, key]},
 label_html: {class: "col-md-7 col-xs-12"},
 wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :mantem_se_com_dinheiro_ilegal, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :nao_tem_officio_ou_habilidades, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
+<%= f.input :traficar_drogas, as: :radio_buttons, 
+collection: Evaluation.ops.keys.map { |key| [key, key]},
+label_html: {class: "col-md-7 col-xs-12"},
+wrapper: :inline_radio_evaluation, disabled: is_show_view %>
