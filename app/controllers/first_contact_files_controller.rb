@@ -19,7 +19,6 @@ class FirstContactFilesController < ApplicationController
 	end
 
 	def edit
-		@first_contact_file.date = @first_contact_file.date.strftime('%d/%m/%Y')
 	end
 
 	def create
