@@ -67,7 +67,7 @@
                     <input type="hidden" name="activity_diary[attendances_attributes][<%= index %>][beneficiary_id]" value="<%= attendance.beneficiary.id %>"></input>
                     <input type="hidden" name="activity_diary[attendances_attributes][<%= index %>][observation]" value="<%= attendance.observation %>"></input>
                     <td class="row">
-                        <span class="col-md-12 col-sm-12 col-xs-12"><%= attendance.beneficiary.person.first_name %></span>
+                        <span class="col-md-12 col-sm-12 col-xs-12"><%= attendance.beneficiary.person.full_name %></span>
                         <div class="observation-text col-md-12 col-sm-12 col-xs-12">
                             <h5>Observação</h5>
                             <p style="word-wrap: break-word"><%= attendance.observation %></p>
