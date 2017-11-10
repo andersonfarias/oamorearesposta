@@ -2,16 +2,20 @@ class ClinicTreatmentsController < ApplicationController
     before_action :set_clinic_treatment, only: [:edit, :update, :destroy]
 
     def new
+        @page_size = 10
+        @page = params[:page].nil? ? 1 : params[:page]
+        @limit = @page_size * @page
+        @beneficiary_id = params[:beneficiary_id]
+        
         @clinic_treatment = ClinicTreatment.new(
             date: Date.today.strftime(t('date.formats.default')),
-            beneficiary: Beneficiary.find(params[:beneficiary_id])
+            beneficiary: Beneficiary.find(@beneficiary_id)
         )
-
-        @items = []
 
         @clinic_treatments = ClinicTreatment.by_beneficiary(params[:beneficiary_id])
         @attendances = Attendance.by_beneficiary(params[:beneficiary_id])
 
+        @items = []
         @clinic_treatments.each do |ct|
             @items << { id: ct.id, date: ct.date, type: 'ct', axis: ct.axis, description: ct.description, name: ct.user.person.full_name }
         end
@@ -27,7 +31,7 @@ class ClinicTreatmentsController < ApplicationController
             end
         end
 
-        @items = @items.paginate(page: params[:page], per_page: 10)
+        @items = @items.paginate(page: @page, per_page: @page_size)
     end
 
     def edit
