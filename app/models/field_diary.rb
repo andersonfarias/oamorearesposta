@@ -1,0 +1,2 @@
+class FieldDiary < ApplicationRecord
+end

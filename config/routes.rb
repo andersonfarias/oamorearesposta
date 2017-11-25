@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         get :autocomplete_partner_name, on: :collection
     end
     resources :activities
+    resources :field_diaries
     resources :activity_diaries
     resources :file_pictures, only: [:show, :index]
 end

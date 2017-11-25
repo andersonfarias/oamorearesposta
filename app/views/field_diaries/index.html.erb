@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Field Diaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @field_diaries.each do |field_diary| %>
+      <tr>
+        <td><%= field_diary.data %></td>
+        <td><%= field_diary.descricao %></td>
+        <td><%= link_to 'Show', field_diary %></td>
+        <td><%= link_to 'Edit', edit_field_diary_path(field_diary) %></td>
+        <td><%= link_to 'Destroy', field_diary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Field Diary', new_field_diary_path %>

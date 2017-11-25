@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @field_diary.data %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @field_diary.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_field_diary_path(@field_diary) %> |
+<%= link_to 'Back', field_diaries_path %>
