@@ -1,0 +1,2 @@
+module FieldDiariesHelper
+end

@@ -1,2 +1,2 @@
-class FieldDiary < ApplicationRecord
+class FieldDiary < ActiveRecord::Base
 end

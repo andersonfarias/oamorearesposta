@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :field_diaries
     authenticated :user do
         root to: 'home#index', as: :authenticated_root
     end

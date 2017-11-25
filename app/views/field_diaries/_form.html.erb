@@ -1,27 +1,12 @@
-<%= form_with(model: field_diary, local: true) do |form| %>
-  <% if field_diary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(field_diary.errors.count, "error") %> prohibited this field_diary from being saved:</h2>
+<%= simple_form_for(@field_diary) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% field_diary.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :data %>
-    <%= form.datetime_select :data, id: :field_diary_data %>
+  <div class="form-inputs">
+    <%= f.input :data %>
+    <%= f.input :descricao %>
   </div>
 
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao, id: :field_diary_descricao %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

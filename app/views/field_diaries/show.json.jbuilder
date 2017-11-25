@@ -1,1 +1,1 @@
-json.partial! "field_diaries/field_diary", field_diary: @field_diary
+json.extract! @field_diary, :id, :data, :descricao, :created_at, :updated_at
