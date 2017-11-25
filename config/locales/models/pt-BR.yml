@@ -55,6 +55,9 @@ pt-BR:
       evaluation:
         one: Avaliação
         other: Avaliações
+      field_diary:
+        one: Diário de Campo
+        other: Diários de Campo
     attributes:
       user:
         role: Permissão

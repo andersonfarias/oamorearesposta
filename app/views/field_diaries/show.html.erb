@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Data:</strong>
-  <%= @field_diary.data %>
-</p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @field_diary.descricao %>
-</p>
-
-<%= link_to 'Edit', edit_field_diary_path(@field_diary) %> |
-<%= link_to 'Back', field_diaries_path %>
+<form class="form-horizontal form-label-left">
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2"><%= t 'activerecord.attributes.first_contact_file.user' %>:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @field_diary.user.person.full_name %></span>
+	</div>
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2">Data:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @field_diary.data %></span>
+	</div>
+	<div class="form-group form-group-lg">
+		<label class="control-label col-sm-2">Descrição:</label>
+		<span style="text-align: left" class="control-label col-sm-10"><%= @field_diary.descricao %></span>
+	</div>
+	<div class="ln_solid"></div>
+	<div class="form-group">
+		<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+			<%= link_to t( "actions.back" ), field_diaries_path(current_user), class: "btn btn-primary" %>
+			<%= link_to t( "actions.edit" ), edit_field_diary_path(@field_diary), class: "btn btn-success" %>
+		</div>
+	</div>
+</form>

@@ -4,7 +4,7 @@ class FieldDiariesController < ApplicationController
   # GET /field_diaries
   # GET /field_diaries.json
   def index
-    @field_diaries = FieldDiary.all
+    @field_diaries = FieldDiary.all.paginate(page: params[:page]).order( :data )
   end
 
   # GET /field_diaries/1
@@ -25,7 +25,7 @@ class FieldDiariesController < ApplicationController
   # POST /field_diaries.json
   def create
     @field_diary = FieldDiary.new(field_diary_params)
-
+    @field_diary.user_id = current_user.id
     respond_to do |format|
       if @field_diary.save
         format.html { redirect_to @field_diary, notice: 'Field diary was successfully created.' }
@@ -53,13 +53,13 @@ class FieldDiariesController < ApplicationController
 
   # DELETE /field_diaries/1
   # DELETE /field_diaries/1.json
-  def destroy
-    @field_diary.destroy
-    respond_to do |format|
-      format.html { redirect_to field_diaries_url, notice: 'Field diary was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @field_diary.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to field_diaries_url, notice: 'Field diary was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

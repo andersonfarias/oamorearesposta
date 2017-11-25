@@ -193,6 +193,19 @@ pt-BR:
           name: Editar
         create:
           name: Cadastrar Novo
+    field_diaries:
+      name: Diários de Campo
+      actions:
+        index:
+          name: Listagem
+        new:
+          name: Cadastrar Novo
+        show:
+          name: Visualizar
+        edit:
+          name: Editar
+        create:
+          name: Cadastrar Novo
   actions:
     back: Voltar
     edit: Editar

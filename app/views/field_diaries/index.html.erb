@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%= link_to "#{t('actions.new')} #{FieldDiary.model_name.human(count: 1)}",
+  new_field_diary_path, class: "btn btn-primary pull-right" %>
 
-<h1>Listing Field Diaries</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Descricao</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @field_diaries.each do |field_diary| %>
-      <tr>
-        <td><%= field_diary.data %></td>
-        <td><%= field_diary.descricao %></td>
-        <td><%= link_to 'Show', field_diary %></td>
-        <td><%= link_to 'Edit', edit_field_diary_path(field_diary) %></td>
-        <td><%= link_to 'Destroy', field_diary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <th class="text-center">Data</th>
+        <th class="text-center">Operador</th>
+        <th class="text-center">Descrição</th>
+        <th class="col-md-3 col-xs-3 text-center"><%= t "actions.actions" %></th>
+    </thead>
+    <tbody>
+        <% @field_diaries.each do |d| %>
+            <tr>
+              <td style="vertical-align: middle"><%= d.data %></td>
+              <td style="vertical-align: middle"><%= d.user.person.full_name %></td>
+              <td style="vertical-align: middle"><%= d.descricao %></td>
+              <td class="col-md-4 col-xs-4 text-center">
+                  <%= link_to field_diary_path(d) do %>
+                    <i class="fa fa-search fa-lg"></i>
+                  <% end %>
+                  <%= link_to edit_field_diary_path(d) do %>
+                    <i class="fa fa-pencil fa-lg"></i>
+                  <% end %>
+              </td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Field diary', new_field_diary_path %>
+<%= will_paginate @field_diaries, :renderer => 'GentelellaPaginationHelper::LinkRenderer' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125052509) do
+ActiveRecord::Schema.define(version: 20171125055138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -501,11 +501,14 @@ ActiveRecord::Schema.define(version: 20171125052509) do
   end
 
   create_table "field_diaries", force: :cascade do |t|
-    t.datetime "data"
+    t.date     "data"
     t.text     "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "field_diaries", ["user_id"], name: "index_field_diaries_on_user_id", using: :btree
 
   create_table "file_pictures", force: :cascade do |t|
     t.string   "file_name"
@@ -996,6 +999,7 @@ ActiveRecord::Schema.define(version: 20171125052509) do
   add_foreign_key "evaluations", "independent_variables"
   add_foreign_key "evaluations", "problems_during_processes"
   add_foreign_key "evaluations", "users"
+  add_foreign_key "field_diaries", "users"
   add_foreign_key "file_pictures", "activity_diaries"
   add_foreign_key "independent_variables", "albergues"
   add_foreign_key "independent_variables", "assistance_activities"
