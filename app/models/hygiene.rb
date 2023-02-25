@@ -1,4 +1,4 @@
-class Hygiene < ActiveRecord::Base
+class Hygiene < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

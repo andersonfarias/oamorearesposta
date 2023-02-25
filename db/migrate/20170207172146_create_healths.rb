@@ -1,4 +1,4 @@
-class CreateHealths < ActiveRecord::Migration
+class CreateHealths < ActiveRecord::Migration[4.2]
   def change
     create_table :healths do |t|
       t.string :sobre_hiv

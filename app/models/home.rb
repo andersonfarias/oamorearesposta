@@ -1,4 +1,4 @@
-class Home < ActiveRecord::Base
+class Home < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :comunity do
-    name "MyString"
-    description "MyText"
-    generators_theme "MyString"
+    name { "MyString" }
+    description { "MyText" }
+    generators_theme { "MyString" }
   end
 end

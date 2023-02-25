@@ -1,5 +1,5 @@
-class City < ActiveRecord::Base
-  belongs_to :state, inverse_of: :cities
+class City < ApplicationRecord
+  belongs_to :state, inverse_of: :cities, optional: true
   has_many :addresses, inverse_of: :city
 
   validates_presence_of :state

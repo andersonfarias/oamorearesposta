@@ -1,4 +1,4 @@
-class Health < ActiveRecord::Base
+class Health < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

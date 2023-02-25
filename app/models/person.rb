@@ -1,4 +1,4 @@
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
     has_one :address, inverse_of: :person, dependent: :destroy
     has_many :phones, inverse_of: :person, dependent: :destroy
 
@@ -7,7 +7,8 @@ class Person < ActiveRecord::Base
 
     validates_presence_of :first_name
     validates_numericality_of :age, only_integer: true, greater_than: -1, less_than: 99
-    validates_format_of :email, with: Devise.email_regexp, unless: 'email.nil? or email.blank?'
+
+    validates_format_of :email, with: Devise.email_regexp, unless: ->{ email.nil? or email.blank? }
     validates :birthdate, past_date: true
 
     enum gender: [

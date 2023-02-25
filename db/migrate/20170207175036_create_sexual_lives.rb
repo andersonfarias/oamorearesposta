@@ -1,4 +1,4 @@
-class CreateSexualLives < ActiveRecord::Migration
+class CreateSexualLives < ActiveRecord::Migration[4.2]
   def change
     create_table :sexual_lives do |t|
       t.string :nao_utiliza_preservativos

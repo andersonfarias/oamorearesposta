@@ -1,4 +1,4 @@
-class Drug < ActiveRecord::Base
+class Drug < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

@@ -1,6 +1,6 @@
-class Attendance < ActiveRecord::Base
-    belongs_to :activity_diary
-    belongs_to :beneficiary
+class Attendance < ApplicationRecord
+    belongs_to :activity_diary, optional: true
+    belongs_to :beneficiary, optional: true
 
     validates_presence_of :activity_diary, :beneficiary
     validates_associated :activity_diary, :beneficiary

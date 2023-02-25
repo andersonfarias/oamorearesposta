@@ -1,6 +1,6 @@
-class Beneficiary < ActiveRecord::Base
-    belongs_to :department
-    belongs_to :person, dependent: :destroy
+class Beneficiary < ApplicationRecord
+    belongs_to :department, optional: true
+    belongs_to :person, dependent: :destroy, optional: true
     has_one :first_contact_file, inverse_of: :beneficiary, dependent: :destroy
     has_many :clinic_treatments, dependent: :destroy
     has_many :attendances
@@ -26,7 +26,7 @@ class Beneficiary < ActiveRecord::Base
     end
 
     def self.by_name_and_status(params)
-        args = { name: "%#{params[:person_name]}%", active: TRUE }
+        args = { name: "%#{params[:person_name]}%", active: true }
         Beneficiary.joins(:person).where(['(LOWER(people.first_name) || \' \' || LOWER(people.last_name) ) LIKE LOWER( :name ) AND is_active = :active', args]).order('people.first_name')
     end
 
@@ -39,7 +39,7 @@ class Beneficiary < ActiveRecord::Base
         if params[:is_active].nil? || params[:is_active].empty?
             Beneficiary.joins(:department, :person).where(["#{code_condition}LOWER(people.first_name) LIKE LOWER('%#{params[:beneficiary_first_name]}%')
       					AND LOWER(people.last_name) LIKE LOWER('%#{params[:beneficiary_last_name]}%')
-      					AND LOWER(departments.name) LIKE LOWER('%#{params[:department_name]}%') AND beneficiaries.is_active = :active", { active: TRUE }])
+      					AND LOWER(departments.name) LIKE LOWER('%#{params[:department_name]}%') AND beneficiaries.is_active = :active", { active: true }])
         else
             Beneficiary.joins(:department, :person).where(["#{code_condition}LOWER(people.first_name) LIKE LOWER('%#{params[:beneficiary_first_name]}%')
       					AND LOWER(people.last_name) LIKE LOWER('%#{params[:beneficiary_last_name]}%')

@@ -1,10 +1,10 @@
-class FirstContactFile < ActiveRecord::Base
+class FirstContactFile < ApplicationRecord
     extend Enumerize
 
-    belongs_to :beneficiary, inverse_of: :first_contact_file
-    belongs_to :user, inverse_of: :first_contact_files
-    belongs_to :contact_source, class_name: 'Person', dependent: :destroy
-    belongs_to :support, class_name: 'Person', dependent: :destroy
+    belongs_to :beneficiary, inverse_of: :first_contact_file, optional: true
+    belongs_to :user, inverse_of: :first_contact_files, optional: true
+    belongs_to :contact_source, class_name: 'Person', dependent: :destroy, optional: true
+    belongs_to :support, class_name: 'Person', dependent: :destroy, optional: true
 
     accepts_nested_attributes_for :beneficiary
     accepts_nested_attributes_for :contact_source

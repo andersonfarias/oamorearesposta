@@ -1,4 +1,4 @@
-class CreateGuidelinesReferences < ActiveRecord::Migration
+class CreateGuidelinesReferences < ActiveRecord::Migration[4.2]
   def change
     create_table :guidelines_references do |t|
       t.string :foi_orientado_informado_ou_encaminhado_para_uma_escola

@@ -1,4 +1,4 @@
-class Legality < ActiveRecord::Base
+class Legality < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

@@ -1,4 +1,4 @@
-class CreateFeedings < ActiveRecord::Migration
+class CreateFeedings < ActiveRecord::Migration[4.2]
   def change
     create_table :feedings do |t|
       t.string :alimentar_se_menos_de_uma_vez_ao_dia

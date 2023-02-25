@@ -1,6 +1,6 @@
-class Ppcl < ActiveRecord::Base
-	belongs_to :beneficiary
-	belongs_to :user
+class Ppcl < ApplicationRecord
+	belongs_to :beneficiary, optional: true
+	belongs_to :user, optional: true
 
 	scope :by_beneficiary, ->(id) { where(beneficiary_id: id).order(name: :asc)  }
 

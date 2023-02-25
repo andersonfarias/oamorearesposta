@@ -1,4 +1,4 @@
-class CreateMainNetworks < ActiveRecord::Migration
+class CreateMainNetworks < ActiveRecord::Migration[4.2]
   def change
     create_table :main_networks do |t|
       t.string :i_9_1

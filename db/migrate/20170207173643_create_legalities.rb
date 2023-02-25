@@ -1,4 +1,4 @@
-class CreateLegalities < ActiveRecord::Migration
+class CreateLegalities < ActiveRecord::Migration[4.2]
   def change
     create_table :legalities do |t|
       t.string :cometer_roubos

@@ -1,4 +1,4 @@
-class AssistanceActivity < ActiveRecord::Base
+class AssistanceActivity < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

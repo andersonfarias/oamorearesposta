@@ -1,4 +1,4 @@
-class CreateInvolvedStructures < ActiveRecord::Migration
+class CreateInvolvedStructures < ActiveRecord::Migration[4.2]
   def change
     create_table :involved_structures do |t|
       t.string :territorios_comunitarios

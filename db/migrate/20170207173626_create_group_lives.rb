@@ -1,4 +1,4 @@
-class CreateGroupLives < ActiveRecord::Migration
+class CreateGroupLives < ActiveRecord::Migration[4.2]
   def change
     create_table :group_lives do |t|
       t.string :endividamento_com_o_vendedor_de_drogas

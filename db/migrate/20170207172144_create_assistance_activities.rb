@@ -1,4 +1,4 @@
-class CreateAssistanceActivities < ActiveRecord::Migration
+class CreateAssistanceActivities < ActiveRecord::Migration[4.2]
   def change
     create_table :assistance_activities do |t|
       t.string :foi_ministrado_medicamentos

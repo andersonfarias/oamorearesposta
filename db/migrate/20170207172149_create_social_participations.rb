@@ -1,4 +1,4 @@
-class CreateSocialParticipations < ActiveRecord::Migration
+class CreateSocialParticipations < ActiveRecord::Migration[4.2]
   def change
     create_table :social_participations do |t|
       t.string :recebeu_ajuda_para_participar_de_grupos_e_associacoes

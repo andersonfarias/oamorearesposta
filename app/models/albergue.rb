@@ -1,4 +1,4 @@
-class Albergue < ActiveRecord::Base
+class Albergue < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

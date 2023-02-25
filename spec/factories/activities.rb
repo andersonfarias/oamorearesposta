@@ -1,8 +1,8 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :activity do
-    name "MyString"
-    description "MyText"
-    axis 1
-    department nil
+    name { "MyString" }
+    description { "MyText" }
+    axis { 1 }
+    department { nil }
   end
 end

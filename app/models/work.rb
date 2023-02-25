@@ -1,4 +1,4 @@
-class Work < ActiveRecord::Base
+class Work < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

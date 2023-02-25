@@ -1,4 +1,4 @@
-class SelfSecurity < ActiveRecord::Base
+class SelfSecurity < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

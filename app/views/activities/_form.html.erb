@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-2 col-xs-12">
-            <%= f.association :department, include_blank: false, collection: Department.active, required: true %>
+            <%= f.association :department, include_blank: true, collection: Department.active, required: true %>
         </div>
     </div>
     <div class="row">

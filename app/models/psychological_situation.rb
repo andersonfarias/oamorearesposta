@@ -1,4 +1,4 @@
-class PsychologicalSituation < ActiveRecord::Base
+class PsychologicalSituation < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

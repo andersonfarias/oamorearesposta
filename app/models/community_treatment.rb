@@ -1,4 +1,4 @@
-class CommunityTreatment < ActiveRecord::Base
+class CommunityTreatment < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

@@ -1,4 +1,4 @@
-class GroupLife < ActiveRecord::Base
+class GroupLife < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

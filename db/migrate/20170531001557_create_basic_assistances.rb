@@ -1,4 +1,4 @@
-class CreateBasicAssistances < ActiveRecord::Migration
+class CreateBasicAssistances < ActiveRecord::Migration[4.2]
   def change
     create_table :basic_assistances do |t|
       t.string :i_10_1

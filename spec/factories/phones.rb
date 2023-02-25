@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :phone do
-    number "MyString"
+    number { "MyString" }
     person nil
   end
 end

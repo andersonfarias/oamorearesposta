@@ -50,7 +50,7 @@
                 <div class="col-md-5 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-4"><%= t 'activerecord.attributes.phone.number' %>:</label>
-                        <span style="text-align: left" class="control-label col-sm-6"><%= @partner.person.phones[0].number %></span>
+                        <span style="text-align: left" class="control-label col-sm-6"><%= @partner.person.phones[0]&.number %></span>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <div class="col-md-4 col-md-offset-2 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-2"><%= t 'activerecord.attributes.person.first_name' %>:</label>
-                        <span style="text-align: left" class="control-label col-sm-8"><%= @partner.contact_person_1.first_name %></span>
+                        <span style="text-align: left" class="control-label col-sm-8"><%= @partner.contact_person_1&.first_name %></span>
                     </div>
                 </div>
             </div>
@@ -90,13 +90,13 @@
                 <div class="col-md-4 col-md-offset-2 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-2"><%= t 'activerecord.attributes.person.email' %>:</label>
-                        <span style="text-align: left" class="control-label col-sm-8"><%= @partner.contact_person_1.email %></span>
+                        <span style="text-align: left" class="control-label col-sm-8"><%= @partner.contact_person_1&.email %></span>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-6"><%= t 'activerecord.attributes.phone.number' %>:</label>
-                        <span style="text-align: left" class="control-label col-sm-6"><%= @partner.contact_person_1.phones[0].number %></span>
+                        <span style="text-align: left" class="control-label col-sm-6"><%= @partner.contact_person_1.phones[0]&.number %></span>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                 <div class="col-md-4 col-xs-12">
                     <div class="form-group">
                         <label class="control-label col-sm-6"><%= t 'activerecord.attributes.phone.number' %>:</label>
-                        <span style="text-align: left" class="control-label col-sm-6"><%= @partner.contact_person_2.phones[0].number if !@partner.contact_person_2.nil? && !@partner.contact_person_2.phones.nil? %></span>
+                        <span style="text-align: left" class="control-label col-sm-6"><%= @partner.contact_person_2.phones[0]&.number if !@partner.contact_person_2.nil? && !@partner.contact_person_2.phones.nil? %></span>
                     </div>
                 </div>
             </div>

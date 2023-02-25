@@ -1,4 +1,4 @@
-class SexualLife < ActiveRecord::Base
+class SexualLife < ApplicationRecord
   has_one :dependent_variable
 
   def self.init

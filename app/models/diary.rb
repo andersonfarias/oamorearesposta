@@ -1,8 +1,8 @@
-class Diary < ActiveRecord::Base
+class Diary < ApplicationRecord
     extend Enumerize
 
-    belongs_to :user
-    belongs_to :beneficiary
+    belongs_to :user, optional: true
+    belongs_to :beneficiary, optional: true
 
     validates_presence_of :axis, :user
     validates_associated	:user

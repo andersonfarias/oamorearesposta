@@ -1,4 +1,4 @@
-class CreateAlbergues < ActiveRecord::Migration
+class CreateAlbergues < ActiveRecord::Migration[4.2]
   def change
     create_table :albergues do |t|
       t.string :recebeu_acolhida_durante_a_noite

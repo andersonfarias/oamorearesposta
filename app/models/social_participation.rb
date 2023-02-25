@@ -1,4 +1,4 @@
-class SocialParticipation < ActiveRecord::Base
+class SocialParticipation < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

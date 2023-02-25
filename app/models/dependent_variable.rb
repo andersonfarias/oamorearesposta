@@ -1,20 +1,20 @@
-class DependentVariable < ActiveRecord::Base
-  belongs_to :dependent_education
-  belongs_to :drug
-  belongs_to :job
-  belongs_to :sexual_life
-  belongs_to :self_security
-  belongs_to :dependent_health
-  belongs_to :group_life
-  belongs_to :family
-  belongs_to :alcohol
-  belongs_to :legality
-  belongs_to :home
-  belongs_to :hygiene
-  belongs_to :feeding
-  belongs_to :psychological_situation
-  belongs_to :main_network
-  belongs_to :basic_assistance
+class DependentVariable < ApplicationRecord
+  belongs_to :dependent_education, optional: true
+  belongs_to :drug, optional: true
+  belongs_to :job, optional: true
+  belongs_to :sexual_life, optional: true
+  belongs_to :self_security, optional: true
+  belongs_to :dependent_health, optional: true
+  belongs_to :group_life, optional: true
+  belongs_to :family, optional: true
+  belongs_to :alcohol, optional: true
+  belongs_to :legality, optional: true
+  belongs_to :home, optional: true
+  belongs_to :hygiene, optional: true
+  belongs_to :feeding, optional: true
+  belongs_to :psychological_situation, optional: true
+  belongs_to :main_network, optional: true
+  belongs_to :basic_assistance, optional: true
 
   accepts_nested_attributes_for :dependent_education
   accepts_nested_attributes_for :drug

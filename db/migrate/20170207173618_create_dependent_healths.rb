@@ -1,4 +1,4 @@
-class CreateDependentHealths < ActiveRecord::Migration
+class CreateDependentHealths < ActiveRecord::Migration[4.2]
   def change
     create_table :dependent_healths do |t|
       t.string :vive_com_hiv_e_tem_relacoes_sexuais_sem_protecao

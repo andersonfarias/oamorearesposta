@@ -1,3 +1,3 @@
-class Point < ActiveRecord::Base
-  belongs_to :comunity
+class Point < ApplicationRecord
+  belongs_to :comunity, optional: true
 end

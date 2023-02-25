@@ -1,4 +1,4 @@
-class CreateCommunityTreatments < ActiveRecord::Migration
+class CreateCommunityTreatments < ActiveRecord::Migration[4.2]
   def change
     create_table :community_treatments do |t|
       t.string :a_equipe_foi_envolvida

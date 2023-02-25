@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :activity_diary do
-    diary nil
+    diary { nil }
   end
 end

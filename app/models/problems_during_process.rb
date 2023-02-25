@@ -1,4 +1,4 @@
-class ProblemsDuringProcess < ActiveRecord::Base
+class ProblemsDuringProcess < ApplicationRecord
 	has_one :evaluation
 
 	def self.init

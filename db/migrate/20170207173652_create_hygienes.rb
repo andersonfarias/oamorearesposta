@@ -1,4 +1,4 @@
-class CreateHygienes < ActiveRecord::Migration
+class CreateHygienes < ActiveRecord::Migration[4.2]
   def change
     create_table :hygienes do |t|
       t.string :trocar_de_roupa_menos_de_uma_vez_por_semana

@@ -1,4 +1,4 @@
-class Axis2 < ActiveRecord::Base
+class Axis2 < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

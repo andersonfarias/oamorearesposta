@@ -1,5 +1,5 @@
 class EvaluationsController < ApplicationController
-	before_filter :set_evaluation
+	before_action :set_evaluation
 
 	def index
 		@evaluations = Evaluation.search_result(params).paginate( :page => params[ :page ] )

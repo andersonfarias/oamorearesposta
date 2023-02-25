@@ -1,4 +1,4 @@
-class CreateDependentEducations < ActiveRecord::Migration
+class CreateDependentEducations < ActiveRecord::Migration[4.2]
   def change
     create_table :dependent_educations do |t|
       t.string :nao_tem_recursos_financeiros_para_estudar

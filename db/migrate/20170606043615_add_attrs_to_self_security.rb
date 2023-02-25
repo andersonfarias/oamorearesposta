@@ -1,4 +1,4 @@
-class AddAttrsToSelfSecurity < ActiveRecord::Migration
+class AddAttrsToSelfSecurity < ActiveRecord::Migration[4.2]
   def change
     add_column :self_securities, :estar_preso, :string
     add_column :self_securities, :cometer_crime, :string

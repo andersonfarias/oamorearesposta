@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :department do
-    name "MyString"
-    description "MyText"
+    name { "MyString" }
+    description { "MyText" }
   end
 end

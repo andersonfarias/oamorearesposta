@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 ruby '3.2.1'
-gem 'rails', '4.2.6'
+gem 'rails', '~> 6.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -15,26 +15,27 @@ gem 'high_voltage'
 gem 'pundit'
 gem 'simple_form'
 gem 'bootstrap3_autocomplete_input'
-gem 'will_paginate', '~> 3.1.0'
-gem 'enumerize', '~> 1.1', '>= 1.1.1'
+gem 'will_paginate', '~> 3.3'
+gem 'enumerize'
 gem 'bourbon'
 gem "font-awesome-rails"
 gem "cocoon"
 gem 'bxslider-rails'
 gem 'gon'
+gem 'puma'
+gem 'psych', '< 4'
 
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
-  gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'sqlite3'

@@ -1,4 +1,4 @@
-class CreateAlcohols < ActiveRecord::Migration
+class CreateAlcohols < ActiveRecord::Migration[4.2]
   def change
     create_table :alcohols do |t|
       t.string :tomar_alcool_durante_a_gravidez

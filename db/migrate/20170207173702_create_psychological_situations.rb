@@ -1,4 +1,4 @@
-class CreatePsychologicalSituations < ActiveRecord::Migration
+class CreatePsychologicalSituations < ActiveRecord::Migration[4.2]
   def change
     create_table :psychological_situations do |t|
       t.string :viver_uma_depressao

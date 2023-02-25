@@ -35,7 +35,8 @@
 
 //= require js/bootstrap.min.js
 //= require bootstrap3-typeahead.min
-//= require bootstrap3-autocomplete-input.min
+//= require bootstrap3-autocomplete-input
+//= require bootstrap3-autocomplete-input-init
 
 //= require js/gauge/gauge.min.js
 

@@ -1,4 +1,4 @@
-class CreateUsedTechniques < ActiveRecord::Migration
+class CreateUsedTechniques < ActiveRecord::Migration[4.2]
   def change
     create_table :used_techniques do |t|
       t.string :aconselhamento_e_orientacao_individual

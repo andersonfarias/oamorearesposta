@@ -1,4 +1,4 @@
-class DependentEducation < ActiveRecord::Base
+class DependentEducation < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

@@ -1,9 +1,9 @@
-class Partner < ActiveRecord::Base
+class Partner < ApplicationRecord
     extend Enumerize
 
-    belongs_to :person, dependent: :destroy
-    belongs_to :contact_person_1, class_name: 'Person', dependent: :destroy
-    belongs_to :contact_person_2, class_name: 'Person', dependent: :destroy
+    belongs_to :person, dependent: :destroy, optional: true
+    belongs_to :contact_person_1, class_name: 'Person', dependent: :destroy, optional: true
+    belongs_to :contact_person_2, class_name: 'Person', dependent: :destroy, optional: true
 
     validates_presence_of :partner_type, :work_areas
     validates_associated :person
@@ -32,7 +32,7 @@ class Partner < ActiveRecord::Base
     end
 
     def self.by_name_and_status(params)
-        args = { name: "%#{params[:person_name]}%", active: TRUE }
+        args = { name: "%#{params[:person_name]}%", active: true }
         args[:active] = params[:is_active].to_bool if params.key?(:is_active)
         Partner.joins(:person).where(['LOWER(people.first_name) LIKE LOWER( :name ) AND is_active = :active', args]).order('people.first_name')
     end

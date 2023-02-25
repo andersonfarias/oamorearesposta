@@ -1,4 +1,4 @@
-class Feeding < ActiveRecord::Base
+class Feeding < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

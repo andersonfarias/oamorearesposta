@@ -1,4 +1,4 @@
-class CreateAxis4s < ActiveRecord::Migration
+class CreateAxis4s < ActiveRecord::Migration[4.2]
   def change
     create_table :axis4s do |t|
       t.string :i_3_4_1

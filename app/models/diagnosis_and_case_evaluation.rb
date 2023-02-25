@@ -1,4 +1,4 @@
-class DiagnosisAndCaseEvaluation < ActiveRecord::Base
+class DiagnosisAndCaseEvaluation < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

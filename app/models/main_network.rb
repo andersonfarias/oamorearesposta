@@ -1,4 +1,4 @@
-class MainNetwork < ActiveRecord::Base
+class MainNetwork < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

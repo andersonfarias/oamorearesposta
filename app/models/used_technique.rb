@@ -1,4 +1,4 @@
-class UsedTechnique < ActiveRecord::Base
+class UsedTechnique < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

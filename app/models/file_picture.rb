@@ -1,5 +1,5 @@
-class FilePicture < ActiveRecord::Base
-	belongs_to :activity_diary
+class FilePicture < ApplicationRecord
+	belongs_to :activity_diary, optional: true
 
 	validate :type_validation
 

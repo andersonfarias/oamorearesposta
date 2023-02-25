@@ -1,4 +1,4 @@
-class GuidelinesReference < ActiveRecord::Base
+class GuidelinesReference < ApplicationRecord
 	has_one :independent_variable
 
 	def self.init

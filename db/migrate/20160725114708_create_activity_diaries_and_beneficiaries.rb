@@ -1,4 +1,4 @@
-class CreateActivityDiariesAndBeneficiaries < ActiveRecord::Migration
+class CreateActivityDiariesAndBeneficiaries < ActiveRecord::Migration[4.2]
     def change
         create_table :attendances do |t|
             t.belongs_to :activity_diary, index: true

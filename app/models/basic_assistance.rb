@@ -1,4 +1,4 @@
-class BasicAssistance < ActiveRecord::Base
+class BasicAssistance < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

@@ -1,4 +1,4 @@
-class CreateDependentVariables < ActiveRecord::Migration
+class CreateDependentVariables < ActiveRecord::Migration[4.2]
   def change
     create_table :dependent_variables do |t|
       t.references :dependent_education, index: true, foreign_key: true

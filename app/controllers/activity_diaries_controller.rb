@@ -148,7 +148,7 @@ class ActivityDiariesController < ApplicationController
             attendances_attributes: [:id, :beneficiary_id, :observation, :_destroy])
         if args.key?(:diary_id)
             diary = Diary.find(args[:diary_id])
-            diary.update_attributes(args[:diary])
+            diary.update(args[:diary])
             args[:diary] = diary
         else
             args[:diary] = Diary.new(args[:diary])

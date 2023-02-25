@@ -1,2 +1,2 @@
-class Comunity < ActiveRecord::Base
+class Comunity < ApplicationRecord
 end

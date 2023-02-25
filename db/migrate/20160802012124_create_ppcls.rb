@@ -1,4 +1,4 @@
-class CreatePpcls < ActiveRecord::Migration
+class CreatePpcls < ActiveRecord::Migration[4.2]
   def change
     create_table :ppcls do |t|
       t.string :name

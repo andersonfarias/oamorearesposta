@@ -1,4 +1,4 @@
-class CreateFilePictures < ActiveRecord::Migration
+class CreateFilePictures < ActiveRecord::Migration[4.2]
   def change
     create_table :file_pictures do |t|
       t.string :file_name

@@ -1,4 +1,4 @@
-class CreateSelfSecurities < ActiveRecord::Migration
+class CreateSelfSecurities < ActiveRecord::Migration[4.2]
   def change
     create_table :self_securities do |t|
       t.string :tem_inimigos

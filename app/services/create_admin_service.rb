@@ -8,7 +8,7 @@ class CreateAdminService
 			user.partner = partner
 			user.password = Rails.application.secrets.admin_password
 			user.password_confirmation = Rails.application.secrets.admin_password
-			if user.confirm! && user.admin!
+			if user.confirm && user.admin!
 				puts 'CREATED ADMIN USER: ' << user.email
 			end
 		end

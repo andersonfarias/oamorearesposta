@@ -1,4 +1,4 @@
-class Family < ActiveRecord::Base
+class Family < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

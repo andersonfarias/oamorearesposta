@@ -1,6 +1,6 @@
-class ActivityDiary < ActiveRecord::Base
-    belongs_to :diary
-    belongs_to :activity
+class ActivityDiary < ApplicationRecord
+    belongs_to :diary, optional: true
+    belongs_to :activity, optional: true
     has_many :attendances, dependent: :destroy
     has_many :beneficiaries, through: :attendances
     has_many :file_pictures, dependent: :destroy

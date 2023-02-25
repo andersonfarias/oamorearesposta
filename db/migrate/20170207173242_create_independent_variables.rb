@@ -1,4 +1,4 @@
-class CreateIndependentVariables < ActiveRecord::Migration
+class CreateIndependentVariables < ActiveRecord::Migration[4.2]
   def change
     create_table :independent_variables do |t|
       t.references :assistance_activity, index: true, foreign_key: true

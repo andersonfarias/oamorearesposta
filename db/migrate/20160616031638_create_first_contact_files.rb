@@ -1,4 +1,4 @@
-class CreateFirstContactFiles < ActiveRecord::Migration
+class CreateFirstContactFiles < ActiveRecord::Migration[4.2]
   def change
     create_table :first_contact_files do |t|
       t.date :date

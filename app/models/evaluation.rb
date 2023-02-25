@@ -1,9 +1,9 @@
-class Evaluation < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :beneficiary
-  belongs_to :problems_during_process
-  belongs_to :dependent_variable
-  belongs_to :independent_variable
+class Evaluation < ApplicationRecord
+  belongs_to :user, optional: true
+  belongs_to :beneficiary, optional: true
+  belongs_to :problems_during_process, optional: true
+  belongs_to :dependent_variable, optional: true
+  belongs_to :independent_variable, optional: true
 
   accepts_nested_attributes_for :beneficiary
   accepts_nested_attributes_for :problems_during_process

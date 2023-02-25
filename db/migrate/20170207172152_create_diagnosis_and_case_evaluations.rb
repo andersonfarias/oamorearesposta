@@ -1,4 +1,4 @@
-class CreateDiagnosisAndCaseEvaluations < ActiveRecord::Migration
+class CreateDiagnosisAndCaseEvaluations < ActiveRecord::Migration[4.2]
   def change
     create_table :diagnosis_and_case_evaluations do |t|
       t.string :foi_realizado_um_diagnostico_individual

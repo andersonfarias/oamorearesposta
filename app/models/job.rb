@@ -1,4 +1,4 @@
-class Job < ActiveRecord::Base
+class Job < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

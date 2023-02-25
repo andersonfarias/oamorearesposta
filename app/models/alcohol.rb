@@ -1,4 +1,4 @@
-class Alcohol < ActiveRecord::Base
+class Alcohol < ApplicationRecord
 	has_one :dependent_variable
 
 	def self.init

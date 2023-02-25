@@ -1,4 +1,4 @@
-class CreateProblemsDuringProcesses < ActiveRecord::Migration
+class CreateProblemsDuringProcesses < ActiveRecord::Migration[4.2]
   def change
     create_table :problems_during_processes do |t|
       t.string :sustancias_alcool

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
     enum role: [:admin, :social_worker, :psycologist, :educator, :coordinator, :user]
     after_initialize :set_default_role, if: :new_record?
 
@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
         self.role ||= :user
     end
 
-    belongs_to :person, dependent: :destroy
-    belongs_to :partner
+    belongs_to :person, dependent: :destroy, optional: true
+    belongs_to :partner, optional: true
     has_many :first_contact_files, inverse_of: :user
     validates_associated :person, :partner
     validates_presence_of :person, :partner
@@ -23,14 +23,14 @@ class User < ActiveRecord::Base
     end
 
     def self.by_name(params)
-        args = { name: "%#{params[:user_name]}%", active: TRUE }
+        args = { name: "%#{params[:user_name]}%", active: true }
         User.joins(:person).where(['LOWER(people.first_name) LIKE LOWER( :name ) AND is_active = :active', args]).order('people.first_name')
     end
 
     def self.by_name_and_email(params)
         if params[:is_active].nil? || params[:is_active].empty?
             User.joins(:person).where(["(LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%') OR LOWER(people.last_name) LIKE LOWER('%#{params[:name]}%'))
-                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND is_active = :active", { name: "%#{params[:department_name]}%", active: TRUE }])
+                AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND is_active = :active", { name: "%#{params[:department_name]}%", active: true }])
         else
             User.joins(:person).where(["LOWER(people.first_name) LIKE LOWER('%#{params[:name]}%')
                 AND LOWER(users.email) LIKE LOWER('%#{params[:email]}%') AND users.is_active = :active",
