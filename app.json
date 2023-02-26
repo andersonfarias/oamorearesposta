@@ -44,5 +44,6 @@
       "required": false
     },
     "RAILS_ENV": "production"
-  }
+  },
+  "stack": "heroku-22"
 }
