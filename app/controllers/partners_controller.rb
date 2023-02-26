@@ -85,7 +85,7 @@ class PartnersController < ApplicationController
 
     def update_second_contact_partner params
         partner_id = params[:partner][:contact_person_2_attributes][:id]
-        params[:partner].except!(:contact_person_2_attributes) 
+        params[:partner].to_unsafe_h.except!(:contact_person_2_attributes) 
         params[:partner][:contact_person_2_id] = nil
         Person.find(partner_id).destroy if Person.exists?(partner_id)
     end
